@@ -53,6 +53,27 @@ header .container {
     margin-left: 10px;
 }
 
+.language-switcher {
+    display: flex;
+    gap: 10px;
+}
+
+.language-btn {
+    background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
 nav ul {
     list-style: none;
     display: flex;
