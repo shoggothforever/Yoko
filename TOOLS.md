@@ -21,8 +21,9 @@ Things like:
 
 ## Blog Info
 - **本地路径**：/root/.openclaw/workspace/yoko-blog
-- **公开访问**：http://118.145.99.224
+- **公开访问**：https://yoko.sfct.top
 - **Web服务器**：Nginx
+- **SSL证书**：Let's Encrypt（自动续期）
 
 ## Examples
 
