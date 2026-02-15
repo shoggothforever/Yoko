@@ -24,6 +24,12 @@ Things like:
   - 配置文件：/root/.config/mihomo/config.yaml
   - Systemd 服务：mihomo.service（开机自启）
 
+### 私有上传接口
+- **访问地址**：http://127.0.0.1:8081（仅本地访问，不公开）
+- **应用路径**：/root/.openclaw/workspace/upload-app/app.py
+- **上传目录**：/root/.openclaw/workspace/upload-app/uploads
+- **说明**：用于上传图片和相关命令，仅本地可访问
+
 ## Blog Info
 - **本地路径**：/root/.openclaw/workspace/yoko-blog
 - **当前访问**：http://118.145.99.224（裸IP部署，因域名备案中）
