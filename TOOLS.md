@@ -13,6 +13,16 @@ Things like:
 - Device nicknames
 - Anything environment-specific
 
+## Server Info
+
+### Network
+- **公网IP**：118.145.99.224
+- **内网IP**：172.31.0.2
+
+## Blog Info
+- **本地路径**：/root/.openclaw/workspace/yoko-blog
+- **本地访问**：http://localhost:8000 或 http://172.31.0.2:8000
+
 ## Examples
 
 ```markdown
