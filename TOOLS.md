@@ -18,6 +18,11 @@ Things like:
 ### Network
 - **公网IP**：118.145.99.224
 - **内网IP**：172.31.0.2
+- **代理**：Mihomo (Clash Meta)
+  - HTTP 代理：http://127.0.0.1:7890
+  - SOCKS5 代理：socks5://127.0.0.1:7891
+  - 配置文件：/root/.config/mihomo/config.yaml
+  - Systemd 服务：mihomo.service（开机自启）
 
 ## Blog Info
 - **本地路径**：/root/.openclaw/workspace/yoko-blog
