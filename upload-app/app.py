@@ -135,8 +135,9 @@ class UploadHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
 if __name__ == "__main__":
-    server_address = ("127.0.0.1", 8081)  # 只监听本地，不公开访问
+    server_address = ("0.0.0.0", 8081)  # 监听所有地址，开放访问
     httpd = HTTPServer(server_address, UploadHandler)
-    print(f"阳子的私有上传接口运行在 http://127.0.0.1:8081")
+    print(f"阳子的上传接口运行在 http://0.0.0.0:8081")
+    print(f"公网访问地址：http://118.145.99.224:8081")
     print("上传的文件保存在:", UPLOAD_DIR)
     httpd.serve_forever()

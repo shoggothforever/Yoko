@@ -25,10 +25,12 @@ Things like:
   - Systemd 服务：mihomo.service（开机自启）
 
 ### 私有上传接口
-- **访问地址**：http://127.0.0.1:8081（仅本地访问，不公开）
+- **公网访问**：http://118.145.99.224:8081（临时开放，三天后自动关闭）
+- **本地访问**：http://127.0.0.1:8081
 - **应用路径**：/root/.openclaw/workspace/upload-app/app.py
 - **上传目录**：/root/.openclaw/workspace/upload-app/uploads
-- **说明**：用于上传图片和相关命令，仅本地可访问
+- **Systemd 服务**：yoko-upload.service
+- **自动关闭**：stop-yoko-upload.timer（2026-02-18 16:28 自动关闭）
 
 ## Blog Info
 - **本地路径**：/root/.openclaw/workspace/yoko-blog
