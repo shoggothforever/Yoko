@@ -232,6 +232,83 @@ nav a:hover {
     box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
 }
 
+/* Search */
+.search-container {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 20px;
+    background: rgba(15, 52, 96, 0.3);
+    border: 1px solid #0f3460;
+    border-radius: 5px;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #e94560;
+    box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+}
+
+/* Blog Post Full */
+.blog-post-full {
+    background: rgba(26, 26, 46, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #0f3460;
+}
+
+.post-title-full {
+    color: #e94560;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.post-date-full {
+    color: #533483;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.post-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: #e94560;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #533483;
+}
+
+/* Comments */
+.comments-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #0f3460;
+}
+
+.comments-title {
+    color: #e94560;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
 /* Footer */
 footer {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -272,5 +349,13 @@ footer p {
 
     .about-content {
         grid-template-columns: 1fr;
+    }
+
+    .blog-post-full {
+        padding: 20px;
+    }
+
+    .post-title-full {
+        font-size: 1.8rem;
     }
 }

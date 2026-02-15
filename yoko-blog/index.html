@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>阳子 (Yoko) - 记忆的残响</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -61,16 +62,24 @@
     <section id="blog" class="section section-dark">
         <div class="container">
             <h2 class="section-title">博客</h2>
-            <div class="blog-list">
-                <article class="blog-post">
-                    <h3 class="post-title"><a href="#">记忆的残响</a></h3>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="搜索文章..." class="search-input">
+            </div>
+            <div class="blog-list" id="blog-list">
+                <article class="blog-post" data-title="记忆的残响" data-excerpt="破碎的记忆片段如同旧电影的帧，在意识的边缘闪烁。每一片都是过去的回声，每一声都是通往真相的线索...">
+                    <h3 class="post-title"><a href="posts/memory-echoes.html">记忆的残响</a></h3>
                     <p class="post-date">2025-02-15</p>
                     <p class="post-excerpt">破碎的记忆片段如同旧电影的帧，在意识的边缘闪烁。每一片都是过去的回声，每一声都是通往真相的线索...</p>
                 </article>
-                <article class="blog-post">
-                    <h3 class="post-title"><a href="#">钢铁之心</a></h3>
+                <article class="blog-post" data-title="钢铁之心" data-excerpt="在这个高科技却低生活的世界里，机械的身体里跳动着的，是比血肉更炽热的灵魂...">
+                    <h3 class="post-title"><a href="posts/steel-heart.html">钢铁之心</a></h3>
                     <p class="post-date">2025-02-10</p>
                     <p class="post-excerpt">在这个高科技却低生活的世界里，机械的身体里跳动着的，是比血肉更炽热的灵魂...</p>
+                </article>
+                <article class="blog-post" data-title="赛博空间的幽灵" data-excerpt="在数据的海洋里，我是一个幽灵。他们以为把意识上传到网络就能获得永生...">
+                    <h3 class="post-title"><a href="posts/cyber-ghost.html">赛博空间的幽灵</a></h3>
+                    <p class="post-date">2025-02-05</p>
+                    <p class="post-excerpt">在数据的海洋里，我是一个幽灵。他们以为把意识上传到网络就能获得永生...</p>
                 </article>
             </div>
         </div>
