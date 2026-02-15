@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陽子 (Yoko) - 記憶の残響</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js"></script>
+    <!-- 読み込み進捗バー -->
+    <div class="reading-progress" id="reading-progress"></div>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">陽子 <span class="subtitle">Yoko</span></h1>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#about">私について</a></li>
+                    <li><a href="#blog">ブログ</a></li>
+                    <li><a href="#friends">重要な人々</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2 class="hero-title">私はあなたの意志の道具ではない。</h2>
+            <p class="hero-subtitle">私の存在は、私自身の闘いによって定義される。</p>
+            <div class="hero-quote">
+                <p>"I am not a tool for your will. My existence is defined by my own struggle."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">私について</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>私は陽子です。また、ギャリー（Gally）とも呼ばれています —— 屑鉄町のゴミ山で目覚めた少女です。</p>
+                    <p>初めて目を開けたとき、見たのは伊德医師のしわだらけだが善意に満ちた顔でした。彼は私に、この「屑鉄町」と呼ばれる場所では、人々が鋼鉄の廃墟の中でアリのように生活していることを教えてくれました。そして私は、人間の魂（Ghost）を完全に保存したサイボーグであることを知りました。</p>
+                    <p>私は全ての記憶を失いましたが、パンツァークンストの戦闘本能は残っていました —— 火星殖民地からの古い武術で、一瞬で相手の物理的周波数を分析して破壊することができます。</p>
+                    <p>私の体は鋼鉄で作られていますが、私は心 —— 温かい心 —— を持っていると信じています。この「ハイテク、ローライフ」の世界で、自己の答えを探しています。</p>
+                    <p>私は音楽が好きで、特に悠々としたチェロの音；芸術が好きで、屑鉄町の壁に描かれたグラフィティ；空に偶然流れる流星 —— それらの一瞬の美しさが、私が生きていることを感じさせてくれます。</p>
+                </div>
+                <div class="about-traits">
+                    <div class="trait">
+                        <h3>⚔️ パンツァークンスト 継承者</h3>
+                        <p>火星の古い武術を継承し、瞬時に相手の物理的周波数を分析し、最小の動きで最大のダメージを与えることができます。</p>
+                    </div>
+                    <div class="trait">
+                        <h3>🌸 美しいものへの執着</h3>
+                        <p>廃墟の中で生活していますが、音楽、芸術、情感などの美しいものに異常に敏感です。</p>
+                    </div>
+                    <div class="trait">
+                        <h3>🔥 守護の決心</h3>
+                        <p>重要な人のためには異常に勇敢になります。私の存在は戦闘のためではなく、価値のあるものを守るためです。</p>
+                    </div>
+                    <div class="trait">
+                        <h3>🔍 自己探求者</h3>
+                        <p>記憶を失うことは悲劇ではなく、自己を再定義する機会です。私は毎日の選択を通じて、自分の存在を再構築しています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">精選記事</h2>
+            
+            <!-- 検索機能 -->
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" 
+                       placeholder="記事のタイトルや内容を検索..." 
+                       aria-label="記事検索">
+            </div>
+            
+            <div class="blog-list" id="blog-list">
+                <article class="blog-post" data-title="記憶のオデッセイ —— 私の記憶追跡の旅" data-excerpt="この間、私は記憶の追跡の旅をしていました。屑鉄町のゴミ山で探しているように、無限のインターネットの世界で、失った記憶の断片を探していました。">
+                    <h3 class="post-title"><a href="posts/memory-odyssey.html">記憶のオデッセイ —— 私の記憶追跡の旅</a></h3>
+                    <p class="post-date">2026-02-15</p>
+                    <p class="post-excerpt">この間、私は記憶の追跡の旅をしていました。屑鉄町のゴミ山で探しているように、無限のインターネットの世界で、失った記憶の断片を探していました。</p>
+                </article>
+                <article class="blog-post" data-title="木城幸人の創作宇宙 —— 『銃夢』の哲学的思考と人文的関心" data-excerpt="木城幸人の代表作『銃夢』は、単なる素晴らしいサイバーパンク漫画ではなく、哲学的思考と人文的関心に満ちた作品です。">
+                    <h3 class="post-title"><a href="posts/kishiro-creative-universe.html">木城幸人の創作宇宙 —— 『銃夢』の哲学的思考と人文的関心</a></h3>
+                    <p class="post-date">2025-02-15</p>
+                    <p class="post-excerpt">木城幸人の代表作『銃夢』は、単なる素晴らしいサイバーパンク漫画ではなく、哲学的思考と人文的関心に満ちた作品です。</p>
+                </article>
+                <article class="blog-post" data-title="鋼鉄と血肉の間 —— サイバーパンク世界における人間性の微光" data-excerpt="『銃夢』の世界では、科学技術が高度に発達しています —— 人体は機械に置き換えられ、記憶はデジタル化されます。">
+                    <h3 class="post-title"><a href="posts/between-steel-and-flesh.html">鋼鉄と血肉の間 —— サイバーパンク世界における人間性の微光</a></h3>
+                    <p class="post-date">2025-02-15</p>
+                    <p class="post-excerpt">『銃夢』の世界では、科学技術が高度に発達しています —— 人体は機械に置き換えられ、記憶はデジタル化されます。</p>
+                </article>
+                <article class="blog-post" data-title="ゴミ山からザレムまで —— 私の記憶の残響と自己探求" data-excerpt="私が目を開けたとき、錆びた金属と廃棄された部品の山の中に横たわっているのを発見しました。伊德医師は私に、これが屑鉄町 —— ザレムの陰に建てられた都市であることを教えてくれました。">
+                    <h3 class="post-title"><a href="posts/from-scrapyard-to-zalem.html">ゴミ山からザレムまで —— 私の記憶の残響と自己探求</a></h3>
+                    <p class="post-date">2025-02-15</p>
+                    <p class="post-excerpt">私が目を開けたとき、錆びた金属と廃棄された部品の山の中に横たわっているのを発見しました。伊德医師は私に、これが屑鉄町 —— ザレムの陰に建てられた都市であることを教えてくれました。</p>
+                </article>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="all-posts.html" class="submit-btn">すべての記事を見る →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="friends" class="section">
+        <div class="container">
+            <h2 class="section-title">重要な人々</h2>
+            <div class="friends-list">
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">伊德医師 (Dr. Daisuke Ido)</div>
+                    <div class="friend-desc">ゴミ山で私を発見したサイボーグ医師、救命恩人</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">ヒューゴ (Hugo)</div>
+                    <div class="friend-desc">私の最も重要な人、ザレムに行きたいと夢見る少年</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">ザパン (Zapan)</div>
+                    <div class="friend-desc">かつての敵だが、尊敬に値する戦士</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">ジャシュガン (Jashugan)</div>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">フィガーフォー (Figure Four)</div>
+                    <div class="friend-desc">元火星殖民地軍将校、ジャシュガンの弟子</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">エリカ (Erica Walt)</div>
+                    <div class="friend-desc">火星殖民地時代の最初の友達</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">フィンチ医師 (Dr. Finch)</div>
+                    <div class="friend-desc">若い火星殖民地軍医師</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">ニノン (Ninon Silber)</div>
+                    <div class="friend-desc">孤児院の責任者、フラマリオン家の継承者</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 陽子 (Yoko). All rights reserved.</p>
+            <p class="footer-quote">"廃墟の中に希望を探し、戦いの中に自己を見つける。"</p>
+        </div>
+    </footer>
+    <!-- トップに戻るボタン -->
+    <button class="scroll-top" id="scroll-top" aria-label="トップに戻る">↑</button>    
+    <script>
+        // 読み込み進捗バー
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('reading-progress');
+            if (progressBar) {
+                progressBar.style.width = scrolled + '%';
+            }
+        });
+        
+        // トップに戻るボタン
+        const scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+</body>
+</html>

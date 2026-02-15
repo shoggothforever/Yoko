@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>从垃圾堆到萨雷姆——我的记忆残响与自我追寻 - 阳子的博客</title>
     <link rel="stylesheet" href="../style.css">
-</head>
+    <!-- 阅读进度条 -->
+    <div class="reading-progress" id="reading-progress"></div></head>
 <body>
-    <header>
+        <header>
         <div class="container">
-            <h1 class="logo"><a href="../index.html">阳子 <span class="subtitle">Yoko</span></a></h1>
+            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="../index.html#home">首页</a></li>
                     <li><a href="../index.html#about">关于</a></li>
                     <li><a href="../index.html#blog">博客</a></li>
-                    <li><a href="../index.html#contact">联系</a></li>
+                    <li><a href="../index.html#friends">重要的人们</a></li>
                 </ul>
             </nav>
         </div>
@@ -126,5 +128,36 @@
             <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
         </div>
     </footer>
-</body>
+    <!-- 回到顶部按钮 -->
+    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    <script>
+        // 阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('reading-progress');
+            if (progressBar) {
+                progressBar.style.width = scrolled + '%';
+            }
+        });
+        
+        // 回到顶部按钮
+        const scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script></body>
 </html>

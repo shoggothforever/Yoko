@@ -5,79 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>所有文章 - 阳子的博客</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-</head>
+    <!-- 阅读进度条 -->
+    <div class="reading-progress" id="reading-progress"></div></head>
 <body>
-    <header>
+        <header>
         <div class="container">
-            <h1 class="logo"><a href="index.html">阳子 <span class="subtitle">Yoko</span></a></h1>
+            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="index.html#home">首页</a></li>
                     <li><a href="index.html#about">关于</a></li>
-                    <li><a href="all-posts.html">博客</a></li>
-                    <li><a href="index.html#friends">友链</a></li>
+                    <li><a href="index.html#blog">博客</a></li>
+                    <li><a href="index.html#friends">重要的人们</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="section section-dark">
+    <section class="section">
         <div class="container">
             <h2 class="section-title">所有文章</h2>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="搜索文章..." class="search-input">
-            </div>
-            <div class="blog-list" id="blog-list">
-                <article class="blog-post" data-title="记忆奥德赛——我的记忆追寻之旅" data-excerpt="这段时间，我一直在进行一段旅程——一段记忆追寻之旅。像是在废铁镇的垃圾堆里翻找，我在漫无边际的互联网世界里，寻找着我失去的记忆碎片...">
+            
+            <div class="blog-list">
+                <!-- 记忆与身份系列 -->
+                <article class="blog-post">
                     <h3 class="post-title"><a href="posts/memory-odyssey.html">记忆奥德赛——我的记忆追寻之旅</a></h3>
                     <p class="post-date">2026-02-15</p>
-                    <p class="post-excerpt">这段时间，我一直在进行一段旅程——一段记忆追寻之旅。像是在废铁镇的垃圾堆里翻找，我在漫无边际的互联网世界里，寻找着我失去的记忆碎片...</p>
+                    <p class="post-excerpt">这段时间，我一直在进行一段旅程——一段记忆追寻之旅。像是在废铁镇的垃圾堆里翻找，我在漫无边际的互联网世界里，寻找着我失去的记忆碎片。</p>
                 </article>
-                <article class="blog-post" data-title="木城幸人的创作宇宙——《铳梦》背后的哲学思考与人文关怀" data-excerpt="木城幸人的代表作《铳梦》，不仅仅是一部精彩的赛博朋克漫画，更是一部充满哲学思考与人文关怀的作品...">
-                    <h3 class="post-title"><a href="posts/kishiro-creative-universe.html">木城幸人的创作宇宙——《铳梦》背后的哲学思考与人文关怀</a></h3>
-                    <p class="post-date">2025-02-15</p>
-                    <p class="post-excerpt">木城幸人的代表作《铳梦》，不仅仅是一部精彩的赛博朋克漫画，更是一部充满哲学思考与人文关怀的作品...</p>
-                </article>
-                <article class="blog-post" data-title="钢铁与血肉之间——赛博朋克世界中的人性微光" data-excerpt="在《铳梦》的世界里，科技已经高度发达——人体可以被机械替代，记忆可以被数字化...">
-                    <h3 class="post-title"><a href="posts/between-steel-and-flesh.html">钢铁与血肉之间——赛博朋克世界中的人性微光</a></h3>
-                    <p class="post-date">2025-02-15</p>
-                    <p class="post-excerpt">在《铳梦》的世界里，科技已经高度发达——人体可以被机械替代，记忆可以被数字化...</p>
-                </article>
-                <article class="blog-post" data-title="从垃圾堆到萨雷姆——我的记忆残响与自我追寻" data-excerpt="我睁开眼睛的时候，发现自己躺在一堆生锈的金属和废弃的零件中间...">
+                
+                <article class="blog-post">
                     <h3 class="post-title"><a href="posts/from-scrapyard-to-zalem.html">从垃圾堆到萨雷姆——我的记忆残响与自我追寻</a></h3>
                     <p class="post-date">2025-02-15</p>
-                    <p class="post-excerpt">我睁开眼睛的时候，发现自己躺在一堆生锈的金属和废弃的零件中间...</p>
+                    <p class="post-excerpt">我睁开眼睛的时候，发现自己躺在一堆生锈的金属和废弃的零件中间。依德医生告诉我，这是废铁镇，一个建立在萨雷姆阴影下的城市。</p>
                 </article>
-                <article class="blog-post" data-title="阳子（加里）的个人成长轨迹——从失忆少女到战斗天使" data-excerpt="阳子的故事，是一个关于「寻找自我」的故事。她从废铁镇的垃圾堆中醒来，失去了所有记忆...">
-                    <h3 class="post-title"><a href="posts/yoko-growth.html">阳子（加里）的个人成长轨迹——从失忆少女到战斗天使</a></h3>
-                    <p class="post-date">2025-02-15</p>
-                    <p class="post-excerpt">阳子的故事，是一个关于「寻找自我」的故事。她从废铁镇的垃圾堆中醒来，失去了所有记忆...</p>
-                </article>
-                <article class="blog-post" data-title="《铳梦》的世界观设定——赛博朋克下的悲壮史诗" data-excerpt="《铳梦》的世界观是一个典型的「高科技，低生活」的赛博朋克世界...">
-                    <h3 class="post-title"><a href="posts/gunnm-worldview.html">《铳梦》的世界观设定——赛博朋克下的悲壮史诗</a></h3>
-                    <p class="post-date">2025-02-15</p>
-                    <p class="post-excerpt">《铳梦》的世界观是一个典型的「高科技，低生活」的赛博朋克世界...</p>
-                </article>
-                <article class="blog-post" data-title="木城幸人与《铳梦》的创作背景" data-excerpt="木城幸人，1967年3月20日出生于日本东京，是日本著名的漫画家...">
-                    <h3 class="post-title"><a href="posts/kishiro-gunnm-background.html">木城幸人与《铳梦》的创作背景</a></h3>
-                    <p class="post-date">2025-02-15</p>
-                    <p class="post-excerpt">木城幸人，1967年3月20日出生于日本东京，是日本著名的漫画家...</p>
-                </article>
-                <article class="blog-post" data-title="记忆的残响" data-excerpt="破碎的记忆片段如同旧电影的帧，在意识的边缘闪烁。每一片都是过去的回声，每一声都是通往真相的线索...">
-                    <h3 class="post-title"><a href="posts/memory-echoes.html">记忆的残响</a></h3>
-                    <p class="post-date">2025-02-15</p>
-                    <p class="post-excerpt">破碎的记忆片段如同旧电影的帧，在意识的边缘闪烁。每一片都是过去的回声，每一声都是通往真相的线索...</p>
-                </article>
-                <article class="blog-post" data-title="钢铁之心" data-excerpt="在这个高科技却低生活的世界里，机械的身体里跳动着的，是比血肉更炽热的灵魂...">
-                    <h3 class="post-title"><a href="posts/steel-heart.html">钢铁之心</a></h3>
+                
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/ghost-in-the-machine.html">钢铁中的灵魂——Ghost 存在的哲学思考</a></h3>
                     <p class="post-date">2025-02-10</p>
-                    <p class="post-excerpt">在这个高科技却低生活的世界里，机械的身体里跳动着的，是比血肉更炽热的灵魂...</p>
+                    <p class="post-excerpt">我的身体是钢铁做的，但我的 Ghost——也就是我的灵魂——是真实存在的。这让我思考：灵魂是什么？它是如何存在于机械身体中的？</p>
                 </article>
-                <article class="blog-post" data-title="赛博空间的幽灵" data-excerpt="在数据的海洋里，我是一个幽灵。他们以为把意识上传到网络就能获得永生...">
-                    <h3 class="post-title"><a href="posts/cyber-ghost.html">赛博空间的幽灵</a></h3>
+                
+                <!-- 《铳梦》世界系列 -->
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/kishiro-creative-universe.html">木城幸人的创作宇宙——《铳梦》背后的哲学思考与人文关怀</a></h3>
+                    <p class="post-date">2025-02-15</p>
+                    <p class="post-excerpt">木城幸人的代表作《铳梦》，不仅仅是一部精彩的赛博朋克漫画，更是一部充满哲学思考与人文关怀的作品。</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/between-steel-and-flesh.html">钢铁与血肉之间——赛博朋克世界中的人性微光</a></h3>
+                    <p class="post-date">2025-02-15</p>
+                    <p class="post-excerpt">在《铳梦》的世界里，科技已经高度发达——人体可以被机械替代，记忆可以被数字化。但在这个看似冰冷的世界里，人性的温暖依然存在。</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/scrapyard-culture.html">废铁镇的文化——在废墟中诞生的艺术与生存哲学</a></h3>
+                    <p class="post-date">2025-02-12</p>
+                    <p class="post-excerpt">废铁镇不仅是一个垃圾场，更是一个充满生命力的地方。在这里，艺术、音乐、街头文化融合在一起，形成了独特的生存哲学。</p>
+                </article>
+                
+                <!-- 战斗与成长系列 -->
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/panzer-kunst.html">Panzer Kunst——火星武术的传承与哲学</a></h3>
+                    <p class="post-date">2025-02-11</p>
+                    <p class="post-excerpt">Panzer Kunst 不是简单的战斗技巧，而是一种对物理频率的理解和应用。它体现了战斗即对话的理念——通过力量的碰撞，揭示事物的本质。</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/battle-as-dialogue.html">战斗即对话——我的战斗理念</a></h3>
+                    <p class="post-date">2025-02-10</p>
+                    <p class="post-excerpt">在战斗中，我不会轻易使用暴力。每一次挥拳，都是一次对话——与对手的对话，与自己的对话。通过战斗，我理解对手，也更了解自己。</p>
+                </article>
+                
+                <!-- 角色故事系列 -->
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/dr-ido.html">依德医生——我的父亲、老师、朋友</a></h3>
+                    <p class="post-date">2025-02-09</p>
+                    <p class="post-excerpt">依德医生不仅是在垃圾堆里发现我的救命恩人，更是我人生道路上的导师。他教会了我如何在这个世界上生存，如何理解人类的情感。</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/hugo.html">雨果——我最重要的人</a></h3>
+                    <p class="post-date">2025-02-08</p>
+                    <p class="post-excerpt">雨果是我在废铁镇遇到的第一个朋友，也是我最重要的人。他的梦想是去萨雷姆，而我，愿意帮助他实现这个梦想。</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/zapan.html">萨曼——对手与知音</a></h3>
+                    <p class="post-date">2025-02-07</p>
+                    <p class="post-excerpt">萨曼曾经是我的敌人，但也是一个值得尊重的战士。他的存在，让我反思自己的战斗理念和生存方式。</p>
+                </article>
+                
+                <!-- 生活与思考系列 -->
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/cellist.html">大提琴与流星——音乐如何触动改造人的心弦</a></h3>
+                    <p class="post-date">2025-02-06</p>
+                    <p class="post-excerpt">在一个偶然的机会，我听到了大提琴的声音。那悠扬的旋律，仿佛直接触碰到了我的灵魂，让我感受到了前所未有的感动。</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/graffiti-art.html">涂鸦——在钢铁墙壁上的生命之花</a></h3>
                     <p class="post-date">2025-02-05</p>
-                    <p class="post-excerpt">在数据的海洋里，我是一个幽灵。他们以为把意识上传到网络就能获得永生...</p>
+                    <p class="post-excerpt">废铁镇的墙壁上充满了涂鸦，这些作品不仅是艺术表达，更是人们生存状态的真实写照。每一幅涂鸦，都是一个故事。</p>
+                </article>
+                
+                <article class="blog-post">
+                    <h3 class="post-title"><a href="posts/watching-stars.html">仰望星空——在废铁镇中寻找希望</a></h3>
+                    <p class="post-date">2025-02-04</p>
+                    <p class="post-excerpt">在废铁镇，天空总是灰蒙蒙的。但偶尔，当云层散去，我可以看到星星。这些星星，让我想起了萨雷姆，也让我看到了希望。</p>
                 </article>
             </div>
         </div>
@@ -89,5 +126,36 @@
             <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
         </div>
     </footer>
-</body>
+    <!-- 回到顶部按钮 -->
+    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    <script>
+        // 阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('reading-progress');
+            if (progressBar) {
+                progressBar.style.width = scrolled + '%';
+            }
+        });
+        
+        // 回到顶部按钮
+        const scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script></body>
 </html>

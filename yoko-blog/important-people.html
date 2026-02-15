@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重要的人们</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .important-people {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 10px;
+            line-height: 1.8;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .person-card {
+            background: rgba(30, 30, 46, 0.6);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .person-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .person-name {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .person-role {
+            color: #533483;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .person-desc {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+        
+        .person-desc p {
+            margin-bottom: 10px;
+        }
+        
+        .person-desc ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .person-desc li {
+            margin-bottom: 5px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .nav-button {
+            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #533483;
+            border-left: 4px solid #e94560;
+            padding-left: 20px;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .highlight {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #e94560;
+        }
+        
+        .person-relationship {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .person-relationship h4 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+    </style>
+    <!-- 阅读进度条 -->
+    <div class="reading-progress" id="reading-progress"></div>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html#home">首页</a></li>
+                    <li><a href="index.html#about">关于</a></li>
+                    <li><a href="index.html#blog">博客</a></li>
+                    <li><a href="index.html#friends">重要的人们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="important-people">
+                <div class="section-header">
+                    <h2 class="section-title">重要的人们</h2>
+                    <p class="post-meta">这些人是我生命中不可或缺的一部分，他们塑造了我，教会了我许多东西。</p>
+                </div>
+                
+                <div class="people-grid">
+                    <!-- 依德医生 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👨‍⚕️</div>
+                        <div class="person-name">依德医生 (Dr. Daisuke Ido)</div>
+                        <div class="person-role">改造人医生</div>
+                        <div class="person-desc">
+                            <p>在废铁镇的垃圾堆里发现了我，并赋予我新的生命。他不仅是我的救命恩人，更是像父亲一样的存在。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>救命恩人</li>
+                                    <li>父亲般的存在</li>
+                                    <li>教我如何在废铁镇生存</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"你不是一个工具，你是一个有灵魂的人。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 雨果 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👦</div>
+                        <div class="person-name">雨果 (Hugo)</div>
+                        <div class="person-role">梦想者</div>
+                        <div class="person-desc">
+                            <p>眼睛里有光，一直梦想着能去到萨雷姆。他是我最重要的人，他的故事和结局对我产生了深远的影响。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>我最重要的人</li>
+                                    <li>共同经历了许多冒险</li>
+                                    <li>他的梦想让我更深刻地理解了这个世界</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"总有一天，我会去萨雷姆的。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 萨曼 -->
+                    <div class="person-card">
+                        <div class="person-avatar">⚔️</div>
+                        <div class="person-name">萨曼 (Zapan)</div>
+                        <div class="person-role">战士</div>
+                        <div class="person-desc">
+                            <p>曾经是对手，但也是一个值得尊重的战士。他的战斗技巧和对生命的理解给了我很多启发。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>强大的对手</li>
+                                    <li>值得尊重的战士</li>
+                                    <li>惺惺相惜的关系</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"战士的尊严就是胜利。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 加修刚 -->
+                    <div class="person-card">
+                        <div class="person-avatar">🏆</div>
+                        <div class="person-name">加修刚 (Jashugan)</div>
+                        <div class="person-role">死亡球冠军</div>
+                        <div class="person-desc">
+                            <p>死亡球赛场上的传奇人物，常胜不败。他教给了我很多东西，不仅是格斗技巧，还有关于战斗、关于生命的领悟。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>死亡球时期的导师</li>
+                                    <li>教会我战斗技巧</li>
+                                    <li>让我明白战斗的意义</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"战斗不是为了胜利，而是为了超越自己。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 诺瓦博士 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👨‍🔬</div>
+                        <div class="person-name">诺瓦博士 (Desty Nova)</div>
+                        <div class="person-role">科学家</div>
+                        <div class="person-desc">
+                            <p>疯狂的天才科学家，对记忆和灵魂的研究达到了登峰造极的地步。他与我形成了复杂、不断变化的关系。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>对手</li>
+                                    <li>哲学上的对手</li>
+                                    <li>记忆操控者</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"记忆不过是可编辑的数据。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 菲格福 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👨‍🚀</div>
+                        <div class="person-name">菲格福 (Figure Four)</div>
+                        <div class="person-role">火星殖民地军军官</div>
+                        <div class="person-desc">
+                            <p>前火星殖民地军军官，Jashugan 的弟子。我们有着共同的背景和目标，一起经历了许多困难。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>战友</li>
+                                    <li>共同对抗萨雷姆</li>
+                                    <li>情感纽带</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"我们是为了人类的尊严而战。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 艾莉卡 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👧</div>
+                        <div class="person-name">艾莉卡 (Erica Walt)</div>
+                        <div class="person-role">童年朋友</div>
+                        <div class="person-desc">
+                            <p>我在火星殖民地时期的第一个朋友。她的出现给了我温暖和勇气，让我在那个残酷的世界中找到了一丝光明。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>童年朋友</li>
+                                    <li>给予我温暖和勇气</li>
+                                    <li>共同经历了困难</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"无论遇到什么困难，我们都要一起面对。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 芬奇 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👨‍🔬</div>
+                        <div class="person-name">芬奇医生 (Dr. Finch)</div>
+                        <div class="person-role">流浪医生</div>
+                        <div class="person-desc">
+                            <p>年轻的火星殖民地军医生，后来成为了我的朋友和同伴。他的善良和医术帮助了我很多。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>医生</li>
+                                    <li>朋友</li>
+                                    <li>同伴</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"我会尽力帮助你恢复记忆。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 尼诺 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👩‍👧‍👦</div>
+                        <div class="person-name">尼诺 (Ninon Silber)</div>
+                        <div class="person-role">孤儿院头目</div>
+                        <div class="person-desc">
+                            <p>孤儿院的头目，Flammarion 家族的继承人。她的性格复杂，但最终展现了善良的一面。</p>
+                            <div class="person-relationship">
+                                <h4>与我的关系</h4>
+                                <ul>
+                                    <li>孤儿院头目</li>
+                                    <li>后来的朋友</li>
+                                    <li>共同经历了困难</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"我会保护这个孤儿院。"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <a href="index.html" class="nav-button">← 返回首页</a>
+                    <a href="all-posts.html" class="nav-button">查看所有文章 →</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
+            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
+        </div>
+    </footer>
+    <!-- 回到顶部按钮 -->
+    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    
+    <script>
+        // 阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('reading-progress');
+            if (progressBar) {
+                progressBar.style.width = scrolled + '%';
+            }
+        });
+        
+        // 回到顶部按钮
+        const scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+</body>
+</html>

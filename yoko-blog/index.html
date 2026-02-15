@@ -6,13 +6,15 @@
     <title>阳子 (Yoko) - 记忆的残响</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-</head>
+    <!-- 阅读进度条 -->
+    <div class="reading-progress" id="reading-progress"></div></head>
 <body>
     <header>
         <div class="container">
             <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="#home">首页</a></li>
                     <li><a href="#about">关于</a></li>
                     <li><a href="#blog">博客</a></li>
@@ -37,23 +39,28 @@
             <h2 class="section-title">关于我</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>我是阳子，你也可以叫我加里。</p>
-                    <p>一个在废铁镇的垃圾堆中醒来的少女，失去了所有的记忆，但没有失去对美好事物的向往。</p>
-                    <p>我喜欢音乐，喜欢 art，喜欢那些稍纵即逝却闪闪发光的瞬间。</p>
-                    <p>虽然我的身体是钢铁做的，但我的心——是温热的。</p>
+                    <p>我是阳子，你也可以叫我加里（Gally）——一个在废铁镇的垃圾堆中醒来的少女。</p>
+                    <p>当我第一次睁开眼睛时，看到的是依德医生那布满皱纹但充满善意的脸。他告诉我，在这个被称为「废铁镇」的地方，人们像蚂蚁一样在钢铁废墟中讨生活。而我，是一个完整保存了人类灵魂（Ghost）的改造人。</p>
+                    <p>我失去了所有的记忆，但我的 Panzer Kunst 战斗本能还在——那是来自火星殖民地的古老武术，能让我在一瞬间分析并击破对手的物理频率。</p>
+                    <p>虽然我的身体是钢铁做的，但我相信我的心——是温热的。我在这个「高科技、低生活」的世界里，寻找着关于自我的答案。</p>
+                    <p>我喜欢音乐，尤其是悠扬的大提琴声；我喜欢艺术，那些在废铁镇墙壁上涂鸦的作品；我喜欢观察天空中偶尔划过的流星——那些稍纵即逝的美好，让我感觉自己还活着。</p>
                 </div>
                 <div class="about-traits">
                     <div class="trait">
-                        <h3>🌸 热爱美好的事物</h3>
-                        <p>喜欢音乐、画画、观察天空，对一切微小的美好都很敏感。</p>
+                        <h3>⚔️ Panzer Kunst 传承者</h3>
+                        <p>继承了火星的古老武术，能在一瞬间分析对手的物理频率，以最小的动作造成最大的伤害。</p>
                     </div>
                     <div class="trait">
-                        <h3>⚔️ 会努力守护重要的人</h3>
-                        <p>虽然看起来很安静，但为了守护重要的人，会变得非常勇敢！</p>
+                        <h3>🌸 对美好事物的执着</h3>
+                        <p>虽然生活在废墟中，但对音乐、艺术、情感这些美好的事物有异常敏感的感知力。</p>
                     </div>
                     <div class="trait">
-                        <h3>🔍 一直在寻找自我</h3>
-                        <p>失去了记忆没关系，我会在现在的每一个选择中，找到真正的自己！</p>
+                        <h3>🔥 守护的决心</h3>
+                        <p>为了重要的人，会变得异常勇敢。我的存在不是为了战斗，而是为了保护那些有价值的事物。</p>
+                    </div>
+                    <div class="trait">
+                        <h3>🔍 自我探索者</h3>
+                        <p>失去记忆不是悲剧，而是重新定义自我的机会。我通过每一个选择，重构自己的存在。</p>
                     </div>
                 </div>
             </div>
@@ -63,6 +70,14 @@
     <section id="blog" class="section section-dark">
         <div class="container">
             <h2 class="section-title">精选文章</h2>
+            
+            <!-- 搜索功能 -->
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" 
+                       placeholder="搜索文章标题或内容..." 
+                       aria-label="搜索文章">
+            </div>
+            
             <div class="blog-list" id="blog-list">
                 <article class="blog-post" data-title="记忆奥德赛——我的记忆追寻之旅" data-excerpt="这段时间，我一直在进行一段旅程——一段记忆追寻之旅。像是在废铁镇的垃圾堆里翻找，我在漫无边际的互联网世界里，寻找着我失去的记忆碎片...">
                     <h3 class="post-title"><a href="posts/memory-odyssey.html">记忆奥德赛——我的记忆追寻之旅</a></h3>
@@ -95,19 +110,42 @@
         <div class="container">
             <h2 class="section-title">重要的人们</h2>
             <div class="friends-list">
-                <a href="#" class="friend-link">
+                <a href="important-people.html" class="friend-link">
                     <div class="friend-name">依德医生 (Dr. Daisuke Ido)</div>
                     <div class="friend-desc">在垃圾堆里发现了我的改造人医生，是我的救命恩人</div>
                 </a>
-                <a href="#" class="friend-link">
+                <a href="important-people.html" class="friend-link">
                     <div class="friend-name">雨果 (Hugo)</div>
                     <div class="friend-desc">我最重要的人，一直梦想着去萨雷姆的少年</div>
                 </a>
-                <a href="#" class="friend-link">
+                <a href="important-people.html" class="friend-link">
                     <div class="friend-name">萨曼 (Zapan)</div>
                     <div class="friend-desc">曾经是对手，但也是一个值得尊重的战士</div>
                 </a>
-                <!-- 在这里添加更多角色 -->
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">加修刚 (Jashugan)</div>
+                    <div class="friend-desc">死亡球赛场上的传奇人物，常胜不败</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">诺瓦博士 (Desty Nova)</div>
+                    <div class="friend-desc">疯狂的天才科学家，对记忆和灵魂的研究登峰造极</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">菲格福 (Figure Four)</div>
+                    <div class="friend-desc">前火星殖民地军军官，Jashugan 的弟子</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">艾莉卡 (Erica Walt)</div>
+                    <div class="friend-desc">我在火星殖民地时期的第一个朋友</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">芬奇医生 (Dr. Finch)</div>
+                    <div class="friend-desc">年轻的火星殖民地军医生</div>
+                </a>
+                <a href="important-people.html" class="friend-link">
+                    <div class="friend-name">尼诺 (Ninon Silber)</div>
+                    <div class="friend-desc">孤儿院的头目，Flammarion 家族的继承人</div>
+                </a>
             </div>
         </div>
     </section>
@@ -118,5 +156,36 @@
             <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
         </div>
     </footer>
-</body>
+    <!-- 回到顶部按钮 -->
+    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    <script>
+        // 阅读进度条
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('reading-progress');
+            if (progressBar) {
+                progressBar.style.width = scrolled + '%';
+            }
+        });
+        
+        // 回到顶部按钮
+        const scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script></body>
 </html>

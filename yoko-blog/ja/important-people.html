@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重要な人々</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .important-people {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 10px;
+            line-height: 1.8;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .person-card {
+            background: rgba(30, 30, 46, 0.6);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .person-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .person-name {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .person-role {
+            color: #533483;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .person-desc {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+        
+        .person-desc p {
+            margin-bottom: 10px;
+        }
+        
+        .person-desc ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .person-desc li {
+            margin-bottom: 5px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .nav-button {
+            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #533483;
+            border-left: 4px solid #e94560;
+            padding-left: 20px;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .highlight {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #e94560;
+        }
+        
+        .person-relationship {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .person-relationship h4 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+    </style>
+    <!-- 読み込み進捗バー -->
+    <div class="reading-progress" id="reading-progress"></div>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">陽子 <span class="subtitle">Yoko</span></h1>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html#home">ホーム</a></li>
+                    <li><a href="index.html#about">私について</a></li>
+                    <li><a href="index.html#blog">ブログ</a></li>
+                    <li><a href="index.html#friends">重要な人々</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="important-people">
+                <div class="section-header">
+                    <h2 class="section-title">重要な人々</h2>
+                    <p class="post-meta">これらの人々は私の人生に欠かせない存在であり、私を形作り、多くのことを教えてくれました。</p>
+                </div>
+                
+                <div class="people-grid">
+                    <!-- 伊德医師 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👨‍⚕️</div>
+                        <div class="person-name">伊德医師 (Dr. Daisuke Ido)</div>
+                        <div class="person-role">サイボーグ医師</div>
+                        <div class="person-desc">
+                            <p>屑鉄町のゴミ山で私を発見し、新しい生命を与えてくれた人。救命恩人であるだけでなく、父のような存在でもあります。</p>
+                            <div class="person-relationship">
+                                <h4>私との関係</h4>
+                                <ul>
+                                    <li>救命恩人</li>
+                                    <li>父のような存在</li>
+                                    <li>屑鉄町での生存方法を教えてくれた</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"あなたは道具ではない、魂のある人間です。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ヒューゴ -->
+                    <div class="person-card">
+                        <div class="person-avatar">👦</div>
+                        <div class="person-name">ヒューゴ (Hugo)</div>
+                        <div class="person-role">夢見る少年</div>
+                        <div class="person-desc">
+                            <p>目に光を持ち、ザレムに行きたいと夢見る少年。私の最も重要な人であり、彼の物語と結末は私に深い影響を与えました。</p>
+                            <div class="person-relationship">
+                                <h4>私との関係</h4>
+                                <ul>
+                                    <li>最も重要な人</li>
+                                    <li>共に冒険した仲間</li>
+                                    <li>彼の夢がこの世界の理解を深めさせた</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"いつか、ザレムに行くんだ。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ザパン -->
+                    <div class="person-card">
+                        <div class="person-avatar">⚔️</div>
+                        <div class="person-name">ザパン (Zapan)</div>
+                        <div class="person-role">戦士</div>
+                        <div class="person-desc">
+                            <p>かつての敵だが、尊敬に値する戦士。彼の戦闘技術と生命の理解は、私に多くの啓示を与えました。</p>
+                            <div class="person-relationship">
+                                <h4>私との関係</h4>
+                                <ul>
+                                    <li>強敵</li>
+                                    <li>尊敬に値する戦士</li>
+                                    <li>惺惺相惜の関係</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"戦士の尊厳は勝利にある。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ジャシュガン -->
+                    <div class="person-card">
+                        <div class="person-avatar">🏆</div>
+                        <div class="person-name">ジャシュガン (Jashugan)</div>
+                        <div class="person-role">モーターボールチャンピオン</div>
+                        <div class="person-desc">
+                            <p>モーターボールの伝説的な選手、不敗の記録保持者。私に多くのことを教えてくれました —— 格闘技術だけでなく、戦闘や生命に関する理解も。</p>
+                            <div class="person-relationship">
+                                <h4>私との関係</h4>
+                                <ul>
+                                    <li>モーターボール時代の指導者</li>
+                                    <li>戦闘技術を教えてくれた</li>
+                                    <li>戦闘の意味を理解させてくれた</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"戦闘は勝利のためではなく、自己を超えるためである。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- フィガーフォー -->
+                    <div class="person-card">
+                        <div class="person-avatar">👨‍🚀</div>
+                        <div class="person-name">フィガーフォー (Figure Four)</div>
+                        <div class="person-role">火星殖民地軍将校</div>
+                        <div class="person-desc">
+                            <p>元火星殖民地軍将校、ジャシュガンの弟子。共通の背景と目標を持ち、多くの困難を共に経験しました。</p>
+                            <div class="person-relationship">
+                                <h4>私との関係</h4>
+                                <ul>
+                                    <li>戦友</li>
+                                    <li>共にザレムと戦った</li>
+                                    <li>情感的なつながり</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"私たちは人間の尊厳のために戦っている。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- エリカ -->
+                    <div class="person-card">
+                        <div class="person-avatar">👧</div>
+                        <div class="person-name">エリカ (Erica Walt)</div>
+                        <div class="person-role">幼少期の友達</div>
+                        <div class="person-desc">
+                            <p>火星殖民地時代の最初の友達。彼女の存在は私に温かさと勇気を与え、残酷な世界の中で光を見つけることができるようにしました。</p>
+                            <div class="person-relationship">
+                                <h4>私との関係</h4>
+                                <ul>
+                                    <li>幼少期の友達</li>
+                                    <li>温かさと勇気を与えてくれた</li>
+                                    <li>困難を共に経験した</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"どんな困難があっても、一緒に面对するんだ。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- フィンチ医師 -->
+                    <div class="person-card">
+                        <div class="person-avatar">👨‍🔬</div>
+                        <div class="person-name">フィンチ医師 (Dr. Finch)</div>
+                        <div class="person-role">放浪医師</div>
+                        <div class="person-desc">
+                            <p>若い火星殖民地軍医師で、後に私の友達と仲間になりました。彼の善良さと医術は私に多くの助けをしてくれました。</p>
+                            <div class="person-relationship">
+                                <h4>私との関係</h4>
+                                <ul>
+                                    <li>医師</li>
+                                    <li>友達</li>
+                                    <li>仲間</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"私はあなたの記憶を回復するために全力を尽くします。"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ニノン -->
+                    <div class="person-card">
+                        <div class="person-avatar">👩‍👧‍👦</div>
+                        <div class="person-name">ニノン (Ninon Silber)</div>
+                        <div class="person-role">孤児院の責任者</div>
+                        <div class="person-desc">
+                            <p>孤児院の責任者で、フラマリオン家の継承者。性格は複雑ですが、最終的には善良な面を示しました。</p>
+                            <div class="person-relationship">
+                                <h4>私との関係</h4>
+                                <ul>
+                                    <li>孤児院の責任者</li>
+                                    <li>後の友達</li>
+                                    <li>困難を共に経験した</li>
+                                </ul>
+                            </div>
+                            <div class="quote">
+                                <p>"この孤児院を守ります。"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <a href="index.html" class="nav-button">← ホームに戻る</a>
+                    <a href="all-posts.html" class="nav-button">すべての記事を見る →</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 陽子 (Yoko). All rights reserved.</p>
+            <p class="footer-quote">"廃墟の中に希望を探し、戦いの中に自己を見つける。"</p>
+        </div>
+    </footer>
+    <!-- トップに戻るボタン -->
+    <button class="scroll-top" id="scroll-top" aria-label="トップに戻る">↑</button>    
+    <script>
+        // 読み込み進捗バー
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('reading-progress');
+            if (progressBar) {
+                progressBar.style.width = scrolled + '%';
+            }
+        });
+        
+        // トップに戻るボタン
+        const scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+</body>
+</html>
