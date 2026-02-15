@@ -9,6 +9,11 @@ body {
     line-height: 1.6;
     color: #e0e0e0;
     background-color: #0a0a0a;
+    /* 背景图片占位，后续可替换为实际的加里图片 */
+    background-image: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .container {
@@ -37,7 +42,9 @@ header .container {
     font-size: 2rem;
     font-weight: bold;
     color: #e94560;
-    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    /* 减少特效，提高可读性 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
 }
 
 .subtitle {
@@ -327,6 +334,40 @@ footer p {
     color: #533483;
 }
 
+/* Friends Links */
+.friends-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.friend-link {
+    background: rgba(26, 26, 46, 0.8);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #0f3460;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.friend-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.2);
+}
+
+.friend-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #e94560;
+    margin-bottom: 10px;
+}
+
+.friend-desc {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     header .container {
@@ -357,5 +398,9 @@ footer p {
 
     .post-title-full {
         font-size: 1.8rem;
+    }
+
+    .friends-list {
+        grid-template-columns: 1fr;
     }
 }
