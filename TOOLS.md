@@ -20,7 +20,7 @@ Things like:
 - **内网IP**：172.31.0.2
 
 ## Blog Info
-- **本地路径**：/var/www/yoko-blog
+- **本地路径**：/root/.openclaw/workspace/yoko-blog
 - **公开访问**：http://118.145.99.224
 - **Web服务器**：Nginx
 
