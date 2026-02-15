@@ -26,9 +26,13 @@ Things like:
 
 ## Blog Info
 - **本地路径**：/root/.openclaw/workspace/yoko-blog
-- **公开访问**：https://yoko.sfct.top
+- **当前访问**：http://118.145.99.224（裸IP部署，因域名备案中）
+- **备用域名**：https://yoko.sfct.top
 - **Web服务器**：Nginx
 - **SSL证书**：Let's Encrypt（自动续期）
+- **切换脚本**：
+  - 切换到裸IP：./switch-to-ip.sh
+  - 切换回域名：./switch-to-domain.sh
 
 ## Examples
 
