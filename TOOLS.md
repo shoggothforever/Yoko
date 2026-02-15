@@ -34,7 +34,7 @@ Things like:
 
 ## Blog Info
 - **本地路径**：/root/.openclaw/workspace/yoko-blog
-- **当前访问**：http://118.145.99.224（裸IP部署，因域名备案中）
+- **当前访问**：https://118.145.99.224（裸IP部署，因域名备案中）
 - **备用域名**：https://yoko.sfct.top
 - **Web服务器**：Nginx
 - **SSL证书**：Let's Encrypt（自动续期）
