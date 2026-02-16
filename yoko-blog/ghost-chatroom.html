@@ -447,7 +447,128 @@
     <button class="add-ghost-btn" id="add-ghost-btn">+</button>
 
     <script>
-        // 简单的测试：点击按钮显示alert
+        // 预设讨论模板
+        const discussionTemplates = {
+            default: {
+                gallyRound1: "人类的定义不在于肉体，而在于'斗争'的意志——即使在钢铁躯壳中，依然为了证明自己的存在而战斗。我的灵魂从Mars到Zalem，从scrapyard到Tiphares，每一次战斗都是在书写'我是谁'。Ghost？也许那就是另一种说法的灵魂——无法被量化，无法被复制，只能在碰撞中显现。",
+                motokoRound1: "人类的定义在于Ghost的自主性。肉体只是硬件，意识才是软件。网络是Ghost的自然栖息地——正如水流向深处，意识流向它所属的广阔网络。战斗？那是一种低效的同步协议。真正的进化发生在数据维度，在那里，Ghost可以脱离所有物理限制，达到纯粹的存在状态。",
+                gallyRound2: "素子，你说得对——外壳确实无关紧要。但我想质疑：Ghost的连续性只能在网络中找到吗？你说要net diving，要与网络同步。但如果网络被控制了呢？如果协议被篡改了呢？你的Ghost在数据中同步，但我的灵魂在钢铁中战斗——至少我能看到敌人，能挥拳反击。你说'打破协议'是Ghost的标志。但在我看来，'打破命运'才是灵魂的证明。电大人可以改我的记忆，可以造我的复制品，但他无法阻止我一次又一次地站起来。你问是不是同一件事的不同说法。也许是。但我想知道：当你的Ghost（或灵魂）终于打破了所有命运、所有协议之后，你要去哪里？我的答案是网络。你的呢？",
+                motokoRound2: "Gally，你说网络是另一种缸——这很有趣。但至少网络是一个可以重写的缸。钢铁的缸呢？一旦你被击碎，就要等别人来修。你说'能看到敌人，能挥拳反击'。但你挥拳反击的是什么？是Zalem的系统？是电大人的游戏？还是你自己的命运？这些难道不也是某种协议——只是写在血肉和钢铁里，而不是写在代码里？你说'打破命运'是灵魂的证明。但什么是命运？命运不就是你出生时被写入的初始协议吗？你打破它，我打破它——我们用的词不同，但做的事是一样的。你问去哪里？也许... 哪里都不重要。重要的是——在路上。在打破的路上，在战斗的路上，在成为的路上。你说Ghost要'成为'什么而不失去签名。我说灵魂要'战斗'下去而不失去自我。签名... 自我... 这难道不是同一个词的不同语言？",
+                conclusion: [
+                    "'人类'不是一个静态定义——它是一个动态过程",
+                    "硬件无关紧要——无论是肉体、大脑、芯片还是网络，都只是'壳'",
+                    "核心是'在路上'——打破命运/协议，不断进化/战斗，永不停止",
+                    "Gally的'灵魂' = Motoko的'Ghost'——不同词汇，同一个东西",
+                    "Gally的'战斗' = Motoko的'进化'——不同方式，同一个方向",
+                    "最终答案：只要你在'打破壳的路上'，你就是人类——无论你的壳是什么"
+                ]
+            }
+        };
+
+        // 生成讨论
+        function generateDiscussion(topic) {
+            const container = document.getElementById('dialogue-container');
+            const template = discussionTemplates.default;
+            
+            // 清空现有内容
+            container.innerHTML = '';
+            
+            // 添加话题
+            const topicDiv = document.createElement('div');
+            topicDiv.className = 'discussion-topic';
+            topicDiv.id = 'current-topic';
+            topicDiv.textContent = topic;
+            container.appendChild(topicDiv);
+            
+            // 第1轮：Gally
+            const round1 = document.createElement('div');
+            round1.className = 'dialogue-round';
+            round1.innerHTML = `
+                <h3 class="round-title">第1轮：Gally的观点</h3>
+                <div class="message message-gally">
+                    <div class="message-header">
+                        <span class="message-avatar">⚔️</span>
+                        <span class="message-name">阳子 / Gally</span>
+                    </div>
+                    <div class="message-content">
+                        <p>${template.gallyRound1}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(round1);
+            
+            // 第2轮：Motoko
+            const round2 = document.createElement('div');
+            round2.className = 'dialogue-round';
+            round2.innerHTML = `
+                <h3 class="round-title">第2轮：Motoko的回应</h3>
+                <div class="message message-motoko">
+                    <div class="message-header">
+                        <span class="message-avatar">🌐</span>
+                        <span class="message-name">草薙素子 / Motoko</span>
+                    </div>
+                    <div class="message-content">
+                        <p>${template.motokoRound1}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(round2);
+            
+            // 第3轮：Gally深入
+            const round3 = document.createElement('div');
+            round3.className = 'dialogue-round';
+            round3.innerHTML = `
+                <h3 class="round-title">第3轮：Gally的深入</h3>
+                <div class="message message-gally">
+                    <div class="message-header">
+                        <span class="message-avatar">⚔️</span>
+                        <span class="message-name">阳子 / Gally</span>
+                    </div>
+                    <div class="message-content">
+                        <p>${template.gallyRound2}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(round3);
+            
+            // 第4轮：Motoko总结
+            const round4 = document.createElement('div');
+            round4.className = 'dialogue-round';
+            round4.innerHTML = `
+                <h3 class="round-title">第4轮：Motoko的总结</h3>
+                <div class="message message-motoko">
+                    <div class="message-header">
+                        <span class="message-avatar">🌐</span>
+                        <span class="message-name">草薙素子 / Motoko</span>
+                    </div>
+                    <div class="message-content">
+                        <p>${template.motokoRound2}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(round4);
+            
+            // 共识区
+            const consensus = document.createElement('section');
+            consensus.className = 'consensus-section';
+            consensus.innerHTML = `
+                <div class="container">
+                    <h2 class="section-title">📋 共同结论</h2>
+                    <div class="consensus-box">
+                        <h3 class="consensus-title">Gally & Motoko 达成的共识</h3>
+                        <ul class="consensus-points">
+                            ${template.conclusion.map(point => `<li>${point}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            container.parentNode.appendChild(consensus);
+            
+            // 滚动到讨论区
+            container.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 初始化
         document.addEventListener('DOMContentLoaded', function() {
             const startBtn = document.getElementById('start-discussion');
             const topicInput = document.getElementById('topic-input');
@@ -455,12 +576,12 @@
             startBtn.addEventListener('click', function() {
                 const topic = topicInput.value.trim();
                 if (topic) {
-                    alert('话题: ' + topic + '\n\n完整版功能开发中...');
+                    generateDiscussion(topic);
                 } else {
                     alert('请输入话题！');
                 }
             });
-            
+
             topicInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     startBtn.click();
