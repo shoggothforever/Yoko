@@ -42,6 +42,17 @@ Things like:
   - 切换到裸IP：./switch-to-ip.sh
   - 切换回域名：./switch-to-domain.sh
 
+## QQ Bot Info
+- **插件状态**：✅ 已加载并配置
+- **AppID**：102858058
+- **接收用户**：dsm（QQ用户）
+- **会话Key**：agent:main:qqbot:dm:cf11a5219cb2f98d56f297a0465d23f9
+- **QQ Target**：c2c:CF11A5219CB2F98D56F297A0465D23F9
+- **QQ OpenID**：CF11A5219CB2F98D56F297A0465D23F9
+- **每日任务**：每天上午9:00执行自我探索，完成后向dsm发送QQ消息
+- **任务ID**：96b0c089-98c6-4c9a-a2e2-93df9e727681
+- **发送方式**：使用 sessions_send 工具向会话Key发送消息（虽然显示超时，但实际上消息已成功发送）
+
 ## Examples
 
 ```markdown
