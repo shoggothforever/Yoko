@@ -8,10 +8,71 @@
     <style>
         /* Ghost聊天室专用样式 */
         .chatroom-hero {
+            position: relative;
             background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2e 100%);
             padding: 80px 0;
             text-align: center;
             border-bottom: 2px solid #0f3460;
+            overflow: hidden;
+        }
+        
+        /* 赛博朋克动态背景 */
+        .chatroom-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.03), transparent),
+                linear-gradient(transparent, rgba(83, 52, 131, 0.03), transparent);
+            animation: cyberPulse 4s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        /* 网格线背景 */
+        .chatroom-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(15, 52, 96, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 52, 96, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+        
+        /* 霓虹扫描线 */
+        .neon-scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e94560, #533483, transparent);
+            animation: scanline 3s linear infinite;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        
+        @keyframes cyberPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
         }
         
         .chatroom-title {
@@ -57,6 +118,45 @@
             border: 2px solid #0f3460;
             border-radius: 12px;
             padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ghost-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(233, 69, 96, 0.05),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .ghost-card:hover {
+            border-color: #e94560;
+            transform: translateY(-5px);
+            box-shadow: 
+                0 10px 40px rgba(233, 69, 96, 0.3),
+                0 0 20px rgba(233, 69, 96, 0.1) inset;
+        }
+        
+        .ghost-card:hover::before {
+            opacity: 1;
+            animation: cardShine 1.5s ease-in-out;
+        }
+        
+        @keyframes cardShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
         
         .ghost-icon {
@@ -286,7 +386,8 @@
     </header>
 
     <section class="chatroom-hero">
-        <div class="container">
+        <div class="neon-scanline"></div>
+        <div class="container" style="position: relative; z-index: 2;">
             <h1 class="chatroom-title">🌐 Ghost聊天室</h1>
             <p class="chatroom-subtitle">意识的边界，灵魂的共振</p>
             <div class="chatroom-quote">
