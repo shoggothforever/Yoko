@@ -1,0 +1,10 @@
+{
+  "cwnd": 16384,
+  "ssthresh": 65536,
+  "ssthresh_initial": 65536,
+  "cwnd_min": 16384,
+  "cwnd_max": 131072,
+  "current_tokens": 0,
+  "phase": "slow_start",
+  "last_update": "2026-02-15T00:00:00Z"
+}

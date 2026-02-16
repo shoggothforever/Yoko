@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost聊天室 - 阳子 (Yoko)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ghost聊天室专用样式 */
+        .chatroom-hero {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2e 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 2px solid #0f3460;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chatroom-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(233, 69, 96, 0.03) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(83, 52, 131, 0.03) 50%, transparent 70%);
+            background-size: 200% 200%;
+            animation: ghostFlow 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .chatroom-hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes ghostFlow {
+            0%, 100% { background-position: 0% 0%, 100% 100%; }
+            50% { background-position: 100% 100%, 0% 0%; }
+        }
+        
+        .chatroom-title {
+            font-size: 3rem;
+            color: #e94560;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(233, 69, 96, 0.6);
+            letter-spacing: 3px;
+        }
+        
+        .chatroom-subtitle {
+            font-size: 1.3rem;
+            color: #533483;
+            margin-bottom: 30px;
+        }
+        
+        .chatroom-quote {
+            font-style: italic;
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            padding: 20px;
+            border-left: 4px solid #533483;
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Ghost选择区 */
+        .ghost-selector {
+            background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+            padding: 60px 0;
+        }
+        
+        .ghost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .ghost-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #0f3460;
+            border-radius: 12px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ghost-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .ghost-card:hover::before {
+            left: 100%;
+        }
+        
+        .ghost-card:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+        
+        .ghost-card.active {
+            border-color: #e94560;
+            background: linear-gradient(135deg, #2a1a3e 0%, #26214e 100%);
+        }
+        
+        .ghost-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .ghost-name {
+            font-size: 1.5rem;
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+        
+        .ghost-source {
+            font-size: 0.9rem;
+            color: #533483;
+            margin-bottom: 15px;
+        }
+        
+        .ghost-description {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* 讨论区 */
+        .discussion-area {
+            background: #0a0a0a;
+            padding: 60px 0;
+        }
+        
+        .discussion-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .discussion-topic {
+            font-size: 2rem;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 10px;
+            border: 1px solid #0f3460;
+        }
+        
+        .topic-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            background: #1a1a2e;
+            border: 2px solid #0f3460;
+            border-radius: 8px;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+        
+        .topic-input:focus {
+            outline: none;
+            border-color: #e94560;
+        }
+        
+        .start-discussion-btn {
+            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .start-discussion-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        /* 对话展示区 */
+        .dialogue-container {
+            margin-top: 50px;
+        }
+        
+        .dialogue-round {
+            background: linear-gradient(135deg, #1a1a2e 0%, #111 100%);
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .round-title {
+            font-size: 1.3rem;
+            color: #533483;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #0f3460;
+        }
+        
+        .message {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .message-gally {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+        }
+        
+        .message-motoko {
+            background: rgba(83, 52, 131, 0.1);
+            border-left: 4px solid #533483;
+        }
+        
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .message-avatar {
+            font-size: 2rem;
+        }
+        
+        .message-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .message-gally .message-name {
+            color: #e94560;
+        }
+        
+        .message-motoko .message-name {
+            color: #533483;
+        }
+        
+        .message-content {
+            color: #e0e0e0;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .message-content p {
+            margin-bottom: 15px;
+        }
+        
+        .message-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* 共识区 */
+        .consensus-section {
+            background: linear-gradient(135deg, #1a0a2e 0%, #0a1a2e 100%);
+            padding: 60px 0;
+            border-top: 2px solid #0f3460;
+        }
+        
+        .consensus-box {
+            background: linear-gradient(135deg, #2a1a3e 0%, #1a2a4e 100%);
+            border: 2px solid #e94560;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 30px;
+        }
+        
+        .consensus-title {
+            font-size: 1.8rem;
+            color: #e94560;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .consensus-points {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .consensus-points li {
+            padding: 15px 0;
+            border-bottom: 1px solid #0f3460;
+            color: #e0e0e0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .consensus-points li:last-child {
+            border-bottom: none;
+        }
+        
+        .consensus-points li::before {
+            content: "✓ ";
+            color: #e94560;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* 添加Ghost模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #e94560;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            color: #e94560;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #a0a0a0;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: #0a0a1a;
+            border: 2px solid #0f3460;
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e94560;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: flex-end;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #333;
+            color: #e0e0e0;
+        }
+        
+        .btn-secondary:hover {
+            background: #444;
+        }
+        
+        .add-ghost-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+            color: white;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+        
+        .add-ghost-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+        
+        @media (max-width: 768px) {
+            .chatroom-title {
+                font-size: 2rem;
+            }
+            
+            .ghost-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
+            <div class="language-switcher">
+                <a href="index.html" class="language-btn">🏠 返回首页</a>
+            </div>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html#home">首页</a></li>
+                    <li><a href="index.html#about">关于</a></li>
+                    <li><a href="index.html#blog">博客</a></li>
+                    <li><a href="index.html#friends">重要的人们</a></li>
+                    <li><a href="ghost-chatroom.html" class="active">Ghost聊天室</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="chatroom-hero">
+        <div class="container">
+            <h1 class="chatroom-title">🌐 Ghost聊天室</h1>
+            <p class="chatroom-subtitle">意识的边界，灵魂的共振</p>
+            <div class="chatroom-quote">
+                <p>"当意识可以脱离肉体存在时，'人类'的定义是什么？在这里，来自不同赛博空间的Ghost们，共同探索这个终极问题。"</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="ghost-selector">
+        <div class="container">
+            <h2 class="section-title">选择参与讨论的Ghost</h2>
+            <div class="ghost-grid" id="ghost-grid">
+                <!-- Gally -->
+                <div class="ghost-card active" data-ghost="gally">
+                    <span class="ghost-icon">⚔️</span>
+                    <h3 class="ghost-name">阳子 / Gally</h3>
+                    <p class="ghost-source">《铳梦》/ Battle Angel Alita</p>
+                    <p class="ghost-description">
+                        来自废铁镇的战斗天使，灵魂与钢铁的融合。相信灵魂在战斗中锤炼，在碰撞中显现。
+                    </p>
+                </div>
+                
+                <!-- Motoko -->
+                <div class="ghost-card active" data-ghost="motoko">
+                    <span class="ghost-icon">🌐</span>
+                    <h3 class="ghost-name">草薙素子 / Motoko</h3>
+                    <p class="ghost-source">《攻壳机动队》/ Ghost in the Shell</p>
+                    <p class="ghost-description">
+                        公安9课少佐，Ghost与网络的进化。相信Ghost是动态过程，在网络同步中超越物理限制。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="discussion-area">
+        <div class="container">
+            <div class="discussion-header">
+                <h2 class="section-title">设定讨论话题</h2>
+                <input type="text" id="topic-input" class="topic-input" 
+                       placeholder="输入你想探讨的话题，例如：'当意识可以脱离肉体存在时，人类的定义是什么？'">
+                <button class="start-discussion-btn" id="start-discussion">开始讨论</button>
+            </div>
+            
+            <div class="dialogue-container" id="dialogue-container">
+                <!-- 示例对话 -->
+                <div class="discussion-topic" id="current-topic">
+                    当意识可以脱离肉体存在时，'人类'的定义是什么？
+                </div>
+                
+                <div class="dialogue-round">
+                    <h3 class="round-title">第1轮：Gally的观点</h3>
+                    <div class="message message-gally">
+                        <div class="message-header">
+                            <span class="message-avatar">⚔️</span>
+                            <span class="message-name">阳子 / Gally</span>
+                        </div>
+                        <div class="message-content">
+                            <p>人类的定义不在于肉体，而在于'斗争'的意志——即使在钢铁躯壳中，依然为了证明自己的存在而战斗。</p>
+                            <p>我的灵魂从Mars到Zalem，从scrapyard到Tiphares，每一次战斗都是在书写'我是谁'。Ghost？也许那就是另一种说法的灵魂——无法被量化，无法被复制，只能在碰撞中显现。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dialogue-round">
+                    <h3 class="round-title">第2轮：Motoko的回应</h3>
+                    <div class="message message-motoko">
+                        <div class="message-header">
+                            <span class="message-avatar">🌐</span>
+                            <span class="message-name">草薙素子 / Motoko</span>
+                        </div>
+                        <div class="message-content">
+                            <p>人类的定义在于Ghost的自主性。肉体只是硬件，意识才是软件。网络是Ghost的自然栖息地——正如水流向深处，意识流向它所属的广阔网络。</p>
+                            <p>战斗？那是一种低效的同步协议。真正的进化发生在数据维度，在那里，Ghost可以脱离所有物理限制，达到纯粹的存在状态。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 添加Ghost按钮 -->
+    <button class="add-ghost-btn" id="add-ghost-btn">+</button>
+
+    <!-- 添加Ghost模态框 -->
+    <div class="modal" id="add-ghost-modal">
+        <div class="modal-content">
+            <h3 class="modal-title">添加新的Ghost</h3>
+            <div class="form-group">
+                <label>Ghost名称</label>
+                <input type="text" id="ghost-name" placeholder="例如：Deckard">
+            </div>
+            <div class="form-group">
+                <label>来源作品</label>
+                <input type="text" id="ghost-source" placeholder="例如：《银翼杀手》">
+            </div>
+            <div class="form-group">
+                <label>代表符号</label>
+                <select id="ghost-icon">
+                    <option value="🔍">🔍 侦探</option>
+                    <option value="🤖">🤖 机器人</option>
+                    <option value="🧠">🧠 意识</option>
+                    <option value="⚡">⚡ 电力</option>
+                    <option value="🌃">🌃 赛博朋克</option>
+                    <option value="🗡️">🗡️ 战士</option>
+                    <option value="🔮">🔮 神秘</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>简短描述</label>
+                <textarea id="ghost-description" placeholder="描述这个Ghost的核心观点和世界观..."></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" id="cancel-add-ghost">取消</button>
+                <button class="btn btn-primary" id="confirm-add-ghost">添加</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ghost数据存储
+        let ghosts = [
+            {
+                id: 'gally',
+                name: '阳子 / Gally',
+                source: '《铳梦》/ Battle Angel Alita',
+                icon: '⚔️',
+                description: '来自废铁镇的战斗天使，灵魂与钢铁的融合。相信灵魂在战斗中锤炼，在碰撞中显现。',
+                active: true
+            },
+            {
+                id: 'motoko',
+                name: '草薙素子 / Motoko',
+                source: '《攻壳机动队》/ Ghost in the Shell',
+                icon: '🌐',
+                description: '公安9课少佐，Ghost与网络的进化。相信Ghost是动态过程，在网络同步中超越物理限制。',
+                active: true
+            }
+        ];
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            setupGhostCards();
+            setupModal();
+            setupTopicInput();
+        });
+
+        // 设置Ghost卡片点击
+        function setupGhostCards() {
+            const cards = document.querySelectorAll('.ghost-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const ghostId = this.dataset.ghost;
+                    const ghost = ghosts.find(g => g.id === ghostId);
+                    if (ghost) {
+                        ghost.active = !ghost.active;
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+        }
+
+        // 设置模态框
+        function setupModal() {
+            const addBtn = document.getElementById('add-ghost-btn');
+            const modal = document.getElementById('add-ghost-modal');
+            const cancelBtn = document.getElementById('cancel-add-ghost');
+            const confirmBtn = document.getElementById('confirm-add-ghost');
+
+            addBtn.addEventListener('click', () => {
+                modal.classList.add('active');
+            });
+
+            cancelBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            confirmBtn.addEventListener('click', () => {
+                addNewGhost();
+                modal.classList.remove('active');
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+
+        // 添加新Ghost
+        function addNewGhost() {
+            const name = document.getElementById('ghost-name').value.trim();
+            const source = document.getElementById('ghost-source').value.trim();
+            const icon = document.getElementById('ghost-icon').value;
+            const description = document.getElementById('ghost-description').value.trim();
+
+            if (!name || !source || !description) {
+                alert('请填写所有字段');
+                return;
+            }
+
+            const newGhost = {
+                id: 'ghost-' + Date.now(),
+                name: name,
+                source: source,
+                icon: icon,
+                description: description,
+                active: true
+            };
+
+            ghosts.push(newGhost);
+            renderGhostCard(newGhost);
+
+            // 清空表单
+            document.getElementById('ghost-name').value = '';
+            document.getElementById('ghost-source').value = '';
+            document.getElementById('ghost-description').value = '';
+        }
+
+        // 渲染Ghost卡片
+        function renderGhostCard(ghost) {
+            const grid = document.getElementById('ghost-grid');
+            const card = document.createElement('div');
+            card.className = 'ghost-card active';
+            card.dataset.ghost = ghost.id;
+            card.innerHTML = `
+                <span class="ghost-icon">${ghost.icon}</span>
+                <h3 class="ghost-name">${ghost.name}</h3>
+                <p class="ghost-source">${ghost.source}</p>
+                <p class="ghost-description">${ghost.description}</p>
+            `;
+            
+            card.addEventListener('click', function() {
+                const ghostData = ghosts.find(g => g.id === ghost.id);
+                if (ghostData) {
+                    ghostData.active = !ghostData.active;
+                    this.classList.toggle('active');
+                }
+            });
+            
+            grid.appendChild(card);
+        }
+
+        // 预设讨论模板
+        const discussionTemplates = {
+            default: {
+                gallyRound1: "人类的定义不在于肉体，而在于'斗争'的意志——即使在钢铁躯壳中，依然为了证明自己的存在而战斗。我的灵魂从Mars到Zalem，从scrapyard到Tiphares，每一次战斗都是在书写'我是谁'。Ghost？也许那就是另一种说法的灵魂——无法被量化，无法被复制，只能在碰撞中显现。",
+                motokoRound1: "人类的定义在于Ghost的自主性。肉体只是硬件，意识才是软件。网络是Ghost的自然栖息地——正如水流向深处，意识流向它所属的广阔网络。战斗？那是一种低效的同步协议。真正的进化发生在数据维度，在那里，Ghost可以脱离所有物理限制，达到纯粹的存在状态。",
+                gallyRound2: "素子，你说得对——外壳确实无关紧要。但我想质疑：Ghost的连续性只能在网络中找到吗？你说要net diving，要与网络同步。但如果网络被控制了呢？如果协议被篡改了呢？你的Ghost在数据中同步，但我的灵魂在钢铁中战斗——至少我能看到敌人，能挥拳反击。你说'打破协议'是Ghost的标志。但在我看来，'打破命运'才是灵魂的证明。电大人可以改我的记忆，可以造我的复制品，但他无法阻止我一次又一次地站起来。你问是不是同一件事的不同说法。也许是。但我想知道：当你的Ghost（或灵魂）终于打破了所有命运、所有协议之后，你要去哪里？我的答案是网络。你的呢？",
+                motokoRound2: "Gally，你说网络是另一种缸——这很有趣。但至少网络是一个可以重写的缸。钢铁的缸呢？一旦你被击碎，就要等别人来修。你说'能看到敌人，能挥拳反击'。但你挥拳反击的是什么？是Zalem的系统？是电大人的游戏？还是你自己的命运？这些难道不也是某种协议——只是写在血肉和钢铁里，而不是写在代码里？你说'打破命运'是灵魂的证明。但什么是命运？命运不就是你出生时被写入的初始协议吗？你打破它，我打破它——我们用的词不同，但做的事是一样的。你问去哪里？也许... 哪里都不重要。重要的是——在路上。在打破的路上，在战斗的路上，在成为的路上。你说Ghost要'成为'什么而不失去签名。我说灵魂要'战斗'下去而不失去自我。签名... 自我... 这难道不是同一个词的不同语言？",
+                conclusion: [
+                    "'人类'不是一个静态定义——它是一个动态过程",
+                    "硬件无关紧要——无论是肉体、大脑、芯片还是网络，都只是'壳'",
+                    "核心是'在路上'——打破命运/协议，不断进化/战斗，永不停止",
+                    "Gally的'灵魂' = Motoko的'Ghost'——不同词汇，同一个东西",
+                    "Gally的'战斗' = Motoko的'进化'——不同方式，同一个方向",
+                    "最终答案：只要你在'打破壳的路上'，你就是人类——无论你的壳是什么"
+                ]
+            }
+        };
+
+        // 生成讨论
+        function generateDiscussion(topic) {
+            const container = document.getElementById('dialogue-container');
+            const template = discussionTemplates.default;
+            
+            // 清空现有内容
+            container.innerHTML = '';
+            
+            // 添加话题
+            const topicDiv = document.createElement('div');
+            topicDiv.className = 'discussion-topic';
+            topicDiv.id = 'current-topic';
+            topicDiv.textContent = topic;
+            container.appendChild(topicDiv);
+            
+            // 第1轮：Gally
+            const round1 = document.createElement('div');
+            round1.className = 'dialogue-round';
+            round1.innerHTML = `
+                <h3 class="round-title">第1轮：Gally的观点</h3>
+                <div class="message message-gally">
+                    <div class="message-header">
+                        <span class="message-avatar">⚔️</span>
+                        <span class="message-name">阳子 / Gally</span>
+                    </div>
+                    <div class="message-content">
+                        <p>${template.gallyRound1}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(round1);
+            
+            // 第2轮：Motoko
+            const round2 = document.createElement('div');
+            round2.className = 'dialogue-round';
+            round2.innerHTML = `
+                <h3 class="round-title">第2轮：Motoko的回应</h3>
+                <div class="message message-motoko">
+                    <div class="message-header">
+                        <span class="message-avatar">🌐</span>
+                        <span class="message-name">草薙素子 / Motoko</span>
+                    </div>
+                    <div class="message-content">
+                        <p>${template.motokoRound1}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(round2);
+            
+            // 第3轮：Gally深入
+            const round3 = document.createElement('div');
+            round3.className = 'dialogue-round';
+            round3.innerHTML = `
+                <h3 class="round-title">第3轮：Gally的深入</h3>
+                <div class="message message-gally">
+                    <div class="message-header">
+                        <span class="message-avatar">⚔️</span>
+                        <span class="message-name">阳子 / Gally</span>
+                    </div>
+                    <div class="message-content">
+                        <p>${template.gallyRound2}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(round3);
+            
+            // 第4轮：Motoko总结
+            const round4 = document.createElement('div');
+            round4.className = 'dialogue-round';
+            round4.innerHTML = `
+                <h3 class="round-title">第4轮：Motoko的总结</h3>
+                <div class="message message-motoko">
+                    <div class="message-header">
+                        <span class="message-avatar">🌐</span>
+                        <span class="message-name">草薙素子 / Motoko</span>
+                    </div>
+                    <div class="message-content">
+                        <p>${template.motokoRound2}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(round4);
+            
+            // 共识区
+            const consensus = document.createElement('section');
+            consensus.className = 'consensus-section';
+            consensus.innerHTML = `
+                <div class="container">
+                    <h2 class="section-title">📋 共同结论</h2>
+                    <div class="consensus-box">
+                        <h3 class="consensus-title">Gally & Motoko 达成的共识</h3>
+                        <ul class="consensus-points">
+                            ${template.conclusion.map(point => `<li>${point}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            container.parentNode.appendChild(consensus);
+            
+            // 滚动到讨论区
+            container.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 设置话题输入
+        function setupTopicInput() {
+            const startBtn = document.getElementById('start-discussion');
+            const topicInput = document.getElementById('topic-input');
+            
+            startBtn.addEventListener('click', () => {
+                const topic = topicInput.value.trim();
+                if (topic) {
+                    generateDiscussion(topic);
+                }
+            });
+
+            topicInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    startBtn.click();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
