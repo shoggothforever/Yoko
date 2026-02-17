@@ -1,1 +1,12 @@
 [2026-02-17 09:00:01] Cron任务触发
+Gateway agent failed; falling back to embedded: Error: gateway timeout after 630000ms
+Gateway target: ws://127.0.0.1:18789
+Source: local loopback
+Config: /root/.openclaw/openclaw.json
+Bind: auto
+[plugins] [@omni-shield/ai-assistant-security-openclaw] Registration failed: apiKey or appId is empty, please check the configuration.
+[diagnostic] lane task error: lane=main durationMs=13901 error="Error: session file locked (timeout 10000ms): pid=93789 /root/.openclaw/agents/main/sessions/ecc2d1e8-3e2d-44e8-8a94-836d834dfcb1.jsonl.lock"
+[diagnostic] lane task error: lane=session:agent:main:main durationMs=13905 error="Error: session file locked (timeout 10000ms): pid=93789 /root/.openclaw/agents/main/sessions/ecc2d1e8-3e2d-44e8-8a94-836d834dfcb1.jsonl.lock"
+FailoverError: session file locked (timeout 10000ms): pid=93789 /root/.openclaw/agents/main/sessions/ecc2d1e8-3e2d-44e8-8a94-836d834dfcb1.jsonl.lock
+[2026-02-17 09:00:01] Cron任务完成，退出码: 1
+

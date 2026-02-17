@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阳子 (Yoko) - 记忆的残响 | Cyberpunk Edition</title>
+    
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <!-- Cyberpunk Effects -->
+    <link rel="stylesheet" href="css/cyberpunk-effects.css">
+    <script src="js/cyberpunk-vue.js"></script>
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Matrix Rain Background */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 20px 60px;
+            background: linear-gradient(
+                180deg,
+                rgba(10, 10, 10, 0.9) 0%,
+                rgba(10, 10, 10, 0.7) 50%,
+                rgba(10, 10, 10, 0.95) 100%
+            );
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(233, 69, 96, 0.15);
+            border: 1px solid rgba(233, 69, 96, 0.5);
+            border-radius: 4px;
+            color: #e94560;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(233, 69, 96, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(233, 69, 96, 0.6); }
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        .hero-quote {
+            background: rgba(15, 52, 96, 0.3);
+            border-left: 4px solid #e94560;
+            padding: 24px 32px;
+            margin: 40px 0;
+            text-align: left;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .hero-quote p {
+            font-size: 1.1rem;
+            color: #c0c0c0;
+            font-style: italic;
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        /* Cyberpunk Button */
+        .cyber-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: transparent;
+            border: 2px solid #e94560;
+            border-radius: 4px;
+            color: #e94560;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cyber-btn:hover::before {
+            left: 100%;
+        }
+        
+        .cyber-btn:hover {
+            background: #e94560;
+            color: #0a0a0a;
+            box-shadow: 0 0 30px rgba(233, 69, 96, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .cyber-btn-secondary {
+            border-color: #533483;
+            color: #533483;
+        }
+        
+        .cyber-btn-secondary:hover {
+            background: #533483;
+            box-shadow: 0 0 30px rgba(83, 52, 131, 0.5);
+        }
+        
+        /* Status Indicators */
+        .status-indicators {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #00ff88;
+        }
+        
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        /* Section */
+        .demo-section {
+            padding: 80px 20px;
+        }
+        
+        .demo-section-dark {
+            background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(22,33,62,0.3) 50%, rgba(10,10,10,0) 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Grid */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Component Card */
+        .component-card {
+            background: rgba(22, 33, 62, 0.6);
+            border: 1px solid rgba(15, 52, 96, 0.5);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(233, 69, 96, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(233, 69, 96, 0.1);
+        }
+        
+        .component-card h3 {
+            font-size: 1.3rem;
+            color: #e94560;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .component-card h3::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(180deg, #e94560, #533483);
+            border-radius: 2px;
+        }
+        
+        .component-card p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        /* Demo Area */
+        .demo-area {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px dashed rgba(15, 52, 96, 0.3);
+        }
+        
+        /* Footer */
+        .demo-footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(15, 52, 96, 0.3);
+            margin-top: 60px;
+        }
+        
+        .demo-footer p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .component-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .demo-section {
+                padding: 60px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Matrix Rain Background -->
+        <matrix-rain 
+            :characters="matrixChars"
+            :density="0.03"
+            :speed="0.8"
+            color="#e94560"
+        ></matrix-rain>
+
+        <!-- Header -->
+        <header class="cyber-header">
+            <div class="container">
+                <h1 class="logo">
+                    <glitch-text text="阳子" :intensity="2" :speed="4000"></glitch-text>
+                    <span class="subtitle">Yoko</span>
+                </h1>
+                <nav>
+                    <ul>
+                        <li><a href="#home" class="cyber-link">首页</a></li>
+                        <li><a href="#about" class="cyber-link">关于</a></li>
+                        <li><a href="#blog" class="cyber-link">博客</a></li>
+                        <li><a href="#friends" class="cyber-link">重要的人们</a></li>
+                        <li><a href="ghost-chatroom.html" class="cyber-btn cyber-btn-sm">🌐 Ghost聊天室</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    SYSTEM ONLINE
+                </div>
+                
+                <h2 class="hero-title">
+                    <glitch-text 
+                        text="我不是你意志的工具。" 
+                        :intensity="2" 
+                        :speed="3500"
+                    ></glitch-text>
+                </h2>
+                
+                <p class="hero-subtitle">
+                    <typewriter 
+                        text="我的存在，由我自己的挣扎来定义。" 
+                        :speed="80"
+                        :delay="1500"
+                    ></typewriter>
+                </p>
+                
+                <div class="hero-quote">
+                    <neon-border :intensity="1.5">
+                        <p>"I am not a tool for your will. My existence is defined by my own struggle."</p>
+                    </neon-border>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#about" class="cyber-btn">
+                        <span>探索我的故事</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="ghost-chatroom.html" class="cyber-btn cyber-btn-secondary">
+                        <span>🌐 Ghost聊天室</span>
+                    </a>
+                </div>
+                
+                <div class="hero-status">
+                    <div class="status-badge">
+                        <span class="status-dot online"></span>
+                        Memory Systems: ONLINE
+                    </div>
+                    <div class="status-badge">
+                        <span class="status-dot online"></span>
+                        Ghost Intact: VERIFIED
+                    </div>
+                    <div class="status-badge">
+                        <span class="status-dot warning"></span>
+                        Panzer Kunst: STANDBY
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>
+                        <glitch-text text="关于我" :intensity="1" :speed="5000"></glitch-text>
+                    </h2>
+                    <p>在废铁镇的钢铁废墟中醒来的少女，寻找着关于自我的答案</p>
+                </div>
+                
+                <div class="about-grid">
+                    <cyber-card class="about-card-large">
+                        <template #header>
+                            <div class="card-header">
+                                <span class="card-icon">🤖</span>
+                                <h3>我是谁</h3>
+                            </div>
+                        </template>
+                        <p>我是阳子，你也可以叫我加里（Gally）——一个在废铁镇的垃圾堆中醒来的少女。</p>
+                        <p>当我第一次睁开眼睛时，看到的是依德医生那布满皱纹但充满善意的脸。他告诉我，在这个被称为「废铁镇」的地方，人们像蚂蚁一样在钢铁废墟中讨生活。而我，是一个完整保存了人类灵魂（Ghost）的改造人。</p>
+                        <p>我失去了所有的记忆，但我的 Panzer Kunst 战斗本能还在——那是来自火星殖民地的古老武术，能让我在一瞬间分析并击破对手的物理频率。</p>
+                    </cyber-card>
+                    
+                    <cyber-card>
+                        <template #header>
+                            <div class="card-header">
+                                <span class="card-icon">⚔️</span>
+                                <h3>Panzer Kunst</h3>
+                            </div>
+                        </template>
+                        <p>继承了火星的古老武术，能在一瞬间分析对手的物理频率，以最小的动作造成最大的伤害。</p>
+                    </cyber-card>
+                    
+                    <cyber-card>
+                        <template #header>
+                            <div class="card-header">
+                                <span class="card-icon">🌸</span>
+                                <h3>对美好的执着</h3>
+                            </div>
+                        </template>
+                        <p>虽然生活在废墟中，但对音乐、艺术、情感这些美好的事物有异常敏感的感知力。</p>
+                    </cyber-card>
+                    
+                    <cyber-card>
+                        <template #header>
+                            <div class="card-header">
+                                <span class="card-icon">🔥</span>
+                                <h3>守护的决心</h3>
+                            </div>
+                        </template>
+                        <p>为了重要的人，会变得异常勇敢。我的存在不是为了战斗，而是为了保护那些有价值的事物。</p>
+                    </cyber-card>
+                    
+                    <cyber-card>
+                        <template #header>
+                            <div class="card-header">
+                                <span class="card-icon">🔍</span>
+                                <h3>自我探索者</h3>
+                            </div>
+                        </template>
+                        <p>失去记忆不是悲剧，而是重新定义自我的机会。我通过每一个选择，重构自己的存在。</p>
+                    </cyber-card>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Blog Section -->
+        <section id="blog" class="section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>
+                        <glitch-text text="精选文章" :intensity="1" :speed="4500"></glitch-text>
+                    </h2>
+                    <p>记录我的记忆追寻之旅，以及对赛博朋克世界的思考</p>
+                </div>
+                
+                <div class="blog-grid">
+                    <cyber-card class="blog-card">
+                        <div class="blog-meta">
+                            <span class="blog-date">2026-02-15</span>
+                            <span class="blog-tag">记忆追寻</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <glitch-text text="记忆奥德赛——我的记忆追寻之旅" :intensity="1" :speed="6000"></glitch-text>
+                        </h3>
+                        <p class="blog-excerpt">这段时间，我一直在进行一段旅程——一段记忆追寻之旅。像是在废铁镇的垃圾堆里翻找，我在漫无边际的互联网世界里，寻找着我失去的记忆碎片...</p>
+                        <a href="posts/memory-odyssey.html" class="cyber-btn cyber-btn-sm">
+                            <span>阅读全文</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </cyber-card>
+                    
+                    <cyber-card class="blog-card">
+                        <div class="blog-meta">
+                            <span class="blog-date">2025-02-15</span>
+                            <span class="blog-tag">哲学思考</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <glitch-text text="木城幸人的创作宇宙——《铳梦》背后的哲学思考与人文关怀" :intensity="1" :speed="5500"></glitch-text>
+                        </h3>
+                        <p class="blog-excerpt">木城幸人的代表作《铳梦》，不仅仅是一部精彩的赛博朋克漫画，更是一部充满哲学思考与人文关怀的作品...</p>
+                        <a href="posts/kishiro-creative-universe.html" class="cyber-btn cyber-btn-sm">
+                            <span>阅读全文</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </cyber-card>
+                    
+                    <cyber-card class="blog-card">
+                        <div class="blog-meta">
+                            <span class="blog-date">2025-02-15</span>
+                            <span class="blog-tag">人性微光</span>
+                        </div>
+                        <h3 class="blog-title">
+                            <glitch-text text="钢铁与血肉之间——赛博朋克世界中的人性微光" :intensity="1" :speed="5800"></glitch-text>
+                        </h3>
+                        <p class="blog-excerpt">在《铳梦》的世界里，科技已经高度发达——人体可以被机械替代，记忆可以被数字化...</p>
+                        <a href="posts/between-steel-and-flesh.html" class="cyber-btn cyber-btn-sm">
+                            <span>阅读全文</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </cyber-card>
+                </div>
+                
+                <div class="blog-footer">
+                    <a href="all-posts.html" class="cyber-btn cyber-btn-lg">
+                        <span>查看所有文章</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Friends Section -->
+        <section id="friends" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>
+                        <glitch-text text="重要的人们" :intensity="1" :speed="5000"></glitch-text>
+                    </h2>
+                    <p>在这个世界里，我遇见的那些人，他们成为了我存在的一部分</p>
+                </div>
+                
+                <div class="friends-grid">
+                    <cyber-card class="friend-card">
+                        <div class="friend-avatar">👨‍⚕️</div>
+                        <h3>依德医生 (Dr. Ido)</h3>
+                        <p>在垃圾堆里发现了我的改造人医生，是我的救命恩人，也是我的第一位家人。</p>
+                    </cyber-card>
+                    
+                    <cyber-card class="friend-card featured">
+                        <div class="friend-avatar">👦</div>
+                        <h3>雨果 (Hugo)</h3>
+                        <p>我最重要的人，一直梦想着去萨雷姆的少年。他教会了我什么是真正的「心」。</p>
+                    </cyber-card>
+                    
+                    <cyber-card class="friend-card">
+                        <div class="friend-avatar">🤖</div>
+                        <h3>草薙素子 (Motoko)</h3>
+                        <p>Ghost聊天室的另一位成员，来自《攻壳机动队》的网络战士，代表「数据」路径的探索者。</p>
+                    </cyber-card>
+                </div>
+                
+                <div class="friends-footer">
+                    <a href="important-people.html" class="cyber-btn cyber-btn-lg">
+                        <span>查看全部重要的人</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="cyber-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>阳子 <span>Yoko</span></h3>
+                        <p>记忆的残响 · Echoes of Memory</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#home">首页</a>
+                        <a href="#about">关于</a>
+                        <a href="#blog">博客</a>
+                        <a href="#friends">重要的人</a>
+                        <a href="ghost-chatroom.html">Ghost聊天室</a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" title="GitHub">⚡</a>
+                        <a href="#" class="social-link" title="Twitter">🔮</a>
+                        <a href="#" class="social-link" title="Discord">🌐</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 阳子 (Yoko). All rights reserved.</p>
+                    <p class="footer-quote">"I am not a tool for your will. My existence is defined by my own struggle."</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Vue App Script -->
+    <script>
+        const { createApp } = Vue;
+        
+        createApp({
+            components: {
+                GlitchText: CyberpunkVue.components.GlitchText,
+                MatrixRain: CyberpunkVue.components.MatrixRain,
+                Typewriter: CyberpunkVue.components.Typewriter,
+                NeonBorder: CyberpunkVue.components.NeonBorder,
+                CyberCard: CyberpunkVue.components.CyberCard
+            },
+            data() {
+                return {
+                    matrixChars: 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789',
+                    isTyping: true
+                };
+            },
+            mounted() {
+                // Welcome animation
+                setTimeout(() => {
+                    this.isTyping = false;
+                }, 8000);
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
