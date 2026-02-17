@@ -171,7 +171,8 @@ nav a:hover {
 }
 
 .section-dark {
-    background-color: #111;
+    /* 使用半透明背景，让body的背景图片透过来 */
+    background-color: rgba(17, 17, 17, 0.85);
 }
 
 .section-title {
