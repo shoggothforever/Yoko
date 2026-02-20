@@ -1,0 +1,263 @@
+/* Ghost聊天室专用样式 */
+
+.ghosts-section {
+    margin-bottom: 60px;
+}
+
+.ghosts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.ghost-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px solid #0f3460;
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.ghost-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.15);
+    border-color: #e94560;
+}
+
+.ghost-card.selected {
+    border-color: #533483;
+    box-shadow: 0 0 15px rgba(83, 52, 131, 0.3);
+}
+
+.ghost-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #533483;
+}
+
+.ghost-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.ghost-name {
+    font-size: 1.3rem;
+    color: #e94560;
+    margin-bottom: 8px;
+}
+
+.ghost-source {
+    font-size: 0.9rem;
+    color: #533483;
+    margin-bottom: 15px;
+}
+
+.ghost-description {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* 话题输入区 */
+.topic-section {
+    margin-bottom: 50px;
+}
+
+.topic-input-wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.topic-input {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    background: #16213e;
+    border: 2px solid #0f3460;
+    border-radius: 8px;
+    color: #e9e4e0;
+    transition: all 0.3s ease;
+}
+
+.topic-input:focus {
+    outline: none;
+    border-color: #e94560;
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.2);
+}
+
+.start-btn {
+    flex: 1;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.2);
+}
+
+.start-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 进度显示区 */
+.progress-section {
+    margin-bottom: 50px;
+    background: #1f2a37;
+    border: 2px solid #0f3460;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.progress-info {
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #0d0d17;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e94560, #533483);
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    font-size: 1.1rem;
+    color: #533483;
+}
+
+/* 讨论区 */
+.discussion-section {
+    margin-bottom: 50px;
+    background: #1f2a37;
+    border: 2px solid #0f3460;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.discussion-topic {
+    background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+    padding: 20px 25px;
+    border-radius: 10px;
+    border: 2px solid #0f3460;
+    color: #e9e4e0;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.discussion-container {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.message-card {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-left: 4px solid #0f3460;
+    transition: all 0.3s ease;
+}
+
+.message-card.summary {
+    background: linear-gradient(135deg, #533483 0%, #e94560 100%);
+    border-left: 4px solid #533483;
+}
+
+.message-card:hover {
+    transform: translateX(5px);
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(15, 52, 96, 0.2);
+}
+
+.message-avatar {
+    font-size: 2rem;
+}
+
+.message-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e94560;
+}
+
+.message-round {
+    font-size: 0.9rem;
+    color: #533483;
+}
+
+.message-content {
+    color: #e9e4e0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.message-content p {
+    margin-bottom: 12px;
+}
+
+/* 共识区 */
+.consensus-section {
+    margin-bottom: 50px;
+    background: #1f2a37;
+    border: 2px solid #0f3460;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.consensus-content {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.consensus-list {
+    list-style: none;
+    padding: 0;
+}
+
+.consensus-item {
+    padding: 15px 20px;
+    background: #1f2a37;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.consensus-number {
+    color: #533483;
+    font-weight: bold;
+    min-width: 30px;
+}
