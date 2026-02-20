@@ -20,3 +20,9 @@ yoko-blog/server.log
 
 # 敏感配置
 private-config/
+
+# Ghost Chatroom Server
+ghost-chatroom-server/node_modules/
+ghost-chatroom-server/venv/
+ghost-chatroom-server/.env
+ghost-chatroom-server/logs/
