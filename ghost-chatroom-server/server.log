@@ -1,0 +1,143 @@
+[32minfo[39m: Server listening on http://0.0.0.0:3001 {"timestamp":"2026-02-20T07:37:46.273Z"}
+{"level":30,"time":1771573066272,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3001"}
+[32minfo[39m: Environment: development {"timestamp":"2026-02-20T07:37:46.275Z"}
+{"level":30,"time":1771573067908,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","req":{"method":"GET","url":"/api/health","hostname":"localhost:3001","remoteAddress":"127.0.0.1","remotePort":38054},"msg":"incoming request"}
+Executed query { text: 'SELECT 1', duration: 35, rows: 1 }
+{"level":30,"time":1771573067950,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","res":{"statusCode":200},"responseTime":41.30883700004779,"msg":"request completed"}
+{"level":30,"time":1771573368036,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","req":{"method":"GET","url":"/api/health","hostname":"localhost:3001","remoteAddress":"127.0.0.1","remotePort":59662},"msg":"incoming request"}
+Executed query { text: 'SELECT 1', duration: 7, rows: 1 }
+{"level":30,"time":1771573368045,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","res":{"statusCode":200},"responseTime":8.4941739999922,"msg":"request completed"}
+{"level":30,"time":1771573382830,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-3","req":{"method":"POST","url":"/api/chat/start","hostname":"localhost:3001","remoteAddress":"127.0.0.1","remotePort":38088},"msg":"incoming request"}
+[34mdebug[39m: Starting new chat session {"ghost_ids":["gally"],"timestamp":"2026-02-20T07:43:02.833Z","topic":"简单测试话题","user_id":"test_user"}
+Executed query {
+  text: 'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 8,
+  rows: 1
+}
+Agents 缓存已更新: 2 个 agents
+调用 agent: galley, 主题: 简单测试话题
+AI Service Error: Error: Command failed: openclaw agent --agent "galley" --message "请就以下主题发表你的看法：简单测试话题" --json
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:519:28)
+    at maybeClose (node:internal/child_process:1101:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:304:5) {
+  code: null,
+  killed: true,
+  signal: 'SIGTERM',
+  cmd: 'openclaw agent --agent "galley" --message "请就以下主题发表你的看法：简单测试话题" --json',
+  stdout: '',
+  stderr: ''
+}
+使用模拟AI回应
+Executed query {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  duration: 17,
+  rows: 1
+}
+生成共识总结...
+AI Consensus Error: Error: Command failed: openclaw agent --message "以下是关于\"undefined\"的讨论：  Owl: 作为来自《铳梦》的Gally，我对\"简单测试话题\"这个话题有独特的视角。在赛博朋克的世界里，人类意识与机械身体的融合正在重新定义什么是\"生命\"和\"灵魂\"。  请总结以上讨论的共识点，列出5-6条核心观点。" --json
+Gateway agent failed; falling back to embedded: Error: Pass --to <E.164>, --session-id, or --agent to choose a session
+Error: Pass --to <E.164>, --session-id, or --agent to choose a session
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:519:28)
+    at maybeClose (node:internal/child_process:1101:16)
+    at Socket.<anonymous> (node:internal/child_process:456:11)
+    at Socket.emit (node:events:519:28)
+    at Pipe.<anonymous> (node:net:346:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'openclaw agent --message "以下是关于\\"undefined\\"的讨论：  Owl: 作为来自《铳梦》的Gally，我对\\"简单测试话题\\"这个话题有独特的视角。在赛博朋克的世界里，人类意识与机械身体的融合正在重新定义什么是\\"生命\\"和\\"灵魂\\"。  请总结以上讨论的共识点，列出5-6条核心观点。" --json',
+  stdout: '',
+  stderr: 'Gateway agent failed; falling back to embedded: Error: Pass --to <E.164>, --session-id, or --agent to choose a session\n' +
+    'Error: Pass --to <E.164>, --session-id, or --agent to choose a session\n'
+}
+使用模拟共识总结
+Executed query {
+  text: 'INSERT INTO chat_consensus (id, session_id, points, generated_by, created_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 3,
+  rows: 1
+}
+Executed query {
+  text: 'UPDATE chat_sessions SET status = $1, updated_at = $2 WHERE id = $3',
+  duration: 2,
+  rows: 1
+}
+[32minfo[39m: Chat session started successfully {"session_id":"653738f8-8180-4d62-bdf0-6c0f2bc9b219","timestamp":"2026-02-20T07:44:07.170Z"}
+{"level":30,"time":1771573501850,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-4","req":{"method":"POST","url":"/api/chat/start","hostname":"localhost:3001","remoteAddress":"127.0.0.1","remotePort":42490},"msg":"incoming request"}
+[34mdebug[39m: Starting new chat session {"ghost_ids":["gally","motoko"],"timestamp":"2026-02-20T07:45:01.852Z","topic":"我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢","user_id":"test_user_123"}
+Executed query {
+  text: 'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 7,
+  rows: 1
+}
+Agents 缓存已更新: 2 个 agents
+调用 agent: galley, 主题: 我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢
+AI Service Error: Error: Command failed: openclaw agent --agent "galley" --message "请就以下主题发表你的看法：我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢" --json
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:519:28)
+    at maybeClose (node:internal/child_process:1101:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:304:5) {
+  code: null,
+  killed: true,
+  signal: 'SIGTERM',
+  cmd: 'openclaw agent --agent "galley" --message "请就以下主题发表你的看法：我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢" --json',
+  stdout: '',
+  stderr: ''
+}
+使用模拟AI回应
+Executed query {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  duration: 8,
+  rows: 1
+}
+调用 agent: motoko, 主题: 我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢
+Executed query {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  duration: 9,
+  rows: 1
+}
+生成共识总结...
+AI Consensus Error: Error: Command failed: openclaw agent --message "以下是关于\"undefined\"的讨论：  Owl: 作为来自《铳梦》的Gally，我对\"我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢\"这个话题有独特的视角。在赛博朋克的世界里，人类意识与机械身体的融合正在重新定义什么是\"生命\"和\"灵魂\"。  motoko: 网络给予我们前所未有的自由，但也带来了新的挑战。关于\"我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢\"，我认为关键在于如何在无限的信息中保持自主性。  请总结以上讨论的共识点，列出5-6条核心观点。" --json
+Gateway agent failed; falling back to embedded: Error: Pass --to <E.164>, --session-id, or --agent to choose a session
+Error: Pass --to <E.164>, --session-id, or --agent to choose a session
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:519:28)
+    at maybeClose (node:internal/child_process:1101:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:304:5) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'openclaw agent --message "以下是关于\\"undefined\\"的讨论：  Owl: 作为来自《铳梦》的Gally，我对\\"我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢\\"这个话题有独特的视角。在赛博朋克的世界里，人类意识与机械身体的融合正在重新定义什么是\\"生命\\"和\\"灵魂\\"。  motoko: 网络给予我们前所未有的自由，但也带来了新的挑战。关于\\"我作孩童时，思维像孩童，言语像孩童，而我作大人时，便把这一切都丢了，我应该怎么理解这句话的含义，假如我的爱好因为上班而丧失，这算不算失去纯真的一种表现呢\\"，我认为关键在于如何在无限的信息中保持自主性。  请总结以上讨论的共识点，列出5-6条核心观点。" --json',
+  stdout: '',
+  stderr: 'Gateway agent failed; falling back to embedded: Error: Pass --to <E.164>, --session-id, or --agent to choose a session\n' +
+    'Error: Pass --to <E.164>, --session-id, or --agent to choose a session\n'
+}
+使用模拟共识总结
+Executed query {
+  text: 'INSERT INTO chat_consensus (id, session_id, points, generated_by, created_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 2,
+  rows: 1
+}
+Executed query {
+  text: 'UPDATE chat_sessions SET status = $1, updated_at = $2 WHERE id = $3',
+  duration: 1,
+  rows: 1
+}
+[32minfo[39m: Chat session started successfully {"session_id":"d89612a7-f53e-411c-b5ab-77e02c27f007","timestamp":"2026-02-20T07:46:37.249Z"}
+{"level":30,"time":1771573597251,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-4","res":{"statusCode":200},"responseTime":95400.05446999997,"msg":"request completed"}
+{"level":30,"time":1771573744587,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-5","req":{"method":"GET","url":"/.env","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":51906},"msg":"incoming request"}
+{"level":30,"time":1771573744588,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-5","msg":"Route GET:/.env not found"}
+{"level":30,"time":1771573744588,"pid":3598,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-5","res":{"statusCode":404},"responseTime":0.855320000089705,"msg":"request completed"}
