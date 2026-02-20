@@ -6,6 +6,7 @@
     <title>Ghost聊天室 - 赛子 (Yoko)</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="ghost-chatroom.css">
+    <script src="ghost.js"></script>
 </head>
 <body>
     <header>
@@ -28,28 +29,40 @@
     </header>
 
     <main class="container">
-        <!-- 英雄区 -->
+        <!-- Ghost卡片展示区 -->
         <section class="ghosts-section">
-            <h2 class="section-title">🌐 参与讨论的Ghost</h2>
-            <div class="ghosts-grid">
-                <div class="ghost-card" data-ghost="gally">
-                    <div class="ghost-icon">🦊</div>
-                    <h3 class="ghost-name">Gally</h3>
-                    <p class="ghost-source">《铳梦》/ Battle Angel Alita</p>
-                    <p class="ghost-description">来自废铁镇的战斗天使，灵魂与钢铁的融合。相信灵魂在战斗中锤炼，在碰撞中显现。</p>
-                </div>
-                <div class="ghost-card" data-ghost="motoko">
-                    <div class="ghost-icon">🌐</div>
-                    <h3 class="ghost-name">Motoko</h3>
-                    <p class="ghost-source">《攻壳机动队》/ Ghost in the Shell</p>
-                    <p class="ghost-description">公安9课少佐，Ghost与网络的进化。相信Ghost是动态过程，在网络同步中超越物理限制。</p>
-                </div>
-                <div class="ghost-card" data-ghost="batou">
-                    <div class="ghost-icon">🤖</div>
-                    <h3 class="ghost-name">Batou</h3>
-                    <p class="ghost-source">《攻壳机动队》/ Major Batou</p>
-                    <p class="ghost-description">攻壳机动队的创建者和统御，以绝对的理性面对这个充满偏见的赛博世界。相信通过数据和逻辑，可以解析一切。</p>
-                </div>
+            <h2 class="section-title">🌐 选择Ghost进行讨论</h2>
+            <p class="section-desc">点击卡片选择参与讨论的Ghost（可多选）</p>
+
+            <!-- 加载中状态 -->
+            <div class="loading-state" id="loading-state" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>正在从数据库加载Ghost...</p>
+            </div>
+
+            <!-- Ghost卡片容器 - 支持滑动 -->
+            <div class="ghosts-container" id="ghosts-container">
+                <!-- 卡片将通过JS动态加载 -->
+            </div>
+
+            <!-- 左右滑动按钮按钮 -->
+            <div class="swipe-controls">
+                <button class="swipe-btn" id="swipe-left" disabled>
+                    <span>⬅</span>
+                    <span>查看更多</span>
+                </button>
+                <button class="swipe-btn" id="swipe-right" disabled>
+                    <span>查看更多</span>
+                    <span>➡</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 当前选择区 -->
+        <section class="selection-section" id="selection-section" style="display: none;">
+            <h2 class="section-title">✓ 已选择Ghost</h2>
+            <div class="selected-ghosts" id="selected-ghosts">
+                <!-- 已选择的Ghost将显示在这里 -->
             </div>
         </section>
 
@@ -60,7 +73,9 @@
                 <input type="text" id="topic-input" class="topic-input"
                        placeholder="输入你想探讨的话题，例如：当意识可以脱离肉体存在时，人类的定义是什么？"
                        maxlength="200">
-                <button class="start-btn" id="start-discussion">🚀 开始讨论</button>
+                <button class="start-btn" id="start-discussion" disabled>
+                    🚀 开始讨论
+                </button>
             </div>
         </section>
 
@@ -95,265 +110,366 @@
     </main>
 
     <script>
-        // 配置
-        const API_BASE = 'http://localhost:3001/api';
-        let selectedGhosts = [];
-        let currentSession = null;
+    console.log('ghost-chatroom.html 内联脚本开始执行');
+    console.log('loadGhostsWithRetry 函数是否存在:', typeof loadGhostsWithRetry);
 
-        // 初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            initGhostSelection();
+    // 应用状态
+    let allGhosts = [];
+    let selectedGhosts = [];
+    let currentPage = 0;
+    const GHOSTS_PER_PAGE = 6;
+    let isLoading = false;
+
+    // 初始化
+    document.addEventListener('DOMContentLoaded', () => {
+        initApp();
+    });
+
+    async function initApp() {
+        console.log('开始初始化应用...');
+        console.log('loadGhostsWithRetry 函数类型:', typeof loadGhostsWithRetry);
+
+        if (typeof loadGhostsWithRetry !== 'function') {
+            console.error('loadGhostsWithRetry 函数不存在！');
+            showErrorMessage('初始化失败：API 函数未加载');
+            return;
+        }
+
+        try {
+            await loadGhostsWithRetry(
+                // onLoading
+                (loading) => {
+                    showLoading(loading);
+                    if (loading) {
+                        hideSection('ghosts-section');
+                    } else {
+                        showSection('ghosts-section');
+                    }
+                },
+                // onSuccess
+                (ghosts) => {
+                    allGhosts = ghosts;
+                    renderGhosts();
+
+                    if (allGhosts.length === 0) {
+                        showErrorMessage('无法加载Ghost数据，请检查服务器是否运行');
+                    }
+                },
+                // onError
+                (error) => {
+                    showErrorMessage('加载失败：' + error.message);
+                }
+            );
+
             initEventListeners();
-            console.log('Ghost聊天室初始化完成');
+            console.log('应用初始化完成');
+        } catch (error) {
+            console.error('初始化失败:', error);
+            showErrorMessage('初始化失败，请刷新页面重试');
+        }
+    }
+
+    function renderGhosts() {
+        const container = document.getElementById('ghosts-container');
+        container.innerHTML = '';
+
+        const startIndex = currentPage * GHOSTS_PER_PAGE;
+        const endIndex = Math.min(startIndex + GHOSTS_PER_PAGE, allGhosts.length);
+        const ghostsToShow = allGhosts.slice(startIndex, endIndex);
+
+        ghostsToShow.forEach(ghost => {
+            const isSelected = selectedGhosts.includes(ghost.id);
+            const card = createGhostCard(ghost, isSelected);
+            container.appendChild(card);
         });
 
-        function initGhostSelection() {
-            document.querySelectorAll('.ghost-card').forEach(card => {
-                const ghostId = card.dataset.ghost;
-                card.addEventListener('click', () => toggleGhostSelection(ghostId));
-            });
-        }
+        // 更新滑动按钮状态
+        updateSwipeControls();
+    }
 
-        function toggleGhostSelection(ghostId) {
-            const card = document.querySelector(`.ghost-card[data-ghost="${ghostId}"]`);
+    function createGhostCard(ghost, isSelected = false) {
+        const card = document.createElement('div');
+        card.className = `ghost-card ${isSelected ? 'selected' : ''}`;
+        card.dataset.ghostId = ghost.id;
 
-            if (selectedGhosts.includes(ghostId)) {
-                selectedGhosts = selectedGhosts.filter(id => id !== ghostId);
-                card.classList.remove('selected');
-            } else {
-                selectedGhosts.push(ghostId);
-                card.classList.add('selected');
+        card.innerHTML = `
+            <div class="ghost-icon">${ghost.icon || '👤'}</div>
+            <div class="ghost-info">
+                <h3 class="ghost-name">${ghost.display_name}</h3>
+                <p class="ghost-source">${ghost.source || '未知来源'}</p>
+                <p class="ghost-description">${ghost.description || ''}</p>
+            </div>
+        `;
+
+        card.addEventListener('click', () => {
+            if (!isLoading) {
+                toggleGhostSelection(ghost.id);
             }
+        });
 
-            console.log('已选择Ghost:', selectedGhosts);
-            updateStartButton();
+        return card;
+    }
+
+    function toggleGhostSelection(ghostId) {
+        if (selectedGhosts.includes(ghostId)) {
+            selectedGhosts = selectedGhosts.filter(id => id !== ghostId);
+        } else {
+            selectedGhosts.push(ghostId);
         }
 
-        function initEventListeners() {
-            const topicInput = document.getElementById('topic-input');
-            const startBtn = document.getElementById('start-discussion');
+        console.log('当前选择:', selectedGhosts);
+        renderGhosts();
+        updateSelectedGhostsDisplay();
+        updateStartButton();
+    }
 
-            startBtn.addEventListener('click', startDiscussion);
+    function updateSwipeControls() {
+        const leftBtn = document.getElementById('swipe-left');
+        const rightBtn = document.getElementById('swipe-right');
 
-            topicInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    startDiscussion();
+        leftBtn.disabled = currentPage === 0;
+        rightBtn.disabled = (currentPage + 1) * GHOSTS_PER_PAGE >= allGhosts.length;
+    }
+
+    function swipeLeft() {
+        if (currentPage > 0) {
+            currentPage--;
+            renderGhosts();
+        }
+    }
+
+    function swipeRight() {
+        const maxPage = Math.ceil(allGhosts.length / GHOSTS_PER_PAGE) - 1;
+        if (currentPage < maxPage) {
+            currentPage++;
+            renderGhosts();
+        }
+    }
+
+    function updateSelectedGhostsDisplay() {
+        const section = document.getElementById('selection-section');
+        const container = document.getElementById('selected-ghosts');
+
+        if (selectedGhosts.length === 0) {
+            hideSection('selection-section');
+            return;
+        }
+
+        showSection('selection-section');
+        container.innerHTML = '';
+
+        selectedGhosts.forEach(ghostId => {
+            const ghost = allGhosts.find(g => g.id === ghostId);
+            if (ghost) {
+                const item = document.createElement('div');
+                item.className = 'selected-ghost-item';
+                item.innerHTML = `
+                    <span class="ghost-icon">${ghost.icon || '👤'}</span>
+                    <span class="ghost-name">${ghost.display_name}</span>
+                `;
+                container.appendChild(item);
+            }
+        });
+    }
+
+    function initEventListeners() {
+        // 滑动按钮
+        document.getElementById('swipe-left').addEventListener('click', () => {
+            if (!isLoading) {
+                swipeLeft();
+            }
+        });
+        document.getElementById('swipe-right').addEventListener('click', () => {
+            if (!isLoading) {
+                swipeRight();
+            }
+        });
+
+        // 话题输入
+        const topicInput = document.getElementById('topic-input');
+        const startBtn = document.getElementById('start-discussion');
+
+        topicInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                startDiscussion();
+            }
+        });
+
+        startBtn.addEventListener('click', startDiscussion);
+    }
+
+    async function startDiscussion() {
+        const topicInput = document.getElementById('topic-input');
+        const topic = topicInput.value.trim();
+
+        if (!topic) {
+            alert('❌请输入讨论话题！');
+            return;
+        }
+
+        if (selectedGhosts.length === 0) {
+            alert('❌请至少选择一个Ghost参与讨论！');
+            return;
+        }
+
+        // 禁用UI
+        disableUI(true);
+
+        // 显示进度区
+        showSection('progress-section');
+        hideSection('ghosts-section');
+        hideSection('selection-section');
+        hideSection('topic-section');
+
+        try {
+            updateProgress(0, '正在创建讨论会话...');
+            isLoading = true;
+
+            // 调用 ghost.js 中的 API 函数
+            const session = await startDiscussionApi(topic, selectedGhosts, 'web_user', 6);
+
+            // 显示讨论区
+            showSection('discussion-section');
+            updateProgress(10, 'Ghost们开始发表观点...');
+
+            // 开始监听讨论进度
+            await monitorDiscussionProgressApi(
+                session.session_id,
+                // onNewMessage
+                (message) => {
+                    addMessageToDisplay(message);
+
+                    // 滚动到底部
+                    const logArea = document.getElementById('discussion-container');
+                    logArea.scrollTop = logArea.scrollHeight;
+                },
+                // onComplete
+                (data) => {
+                    showResult(data);
+                },
+                // onProgress
+                (percent, text) => {
+                    updateProgress(percent, text);
                 }
-            });
-        }
+            );
 
-        function updateStartButton() {
-            const startBtn = document.getElementById('start-discussion');
-            if (selectedGhosts.length > 0) {
-                startBtn.disabled = false;
-                startBtn.textContent = `🚀 开始讨论 (${selectedGhosts.length}个Ghost)`;
-            } else {
-                startBtn.disabled = true;
-                startBtn.textContent = '🚀 请先选择Ghost';
-            }
-        }
+        } catch (error) {
+            console.error('讨论启动失败:', error);
+            alert('❌讨论启动失败：' + error.message);
+            isLoading = false;
 
-        async function startDiscussion() {
-            const topicInput = document.getElementById('topic-input');
-            const topic = topicInput.value.trim();
-
-            if (!topic) {
-                alert('❌ 请输入讨论话题！');
-                return;
-            }
-
-            if (selectedGhosts.length === 0) {
-                alert('❌ 请至少选择一个Ghost参与讨论！');
-                return;
-            }
-
-            // 禁用UI
-            disableUI(true);
-
-            // 显示进度区
-            showSection('progress-section');
-            hideSection('ghosts-section');
-            hideSection('topic-section');
-
-            try {
-                updateProgress(0, '正在创建讨论会话...');
-
-                // 调用后端API
-                const response = await fetch(`${API_BASE}/chat/start`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                body: JSON.stringify({
-                        topic: topic,
-                        ghost_ids: selectedGhosts,
-                        user_id: 'web_user',
-                        max_rounds: 6,
-                        main_ghost: selectedGhosts[0]
-                    })
-                });
-
-                const result = await response.json();
-
-                if (!result.success) {
-                    throw new Error(result.message || '讨论启动失败');
-                }
-
-                currentSession = result.data;
-                console.log('讨论会话创建成功:', currentSession);
-
-                // 显示讨论区
-                showSection('discussion-section');
-                updateProgress(10, 'Ghost们开始发表观点...');
-
-                // 开始监听讨论进度
-                await monitorDiscussionProgress(currentSession.session_id);
-
-                // 显示结果
-                showResult(currentSession);
-
-            } catch (error) {
-                console.error('讨论启动失败:', error);
-                alert('❌ 讨论启动失败：' + error.message);
-
-                // 恢复UI
-                disableUI(false);
-                showSection('ghosts-section');
-                showSection('topic-section');
-                hideSection('progress-section');
-            }
-        }
-
-        async function monitorDiscussionProgress(sessionId) {
-            let lastMessageCount = 0;
-            const maxAttempts = 120; // 最多等待2分钟
-            let attempts = 0;
-
-            while (attempts < maxAttempts) {
-                try {
-                    updateProgress(10 + Math.min((lastMessageCount / 6) * 80, 80), `正在讨论...（第${lastMessageCount + 1}轮）`);
-
-                    // 获取会话详情
-                    const response = await fetch(`${API_BASE}/chat/session/${sessionId}`);
-                    const result = await response.json();
-
-                    if (!result.success) {
-                        throw new Error(result.message || '获取会话失败');
-                    }
-
-                    const messages = result.data.messages || [];
-                    const session = result.data.session;
-
-                    // 如果有新消息，显示出来
-                    if (messages.length > lastMessageCount) {
-                        const newMessages = messages.slice(lastMessageCount);
-
-                        for (const message of newMessages) {
-                            addMessageToDisplay(message);
-                        }
-
-                        lastMessageCount = messages.length;
-
-                        // 更新进度
-                        const progress = 10 + Math.min((lastMessageCount / 6) * 80, 80);
-                        updateProgress(progress, `正在讨论...（第${lastMessageCount}轮）`);
-                    }
-
-                    // 检查是否完成
-                    if (session && session.status === 'completed') {
-                        // 显示讨论完成
-                        updateProgress(100, '讨论完成！');
-                        break;
-                    }
-
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                    attempts++;
-
-                } catch (error) {
-                    console.error('获取讨论进度失败:', error);
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    attempts++;
-                }
-            }
-        }
-
-        function addMessageToDisplay(message) {
-            const container = document.getElementById('discussion-container');
-            const topicDiv = document.getElementById('discussion-topic');
-
-            // 第一次添加话题
-            if (container.children.length === 0 && message.round_number === 1) {
-                topicDiv.textContent = `💬 话题：${currentSession ? currentSession.topic : ''}`;
-            }
-
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message-card';
-
-            // 判断是否是总结消息
-            const isSummary = message.ghost_name && message.ghost_name.includes('总结');
-
-            messageDiv.innerHTML = `
-                <div class="message-header ${isSummary ? 'summary' : ''}">
-                    <span class="message-avatar">${message.ghost_icon || '👤'}</span>
-                    <span class="message-name">${message.ghost_name || '系统'}</span>
-                    <span class="message-round">第${message.round_number}轮</span>
-                </div>
-                <div class="message-content">
-                    ${message.content.split('\n').map(p => `<p>${p}</p>`).join('')}
-                </div>
-            `;
-
-            container.appendChild(messageDiv);
-
-            // 滚动到底部部
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function showResult(data) {
+            // 恢复UI
+            disableUI(false);
+            showSection('ghosts-section');
+            showSection('selection-section');
+            showSection('topic-section');
             hideSection('progress-section');
-            hideSection('discussion-section');
-            showSection('consensus-section');
+        }
+    }
 
-            const consensusList = document.getElementById('consensus-list');
-            const consensus = data.consensus || {};
-            const points = Array.isArray(consensus.points)
-                ? consensus.points
-                : (consensus.point || []);
+    function addMessageToDisplay(message) {
+        const container = document.getElementById('discussion-container');
+        const topicDiv = document.getElementById('discussion-topic');
 
-            points.forEach((point, index) => {
-                const li = document.createElement('li');
-                li.className = 'consensus-item';
-                li.innerHTML = `<span class="consensus-number">${index + 1}.</span> ${point}`;
-                consensusList.appendChild(li);
-            });
+        // 第一次添加话题
+        if (container.children.length === 0 && message.round_number === 1) {
+            const session = getCurrentSession();
+            topicDiv.textContent = `💬 话题：${session ? session.topic : ''}`;
         }
 
-        function showSection(sectionId) {
-            document.getElementById(sectionId).style.display = 'block';
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message-card';
+
+        const isSummary = message.ghost_name && message.ghost_name.includes('总结');
+
+        messageDiv.innerHTML = `
+            <div class="message-header ${isSummary ? 'summary' : ''}">
+                <span class="message-avatar">${message.ghost_icon || '👤'}</span>
+                <span class="message-name">${message.ghost_name || '系统'}</span>
+                <span class="message-round">第${message.round_number}轮</span>
+            </div>
+            <div class="message-content">
+                ${message.content.split('\n').map(p => `<p>${p}</p>`).join('')}
+            </div>
+        `;
+
+        container.appendChild(messageDiv);
+    }
+
+    function showResult(data) {
+        isLoading = false;
+
+        hideSection('progress-section');
+        hideSection('discussion-section');
+        showSection('consensus-section');
+
+        const consensusList = document.getElementById('consensus-list');
+        const consensus = data.consensus || {};
+        const points = Array.isArray(consensus.points)
+            ? consensus.points
+            : (consensus.point || []);
+
+        points.forEach((point, index) => {
+            const li = document.createElement('li');
+            li.className = 'consensus-item';
+            li.innerHTML = `<span class="consensus-number">${index + 1}.</span> ${point}`;
+            consensusList.appendChild(li);
+        });
+    }
+
+    function showSection(sectionId) {
+        document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function hideSection(sectionId) {
+        document.getElementById(sectionId).style.display = 'none';
+    }
+
+    function updateProgress(percent, text) {
+        const fill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+
+        fill.style.width = percent + '%';
+        progressText.textContent = text;
+    }
+
+    function showLoading(show) {
+        const loadingState = document.getElementById('loading-state');
+        loadingState.style.display = show ? 'block' : 'none';
+    }
+
+    function showErrorMessage(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = '❌ ' + message;
+        document.querySelector('.container').appendChild(errorDiv);
+
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 5000);
+    }
+
+    function updateStartButton() {
+        const startBtn = document.getElementById('start-discussion');
+        if (selectedGhosts.length > 0) {
+            startBtn.disabled = false;
+            startBtn.textContent = `🚀 开始讨论 (${selectedGhosts.length}个Ghost)`;
+        } else {
+            startBtn.disabled = true;
+            startBtn.textContent = '🚀 请先选择Ghost';
         }
+    }
 
-        function hideSection(sectionId) {
-            document.getElementById(sectionId).style.display = 'none';
+    function disableUI(disabled) {
+        document.querySelectorAll('.ghost-card, .topic-input, .start-btn, .swipe-btn').forEach(el => {
+            el.disabled = disabled;
+        });
+
+        // 保持开始按钮可用，除非被完全禁用
+        if (!disabled) {
+            document.getElementById('start-discussion').disabled = false;
         }
-
-        function updateProgress(percent, text) {
-            const fill = document.getElementById('progress-fill');
-            const progressText = document.getElementById('progress-text');
-
-            fill.style.width = percent + '%';
-            progressText.textContent = text;
-        }
-
-        function disableUI(disabled) {
-            document.querySelectorAll('.ghost-card, .topic-input, .start-btn').forEach(el => {
-                el.disabled = disabled;
-            });
-
-            // 保持开始按钮可用，除非被完全禁用
-            if (!disabled) {
-                document.getElementById('start-discussion').disabled = false;
-            }
-        }
+    }
     </script>
 </body>
 </html>
