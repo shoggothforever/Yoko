@@ -2,7 +2,11 @@
    背景图片设置
    ======================================== */
 body {
-    background-image: url('public/images/加里.jpeg');
+    /* 优先使用 WebP 格式（更小、更快加载） */
+    background-image: url('public/images/加里.webp');
+    /* 如果浏览器不支持 WebP，回退到 JPEG */
+    background-image: -webkit-image-set(url('public/images/加里.webp') 1x, url('public/images/加里.jpeg') 1x);
+    background-image: image-set(url('public/images/加里.webp') 1x, url('public/images/加里.jpeg') 1x);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -19,6 +23,76 @@ body::before {
     height: 100%;
     background: rgba(10, 10, 26, 0.75);
     z-index: -1;
+}
+
+/* ========================================
+   CSS 变量 - 设计系统
+   ======================================== */
+:root {
+    /* 颜色系统 */
+    --color-bg: #0a0a0a;
+    --color-bg-dark: #1a1a2e;
+    --color-bg-darker: #16213e;
+    --color-bg-deepest: #0f3460;
+
+    --color-accent-red: #e94560;
+    --color-accent-purple: #533483;
+    --color-accent-green: #00ff88;
+    --color-accent-warning: #ffc107;
+
+    --color-text: #e0e0e0;
+    --color-text-secondary: #a0a0a0;
+    --color-text-muted: #666666;
+
+    /* 间距系统 */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+
+    /* 字体大小 */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+
+    /* 圆角 */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+
+    /* 过渡 */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+
+    /* 阴影 */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+    /* 阴影 - 霓虹效果 */
+    --shadow-red: 0 0 20px rgba(233, 69, 96, 0.5);
+    --shadow-purple: 0 0 20px rgba(83, 52, 131, 0.5);
+    --shadow-green: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* ========================================
+   性能优化：图片懒加载
+   ======================================== */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
 }
 
 /* ========================================

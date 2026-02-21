@@ -233,3 +233,60 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ========================================
+// 性能优化：图片懒加载
+// ========================================
+(function() {
+    'use strict';
+
+    // 检测浏览器是否原生支持 Intersection Observer
+    if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
+        const lazyImages = document.querySelectorAll('img[data-src], img[loading="lazy"]');
+
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    
+                    // 如果有 data-src，加载图片
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    
+                    // 添加 loaded 类
+                    img.classList.add('loaded');
+                    
+                    // 停止观察
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '0px 0px 200px 0px', // 提前200px开始加载
+            threshold: 0.01
+        });
+
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        // 回退：简单的延迟加载
+        setTimeout(() => {
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            lazyImages.forEach(img => {
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    img.classList.add('loaded');
+                }
+            });
+        }, 3000);
+    }
+
+    // 为所有 <img> 标签自动添加 loading="lazy" 属性（如果不支持 data-src）
+    const allImages = document.querySelectorAll('img:not([loading])');
+    allImages.forEach(img => {
+        img.setAttribute('loading', 'lazy');
+    });
+})();
