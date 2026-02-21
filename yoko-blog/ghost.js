@@ -1,6 +1,6 @@
 // Ghost API 服务
 console.log('ghost.js 开始加载');
-const API_BASE = 'http://118.145.99.224:8080/api';
+const API_BASE = '/api';
 
 let currentSession = null;
 
@@ -26,6 +26,7 @@ async function loadGhostsWithRetry(onLoading, onSuccess, onError) {
             if (result.success) {
                 const ghosts = result.data;
                 console.log('从数据库加载Ghost成功:', ghosts);
+                onLoading(false);  // 成功后关闭加载状态
                 onSuccess(ghosts);
                 return ghosts;
             } else {
