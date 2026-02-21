@@ -38,3 +38,4 @@ yoko-blog-hugo/
 
 # Convert Scripts
 scripts/convert-posts.js
+*.backup.*

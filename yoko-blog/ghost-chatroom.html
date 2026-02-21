@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghost聊天室 - 赛子 (Yoko)</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ghost-chatroom.css">
-    <script src="ghost.js"></script>
+    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="ghost-chatroom.min.css">
+    <script src="ghost.min.js"></script>
 </head>
 <body>
     <header>
@@ -325,7 +325,7 @@
             updateProgress(0, '正在创建讨论会话...');
             isLoading = true;
 
-            // 调用 ghost.js 中的 API 函数
+            // 调用 ghost.min.js 中的 API 函数
             const session = await startDiscussionApi(topic, selectedGhosts, 'web_user', 6);
 
             // 显示讨论区
