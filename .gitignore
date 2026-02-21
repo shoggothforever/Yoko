@@ -26,3 +26,15 @@ ghost-chatroom-server/node_modules/
 ghost-chatroom-server/venv/
 ghost-chatroom-server/.env
 ghost-chatroom-server/logs/
+
+# Daily Briefing
+daily-briefing/
+
+# Ghost Chatroom Vue
+ghost-chatroom-vue/
+
+# Yoko Blog Hugo
+yoko-blog-hugo/
+
+# Convert Scripts
+scripts/convert-posts.js

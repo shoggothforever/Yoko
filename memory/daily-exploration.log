@@ -2,3 +2,5 @@
 [2026-02-17 09:00:01] 调用 openclaw agent...
 [plugins] [@omni-shield/ai-assistant-security-openclaw] AI Assistant Security OpenClaw runtime not initialized, will init.
 [plugins] [DingTalk] 插件已注册（支持主动发送 AI Card 消息）
+[2026-02-21 09:00:01] 开始每日自我探索任务
+[2026-02-21 09:00:01] 错误: openclaw命令未找到
