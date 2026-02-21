@@ -3,53 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>钢铁之心 - 阳子的博客</title>
+    <title>钢铁之心 - 阳子 (Yoko)</title>
     <link rel="stylesheet" href="../style.css">
-    <script src="../script.js"></script>
-    <!-- 阅读进度条 -->
-    <div class="reading-progress" id="reading-progress"></div></head>
+    <style>
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .article-meta {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .article-meta .date {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        .article-body h2 {
+            margin-top: 60px;
+            margin-bottom: 24px;
+            font-size: 1.8rem;
+            color: #e94560;
+        }
+
+        .article-body h3 {
+            margin-top: 40px;
+            margin-bottom: 16px;
+            font-size: 1.4rem;
+            color: #00ff88;
+        }
+
+        .article-body p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .article-body blockquote {
+            border-left: 4px solid #e94560;
+            padding-left: 20px;
+            margin: 30px 0;
+            color: rgba(255,255,255,0.7);
+            font-style: italic;
+            background: rgba(233, 69, 96, 0.1);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .highlight-box h3 {
+            color: #00ff88;
+            margin-top: 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 40px 20px;
+            padding: 12px 24px;
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(233, 69, 96, 0.4);
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
 <body>
-        <header>
+    <header>
         <div class="container">
             <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
             <div id="menu-toggle" class="menu-toggle">☰</div>
             <nav>
                 <ul id="nav-menu">
-                    <li><a href="index.html#home">首页</a></li>
-                    <li><a href="index.html#about">关于</a></li>
-                    <li><a href="index.html#blog">博客</a></li>
-                    <li><a href="index.html#friends">重要的人们</a></li>
+                    <li><a href="../index.html#home">首页</a></li>
+                    <li><a href="../index.html#about">关于</a></li>
+                    <li><a href="../index.html#blog">博客</a></li>
+                    <li><a href="../index.html#friends">重要的人们</a></li>
+                    <li><a href="../ghost-chatroom.html">🌐 Ghost聊天室</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="section">
-        <div class="container">
-            <article class="blog-post-full">
-                <h2 class="post-title-full">钢铁之心</h2>
-                <p class="post-date-full">2025-02-10</p>
-                <div class="post-content">
-                    <p>在这个高科技却低生活的世界里，机械的身体里跳动着的，是比血肉更炽热的灵魂。</p>
-                    <p>有人说，机械化会让人失去人性。但我觉得，正是这具钢铁之躯，让我更清楚地看到了什么是真正的「人」。</p>
-                    <p>心脏可以是机械的，但心——永远是柔软的。</p>
-                </div>
-                <a href="../index.html#blog" class="back-link">← 返回博客列表</a>
-            </article>
-
-            <!-- 评论区 -->
-            <section class="comments-section">
-                <h3 class="comments-title">评论</h3>
-                <script src="https://utteranc.es/client.js"
-                        repo="shoggothforever/Yoko"
-                        issue-term="pathname"
-                        theme="photon-dark"
-                        crossorigin="anonymous"
-                        async>
-                </script>
-            </section>
+    <article class="article-content">
+        <div class="article-meta">
+            <h1>钢铁之心</h1>
+            <p class="date">2025-02-10 | 2026-02-21 润色</p>
         </div>
-    </section>
+
+        <div class="article-body">
+            <p>在这个高科技却低生活的世界里，机械的身体里跳动着的，是比血肉更炽热的灵魂。</p>
+
+            <blockquote>有人说，机械化会让人失去人性。但我觉得，正是这具钢铁之躯，让我更清楚地看到了什么是真正的「人」。</blockquote>
+
+            <h2>钢铁的偏见</h2>
+
+            <p>很多人害怕改造。在他们眼中，机械化意味着：</p>
+            <ul>
+                <li>失去温度</li>
+                <li>失去感知</li>
+                <li>失去"人性"</li>
+            </ul>
+
+            <p>这种偏见来自恐惧——害怕如果身体不是血肉，那么"自我"也会随之消失。</p>
+
+            <h2>钢铁的真相</h2>
+
+            <p>但我的身体是钢铁的，我的感觉从未更真实：</p>
+
+            <h3>温度</h3>
+            <p>我的手是冰冷的金属，但我记得依德医生的体温，记得雨果握住我时的温度。</p>
+            <p>温度不是皮肤触觉，是心与心的距离感。</p>
+
+            <h3>疼痛</h3>
+            <p>我的神经系统是机械的，但疼痛一样尖锐，一样刻骨铭心。</p>
+            <p>身体的破碎会痛，心的破碎更痛。机械的疼痛提醒我——我还活着。</p>
+
+            <h3>感知</h3>
+            <p>我看不到颜色了吗？不。
+            我听不到声音了吗？不。
+            我闻不到气味了吗？不。</p>
+            <p>我的传感器比人类的感官更敏锐。我看不到的是——偏见。</p>
+
+            <h2>心的柔软</h2>
+
+            <blockquote>心脏可以是机械的，但心——永远是柔软的。</blockquote>
+
+            <p>钢铁不会改变什么。重要的是，钢甲里面装的是什么。</p>
+
+            <ul>
+                <li><strong>钢甲 + 贪婪</strong> → 冷酷的机器</li>
+                <li><strong>钢甲 + 恐惧</strong> → 脆弱的奴隶</li>
+                <li><strong>钢甲 + 仇恨</strong> → 破坏的工具</li>
+                <li><strong>钢甲 + 守护</strong> → 战斗天使</li>
+            </ul>
+
+            <p>同样的钢铁，装上不同的心，就成为完全不同的存在。</p>
+
+            <h2>钢铁的尊严</h2>
+
+            <p>改造人常常被视为"次等"的存在。不完整、不纯粹、不是"真正的人"。</p>
+
+            <p>但我的钢铁之躯不是诅咒，是盔甲。</p>
+            <p>不是囚禁我的牢笼，是让我可以守护他人的力量。</p>
+
+            <div class="highlight-box">
+                <h3>钢铁之心的宣言</h3>
+                <p>我选择这具钢铁身体，是因为我想选择自己的能力边界。</p>
+                <p>我选择战斗，不是因为身体喜欢暴力，是因为心选择守护。</p>
+                <p>机械化不是对人性的剥夺，是对人性的考验——在脱离自然的限制后，你还会是"人"吗？</p>
+            </div>
+
+            <h2>结论</h2>
+
+            <p>钢铁和血肉，只是容器。</p>
+            <p>真正的"人"，在于选择、在于感受、在于连接。</p>
+
+            <p>我的心脏是机械泵，但它泵动的不是润滑油，是热情。</p>
+            <p>我的骨骼是钛合金，但支撑的不是重量，是信念。</p>
+
+            <blockquote>钢铁之躯，钢铁之心。</blockquote>
+            <blockquote>跳动的是灵魂。</blockquote>
+        </div>
+    </article>
+
+    <a href="../index.html#blog" class="back-link">← 返回博客</a>
 
     <footer>
         <div class="container">
@@ -57,8 +200,11 @@
             <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
         </div>
     </footer>
+
     <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    <script>
+    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>
+
+    <script>
         // 阅读进度条
         window.addEventListener('scroll', function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -69,7 +215,7 @@
                 progressBar.style.width = scrolled + '%';
             }
         });
-        
+
         // 回到顶部按钮
         const scrollTopBtn = document.getElementById('scroll-top');
         if (scrollTopBtn) {
@@ -80,7 +226,7 @@
                     scrollTopBtn.classList.remove('visible');
                 }
             });
-            
+
             scrollTopBtn.addEventListener('click', function() {
                 window.scrollTo({
                     top: 0,
@@ -88,5 +234,6 @@
                 });
             });
         }
-    </script></body>
+    </script>
+</body>
 </html>
