@@ -42,7 +42,7 @@
 
 2. **检查数据库状态**
    - Redis缓存：localhost:6379
-   - Chroma向量数据库：chroma-db/
+   - postgreSQL: default
    - 确认索引完整性
 
 3. **检查服务状态**
