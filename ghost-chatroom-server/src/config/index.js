@@ -19,7 +19,8 @@ const config = {
 
   // CORS configuration
   cors: {
-    origin: process.env.CORS_ORIGIN === 'false' ? false : process.env.CORS_ORIGIN || true
+    origin: process.env.CORS_ORIGIN === 'false' ? false : process.env.CORS_ORIGIN || true,
+    credentials: process.env.CORS_CREDENTIALS === 'false' ? false: process.env.CORS_ORIGIN || true
   },
 
   // Rate limiting configuration

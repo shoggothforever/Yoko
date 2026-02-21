@@ -8,7 +8,7 @@ const fastify = require('fastify')({
 // Register plugins
 fastify.register(require('@fastify/cors'), {
   origin: config.cors.origin,
-  credentials: true
+  credentials: config.cors.credentials || false
 });
 
 fastify.register(require('@fastify/helmet'));

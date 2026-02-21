@@ -418,11 +418,17 @@
     }
 
     function showSection(sectionId) {
-        document.getElementById(sectionId).style.display = 'block';
+        let section = document.getElementById(sectionId);
+        if (section != null) {
+            style.display = 'block';
+        }
     }
 
     function hideSection(sectionId) {
-        document.getElementById(sectionId).style.display = 'none';
+        let section = document.getElementById(sectionId);
+        if (section != null) {
+            style.display = 'none';
+        }
     }
 
     function updateProgress(percent, text) {
