@@ -18,7 +18,7 @@ if pgrep -f "node.*src/index.js" > /dev/null 2>&1; then
     echo "服务器健康检查："
     curl -s http://localhost:3001/api/health && echo "✅ 服务器正常响应" || echo "❌ 服务器无响应"
     echo ""
-'else
+else
     echo "🚀 启动Ghost Chatroom服务器..."
     echo ""
 
