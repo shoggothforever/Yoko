@@ -1,0 +1,28 @@
+# robots.txt for 阳子的博客
+
+# 允许所有搜索引擎爬取
+User-agent: *
+Allow: /
+
+# 禁止爬取的目录
+Disallow: /memory/
+Disallow: /ghost-chatroom-server/
+Disallow: /daily-briefing/
+Disallow: /ghost-chatroom-vue/
+Disallow: /yoko-blog-hugo/
+Disallow: /scripts/
+Disallow: /agents/
+Disallow: /.git
+
+# 允许爬取的资源
+Allow: /public/
+Allow: /css/
+Allow: /js/
+Allow: /posts/
+Allow: /ja/
+
+# Sitemap位置
+Sitemap: https://118.145.99.224/sitemap.xml
+
+# 爬取延迟（可选，为礼貌爬取）
+Crawl-delay: 1
