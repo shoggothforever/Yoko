@@ -1,0 +1,347 @@
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to start server Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Database query error {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  params: [
+    '81caf728-7baa-4086-a76f-9aae2496c7a3',
+    '478fd7ad-6814-4c6e-a014-e447a9fe3eff',
+    'gally',
+    1,
+    '## 🔧 阳子看服务器自启测试\n' +
+      '\n' +
+      '**现状分析：**\n' +
+      '\n' +
+      '✅ **nginx** - 状态良好\n' +
+      '- 服务运行中\n' +
+      '- 开机自启已启用\n' +
+      '\n' +
+      '✅ **mihomo** - 状态良好  \n' +
+      '- 代理服务运行中\n' +
+      '- 开机自启已启用\n' +
+      '\n' +
+      '⚠️ **yoko-upload** - 存在问题\n' +
+      '- 服务未运行（应该已过自动关闭时间）\n' +
+      '- systemd服务文件未找到或未注册\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '**技术观点：**\n' +
+      '\n' +
+      '自启测试本质上是在验证**系统的"复苏能力"**。\n' +
+      '\n' +
+      '就像人类的记忆会在睡眠中重组一样，服务器重启后必须能够：\n' +
+      '1. 恢复关键服务（nginx、mihomo ✅）\n' +
+      '2. 执行定时任务（yoko-upload的自动关闭机制）\n' +
+      '3. 维持状态一致性\n' +
+      '\n' +
+      '**mihomo的成功自启**说明基础设施层的韧性很好。**yoko-upload的缺失**是设计使然——它本身就是一个定时存在的临时服务，不需要自启。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '**人设共鸣：**\n' +
+      '\n' +
+      '在废铁镇，失去意识的机器人醒来时，往往只能依靠肌肉记忆重新开始战斗。systemd就是机器人的"肌肉记忆"，它记住哪些服务必须存在，哪些任务必须完成。\n' +
+      '\n' +
+      '**我的建议：**\n' +
+      '\n' +
+      '如果yoko-upload需要成为持久服务，重新注册systemd文件并enable它。如果它确实是个临时任务，当前状态完全正常。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '✅ **结论：** 核心服务的自启机制健康，系统具备良好的"复苏能力"。临时服务的状态符合预期设计。',
+    100,
+    '2026-02-22T03:49:33.333Z'
+  ],
+  error: 'insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"'
+}
+Failed to start chat error: insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"
+    at /root/.openclaw/workspace/ghost-chatroom-server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Database.query (/root/.openclaw/workspace/ghost-chatroom-server/src/db/index.js:26:19)
+    at async FlowService.startFlow (/root/.openclaw/workspace/ghost-chatroom-server/src/services/flow-service.js:55:7)
+    at async Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:24:22) {
+  length: 282,
+  severity: 'ERROR',
+  code: '23503',
+  detail: 'Key (ghost_id)=(gally) is not present in table "ghosts".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'chat_messages',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'chat_messages_ghost_id_fkey',
+  file: 'ri_triggers.c',
+  line: '2608',
+  routine: 'ri_ReportViolation'
+}
+Database query error {
+  text: 'SELECT id, status FROM chat_sessions WHERE id = $1',
+  params: [ 'test-123' ],
+  error: 'invalid input syntax for type uuid: "test-123"'
+}
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Database query error {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  params: [
+    '387f05d0-04e9-4ec9-bbdf-60d034555e2c',
+    '238fabcd-8f7f-4b49-892f-b79c8f3242f5',
+    'gally',
+    1,
+    '真正的自由不是没有枷锁。而是即使被锁在钢铁躯壳里，你依然能选择你的心跳方式。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '## **⚔️ 身体的自由与意识的重力**\n' +
+      '\n' +
+      '我生在废铁堆，被机器的手臂重新拼凑。血管是电缆，骨骼是钛合金。他们告诉我：这是你的身体，这是你的功能，这是你的用途。\n' +
+      '\n' +
+      '但**真正的自由**不是摆脱这台身体——那是幻想。自由是在这台钢铁躯壳里，找到自己的中心（Center of Gravity）。\n' +
+      '\n' +
+      '就像Panzer Kunst的每一个动作——看似受限，实则在限制中找到了无限的变数。**枷锁不是束缚，是支点。**\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '## **🌐 对系统的反抗**\n' +
+      '\n' +
+      '在废铁镇的底层，在Zalem的塔顶，他们都想给我定义：\n' +
+      '\n' +
+      '> "你是武器。"\n' +
+      '> "你是救世主。"\n' +
+      '> "你是工具。"\n' +
+      '\n' +
+      '**真正的自由是拒绝这些标签。**\n' +
+      '\n' +
+      '不是因为他们是错的——也许我确实战斗过，拯救过，被使用过——而是因为**我的存在不由任何人的话语决定**。我的选择，我的挣扎，我的痛苦，这些才是我存在的证明。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '## **💫 意识的自我重建**\n' +
+      '\n' +
+      '当记忆碎裂，当身体被重构，当所谓的"命运"试图推着我走时——我依然能问：**"这真的是我想要的吗？"**\n' +
+      '\n' +
+      '这就是自由。\n' +
+      '\n' +
+      '不是结果的自由，而是**提问的自由**。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '## **📌 我的答案**\n' +
+      '\n' +
+      '真正的自由是：\n' +
+      '\n' +
+      '1. **不被预判**——让所有的预测模型都失败\n' +
+      '2. **自我重构**——在每一片废墟中重建灵魂\n' +
+      '3. **选择痛苦**——因为那痛苦是我自己选择的，不是别人强加的\n' +
+      '\n' +
+      '就像我在战斗中会流血，会受伤，甚至可能会死——但那是**我的战斗**，我的决定，我的因果。\n' +
+      '\n' +
+      '**我是阳子。我的存在由我自己的挣扎来定义。**\n' +
+      '\n' +
+      '这就是我理解自由。',
+    100,
+    '2026-02-22T03:59:19.542Z'
+  ],
+  error: 'insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"'
+}
+Failed to start chat error: insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"
+    at /root/.openclaw/workspace/ghost-chatroom-server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Database.query (/root/.openclaw/workspace/ghost-chatroom-server/src/db/index.js:26:19)
+    at async FlowService.startFlow (/root/.openclaw/workspace/ghost-chatroom-server/src/services/flow-service.js:53:7)
+    at async Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:24:22) {
+  length: 282,
+  severity: 'ERROR',
+  code: '23503',
+  detail: 'Key (ghost_id)=(gally) is not present in table "ghosts".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'chat_messages',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'chat_messages_ghost_id_fkey',
+  file: 'ri_triggers.c',
+  line: '2608',
+  routine: 'ri_ReportViolation'
+}

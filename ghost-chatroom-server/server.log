@@ -1,18 +1,141 @@
 Database schema initialized successfully
 Ghosts seeded successfully
-{"level":30,"time":1771642525472,"pid":7424,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}
+{"level":30,"time":1771731438291,"pid":32445,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}
 Server listening on http://0.0.0.0:3000
 Environment: development
 Health check: http://0.0.0.0:3000/api/health
-{"level":30,"time":1771642609680,"pid":7424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","req":{"method":"GET","url":"/api/health","hostname":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":60100},"msg":"incoming request"}
-Executed query { text: 'SELECT 1', duration: 16, rows: 1 }
-{"level":30,"time":1771642609706,"pid":7424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","res":{"statusCode":200},"responseTime":25.90823800023645,"msg":"request completed"}
-{"level":30,"time":1771642609768,"pid":7424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","req":{"method":"GET","url":"/api/ghosts/active","hostname":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":60106},"msg":"incoming request"}
-Getting active ghosts from database
-Executed query {
-  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
-  duration: 4,
-  rows: 2
+{"level":30,"time":1771731505649,"pid":32445,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","req":{"method":"POST","url":"/api/chat/start","hostname":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":44110},"msg":"incoming request"}
+Starting new chat session {
+  topic: 'SSE测试：实时推送效果如何？',
+  ghost_ids: [ 'galley', 'motoko' ],
+  user_id: 'test_user',
+  max_rounds: 3,
+  main_ghost: 'galley'
 }
-Active ghosts retrieved successfully: 2
-{"level":30,"time":1771642609784,"pid":7424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","res":{"statusCode":200},"responseTime":13.803595999255776,"msg":"request completed"}
+Executed query {
+  text: 'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 34,
+  rows: 1
+}
+Agents 缓存已更新: 2 个 agents
+Agents 缓存已更新: 2 个 agents
+调用 agent: galley, 主题: SSE测试：实时推送效果如何？
+Executed query {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  duration: 3,
+  rows: 1
+}
+调用 agent: motoko, 主题: SSE测试：实时推送效果如何？
+Executed query {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  duration: 2,
+  rows: 1
+}
+调用 agent: galley, 主题: SSE测试：实时推送效果如何？
+Executed query {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  duration: 13,
+  rows: 1
+}
+调用 agent: galley, 主题: 作为讨论的主持人，请对以下关于"SSE测试：实时推送效果如何？"的讨论做总结：
+
+
+
+请提供一个全面、深入的总结，包括：
+1. 讨论的主要观点
+2. 不同角色的立场差异
+3. 达成共识的地方
+4. 值得进一步探讨的问题
+Executed query {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'INSERT INTO chat_consensus (id, session_id, points, generated_by, created_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 2,
+  rows: 1
+}
+Executed query {
+  text: 'UPDATE chat_sessions SET status = $1, updated_at = $2 WHERE id = $3',
+  duration: 1,
+  rows: 1
+}
+Chat session started successfully { session_id: '0f693cb0-a17b-4296-ab35-d00fd963283f' }
+{"level":30,"time":1771731594190,"pid":32445,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","res":{"statusCode":200},"responseTime":88534.8788370043,"msg":"request completed"}
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+Database schema initialized successfully
+Ghosts seeded successfully
+{"level":30,"time":1771732104592,"pid":33856,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}
+Server listening on http://0.0.0.0:3000
+Environment: production
+Health check: http://0.0.0.0:3000/api/health
+{"level":30,"time":1771732173327,"pid":33856,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","req":{"method":"POST","url":"/api/chat/start","hostname":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":47882},"msg":"incoming request"}
+Starting new chat session {
+  topic: '服务器自启测试',
+  ghost_ids: [ 'galley', 'motoko' ],
+  user_id: 'test_user',
+  max_rounds: 2,
+  main_ghost: 'galley'
+}
+Executed query {
+  text: 'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 10,
+  rows: 1
+}
+调用 agent: galley, 主题: 服务器自启测试
+{"level":30,"time":1771732200701,"pid":33856,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","res":{"statusCode":500},"responseTime":27373.227770999074,"msg":"request completed"}
+{"level":30,"time":1771732378023,"pid":33856,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","req":{"method":"GET","url":"/api/chat/stream/test-123","hostname":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":36294},"msg":"incoming request"}
+SSE connection established { session_id: 'test-123' }
+{"level":50,"time":1771732378031,"pid":33856,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","req":{"method":"GET","url":"/api/chat/stream/test-123","hostname":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":36294},"res":{"statusCode":500},"err":{"type":"DatabaseError","message":"invalid input syntax for type uuid: \"test-123\"","stack":"error: invalid input syntax for type uuid: \"test-123\"\n    at /root/.openclaw/workspace/ghost-chatroom-server/node_modules/pg-pool/index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Database.query (/root/.openclaw/workspace/ghost-chatroom-server/src/db/index.js:26:19)\n    at async Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:226:27)","length":140,"name":"error","severity":"ERROR","code":"22P02","where":"unnamed portal parameter $1 = '...'","file":"uuid.c","line":"133","routine":"string_to_uuid"},"msg":"invalid input syntax for type uuid: \"test-123\""}
+{"level":30,"time":1771732378032,"pid":33856,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","res":{"statusCode":500},"responseTime":9.086886994540691,"msg":"request completed"}
+Database schema initialized successfully
+Ghosts seeded successfully
+{"level":30,"time":1771732690298,"pid":34435,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}
+Server listening on http://0.0.0.0:3000
+Environment: production
+Health check: http://0.0.0.0:3000/api/health
+{"level":30,"time":1771732759534,"pid":34435,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","req":{"method":"POST","url":"/api/chat/start","hostname":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":57800},"msg":"incoming request"}
+Starting new chat session {
+  topic: '什么是真正的自由？',
+  ghost_ids: [ 'galley', 'motoko' ],
+  user_id: 'test_user',
+  max_rounds: 2,
+  main_ghost: 'galley'
+}
+Executed query {
+  text: 'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 16,
+  rows: 1
+}
+调用 agent: galley, 主题: 什么是真正的自由？
+{"level":30,"time":1771732783677,"pid":34435,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","res":{"statusCode":500},"responseTime":24143.260857999325,"msg":"request completed"}

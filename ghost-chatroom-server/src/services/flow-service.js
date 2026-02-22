@@ -40,14 +40,12 @@ class FlowService {
       const currentSpeaker = ghosts[speakerIndex % ghosts.length];
       speakerIndex++;
 
-      // 修复问题2：加入唯一标识符防止agent检测到重复话题
-      const roundContext = `[讨论ID:${sessionId.slice(0, 8)}] [轮次:${roundNumber}/${maxRounds}] ${discussionContext}`;
-
       // Generate response from current speaker
+      // 只传递真正的讨论内容，不加入元数据
       const response = await aiService.generateGhostResponse(
         currentSpeaker,
         topic,
-        roundContext
+        discussionContext
       );
 
       // Save message
@@ -125,6 +123,7 @@ class FlowService {
   }
 
   async generateSummary(mainGhost, topic, messages) {
+    // 只提取真正的讨论内容，排除总结
     const discussion = messages
       .filter(m => m.ghost_name && !m.ghost_name.includes('(总结)'))
       .map(m => `${m.ghost_name}: ${m.content}`)
