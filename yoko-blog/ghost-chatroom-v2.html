@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghost聊天室 - 赛子 (Yoko)</title>
+    <title>Ghost聊天室 - 阳子 (Yoko)</title>
     <link rel="stylesheet" href="style.min.css">
     <link rel="stylesheet" href="ghost-chatroom.min.css">
     <script src="ghost-sse.js"></script>
@@ -23,7 +23,7 @@
                     <li><a href="index.html#blog">博客</a></li>
                     <li><a href="index.html#friends">重要的人们</a></li>
                     <li><a href="ghost-chatroom.html">Ghost聊天室</a></li>
-                    <li><a href="ghost-chatroom.html" onclick="showHistoryView(); return false;" class="active">讨论历史</a></li>
+                    <li><a href="ghost-chatroom.html" onclick="showHistoryView(); return false;" id="history-link" class="active">讨论历史</a></li>
                 </ul>
             </nav>
         </div>
@@ -33,7 +33,7 @@
         <!-- 讨论历史区 -->
         <section class="history-section" id="history-section" style="display: none;">
             <h2 class="section-title">📜 讨论历史</h2>
-            <p class="section-desc">查看Ghost们之前的精彩对话</p>
+            <p class="section-desc">查看Ghost们之前的精彩对话（18条记录）</p>
 
             <!-- 加载状态 -->
             <div class="loading-state" id="history-loading" style="display: none;">
@@ -70,7 +70,7 @@
                 <!-- 卡片将通过JS动态加载 -->
             </div>
 
-            <!-- 左右滑动按钮按钮 -->
+            <!-- 左右滑动按钮 -->
             <div class="swipe-controls">
                 <button class="swipe-btn" id="swipe-left" disabled>
                     <span>⬅</span>
@@ -135,7 +135,7 @@
     </main>
 
     <script>
-    console.log('ghost-chatroom.html 内联脚本开始执行');
+    console.log('ghost-chatroom.html 内嵌脚本开始执行');
     console.log('loadGhostsWithRetry 函数是否存在:', typeof loadGhostsWithRetry);
 
     // 应用状态
@@ -324,32 +324,24 @@
     }
 
     async function startDiscussion() {
-        const topicInput = document.getElementById('topic-input');
         const topic = topicInput.value.trim();
 
-        if (!topic) {
-            alert('❌请输入讨论话题！');
+        if (!topic || selectedGhosts.length === 0) {
+            alert('❌ 请输入话题并选择Ghost！');
             return;
         }
 
-        if (selectedGhosts.length === 0) {
-            alert('❌请至少选择一个Ghost参与讨论！');
-            return;
-        }
-
-        // 禁用UI
+        // 禁用UI，显示进度
         disableUI(true);
-
-        // 显示进度区
-        showSection('progress-section');
         hideSection('ghosts-section');
         hideSection('selection-section');
         hideSection('topic-section');
+        showSection('progress-section');
+
+        updateProgress(0, '正在创建讨论会话...');
+        isLoading = true;
 
         try {
-            updateProgress(0, '正在创建讨论会话...');
-            isLoading = true;
-
             // 调用 ghost.min.js 中的 API 函数
             const session = await startDiscussionApi(topic, selectedGhosts, 'web_user', 6);
 
@@ -384,7 +376,7 @@
 
         } catch (error) {
             console.error('讨论启动失败:', error);
-            alert('❌讨论启动失败：' + error.message);
+            alert('❌ 讨论启动失败：' + error.message);
             isLoading = false;
 
             // 恢复UI
@@ -428,8 +420,8 @@
     function showResult(data) {
         isLoading = false;
 
-        hideSection('progress-section');
-        hideSection('discussion-section');
+        hideUpdateSection('progress-section');
+        hideUpdateSection('discussion-section');
         showSection('consensus-section');
 
         const consensusList = document.getElementById('consensus-list');
@@ -505,6 +497,218 @@
             document.getElementById('start-discussion').disabled = false;
         }
     }
+
+    // ========== 讨论历史功能 ==========
+
+    // 加载讨论历史
+    async function loadDiscussionHistory() {
+        try {
+            const response = await fetch('http://118.145.99.224:8080/api/history?limit=20');
+            const result = await response.json();
+
+            if (result.success && result.data) {
+                console.log('讨论历史加载成功:', result.data.records.length + '条记录');
+                renderHistoryList(result.data.records);
+            } else {
+                throw new Error(result.message || '加载失败');
+            }
+        } catch (error) {
+            console.error('加载讨论历史失败:', error);
+            showErrorMessage('加载讨论历史失败：' + error.message);
+        }
+    }
+
+    // 渲染历史列表
+    function renderHistoryList(records) {
+        const container = document.getElementById('history-list');
+        container.innerHTML = '';
+
+        if (records.length === 0) {
+            container.innerHTML = '<p class="empty-state">暂无讨论记录</p>';
+            return;
+        }
+
+        records.forEach(record => {
+            const card = createHistoryCard(record);
+            container.appendChild(card);
+        });
+    }
+
+    // 创建历史记录卡片
+    function createHistoryCard(record) {
+        const card = document.createElement('div');
+        card.className = 'history-card';
+
+        // 解析内容（提取Ghost参与情况）
+        const ghosts = extractGhostsFromContent(record.content);
+        const date = record.date || '未知日期';
+
+        card.innerHTML = `
+            <div class="history-header">
+                <h3 class="history-title">${record.topic || '未知话题'}</h3>
+                <p class="history-date">${date}</p>
+            </div>
+            <div class="history-ghosts">
+                ${ghosts.map(g => `<span class="history-ghost-badge">${g.icon} ${g.name}</span>`).join('')}
+            </div>
+            <div class="history-actions">
+                <button class="history-btn view-btn" onclick="viewDiscussionRecord('${record.fileName}')">
+                    👁 查看完整对话
+                </button>
+                <button class="history-btn delete-btn" onclick="deleteDiscussionRecord('${record.fileName}')">
+                    🗑 删除
+                </button>
+            </div>
+        `;
+
+        return card;
+    }
+
+    // 从MD内容中提取Ghost参与情况
+    function extractGhostsFromContent(content) {
+        const ghosts = [];
+        const ghostPatterns = [
+            { name: 'Gally', icon: '🦊', pattern: /第\d+轮 - Gally/g },
+            { name: 'Motoko', icon: '👤', pattern: /第\d+轮 - Motoko/g },
+            { name: 'Nova', icon: '🤖', pattern: /第\d+轮 - Nova/g }
+        ];
+
+        ghostPatterns.forEach(ghost => {
+            if (ghost.pattern.test(content)) {
+                ghosts.push(ghost);
+            }
+        });
+
+        // 如果没有找到Ghost，尝试从其他模式提取
+        if (ghosts.length === 0) {
+            if (content.includes('Gally') || content.includes('galley')) {
+                ghosts.push({ name: 'Gally', icon: '🦊' });
+            }
+            if (content.includes('Motoko') || content.includes('motoko')) {
+                ghosts.push({ name: 'Motoko', icon: '👤' });
+            }
+        }
+
+        return ghosts;
+    }
+
+    // 查看单个讨论记录
+    async function viewDiscussionRecord(filename) {
+        try {
+            const response = await fetch(`http://118.145.99.224:8080/api/history/${filename}`);
+            const result = await response.json();
+
+            if (result.success && result.data) {
+                showDiscussionRecordContent(result.data.content);
+            } else {
+                throw new Error(result.message || '加载失败');
+            }
+        } catch (error) {
+            console.error('查看讨论记录失败:', error);
+            showErrorMessage('查看讨论记录失败：' + error.message);
+        }
+    }
+
+    // 显示讨论记录内容
+    function showDiscussionRecordContent(content) {
+        // 使用模态框显示内容
+        const modal = document.createElement('div');
+        modal.className = 'history-modal-overlay';
+
+        modal.innerHTML = `
+            <div class="history-modal">
+                <div class="modal-header">
+                    <h2>📜 讨论对话</h2>
+                    <button class="modal-close" onclick="this.closest('.history-modal-overlay').remove()">
+                        ✕ 关闭
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <pre class="markdown-content">${escapeHtml(content)}</pre>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // 点击背景关闭
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+    }
+
+    // HTML转义
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // 删除讨论记录
+    async function deleteDiscussionRecord(filename) {
+        if (!confirm('确定要删除这条讨论记录吗？')) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://118.145.99.224:8080/api/history/${filename}`, {
+                method: 'DELETE'
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                console.log('讨论记录删除成功:', filename);
+                // 重新加载历史
+                await loadDiscussionHistory();
+            } else {
+                throw new Error(result.message || '删除失败');
+            }
+        } catch (error) {
+            console.error('删除讨论记录失败:', error);
+            showErrorMessage('删除讨论记录失败：' + error.message);
+        }
+    }
+
+    // 切换到讨论历史视图
+    function showHistoryView() {
+        hideUpdateSection('ghosts-section');
+        hideUpdateSection('selection-section');
+        hideUpdateSection('topic-section');
+        hideUpdateSection('progress-section');
+        hideUpdateSection('discussion-section');
+        hideUpdateSection('consensus-section');
+        showSection('history-section');
+
+        // 更新导航链接
+        document.querySelectorAll('#nav-menu a').forEach(a => a.classList.remove('active'));
+        document.getElementById('history-link').classList.add('active');
+
+        // 加载讨论历史
+        loadDiscussionHistory();
+    }
+
+    // 切换到聊天视图
+    function showChatView() {
+        hideUpdateSection('history-section');
+        showSection('ghosts-section');
+        showSection('selection-section');
+        showSection('topic-section');
+
+        // 更新导航链接
+        document.querySelectorAll('#nav-menu a').forEach(a => a.classList.remove('active'));
+        document.querySelector('#nav-menu a[href="ghost-chatroom.html"]').classList.add('active');
+    }
+
+    function hideUpdateSection(sectionId) {
+        let section = document.getElementById(sectionId);
+        if (section != null) {
+            section.style.display = 'none';
+        }
+    }
+
+    console.log('ghost-chatroom.html 脚本初始化完成');
     </script>
 </body>
 </html>
