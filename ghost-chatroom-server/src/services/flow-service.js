@@ -9,7 +9,6 @@ class FlowService {
     const sessionId = uuidv4();
     const timestamp = new Date().toISOString();
     const maxRounds = options.maxRounds || 6;
-    const mainGhostId = options.mainGhost || ghostIds[0];
 
     // Create session
     await db.query(
@@ -30,21 +29,25 @@ class FlowService {
       throw new Error('No valid ghosts found');
     }
 
-    const mainGhost = ghosts.find(g => g.id === mainGhostId) || ghosts[0];
-    const otherGhosts = ghosts.filter(g => g.id !== mainGhostId);
-
     // Start discussion flow
     const messages = [];
-    let currentSpeaker = mainGhost;
+    let speakerIndex = 0;  // 追踪发言者索引
     let roundNumber = 1;
     let discussionContext = '';
 
     while (roundNumber <= maxRounds) {
+      // 轮询选择发言者
+      const currentSpeaker = ghosts[speakerIndex % ghosts.length];
+      speakerIndex++;
+
+      // 修复问题2：加入唯一标识符防止agent检测到重复话题
+      const roundContext = `[讨论ID:${sessionId.slice(0, 8)}] [轮次:${roundNumber}/${maxRounds}] ${discussionContext}`;
+
       // Generate response from current speaker
       const response = await aiService.generateGhostResponse(
         currentSpeaker,
         topic,
-        discussionContext
+        roundContext
       );
 
       // Save message
@@ -75,6 +78,7 @@ class FlowService {
       // Determine next speaker
       if (roundNumber === maxRounds) {
         // Last round, main ghost makes summary
+        const mainGhost = ghosts[0];  // 定义主Ghost（第一个Ghost）
         const summary = await this.generateSummary(mainGhost, topic, messages);
         const summaryId = uuidv4();
 
@@ -101,13 +105,6 @@ class FlowService {
         await this.writeDiscussionLog(sessionId, topic, 'SUMMARY', mainGhost, summary.content);
 
         break;
-      } else if (otherGhosts.length > 0) {
-        // Randomly select next speaker from other ghosts
-        const randomIndex = Math.floor(Math.random() * otherGhosts.length);
-        currentSpeaker = otherGhosts[randomIndex];
-      } else {
-        // Only main ghost, continue with them
-        currentSpeaker = mainGhost;
       }
 
       roundNumber++;
@@ -129,7 +126,7 @@ class FlowService {
 
   async generateSummary(mainGhost, topic, messages) {
     const discussion = messages
-      .filter(m => !m.ghost_name.includes('(总结)'))
+      .filter(m => m.ghost_name && !m.ghost_name.includes('(总结)'))
       .map(m => `${m.ghost_name}: ${m.content}`)
       .join('\n\n');
 

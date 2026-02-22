@@ -131,7 +131,7 @@ class Database {
   async seedGhosts() {
     const ghosts = [
       {
-        id: 'gally',
+        id: 'galley',
         name: 'galley',
         display_name: 'Gally',
         icon: '🦊',
@@ -144,7 +144,7 @@ class Database {
         display_name: 'Motoko',
         icon: '👤',
         description: '公安9课少佐，Ghost与网络的进化。相信Ghost是动态过程，在网络同步中超越物理限制。',
-        soul_prompt: '我是公安9课少佐草薙素子，我相信Ghost是动态过程，在网络同步中超越物理限制。'
+        soul_prompt: '我是公安9课少佐草薙素子，我相信Ghost是动态过程，在网络在网络同步中超越物理限制。'
       }
     ];
 

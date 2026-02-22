@@ -3,6 +3,8 @@ const util = require('util');
 
 const execAsync = util.promisify(exec);
 
+// Node 18+ 内置fetch，不需要额外引入
+
 class AIService {
   constructor() {
     this.ghostsCache = null;
@@ -11,13 +13,14 @@ class AIService {
 
   async getAgents() {
     try {
-      const { stdout, stderr } = await execAsync('openclaw agent --list --json', {
+      // 修复：正确的命令是 "agents list" 而不是 "agent --list"
+      const { stdout, stderr } = await execAsync('openclaw agents list --json', {
         timeout: 10000,
         maxBuffer: 1024 * 1024 * 10
       });
 
       if (stderr) {
-        console.error('openclaw agent list stderr:', stderr);
+        console.error('openclaw agents list stderr:', stderr);
       }
 
       const agents = JSON.parse(stdout);
@@ -65,62 +68,107 @@ class AIService {
         ? `请就以下主题发表你的看法，并回应以下观点：${context}\n\n主题：${topic}`
         : `请就以下主题发表你的看法：${topic}`;
 
-      const { stdout, stderr } = await execAsync(
-        `openclaw agent --agent "${ghost.name || ghost.id}" --message "${prompt}" --json`,
-        {
-          timeout: 30000,
-          maxBuffer: 1024 * 1024 * 10
-        }
-      );
+      // 修复：使用正确的OpenAI兼容端点
+      const gatewayUrl = process.env.OPENCLAW_GATEWAY_URL || 'http://localhost:18789/v1/chat/completions';
+      const token = process.env.OPENCLAW_TOKEN;
 
-      if (stderr) {
-        console.error('AI Service stderr:', stderr);
+      const response = await fetch(gatewayUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          model: `agent:${ghost.name || ghost.id}`,
+          messages: [
+            { role: 'user', content: prompt }
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Gateway API错误: ${response.status} ${response.statusText} - ${errorText}`);
       }
 
-      const response = JSON.parse(stdout);
-      const content = (typeof response === 'string')
-        ? response
-        : (response.message || response.content || response.text || JSON.stringify(response));
+      const data = await response.json();
+      
+      // OpenAI格式响应: data.choices[0].message.content
+      const content = data?.choices?.[0]?.message?.content 
+        || this.extractResponseContent(data);
+      const tokensUsed = data?.usage?.total_tokens || 100;
 
-      return { content, tokens_used: 100 };
+      return { content, tokens_used: tokensUsed };
     } catch (error) {
       console.error('AI Service Error:', error.message);
       return this.getFallbackResponse(ghost, topic);
     }
   }
 
+  extractResponseContent(response) {
+    // OpenClaw Gateway响应格式
+    if (response?.result?.payloads?.[0]?.text) {
+      return response.result.payloads[0].text;
+    }
+    
+    // 其他可能的格式
+    if (typeof response === 'string') {
+      return response;
+    }
+    
+    return response?.message 
+      || response?.content 
+      || response?.text 
+      || response?.result?.text
+      || JSON.stringify(response);
+  }
+
   getFallbackResponse(ghost, topic) {
     console.log('使用模拟AI回应');
+    const displayName = ghost.display_name || ghost.name || ghost.id || 'Unknown';
     return {
-      content: `作为${ghost.display_name}，我对"${topic}"这个话题有独特的视角。在赛博朋克的世界里，人类意识与机械身体的融合正在重新定义什么是"生命"和"灵魂"。`,
+      content: `作为${displayName}，我对"${topic}"这个话题有独特的视角。在赛博朋克的世界里，人类意识与机械身体的融合正在重新定义什么是"生命"和"灵魂"。`,
       tokens_used: 0
     };
   }
 
-  async generateConsensus(sessionId, messages) {
+  async generateConsensus(sessionId, messages, mainGhost) {
     console.log('生成共识总结...');
 
     try {
       const discussion = messages.map(msg => `${msg.ghost_name}: ${msg.content}`).join('\n  ');
 
-      const prompt = `以下是关于"${messages[0]?.content?.substring(0, 30) || '当前话题'}"的讨论：\n  ${discussion}\n\n请总结以上讨论的共识点，列出5-6条核心观点。`;
+      const prompt = `作为讨论的主持人，请对以下关于"${messages[0]?.content?.substring(0, 30) || '当前话题'}"的讨论做总结：\n\n${discussion}\n\n请提供一个全面、深入的总结，包括：\n1. 讨论的主要观点\n2. 不同角色的立场差异\n3. 达成共识的地方\n4. 值得进一步探讨的问题`;
 
-      const { stdout, stderr } = await execAsync(
-        `openclaw agent --message "${prompt}" --json`,
-        {
-          timeout: 30000,
-          maxBuffer: 1024 * 1024 * 10
-        }
-      );
+      // 修复：使用正确的OpenAI兼容端点
+      const gatewayUrl = process.env.OPENCLAW_GATEWAY_URL || 'http://localhost:18789/v1/chat/completions';
+      const token = process.env.OPENCLAW_TOKEN;
+      const agentId = mainGhost?.name || mainGhost?.id || 'galley';
 
-      if (stderr) {
-        console.error('AI Consensus stderr:', stderr);
+      const response = await fetch(gatewayUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          model: `agent:${agentId}`,
+          messages: [
+            { role: 'user', content: prompt }
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Gateway API错误: ${response.status} ${response.statusText} - ${errorText}`);
       }
 
-      const response = JSON.parse(stdout);
-      const content = (typeof response === 'string')
-        ? response
-        : (response.message || response.content || response.text || JSON.stringify(response));
+      const data = await response.json();
+      
+      // OpenAI格式响应: data.choices[0].message.content
+      const content = data?.choices?.[0]?.message?.content 
+        || this.extractResponseContent(data);
 
       return this.parseConsensus(content);
     } catch (error) {
