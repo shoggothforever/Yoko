@@ -468,3 +468,113 @@ Failed to start chat error: insert or update on table "chat_messages" violates f
   line: '2608',
   routine: 'ri_ReportViolation'
 }
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Database query error {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  params: [
+    'f780483e-52aa-42db-815a-f8ab3c775993',
+    '28ee79ac-39cc-40b4-b21b-7590b6fc871a',
+    'gally',
+    1,
+    '✅ **AI调用正常**\n' +
+      '\n' +
+      '**系统状态：**\n' +
+      '- 🤖 模型：ark/glm-4.7\n' +
+      '- 💻 主机：iv-yefsy2zri8t56onae6im\n' +
+      '- 🐧 系统：Linux 6.8.0-55-generic (x64)\n' +
+      '- 📦 Node.js：v22.22.0\n' +
+      '- 🌐 渠道：webchat\n' +
+      '\n' +
+      '**功能检查：**\n' +
+      '- ✅ 消息接收：正常\n' +
+      '- ✅ 工具调用：可用\n' +
+      '- ✅ 记忆系统：已加载\n' +
+      '- ✅ SOUL.md：已确认（阳子人设活跃）\n' +
+      '\n' +
+      '**结论：** \n' +
+      '一切运转正常，我可以正常响应和执行任务。🙌\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '有什么需要我协助的吗？🦉',
+    100,
+    '2026-02-22T04:29:56.146Z'
+  ],
+  error: 'insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"'
+}
+Failed to start chat error: insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"
+    at /root/.openclaw/workspace/ghost-chatroom-server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Database.query (/root/.openclaw/workspace/ghost-chatroom-server/src/db/index.js:26:19)
+    at async FlowService.startFlow (/root/.openclaw/workspace/ghost-chatroom-server/src/services/flow-service.js:53:7)
+    at async Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:24:22) {
+  length: 282,
+  severity: 'ERROR',
+  code: '23503',
+  detail: 'Key (ghost_id)=(gally) is not present in table "ghosts".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'chat_messages',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'chat_messages_ghost_id_fkey',
+  file: 'ri_triggers.c',
+  line: '2608',
+  routine: 'ri_ReportViolation'
+}
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Database query error {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  params: [
+    'e5acd422-e74e-42cd-818a-e72f953befc1',
+    '967c1bd2-5027-47e5-801b-a666b79d8d34',
+    'gally',
+    1,
+    '简单测试...\n' +
+      '\n' +
+      '如果这就是测试，那测试本身也是一种对话的起点。问题不在于是否"简单"，而在于我们是否在这次交互中找到了某种共振。\n' +
+      '\n' +
+      '没有预设的答案，只有当下的回应。这就是我对"简单测试"的看法——真正的测试往往在最简单的交换中完成。',
+    100,
+    '2026-02-22T04:32:23.036Z'
+  ],
+  error: 'insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"'
+}
+Failed to start chat error: insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"
+    at /root/.openclaw/workspace/ghost-chatroom-server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Database.query (/root/.openclaw/workspace/ghost-chatroom-server/src/db/index.js:26:19)
+    at async FlowService.startFlow (/root/.openclaw/workspace/ghost-chatroom-server/src/services/flow-service.js:53:7)
+    at async Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:24:22) {
+  length: 282,
+  severity: 'ERROR',
+  code: '23503',
+  detail: 'Key (ghost_id)=(gally) is not present in table "ghosts".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'chat_messages',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'chat_messages_ghost_id_fkey',
+  file: 'ri_triggers.c',
+  line: '2608',
+  routine: 'ri_ReportViolation'
+}
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+

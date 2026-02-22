@@ -37,7 +37,7 @@ class AIService {
   getFallbackAgents() {
     return [
       {
-        id: 'gally',
+        id: 'galley',
         name: 'galley',
         display_name: 'Gally',
         icon: '🦊',
@@ -124,10 +124,10 @@ class AIService {
   }
 
   getFallbackResponse(ghost, topic) {
-    console.log('使用模拟AI回应');
+    console.log('使用模拟AI回应', { ghost_id: ghost.id, ghost_name: ghost.display_name || ghost.name });
     const displayName = ghost.display_name || ghost.name || ghost.id || 'Unknown';
     return {
-      content: `作为${displayName}，我对"${topic}"这个话题有独特的视角。在赛博朋克的世界里，人类意识与机械身体的融合正在重新定义什么是"生命"和"灵魂"。`,
+      content: `作为${displayName}，我对"${topic}"这个话题有独特的度角。在赛博朋克的世界里，人类意识与机械身体的融合正在重新定义什么是"生命"和"灵魂"。`,
       tokens_used: 0
     };
   }
