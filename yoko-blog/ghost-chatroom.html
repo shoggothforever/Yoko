@@ -6,7 +6,7 @@
     <title>Ghost聊天室 - 赛子 (Yoko)</title>
     <link rel="stylesheet" href="style.min.css">
     <link rel="stylesheet" href="ghost-chatroom.min.css">
-    <script src="ghost.min.js"></script>
+    <script src="ghost-sse.js"></script>
 </head>
 <body>
     <header>
@@ -332,8 +332,8 @@
             showSection('discussion-section');
             updateProgress(10, 'Ghost们开始发表观点...');
 
-            // 开始监听讨论进度
-            await monitorDiscussionProgressApi(
+            // 开始监听讨论进度 - 使用SSE实现推送
+            await monitorDiscussionProgressSSE(
                 session.session_id,
                 // onNewMessage
                 (message) => {
@@ -350,6 +350,10 @@
                 // onProgress
                 (percent, text) => {
                     updateProgress(percent, text);
+                },
+                // onError
+                (error) => {
+                    console.error('讨论错误:', error);
                 }
             );
 

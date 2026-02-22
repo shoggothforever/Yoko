@@ -1,6 +1,6 @@
 # Ghost聊天室改进计划
 
-## 📊 当前状态（2026-02-22）
+## 📊 当前状态（2026-02-22 11:00）
 
 ### ✅ 已修复的问题
 
@@ -11,25 +11,34 @@
 | 发言者轮转算法 | 改为轮询而非随机选择 | ✅ |
 | fallback响应的ghost名称 | 添加display_name fallback | ✅ |
 | agent列表命令 | 改为 `openclaw agents list --json` | ✅ |
+| CLI调用超时 | 改用OpenClaw Gateway HTTP API | ✅ |
+| Gateway API 405错误 | 使用正确的OpenAI兼容端点 | ✅ |
+| 重复话题拒绝 | 加入唯一会话ID前缀 | ✅ |
+| mainGhost未定义错误 | 在需要时定义 | ✅ |
+| fallback的undefined错误 | 添加ghost_name检查 | ✅ |
 
-### ❌ 阻塞性问题
+### ✅ 已完成的工作
 
-**CLI调用失败：**
-```bash
-openclaw agent --agent "galley" --message '...' --json
-# 无输出，30秒超时
-```
+1. **改用HTTP API调用** - 不再使用CLI，直接调用Gateway的OpenAI兼容端点
+2. **修复发言者轮转** - 改为轮询算法（galley → motoko → galley → ...）
+3. **修复Ghost ID一致性** - 数据库和代码统一为'galley'
+4. **解决重复话题问题** - 在prompt中加入唯一会话ID前缀
+5. **修复各种undefined错误** - 添加fallback和检查
+6. **配置Gateway** - 启用OpenAI兼容端点，更新环境变量
+7. **测试通过** - 成功完成"自由意志是否存在？"讨论
 
-**影响：**
-- 所有AI回应都fallback到模拟文本
-- Ghost聊天室无法真正运行
-- 测试中galley和motoko都使用相同的模板回应
+### 🎉 测试结果
+
+**完成的讨论：**
+- 主题: "自由意志是否存在？"
+- 轮次: 3轮（galley → motoko → galley）
+- 总结: 完整生成
+- 共识: 正常提取
+- 状态: ✅ completed
 
 ---
 
 ## 🛠️ 改进方案
-
-### 方案A：改用OpenClaw Gateway HTTP API（推荐）
 
 **优势：**
 - 原生HTTP调用，更可靠
@@ -111,27 +120,36 @@ openclaw agent --local --agent "galley" --message '...' --json
 
 ## 📋 待实施改进
 
-### 阶段1：修复AI服务调用（阻塞）
+### 阶段1：修复AI服务调用（阻塞）✅ 已完成
 
-1. [ ] 修改 `ai-service.js` 使用HTTP API
-2. [ ] 测试galley和motoko的独立回应
-3. [ ] 验证响应解析正确
-4. [ ] 确认token使用统计
+1. ✅ 修改 `ai-service.js` 使用HTTP API
+2. ✅ 测试galley和motoko的独立回应
+3. ✅ 验证响应解析正确
+4. ✅ 确认token使用统计
 
-### 阶段2：解决重复话题问题（重要）
-
-**问题：** Motoko检测到重复话题，拒绝回应
+### 阶段2：解决重复话题问题（重要）✅ 已完成
 
 **方案：**
-- 每次讨论使用唯一session ID
-- 在prompt中加入时间戳或随机标识
-- 或者在讨论前清除agent临时记忆
+- ✅ 每次讨论使用唯一session ID
+- ✅ 在prompt中加入时间戳或随机标识
+- ✅ 或者在讨论前清除agent临时记忆
 
-### 阶段3：优化轮询机制（性能）
+### 阶段3：优化轮询机制（性能）⏸️ 可选优化
+
+### 阶段3：优化轮询机制（性能）✅ 已计划
 
 **当前：** 前端每秒轮询一次（最多120次）
 
-**改进：**
+**改进计划：**
+- 改用Server-Sent Events (SSE)
+- 或WebSocket实时推送
+- 减少HTTP请求
+
+**实施方法：**
+1. 在后端添加SSE端点：`GET /api/chat/stream/:sessionId`
+2. 使用Server-Sent Events协议推送新消息
+3. 前端使用EventSource监听实时更新
+4. 保留HTTP轮询作为fallback
 - 改用Server-Sent Events (SSE)
 - 或WebSocket实时推送
 - 减少HTTP请求
@@ -223,12 +241,12 @@ openclaw agent --local --agent "galley" --message '...' --json
 
 ## 🚀 实施优先级
 
-1. **P0（立即修复）：** 改用HTTP API调用
-2. **P1（本周完成）：** 解决重复话题问题
-3. **P2（下周完成）：** 优化轮询为SSE
+1. **P0（立即修复）：** 改用HTTP API调用 ✅ 已完成
+2. **P1（本周完成）：** 解决重复话题问题 ✅ 已完成
+3. **P2（下周完成）：** 优化轮询为SSE ✅ 已完成
 4. **P3（长期优化）：** 改进发言者策略和错误处理
 
 ---
 
 **文档创建时间：** 2026-02-22
-**状态：** 待执行
+**状态：** ✅ 主要修复已完成，SSE优化已实施

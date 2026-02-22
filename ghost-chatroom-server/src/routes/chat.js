@@ -210,6 +210,103 @@ async function chatRoutes(fastify, options) {
       });
     }
   });
+
+  // SSE endpoint for real-time message updates
+  fastify.get('/stream/:id', { websocket: false }, async (request, reply) => {
+    const { id } = request.params;
+    console.log('SSE connection established', { session_id: id });
+
+    // Set SSE headers
+    reply.raw.setHeader('Content-Type', 'text/event-stream');
+    reply.raw.setHeader('Cache-Control', 'no-cache');
+    reply.raw.setHeader('Connection', 'keep-alive');
+    reply.raw.setHeader('X-Accel-Buffering', 'no');
+
+    // Check if session exists
+    const sessionResult = await db.query(
+      'SELECT id, status FROM chat_sessions WHERE id = $1',
+      [id]
+    );
+
+    if (sessionResult.rows.length === 0) {
+      reply.raw.write('event: error\ndata: {"error":"Session not found"}\n\n');
+      return reply.raw.end();
+    }
+
+    const session = sessionResult.rows[0];
+
+    // Send initial status
+    reply.raw.write(`event: status\ndata: ${JSON.stringify({ status: session.status })}\n\n`);
+
+    // Poll for updates (fallback if SSE not fully working)
+    let lastMessageCount = 0;
+    const checkInterval = setInterval(async () => {
+      try {
+        // Get latest message count
+        const messageCountResult = await db.query(
+          'SELECT COUNT(*) as count FROM chat_messages WHERE session_id = $1',
+          [id]
+        );
+
+        const currentCount = parseInt(messageCountResult.rows[0].count);
+
+        // Get session status
+        const statusResult = await db.query(
+          'SELECT status FROM chat_sessions WHERE id = $1',
+          [id]
+        );
+
+        const currentStatus = statusResult.rows[0].status;
+
+        // If new messages, send them
+        if (currentCount > lastMessageCount) {
+          const messagesResult = await db.query(
+            `SELECT cm.*, g.display_name as ghost_name, g.icon as ghost_icon
+             FROM chat_messages cm
+             JOIN ghosts g ON cm.ghost_id = g.id
+             WHERE cm.session_id = $1
+             ORDER BY cm.round_number, cm.created_at`,
+            [id]
+          );
+
+          const newMessages = messagesResult.rows.slice(lastMessageCount);
+
+          newMessages.forEach(message => {
+            reply.raw.write(`event: message\ndata: ${JSON.stringify(message)}\n\n`);
+          });
+
+          lastMessageCount = currentCount;
+        }
+
+        // If session completed, send final status and close
+        if (currentStatus === 'completed') {
+          const consensusResult = await db.query(
+            'SELECT * FROM chat_consensus WHERE session_id = $1 ORDER BY created_at DESC LIMIT 1',
+            [id]
+          );
+
+          reply.raw.write(`event: status\ndata: ${JSON.stringify({ status: 'completed', consensus: consensusResult.rows[0] })}\n\n`);
+          reply.raw.write('event: end\ndata: {}\n\n');
+          reply.raw.end();
+          clearInterval(checkInterval);
+        }
+      } catch (error) {
+        console.error('SSE check error:', error);
+        reply.raw.write('event: error\ndata: {"error":"' + error.message + '"}\n\n');
+        clearInterval(checkInterval);
+        reply.raw.end();
+      }
+    }, 2000); // Check every 2 seconds
+
+    // Cleanup on disconnect
+    request.raw.on('close', () => {
+      console.log('SSE connection closed', { session_id: id });
+      clearInterval(checkInterval);
+    });
+
+    // Keep connection alive
+    return reply;
+  });
 }
 
 module.exports = chatRoutes;
