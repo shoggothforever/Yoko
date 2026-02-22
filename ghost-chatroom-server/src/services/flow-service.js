@@ -6,15 +6,20 @@ const path = require('path');
 
 class FlowService {
   async startFlow(topic, ghostIds, userId = null, options = {}) {
-    const sessionId = uuidv4();
+    // 修复：支持传入 sessionId 来复用已有会话
+    // 如果没有传入 sessionId，则创建新的
+    const sessionId = options.sessionId || uuidv4();
+    const isNewSession = !options.sessionId;
     const timestamp = new Date().toISOString();
     const maxRounds = options.maxRounds || 6;
 
-    // Create session
-    await db.query(
-      'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)',
-      [sessionId, topic, userId, timestamp, timestamp]
-    );
+    // 如果是新会话，才创建记录
+    if (isNewSession) {
+      await db.query(
+        'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)',
+        [sessionId, topic, userId, timestamp, timestamp]
+      );
+    }
 
     // Get Ghost information
     const ghosts = [];
@@ -32,8 +37,8 @@ class FlowService {
     // Start discussion flow
     const messages = [];
     let speakerIndex = 0;  // 追踪发言者索引
-    let roundNumber = 1;
-    let discussionContext = '';
+    let roundNumber = 1;  // 当前轮次
+    let discussionContext = '';  // 初始化为空字符串，确保干净
 
     while (roundNumber <= maxRounds) {
       // 轮询选择发言者
