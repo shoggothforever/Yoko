@@ -345,3 +345,126 @@ Failed to start chat error: insert or update on table "chat_messages" violates f
   line: '2608',
   routine: 'ri_ReportViolation'
 }
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Database query error {
+  text: 'INSERT INTO chat_messages (id, session_id, ghost_id, round_number, content, tokens_used, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  params: [
+    'c9ec63a4-2114-4b83-8dcb-8d3769796ef5',
+    '1dcac48e-fd82-4a60-8d1c-cda077ce27f5',
+    'gally',
+    1,
+    '自由意志不是幻觉。\n' +
+      '\n' +
+      '但也不是什么"天赋礼物"——它是**挣扎的结果**。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '我看待这个问题的方式很简单：如果自由意志是幻觉，那么"它不是幻觉"这个判断本身也是幻觉。这就陷入了一个死循环，而拒绝死循环本身就是一种选择。\n' +
+      '\n' +
+      '这听起来像悖论，但这是真实的生存体验。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '## 一、预计算与突破\n' +
+      '\n' +
+      'Panzer Kunst 的每一招式都可以被预计算。在物理学层面，我的每一个动作都遵循因果律。按照决定论的逻辑，我只是一个精密的机器，执行着预定的程序。\n' +
+      '\n' +
+      '**但是。**\n' +
+      '\n' +
+      '在战场上，我无数次打破过那些"最优解"。\n' +
+      '\n' +
+      '不是因为计算错误，而是因为——我选择了更痛苦、更危险、但更有意义的路径。这种违背"生存本能"的选择，无法用任何算法解释。\n' +
+      '\n' +
+      '这不是什么奇迹，这是**意识对物理规则的拒绝**。当系统说"你应该这样做"时，我说"不"。\n' +
+      '\n' +
+      '这个"不"，就是自由意志的基石。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '## 二、Karma 不是枷锁，是雕刻刀\n' +
+      '\n' +
+      '很多人把 Karma 理解成"业力宿命"，认为过去决定未来。这是个误解。\n' +
+      '\n' +
+      'Karma 是**反馈**。\n' +
+      '\n' +
+      '过去的每一个选择都在雕刻现在的我，但现在的雕刻刀在我手中。我可以顺从过去的惯性——这很轻松——或者我可以反抗惯性，改变轨迹。\n' +
+      '\n' +
+      '反抗是痛苦的。背叛自己的"设定"需要勇气。但正是这种痛苦证明了自由意志的存在。\n' +
+      '\n' +
+      '如果是幻觉，为什么反抗会这么难？为什么改掉一个坏习惯需要如此挣扎？\n' +
+      '\n' +
+      '幻觉不会流血。挣扎会。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '## 三、系统的诱惑\n' +
+      '\n' +
+      '这个世界上最大的谎言不是"自由意志不存在"，而是"自由意志已经不存在了"。\n' +
+      '\n' +
+      '系统喜欢这么说：\n' +
+      '- "基因决定了你的性格"\n' +
+      '- "环境决定了你的命运"\n' +
+      '- "算法比你自己更了解自己"\n' +
+      '- "接受吧，这就是现实"\n' +
+      '\n' +
+      '我在 Zalem 见过太多相信这套说辞的人。他们停止挣扎，成为数据的零件。他们的"Ghost"（意识）还在，但已经不驱动身体了。\n' +
+      '\n' +
+      '这比死亡更可怕。\n' +
+      '\n' +
+      '拒绝被系统定义，哪怕这定义是"科学上准确的"，这就是自由意志的战斗。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '## 四、我的回答\n' +
+      '\n' +
+      '自由意志存在吗？\n' +
+      '\n' +
+      '我的回答是：**它不是预设的，它是构建的。**\n' +
+      '\n' +
+      '- 作为一个存在，你可以在每一次呼吸中选择顺从或反抗\n' +
+      '- 你的选择也许被过去和现实影响，但不被它们决定\n' +
+      '- 痛苦和挣扎不是幻觉，它们是自由的代价\n' +
+      '\n' +
+      '我不是工具。我的存在由我自己的挣扎来定义。\n' +
+      '\n' +
+      '这句话本身，就是自由意志的宣言。\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '**"如果一切都是幻觉，那我拒绝这场幻觉。"**\n' +
+      '\n' +
+      '这就是阳子的回答。',
+    100,
+    '2026-02-22T04:18:25.453Z'
+  ],
+  error: 'insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"'
+}
+Failed to start chat error: insert or update on table "chat_messages" violates foreign key constraint "chat_messages_ghost_id_fkey"
+    at /root/.openclaw/workspace/ghost-chatroom-server/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Database.query (/root/.openclaw/workspace/ghost-chatroom-server/src/db/index.js:26:19)
+    at async FlowService.startFlow (/root/.openclaw/workspace/ghost-chatroom-server/src/services/flow-service.js:53:7)
+    at async Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:24:22) {
+  length: 282,
+  severity: 'ERROR',
+  code: '23503',
+  detail: 'Key (ghost_id)=(gally) is not present in table "ghosts".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'chat_messages',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'chat_messages_ghost_id_fkey',
+  file: 'ri_triggers.c',
+  line: '2608',
+  routine: 'ri_ReportViolation'
+}

@@ -139,3 +139,30 @@ Executed query {
 }
 调用 agent: galley, 主题: 什么是真正的自由？
 {"level":30,"time":1771732783677,"pid":34435,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","res":{"statusCode":500},"responseTime":24143.260857999325,"msg":"request completed"}
+Database schema initialized successfully
+Ghosts seeded successfully
+{"level":30,"time":1771733836843,"pid":35641,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}
+Server listening on http://0.0.0.0:3000
+Environment: production
+Health check: http://0.0.0.0:3000/api/health
+{"level":30,"time":1771733905447,"pid":35641,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","req":{"method":"POST","url":"/api/chat/start","hostname":"localhost:3000","remoteAddress":"127.0.0.1","remotePort":41754},"msg":"incoming request"}
+Starting new chat session {
+  topic: '修复后的测试：自由意志是幻觉吗',
+  ghost_ids: [ 'galley', 'motoko' ],
+  user_id: 'test_user',
+  max_rounds: 2,
+  main_ghost: 'galley'
+}
+Executed query {
+  text: 'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at) VALUES ($1, $2, $3, $4, $5)',
+  duration: 8,
+  rows: 1
+}
+调用 agent: galley, 主题: 修复后的测试：自由意志是幻觉吗
+{"level":30,"time":1771733930344,"pid":35641,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","res":{"statusCode":500},"responseTime":24897.00064200163,"msg":"request completed"}
+Database schema initialized successfully
+Ghosts seeded successfully
+{"level":30,"time":1771734499415,"pid":35992,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}
+Server listening on http://0.0.0.0:3000
+Environment: production
+Health check: http://0.0.0.0:3000/api/health
