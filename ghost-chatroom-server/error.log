@@ -578,3 +578,33 @@ Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
 Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
 /bin/sh: 1: openclaw: not found
 
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to start chat ReferenceError: roundNumber is not defined
+    at FlowService.startFlow (/root/.openclaw/workspace/ghost-chatroom-server/src/services/flow-service.js:40:24)
+    at async Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:24:22)
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to start chat ReferenceError: roundNumber is not defined
+    at FlowService.startFlow (/root/.openclaw/workspace/ghost-chatroom-server/src/services/flow-service.js:40:24)
+    at async Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:24:22)
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
+Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
+/bin/sh: 1: openclaw: not found
+
