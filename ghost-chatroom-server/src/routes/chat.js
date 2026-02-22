@@ -311,15 +311,15 @@ async function chatRoutes(fastify, options) {
     return reply;
   });
 
-  // Get discussion history (all records)
+  // Get discussion history (all records from records/)
   fastify.get('/history', async (request, reply) => {
     try {
       console.log('Getting discussion history from records/');
 
       const { limit = 20, offset = 0 } = request.query;
 
-      const files = await fs.readdir(recordsDir);
-      const mdFiles = files.filter(f => f.endsWith('.md'));
+      const files = await fs.readdir(recordsDir).catch(() => []);
+      const mdFiles = {fileName: files.filter(f => f.endsWith('.md'))}?.fileName || [];
 
       // Sort by creation time (descending)
       const fileStats = await Promise.all(
@@ -345,7 +345,7 @@ async function chatRoutes(fastify, options) {
           const content = await fs.readFile(filePath, 'utf8');
 
           // Extract session ID and topic from filename
-          const match = fileName.match(/^(\d{4}-\d{2}-\d{2})_(.+?)_(.+?)\.md$/);
+          const match = fileName.match(/^(\d{4})-(\d{2})-(\d{2})_(.+?)_(.+?)\.md$/);
           const sessionId = match ? match[1] + '-' + match[2] : fileName.slice(0, 36);
           const date = match ? match[0] : fileName.slice(0, 10);
           const topic = match ? match[3] : '未知主题';
@@ -360,7 +360,7 @@ async function chatRoutes(fastify, options) {
         })
       );
 
-      console.log('Discussion history retrieved successfully', { count: records.length, });
+      console.log('Discussion history retrieved successfully', { count: records.length });
 
       return reply.send({
         success: true,
@@ -368,7 +368,7 @@ async function chatRoutes(fastify, options) {
           records,
           pagination: {
             total,
-            limitper: parseInt(limit),
+            limitPer: parseInt(limit),
             offset: parseInt(offset),
             hasMore: end < total
           }
@@ -399,7 +399,7 @@ async function chatRoutes(fastify, options) {
 
       const filePath = path.join(recordsDir, filename + '.md');
 
-      if (!(await fs.access(filePath)).then(() => true).catch(() => false)) {
+      if (!(await fs.access(filePath).then(() => true).catch(() => false))) {
         return reply.code(404).send({
           error: 'File Not Found',
           message: 'The requested discussion record does not exist'
@@ -442,7 +442,7 @@ async function chatRoutes(fastify, options) {
 
       const filePath = path.join(recordsDir, filename + '.md');
 
-      if (!(await fs.access(filePath)).then(() => true).catch(() => false)) {
+      if (!(await fs.access(filePath).then(() => true).catch(() => false))) {
         return reply.code(404).send({
           error: 'File Not Found',
           message: 'The requested discussion record does not exist'
@@ -467,7 +467,5 @@ async function chatRoutes(fastify, options) {
     }
   });
 }
-
-module.exports = chatRoutes;
 
 module.exports = chatRoutes;
