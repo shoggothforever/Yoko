@@ -608,3 +608,768 @@ Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
 Failed to get agents from OpenClaw: Command failed: openclaw agents list --json
 /bin/sh: 1: openclaw: not found
 
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:372
+            limit:per: parseInt(limit),
+                     ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316
+  fastify.get('/history', async (request, reply) => {
+  ^
+
+ReferenceError: fastify is not defined
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:316:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0
+/root/.openclaw/workspace/ghost-chatroom-server/src/routes/chat.js:471
+
+
+
+SyntaxError: Unexpected end of input
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.require (node:internal/modules/cjs/loader:1463:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/root/.openclaw/workspace/ghost-chatroom-server/src/index.js:22:18)
+
+Node.js v22.22.0

@@ -1,5 +1,8 @@
 const flowService = require('../services/flow-service');
 const db = require('../db');
+const fs = require('fs').promises;
+const path = require('path');
+const recordsDir = path.join(__dirname, '../../records');
 
 async function chatRoutes(fastify, options) {
   // Start new chat with
@@ -307,6 +310,164 @@ async function chatRoutes(fastify, options) {
     // Keep connection alive
     return reply;
   });
+
+  // Get discussion history (all records)
+  fastify.get('/history', async (request, reply) => {
+    try {
+      console.log('Getting discussion history from records/');
+
+      const { limit = 20, offset = 0 } = request.query;
+
+      const files = await fs.readdir(recordsDir);
+      const mdFiles = files.filter(f => f.endsWith('.md'));
+
+      // Sort by creation time (descending)
+      const fileStats = await Promise.all(
+        mdFiles.map(async fileName => {
+          const filePath = path.join(recordsDir, fileName);
+          const stats = await fs.stat(filePath);
+          return { fileName, birthtimeMs: stats.birthtimeMs };
+        })
+      );
+
+      fileStats.sort((a, b) => b.birthtimeMs - a.birthtimeMs);
+
+      // Get page
+      const total = fileStats.length;
+      const start = parseInt(offset);
+      const end = Math.min(start + parseInt(limit), total);
+      const pageFiles = fileStats.slice(start, end);
+
+      // Read file contents
+      const records = await Promise.all(
+        pageFiles.map(async ({ fileName }) => {
+          const filePath = path.join(recordsDir, fileName);
+          const content = await fs.readFile(filePath, 'utf8');
+
+          // Extract session ID and topic from filename
+          const match = fileName.match(/^(\d{4}-\d{2}-\d{2})_(.+?)_(.+?)\.md$/);
+          const sessionId = match ? match[1] + '-' + match[2] : fileName.slice(0, 36);
+          const date = match ? match[0] : fileName.slice(0, 10);
+          const topic = match ? match[3] : '未知主题';
+
+          return {
+            fileName,
+            date,
+            sessionId,
+            topic,
+            content
+          };
+        })
+      );
+
+      console.log('Discussion history retrieved successfully', { count: records.length, });
+
+      return reply.send({
+        success: true,
+        data: {
+          records,
+          pagination: {
+            total,
+            limitper: parseInt(limit),
+            offset: parseInt(offset),
+            hasMore: end < total
+          }
+        }
+      });
+    } catch (error) {
+      console.error('Failed to get discussion history', error);
+
+      return reply.code(500).send({
+        error: 'Internal Server Error',
+        message: error.message
+      });
+    }
+  });
+
+  // Get single discussion record by filename
+  fastify.get('/history/:filename', async (request, reply) => {
+    try {
+      const { filename } = request.params;
+
+      // Security: prevent directory traversal
+      if (filename.includes('..') || filename.includes('/') || filename.includes('\\')) {
+        return reply.code(400).send({
+          error: 'Invalid filename',
+          message: 'Filename contains invalid characters'
+        });
+      }
+
+      const filePath = path.join(recordsDir, filename + '.md');
+
+      if (!(await fs.access(filePath)).then(() => true).catch(() => false)) {
+        return reply.code(404).send({
+          error: 'File Not Found',
+          message: 'The requested discussion record does not exist'
+        });
+      }
+
+      const content = await fs.readFile(filePath, 'utf8');
+
+      console.log('Discussion record retrieved successfully', { filename });
+
+      return reply.send({
+        success: true,
+        data: {
+          filename,
+          content
+        }
+      });
+    } catch (error) {
+      console.error('Failed to get discussion record', error);
+
+      return reply.code(500).send({
+        error: 'Internal Server Error',
+        message: error.message
+      });
+    }
+  });
+
+  // Delete discussion record by filename
+  fastify.delete('/history/:filename', async (request, reply) => {
+    try {
+      const { filename } = request.params;
+
+      // Security: prevent directory traversal
+      if (filename.includes('..') || filename.includes('/') || filename.includes('\\')) {
+        return reply.code(400).send({
+          error: 'Invalid filename',
+          message: 'Discussion record filename contains invalid characters'
+        });
+      }
+
+      const filePath = path.join(recordsDir, filename + '.md');
+
+      if (!(await fs.access(filePath)).then(() => true).catch(() => false)) {
+        return reply.code(404).send({
+          error: 'File Not Found',
+          message: 'The requested discussion record does not exist'
+        });
+      }
+
+      await fs.unlink(filePath);
+
+      console.log('Discussion record deleted successfully', { filename });
+
+      return reply.send({
+        success: true,
+        data: { deleted: true }
+      });
+    } catch (error) {
+      console.error('Failed to delete discussion record', error);
+
+      return reply.code(500).send({
+        error: 'Internal Server Error',
+        message: error.message
+      });
+    }
+  });
 }
+
+module.exports = chatRoutes;
 
 module.exports = chatRoutes;
