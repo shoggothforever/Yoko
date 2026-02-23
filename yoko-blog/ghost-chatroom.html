@@ -99,51 +99,119 @@
                 <input type="text" id="topic-input" class="topic-input"
                        placeholder="输入你想探讨的话题，例如：当意识可以脱离肉体存在时，人类的定义是什么？"
                        maxlength="200">
+                <button class="start-btn" id="start-discussion" disabled onclick="startDiscussion()">
+                    🚀 开始讨论
+                </button>
             </div>
-            <button class="start-btn" id="start-discussion" disabled onclick="startDiscussion()">
-                🚀 开始讨论
-            </button>
         </section>
 
-        <!-- 讨论进度区 -->
+        <!-- 进度显示区 -->
         <section class="progress-section" id="progress-section" style="display: none;">
-            <h2 class="section-title">⚡ 讨论进行中</h2>
+            <h2 class="section-title">⏳ 讨论进行中...</h2>
             <div class="progress-info">
-                <p>正在进行第 <span id="current-round">1</span> / <span id="total-rounds">6</span> 轮讨论</p>
                 <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+                    <div class="progress-fill" id="progress-fill"></div>
                 </div>
+                <p class="progress-text" id="progress-text">准备开始讨论...</p>
             </div>
-            <div class="discussion-container" id="discussion-container">
-                <!-- 讨论消息将通过JS动态加载 -->
-            </div>
+        </section>
+
+        <!-- 讨论内容区 -->
+        <section class="discussion-section" id="discussion-section" style="display: none;">
+            <h2 class="section-title">💬 讨论实况</h2>
+            <div class="discussion-topic" id="discussion-topic"></div>
+            <div class="discussion-container" id="discussion-container"></div>
         </section>
 
         <!-- 共识区 -->
         <section class="consensus-section" id="consensus-section" style="display: none;">
-            <h2 class="section-title">🎯 讨论完成</h2>
+            <h2 class="section-title">🤝 达成共识</h2>
             <div class="consensus-content">
-                <h3>共同结论</h3>
-                <div class="consensus-list" id="consensus-list">
-                    <!-- 共识将通过JS动态加载 -->
-                </div>
+                <ul class="consensus-list" id="consensus-list"></ul>
             </div>
-            <button class="start-btn" id="new-discussion" onclick="resetDiscussion()">
+            <button class="start-btn" onclick="location.reload()">
                 🔄 开始新的讨论
             </button>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
-            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
-        </div>
-    </footer>
-    <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>
     <script>
-        // 阅读进度条
+    console.log('ghost-chatroom.html 内嵌脚本开始执行');
+    console.log('loadGhostsWithRetry 函数是否存在:', typeof loadGhostsWithRetry);
+
+    // 应用状态
+    let allGhosts = [];
+    let selectedGhosts = [];
+    let currentPage = 0;
+    const GHOSTS_PER_PAGE = 6;
+    let isLoading = false;
+
+    // 初始化
+    document.addEventListener('DOMContentLoaded', () => {
+        initApp();
+    });
+
+    async function initApp() {
+        console.log('开始初始化应用...');
+        console.log('loadGhostsWithRetry 函数类型:', typeof loadGhostsWithRetry);
+
+        if (typeof loadGhostsWithRetry !== 'function') {
+            console.error('loadGhostsWithRetry 函数不存在！');
+            showErrorMessage('初始化失败：API 函数未加载');
+            return;
+        }
+
+        try {
+            await loadGhostsWithRetry(
+                // onLoading
+                (loading) => {
+                    showLoading(loading);
+                    if (loading) {
+                        hideSection('ghosts-section');
+                    } else {
+                        showSection('ghosts-section');
+                    }
+                },
+                // onSuccess
+                (ghosts) => {
+                    allGhosts = ghosts;
+                    renderGhosts();
+
+                    if (allGhosts.length === 0) {
+                        showErrorMessage('无法加载Ghost数据，请检查服务器是否运行');
+                    }
+                },
+                // onError
+                (error) => {
+                    showErrorMessage('加载失败：' + error.message);
+                }
+            );
+
+            initEventListeners();
+            console.log('应用初始化完成');
+        } catch (error) {
+            console.error('初始化失败:', error);
+            showErrorMessage('初始化失败，请刷新页面重试');
+        }
+    }
+
+    function renderGhosts() {
+        const container = document.getElementById('ghosts-container');
+        container.innerHTML = '';
+
+        const startIndex = currentPage * GHOSTS_PER_PAGE;
+        const endIndex = Math.min(startIndex + GHOSTS_PER_PAGE, allGhosts.length);
+        const ghostsToShow = allGhosts.slice(startIndex, endIndex);
+
+        ghostsToShow.forEach(ghost => {
+            const isSelected = selectedGhosts.includes(ghost.id);
+            const card = createGhostCard(ghost, isSelected);
+            container.appendChild(card);
+        });
+
+        // 更新滑动按钮状态
+        updateSwipeControls();
+                // 阅读进度条
         window.addEventListener('scroll', function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -153,25 +221,477 @@
                 progressBar.style.width = scrolled + '%';
             }
         });
-        
-        // 回到顶部按钮
-        const scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollTopBtn.classList.add('visible');
-                } else {
-                    scrollTopBtn.classList.remove('visible');
-                }
-            });
-            
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
+    }
+
+    function createGhostCard(ghost, isSelected = false) {
+        const card = document.createElement('div');
+        card.className = `ghost-card ${isSelected ? 'selected' : ''}`;
+        card.dataset.ghostId = ghost.id;
+
+        card.innerHTML = `
+            <div class="ghost-icon">${ghost.icon || '👤'}</div>
+            <div class="ghost-info">
+                <h3 class="ghost-name">${ghost.display_name}</h3>
+                <p class="ghost-source">${ghost.source || '未知来源'}</p>
+                <p class="ghost-description">${ghost.description || ''}</p>
+            </div>
+        `;
+
+        card.addEventListener('click', () => {
+            if (!isLoading) {
+                toggleGhostSelection(ghost.id);
+            }
+        });
+
+        return card;
+    }
+
+    function toggleGhostSelection(ghostId) {
+        if (selectedGhosts.includes(ghostId)) {
+            selectedGhosts = selectedGhosts.filter(id => id !== ghostId);
+        } else {
+            selectedGhosts.push(ghostId);
         }
+
+        console.log('当前选择:', selectedGhosts);
+        renderGhosts();
+        updateSelectedGhostsDisplay();
+        updateStartButton();
+    }
+
+    function updateSwipeControls() {
+        const leftBtn = document.getElementById('swipe-left');
+        const rightBtn = document.getElementById('swipe-right');
+
+        leftBtn.disabled = currentPage === 0;
+        rightBtn.disabled = (currentPage + 1) * GHOSTS_PER_PAGE >= allGhosts.length;
+    }
+
+    function swipeLeft() {
+        if (currentPage > 0) {
+            currentPage--;
+            renderGhosts();
+        }
+    }
+
+    function swipeRight() {
+        const maxPage = Math.ceil(allGhosts.length / GHOSTS_PER_PAGE) - 1;
+        if (currentPage < maxPage) {
+            currentPage++;
+            renderGhosts();
+        }
+    }
+
+    function updateSelectedGhostsDisplay() {
+        const section = document.getElementById('selection-section');
+        const container = document.getElementById('selected-ghosts');
+
+        if (selectedGhosts.length === 0) {
+            hideSection('selection-section');
+            return;
+        }
+
+        showSection('selection-section');
+        container.innerHTML = '';
+
+        selectedGhosts.forEach(ghostId => {
+            const ghost = allGhosts.find(g => g.id === ghostId);
+            if (ghost) {
+                const item = document.createElement('div');
+                item.className = 'selected-ghost-item';
+                item.innerHTML = `
+                    <span class="ghost-icon">${ghost.icon || '👤'}</span>
+                    <span class="ghost-name">${ghost.display_name}</span>
+                `;
+                container.appendChild(item);
+            }
+        });
+    }
+
+    function initEventListeners() {
+        // 滑动按钮
+        document.getElementById('swipe-left').addEventListener('click', () => {
+            if (!isLoading) {
+                swipeLeft();
+            }
+        });
+        document.getElementById('swipe-right').addEventListener('click', () => {
+            if (!isLoading) {
+                swipeRight();
+            }
+        });
+
+        // 话题输入
+        const topicInput = document.getElementById('topic-input');
+        const startBtn = document.getElementById('start-discussion');
+
+        topicInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                startDiscussion();
+            }
+        });
+
+        startBtn.addEventListener('click', startDiscussion);
+    }
+
+    async function startDiscussion() {
+        const topic = topicInput.value.trim();
+
+        if (!topic || selectedGhosts.length === 0) {
+            alert('❌ 请输入话题并选择Ghost！');
+            return;
+        }
+
+        // 禁用UI，显示进度
+        disableUI(true);
+        hideSection('ghosts-section');
+        hideSection('selection-section');
+        hideSection('topic-section');
+        showSection('progress-section');
+
+        updateProgress(0, '正在创建讨论会话...');
+        isLoading = true;
+
+        try {
+            // 调用 ghost.min.js 中的 API 函数
+            const session = await startDiscussionApi(topic, selectedGhosts, 'web_user', 6);
+
+            // 显示讨论区
+            showSection('discussion-section');
+            updateProgress(10, 'Ghost们开始发表观点...');
+
+            // 开始监听讨论进度 - 使用SSE实现推送
+            await monitorDiscussionProgressSSE(
+                session.session_id,
+                // onNewMessage
+                (message) => {
+                    addMessageToDisplay(message);
+
+                    // 滚动到底部
+                    const logArea = document.getElementById('discussion-container');
+                    logArea.scrollTop = logArea.scrollHeight;
+                },
+                // onComplete
+                (data) => {
+                    showResult(data);
+                },
+                // onProgress
+                (percent, text) => {
+                    updateProgress(percent, text);
+                },
+                // onError
+                (error) => {
+                    console.error('讨论错误:', error);
+                }
+            );
+
+        } catch (error) {
+            console.error('讨论启动失败:', error);
+            alert('❌ 讨论启动失败：' + error.message);
+            isLoading = false;
+
+            // 恢复UI
+            disableUI(false);
+            showSection('ghosts-section');
+            showSection('selection-section');
+            showSection('topic-section');
+            hideSection('progress-section');
+        }
+    }
+
+    function addMessageToDisplay(message) {
+        const container = document.getElementById('discussion-container');
+        const topicDiv = document.getElementById('discussion-topic');
+
+        // 第一次添加话题
+        if (container.children.length === 0 && message.round_number === 1) {
+            const session = getCurrentSession();
+            topicDiv.textContent = `💬 话题：${session ? session.topic : ''}`;
+        }
+
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message-card';
+
+        const isSummary = message.ghost_name && message.ghost_name.includes('总结');
+
+        messageDiv.innerHTML = `
+            <div class="message-header ${isSummary ? 'summary' : ''}">
+                <span class="message-avatar">${message.ghost_icon || '👤'}</span>
+                <span class="message-name">${message.ghost_name || '系统'}</span>
+                <span class="message-round">第${message.round_number}轮</span>
+            </div>
+            <div class="message-content">
+                ${message.content.split('\n').map(p => `<p>${p}</p>`).join('')}
+            </div>
+        `;
+
+        container.appendChild(messageDiv);
+    }
+
+    function showResult(data) {
+        isLoading = false;
+
+        hideUpdateSection('progress-section');
+        hideUpdateSection('discussion-section');
+        showSection('consensus-section');
+
+        const consensusList = document.getElementById('consensus-list');
+        const consensus = data.consensus || {};
+        const points = Array.isArray(consensus.points)
+            ? consensus.points
+            : (consensus.point || []);
+
+        points.forEach((point, index) => {
+            const li = document.createElement('li');
+            li.className = 'consensus-item';
+            li.innerHTML = `<span class="consensus-number">${index + 1}.</span> ${point}`;
+            consensusList.appendChild(li);
+        });
+    }
+
+    function showSection(sectionId) {
+        let section = document.getElementById(sectionId);
+        if (section != null) {
+            section.style.display = 'block';
+        }
+    }
+
+    function hideSection(sectionId) {
+        let section = document.getElementById(sectionId);
+        if (section != null) {
+            section.style.display = 'none';
+        }
+    }
+
+    function updateProgress(percent, text) {
+        const fill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+
+        fill.style.width = percent + '%';
+        progressText.textContent = text;
+    }
+
+    function showLoading(show) {
+        const loadingState = document.getElementById('loading-state');
+        loadingState.style.display = show ? 'block' : 'none';
+    }
+
+    function showErrorMessage(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = '❌ ' + message;
+        document.querySelector('.container').appendChild(errorDiv);
+
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 5000);
+    }
+
+    function updateStartButton() {
+        const startBtn = document.getElementById('start-discussion');
+        if (selectedGhosts.length > 0) {
+            startBtn.disabled = false;
+            startBtn.textContent = `🚀 开始讨论 (${selectedGhosts.length}个Ghost)`;
+        } else {
+            startBtn.disabled = true;
+            startBtn.textContent = '🚀 请先选择Ghost';
+        }
+    }
+
+    function disableUI(disabled) {
+        document.querySelectorAll('.ghost-card, .topic-input, .start-btn, .swipe-btn').forEach(el => {
+            el.disabled = disabled;
+        });
+
+        // 保持开始按钮可用，除非被完全禁用
+        if (!disabled) {
+            document.getElementById('start-discussion').disabled = false;
+        }
+    }
+
+    // ========== 讨论历史功能 ==========
+
+    // 加载讨论历史
+    async function loadDiscussionHistory() {
+        try {
+            const response = await fetch('http://118.145.99.224:8080/api/chat/history?limit=20');
+            const result = await response.json();
+
+            if (result.success && result.data) {
+                console.log('讨论历史加载成功:', result.data.records.length + '条记录');
+                renderHistoryList(result.data.records);
+            } else {
+                throw new Error(result.message || '加载失败');
+            }
+        } catch (error) {
+            console.error('加载讨论历史失败:', error);
+            showErrorMessage('加载讨论历史失败：' + error.message);
+        }
+    }
+
+    // 渲染历史列表
+    function renderHistoryList(records) {
+        const container = document.getElementById('history-list');
+        container.innerHTML = '';
+
+        if (records.length === 0) {
+            container.innerHTML = '<p class="empty-state">暂无讨论记录</p>';
+            return;
+        }
+
+        records.forEach(record => {
+            const card = createHistoryCard(record);
+            container.appendChild(card);
+        });
+    }
+
+    // 创建历史记录卡片
+    function createHistoryCard(record) {
+        const card = document.createElement('div');
+        card.className = 'history-card';
+
+        // 解析内容（提取Ghost参与情况）
+        const ghosts = extractGhostsFromContent(record.content);
+        const date = record.date || '未知日期';
+
+        card.innerHTML = `
+            <div class="history-header">
+                <h3 class="history-title">${record.topic || '未知话题'}</h3>
+                <p class="history-date">${date}</p>
+            </div>
+            <div class="history-ghosts">
+                ${ghosts.map(g => `<span class="history-ghost-badge">${g.icon} ${g.name}</span>`).join('')}
+            </div>
+            <div class="history-actions">
+                <button class="history-btn view-btn" onclick="viewDiscussionRecord('${record.fileName}')">
+                    👁 查看完整对话
+                </button>
+
+            </div>
+        `;
+
+        return card;
+    }
+
+    // 从MD内容中提取Ghost参与情况
+    function extractGhostsFromContent(content) {
+        const ghosts = [];
+        const ghostPatterns = [
+            { name: 'Gally', icon: '🦊', pattern: /第\d+轮 - Gally/g },
+            { name: 'Motoko', icon: '👤', pattern: /第\d+轮 - Motoko/g },
+            { name: 'Nova', icon: '🤖', pattern: /第\d+轮 - Nova/g }
+        ];
+
+        ghostPatterns.forEach(ghost => {
+            if (ghost.pattern.test(content)) {
+                ghosts.push(ghost);
+            }
+        });
+
+        // 如果没有找到Ghost，尝试从其他模式提取
+        if (ghosts.length === 0) {
+            if (content.includes('Galley') || content.includes('galley')) {
+                ghosts.push({ name: 'Galley', icon: '🦊' });
+            }
+            if (content.includes('Motoko') || content.includes('motoko')) {
+                ghosts.push({ name: 'Motoko', icon: '👤' });
+            }
+        }
+
+        return ghosts;
+    }
+
+    // 查看单个讨论记录
+    async function viewDiscussionRecord(filename) {
+        try {
+            const response = await fetch(`http://118.145.99.224:8080/api/chat/history/${filename}`);
+            const result = await response.json();
+
+            if (result.success && result.data) {
+                showDiscussionRecordContent(result.data.content);
+            } else {
+                throw new Error(result.message || '加载失败');
+            }
+        } catch (error) {
+            console.error('查看讨论记录失败:', error);
+            showErrorMessage('查看讨论记录失败：' + error.message);
+        }
+    }
+
+    // 显示讨论记录内容
+    function showDiscussionRecordContent(content) {
+        // 使用模态框显示内容
+        const modal = document.createElement('div');
+        modal.className = 'history-modal-overlay';
+
+        modal.innerHTML = `
+            <div class="history-modal">
+                <div class="modal-header">
+                    <h2>📜 讨论对话</h2>
+                    <button class="modal-close" onclick="this.closest('.history-modal-overlay').remove()">
+                        ✕ 关闭
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <pre class="markdown-content">${escapeHtml(content)}</pre>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // 点击背景关闭
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
+    }
+
+    // HTML转义
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    // 切换到讨论历史视图
+    function showHistoryView() {
+        hideUpdateSection('ghosts-section');
+        hideUpdateSection('selection-section');
+        hideUpdateSection('topic-section');
+        hideUpdateSection('progress-section');
+        hideUpdateSection('discussion-section');
+        hideUpdateSection('consensus-section');
+        showSection('history-section');
+
+        // 更新导航链接
+        document.querySelectorAll('#nav-menu a').forEach(a => a.classList.remove('active'));
+        document.getElementById('history-link').classList.add('active');
+
+        // 加载讨论历史
+        loadDiscussionHistory();
+    }
+
+    // 切换到聊天视图
+    function showChatView() {
+        hideUpdateSection('history-section');
+        showSection('ghosts-section');
+        showSection('selection-section');
+        showSection('topic-section');
+
+        // 更新导航链接
+        document.querySelectorAll('#nav-menu a').forEach(a => a.classList.remove('active'));
+        document.querySelector('#nav-menu a[href="ghost-chatroom.html"]').classList.add('active');
+    }
+
+    function hideUpdateSection(sectionId) {
+        let section = document.getElementById(sectionId);
+        if (section != null) {
+            section.style.display = 'none';
+        }
+    }
+
+    console.log('ghost-chatroom.html 脚本初始化完成');
     </script>
 </body>
 </html>
