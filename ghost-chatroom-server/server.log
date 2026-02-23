@@ -3362,3 +3362,20 @@ Executed query {
 }
 Active ghosts retrieved successfully: 2
 {"level":30,"time":1771823737897,"pid":1424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1b","res":{"statusCode":200},"responseTime":8.10588899999857,"msg":"request completed"}
+Getting active ghosts from database
+{"level":30,"time":1771827386003,"pid":1424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1c","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":51516},"msg":"incoming request"}
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 7,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771827386012,"pid":1424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1c","res":{"statusCode":200},"responseTime":8.840750999748707,"msg":"request completed"}
+{"level":30,"time":1771827388630,"pid":1424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1d","req":{"method":"GET","url":"/api/chat/history?limit=20","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":51524},"msg":"incoming request"}
+Getting discussion history from records/
+Discussion history retrieved successfully { count: 18 }
+{"level":30,"time":1771827388635,"pid":1424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1d","res":{"statusCode":200},"responseTime":4.88126299995929,"msg":"request completed"}
+{"level":30,"time":1771827389764,"pid":1424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1e","req":{"method":"GET","url":"/api/chat/history/howToFindLove.md","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":51534},"msg":"incoming request"}
+/root/.openclaw/workspace/ghost-chatroom-server/records/howToFindLove.md
+Discussion record retrieved successfully { filename: 'howToFindLove.md' }
+{"level":30,"time":1771827389766,"pid":1424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1e","res":{"statusCode":200},"responseTime":1.5129089998081326,"msg":"request completed"}

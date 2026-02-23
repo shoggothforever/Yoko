@@ -117,11 +117,11 @@ echo "  ✓ HEARTBEAT.md（可选）"
 # 创建README
 echo -e "${BLUE}[5/7] 创建README...${NC}"
 cat > "$AGENT_DIR/README.md" << 'EOFMARKER'
-# $AGENT_NAME
+# AGENT_NAME_PLACEHOLDER
 
 ## 简介
 
-$AGENT_NAME 是一个OpenClaw子agent，专注于 [你的专业领域]。
+AGENT_NAME_PLACEHOLDER 是一个OpenClaw子agent，专注于 [你的专业领域]。
 
 ## 启动方法
 
@@ -168,10 +168,10 @@ sessions_spawn({
 
 ## 快速开始
 
-1. 编辑 `$AGENT_DIR/SOUL.md` 定义agent的个性
-2. 编辑 `$AGENT_DIR/AGENTS.md` 定义行为模式
-3. 编辑 `$AGENT_DIR/USER.md` 记录用户信息
-4. 编辑 `$AGENT_DIR/README.md` 更新说明文档
+1. 编辑 `AGENT_DIR_PLACEHOLDER/SOUL.md` 定义agent的个性
+2. 编辑 `AGENT_DIR_PLACEHOLDER/AGENTS.md` 定义行为模式
+3. 编辑 `AGENT_DIR_PLACEHOLDER/USER.md` 记录用户信息
+4. 编辑 `AGENT_DIR_PLACEHOLDER/README.md` 更新说明文档
 5. 使用 `sessions_spawn` 启动agent
 
 ## 注意事项
@@ -183,13 +183,14 @@ EOFMARKER
 # 替换占位符
 sed -i "s/AGENT_ID_PLACEHOLDER/$AGENT_ID/g" "$AGENT_DIR/README.md"
 sed -i "s/AGENT_NAME_PLACEHOLDER/$AGENT_NAME/g" "$AGENT_DIR/README.md"
+sed -i "s/AGENT_DIR_PLACEHOLDER/\\$AGENT_NAME\\/g" "$AGENT_DIR/README.md"
 
 echo "  ✓ README.md"
 
 # 初始化SOUL.md
 echo -e "${BLUE}[6/7] 初始化SOUL.md...${NC}"
 cat > "$AGENT_DIR/SOUL.md" << 'EOFMARKER'
-# SOUL: $AGENT_NAME
+# SOUL: AGENT_NAME_PLACEHOLDER
 
 ---
 
@@ -223,8 +224,8 @@ cat > "$AGENT_DIR/SOUL.md" << 'EOFMARKER'
 EOFMARKER
 
 # 替换占位符
+sed -i "s/AGENT_NAME_PLACEHOLDER/$AGENT_NAME/g" "$AGENT_DIR/SOUL.md"
 sed -i "s/ARCHETYPE_PLACEHOLDER/$ARCHETYPE/g" "$AGENT_DIR/SOUL.md"
-sed -i "s/$AGENT_NAME/g" "$AGENT_DIR/SOUL.md"
 
 echo "  ✓ SOUL.md（已预填）"
 
@@ -288,10 +289,10 @@ echo "  3. 编辑 $AGENT_DIR/USER.md 记录用户信息"
 echo "  4. 编辑 $AGENT_DIR/README.md 更新说明文档"
 echo ""
 echo -e "${YELLOW}启动Agent：${NC}"
-echo "  在主会会中执行："
+echo "  在主会话中执行："
 echo "  sessions_spawn({"
-echo "      agentId: \"$AGENT_ID\","
-echo "      task: \"请介绍自己\","
-echo "      label: \"$AGENT_NAME\""
+echo "    agentId: \"$AGENT_ID\","
+echo "    task: \"请介绍自己\","
+echo "    label: \"$AGENT_NAME\""
 echo "  });"
-echo "  "
+echo ""
