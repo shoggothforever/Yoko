@@ -503,7 +503,7 @@
     // 加载讨论历史
     async function loadDiscussionHistory() {
         try {
-            const response = await fetch('http://118.145.99.224:8080/api/history?limit=20');
+            const response = await fetch('http://118.145.99.224:8080/api/chat/history?limit=20');
             const result = await response.json();
 
             if (result.success && result.data) {
@@ -555,9 +555,6 @@
                 <button class="history-btn view-btn" onclick="viewDiscussionRecord('${record.fileName}')">
                     👁 查看完整对话
                 </button>
-                <button class="history-btn delete-btn" onclick="deleteDiscussionRecord('${record.fileName}')">
-                    🗑 删除
-                </button>
             </div>
         `;
 
@@ -581,8 +578,8 @@
 
         // 如果没有找到Ghost，尝试从其他模式提取
         if (ghosts.length === 0) {
-            if (content.includes('Gally') || content.includes('galley')) {
-                ghosts.push({ name: 'Gally', icon: '🦊' });
+            if (content.includes('Galley') || content.includes('galley')) {
+                ghosts.push({ name: 'Galley', icon: '🦊' });
             }
             if (content.includes('Motoko') || content.includes('motoko')) {
                 ghosts.push({ name: 'Motoko', icon: '👤' });
@@ -595,7 +592,7 @@
     // 查看单个讨论记录
     async function viewDiscussionRecord(filename) {
         try {
-            const response = await fetch(`http://118.145.99.224:8080/api/history/${filename}`);
+            const response = await fetch(`http://118.145.99.224:8080/api/chat/history/${filename}`);
             const result = await response.json();
 
             if (result.success && result.data) {
@@ -645,32 +642,6 @@
         div.textContent = text;
         return div.innerHTML;
     }
-
-    // 删除讨论记录
-    async function deleteDiscussionRecord(filename) {
-        if (!confirm('确定要删除这条讨论记录吗？')) {
-            return;
-        }
-
-        try {
-            const response = await fetch(`http://118.145.99.224:8080/api/history/${filename}`, {
-                method: 'DELETE'
-            });
-            const result = await response.json();
-
-            if (result.success) {
-                console.log('讨论记录删除成功:', filename);
-                // 重新加载历史
-                await loadDiscussionHistory();
-            } else {
-                throw new Error(result.message || '删除失败');
-            }
-        } catch (error) {
-            console.error('删除讨论记录失败:', error);
-            showErrorMessage('删除讨论记录失败：' + error.message);
-        }
-    }
-
     // 切换到讨论历史视图
     function showHistoryView() {
         hideUpdateSection('ghosts-section');

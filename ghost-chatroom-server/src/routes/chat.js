@@ -397,8 +397,8 @@ async function chatRoutes(fastify, options) {
         });
       }
 
-      const filePath = path.join(recordsDir, filename + '.md');
-
+      const filePath = path.join(recordsDir, filename);
+      console.log(filePath)
       if (!(await fs.access(filePath).then(() => true).catch(() => false))) {
         return reply.code(404).send({
           error: 'File Not Found',

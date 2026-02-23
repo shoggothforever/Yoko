@@ -1,89 +1,97 @@
 #!/usr/bin/env python3
 """
-生成sitemap.xml
+自动生成 sitemap.xml
+根据 posts 目录下的实际 HTML 文件和其他页面生成 sitemap
 """
 
 import os
-from datetime import datetime
+import re
 from pathlib import Path
+from datetime import datetime
 
-# 配置
-BASE_URL = "https://118.145.99.224"
+# 路径配置
 BLOG_DIR = Path("/root/.openclaw/workspace/yoko-blog")
-
-# 主要页面（包含优先级和更新频率）
-MAIN_PAGES = [
-    {"path": "index.html", "priority": "1.0", "changefreq": "daily"},
-    {"path": "important-people.html", "priority": "0.8", "changefreq": "weekly"},
-    {"path": "all-posts.html", "priority": "0.9", "changefreq": "weekly"},
-    {"path": "ghost-chatroom.html", "priority": "0.9", "changefreq": "weekly"},
-]
-
-# 获取所有博客文章
 POSTS_DIR = BLOG_DIR / "posts"
-blog_posts = []
+SITEMAP_FILE = BLOG_DIR / "sitemap.xml"
 
-if POSTS_DIR.exists():
-    for post_file in sorted(POSTS_DIR.glob("*.html")):
-        # 提取文件名作为日期（如果文件名包含日期）
-        filename = post_file.stem
-        blog_posts.append({
-            "path": f"posts/{post_file.name}",
-            "priority": "0.7",
-            "changefreq": "monthly",
+# 域名配置（使用域名而不是IP）
+BASE_URL = "https://yoko.sfct.top"  # 或者使用 "https://118.145.99.224"
+
+def get_file_lastmod(file_path):
+    """获取文件最后修改时间，格式化为 YYYY-MM-DD"""
+    mod_time = datetime.fromtimestamp(file_path.stat().st_mtime)
+    return mod_time.strftime("%Y-%m-%d")
+
+def generate_sitemap():
+    """生成 sitemap.xml 内容"""
+    
+    sitemap_urls = []
+    
+    # 1. 添加主要页面
+    main_pages = [
+        ("index.html", "1.0", "daily"),
+        ("important-people.html", "0.8", "weekly"),
+        ("all-posts.html", "0.9", "weekly"),
+        ("ghost-chatroom.html", "0.9", "weekly"),
+    ]
+    
+    for page, priority, changefreq in main_pages:
+        page_path = BLOG_DIR / page
+        if page_path.exists():
+            sitemap_urls.append({
+                'loc': f"{BASE_URL}/{page}",
+                'lastmod': get_file_lastmod(page_path),
+                'priority': priority,
+                'changefreq': changefreq
+            })
+            print(f"  ✓ 主页面：{page}")
+    
+    # 2. 添加所有博客文章
+    html_files = sorted(POSTS_DIR.glob("*.html"))
+    
+    for html_file in html_files:
+        sitemap_urls.append({
+            'loc': f"{BASE_URL}/posts/{html_file.name}",
+            'lastmod': get_file_lastmod(html_file),
+            'priority': "0.7",
+            'changefreq': "monthly"
         })
-
-# 生成sitemap.xml内容
-sitemap_content = f'''<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-'''
-
-# 添加主要页面
-current_date = datetime.now().strftime("%Y-%m-%d")
-
-for page in MAIN_PAGES:
-    url = f"{BASE_URL}/{page['path']}"
-    priority = page["priority"]
-    changefreq = page["changefreq"]
-
-    sitemap_content += f'''    <url>
-        <loc>{url}</loc>
-        <lastmod>{current_date}</lastmod>
-        <changefreq>{changefreq}</changefreq>
-        <priority>{priority}</priority>
+        print(f"  ✓ 文章：{html_file.name}")
+    
+    # 3. 生成 XML
+    urlset_xml = ""
+    for url in sitemap_urls:
+        urlset_xml += f'''    <url>
+        <loc>{url['loc']}</loc>
+        <lastmod>{url['lastmod']}</lastmod>
+        <changefreq>{url['changefreq']}</changefreq>
+        <priority>{url['priority']}</priority>
     </url>
 '''
+    
+    template = f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{urlset_xml}</urlset>'''
+    
+    return template
 
-# 添加博客文章
-for post in blog_posts:
-    url = f"{BASE_URL}/{post['path']}"
-    priority = post["priority"]
-    changefreq = post["changefreq"]
+def main():
+    """主函数"""
+    print("正在生成 sitemap.xml...")
+    
+    # 确保目录存在
+    if not POSTS_DIR.exists():
+        print(f"错误：文章目录不存在：{POSTS_DIR}")
+        return
+    
+    # 生成 sitemap
+    sitemap_content = generate_sitemap()
+    
+    # 写入文件
+    SITEMAP_FILE.write_text(sitemap_content, encoding='utf-8')
+    
+    print(f"\n✅ 成功生成：{SITEMAP_FILE}")
+    print(f"   域名：{BASE_URL}")
 
-    sitemap_content += f'''    <url>
-        <loc>{url}</loc>
-        <lastmod>{current_date}</lastmod>
-        <changefreq>{changefreq}</changefreq>
-        <priority>{priority}</priority>
-    </url>
-'''
-
-sitemap_content += '''</urlset>'''
-
-# 写入文件
-output_file = BLOG_DIR / "sitemap.xml"
-with open(output_file, 'w', encoding='utf-8') as f:
-    f.write(sitemap_content)
-
-print("=" * 50)
-print("sitemap.xml 生成完成")
-print("=" * 50)
-print(f"文件路径：{output_file}")
-print(f"URL总数：{len(MAIN_PAGES) + len(blog_posts)}")
-print(f"  - 主要页面：{len(MAIN_PAGES)} 个")
-print(f"  - 博客文章：{len(blog_posts)} 个")
-print(f"\n访问地址：{BASE_URL}/sitemap.xml")
-print("")
+if __name__ == "__main__":
+    main()
