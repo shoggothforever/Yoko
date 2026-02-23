@@ -3436,3 +3436,9 @@ Executed query {
 }
 Active ghosts retrieved successfully: 2
 {"level":30,"time":1771830476211,"pid":1424,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1m","res":{"statusCode":200},"responseTime":2.0113819986581802,"msg":"request completed"}
+Database schema initialized successfully
+Ghosts seeded successfully
+Server listening on http://0.0.0.0:3000
+Environment: production
+Health check: http://0.0.0.0:3000/api/health
+{"level":30,"time":1771834381771,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}

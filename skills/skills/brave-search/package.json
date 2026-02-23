@@ -1,0 +1,12 @@
+{
+  "name": "brave-search",
+  "version": "1.0.0",
+  "description": "Brave Search API integration for OpenClaw",
+  "main": "index.js",
+  "scripts": {
+    "test": "python3 /root/.openclaw/workspace/scripts/brave-search.py \"test query\" -c 1 -j"
+  },
+  "keywords": ["search", "brave", "api", "web"],
+  "author": "Yoko",
+  "license": "MIT"
+}

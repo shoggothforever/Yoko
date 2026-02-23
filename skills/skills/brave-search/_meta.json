@@ -1,0 +1,12 @@
+{
+  "name": "brave-search",
+  "displayName": "Brave Search",
+  "description": "使用 Brave Search API 进行网络搜索，支持代理和多种输出格式",
+  "version": "1.0.0",
+  "category": "search",
+  "tags": ["search", "web", "api", "brave", "information"],
+  "author": "Yoko",
+  "license": "MIT",
+  "priority": 10,
+  "enabled": true
+}
