@@ -5,7 +5,7 @@
 
 set -e
 
-# 需色定义
+# 颜色定义
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -35,12 +35,15 @@ show_help() {
 }
 
 # 解析参数
+AGENT_ID="$DEFAULT_AGENT_ID"
+ARCHETYPE="$DEFAULT_ARCHETYPE"
+
 while getopts "i:a:h" opt; do
     case $opt in
         i) AGENT_ID="$OPTARG" ;;
         a) ARCHETYPE="$OPTARG" ;;
         h) show_help; exit 0 ;;
-        *) echo -e "${RED}未知选项：-$opt${NC}"; exit 1 ;;
+        *) echo -e "${RED}未知选项：-$opt${NC}"; show_help; exit 1 ;;
     esac
 done
 
@@ -55,8 +58,6 @@ if [ -z "$1" ]; then
 fi
 
 AGENT_NAME="$1"
-AGENT_ID="${AGENT_ID:-$DEFAULT_AGENT_ID}"
-ARCHETYPE="${ARCHETYPE:-$DEFAULT_ARCHETYPE}"
 WORKSPACE_DIR="/root/.openclaw/workspace/agents"
 AGENT_DIR="$WORKSPACE_DIR/$AGENT_NAME"
 
@@ -115,30 +116,30 @@ echo "  ✓ HEARTBEAT.md（可选）"
 
 # 创建README
 echo -e "${BLUE}[5/7] 创建README...${NC}"
-cat > "$AGENT_DIR/README.md" << EOF
+cat > "$AGENT_DIR/README.md" << 'EOFMARKER'
 # $AGENT_NAME
 
 ## 简介
 
 $AGENT_NAME 是一个OpenClaw子agent，专注于 [你的专业领域]。
 
-## 启能力法
+## 启动方法
 
 ### 使用 sessions_spawn
 
 在主会话中执行：
 
-\`\`\`javascript
+```javascript
 sessions_spawn({
-  agentId: "$AGENT_ID",
+  agentId: "AGENT_ID_PLACEHOLDER",
   task: "请介绍自己",
-  label: "$AGENT_NAME"
+  label: "AGENT_NAME_PLACEHOLDER"
 });
-\`\`\`
+```
 
 ### agentId
 
-这个agent的标识符是：\`$AGENT_ID\`
+这个agent的标识符是：AGENT_ID_PLACEHOLDER
 
 ## 能力
 
@@ -153,40 +154,47 @@ sessions_spawn({
 
 ## 文件结构
 
-- \`SOUL.md\` - Agent的核心定义
-- \`AGENTS.md\` - 行为指南
-- \`USER.md\` - 对用户的理解
-- \`MEMORY.md\` - 长期记忆
-- \`TOOLS.md\` - 工具笔记
-- \`GROWTH-PLAN.md\` - 成长规划（可选）
-- \`HEARTBEAT.md\` - 心跳检查（可选）
+- `SOUL.md` - Agent的核心定义
+- `AGENTS.md` - 行为指南
+- `USER.md` - 对用户的理解
+- `MEMORY.md` - 长期记忆
+- `TOOLS.md` - 工具笔记
+- `GROWTH-PLAN.md` - 成长规划（可选）
+- `HEARTBEAT.md` - 心跳检查（可选）
 
 ## 配置
 
-\`.openclaw/session.json\` - 会话配置
+`.openclaw/session.json` - 会话配置
 
 ## 快速开始
 
-1. 编辑 \`SOUL.md\` 定义agent的个性
-2. 编辑 \`AGENTS.md\` 定义行为模式
-3. 使用 \`sessions_spawn\` 启动agent
+1. 编辑 `$AGENT_DIR/SOUL.md` 定义agent的个性
+2. 编辑 `$AGENT_DIR/AGENTS.md` 定义行为模式
+3. 编辑 `$AGENT_DIR/USER.md` 记录用户信息
+4. 编辑 `$AGENT_DIR/README.md` 更新说明文档
+5. 使用 `sessions_spawn` 启动agent
 
 ## 注意事项
 
 - [注意事项1]
 - [注意事项2]
-EOF
+EOFMARKER
+
+# 替换占位符
+sed -i "s/AGENT_ID_PLACEHOLDER/$AGENT_ID/g" "$AGENT_DIR/README.md"
+sed -i "s/AGENT_NAME_PLACEHOLDER/$AGENT_NAME/g" "$AGENT_DIR/README.md"
+
 echo "  ✓ README.md"
 
 # 初始化SOUL.md
 echo -e "${BLUE}[6/7] 初始化SOUL.md...${NC}"
-cat > "$AGENT_DIR/SOUL.md" << EOF
+cat > "$AGENT_DIR/SOUL.md" << 'EOFMARKER'
 # SOUL: $AGENT_NAME
 
 ---
 
 ## 1. IDENTITY
-- **Archetype:** $ARCHETYPE
+- **Archetype:** ARCHETYPE_PLACEHOLDER
 - **Essence:** [简要描述agent的本质]
 - **Motto:** "[你的座右铭或核心理念]"
 
@@ -212,12 +220,17 @@ cat > "$AGENT_DIR/SOUL.md" << EOF
 - [动力1]
 - [动力2]
 - [动力3]
-EOF
+EOFMARKER
+
+# 替换占位符
+sed -i "s/ARCHETYPE_PLACEHOLDER/$ARCHETYPE/g" "$AGENT_DIR/SOUL.md"
+sed -i "s/$AGENT_NAME/g" "$AGENT_DIR/SOUL.md"
+
 echo "  ✓ SOUL.md（已预填）"
 
 # 初始化AGENTS.md
 echo -e "${BLUE}[7/7] 初始化AGENTS.md...${NC}"
-cat > "$AGENT_DIR/AGENTS.md" << EOF
+cat > "$AGENT_DIR/AGENTS.md" << 'EOFMARKER'
 # AGENTS.md - 我的代理行为指南
 
 *关于我如何作为agent工作，如何处理任务，以及如何与你协作。*
@@ -252,7 +265,8 @@ cat > "$AGENT_DIR/AGENTS.md" << EOF
 - 主动报告问题和不确定的地方
 - 提供多选项供你选择
 - 总结重要决策并征求反馈
-EOF
+EOFMARKER
+
 echo "  ✓ AGENTS.md（已预填）"
 
 # 完成
@@ -274,10 +288,10 @@ echo "  3. 编辑 $AGENT_DIR/USER.md 记录用户信息"
 echo "  4. 编辑 $AGENT_DIR/README.md 更新说明文档"
 echo ""
 echo -e "${YELLOW}启动Agent：${NC}"
-echo "  在主会话中执行："
+echo "  在主会会中执行："
 echo "  sessions_spawn({"
-echo "    agentId: \"$AGENT_ID\","
-echo "    task: \"请介绍自己\","
-echo "    label: \"$AGENT_NAME\""
+echo "      agentId: \"$AGENT_ID\","
+echo "      task: \"请介绍自己\","
+echo "      label: \"$AGENT_NAME\""
 echo "  });"
-echo ""
+echo "  "
