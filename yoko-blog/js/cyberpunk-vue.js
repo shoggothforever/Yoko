@@ -226,6 +226,7 @@ const MatrixRain = {
     <canvas ref="canvas" class="matrix-rain" :style="canvasStyle"></canvas>
   `,
   setup(props) {
+    console.log('🌧 MatrixRain setup called');
     const canvas = ref(null);
     const canvasStyle = computed(() => ({
       position: 'fixed',
@@ -240,23 +241,30 @@ const MatrixRain = {
 
     let animationId = null;
     let ctx = null;
-    let columns = [];
     let drops = [];
 
     const init = () => {
-      if (!canvas.value) return;
-      
+      console.log('🌧 MatrixRain init called, canvas.value:', canvas.value);
+      if (!canvas.value) {
+        console.error('🌧 MatrixRain: canvas.value is null!');
+        return;
+      }
+
       ctx = canvas.value.getContext('2d');
       canvas.value.width = window.innerWidth;
       canvas.value.height = window.innerHeight;
 
+      console.log('🌧 MatrixRain canvas size:', canvas.value.width, 'x', canvas.value.height);
+
       const fontSize = 14;
-      columns.value = Math.floor(canvas.value.width / fontSize);
+      const columnCount = Math.floor(canvas.value.width / fontSize);
       drops = [];
 
-      for (let i = 0; i < columns.value; i++) {
+      for (let i = 0; i < columnCount; i++) {
         drops[i] = Math.random() * -100; // 随机初始高度
       }
+
+      console.log('🌧 MatrixRain initialized with', columnCount, 'columns');
     };
 
     const draw = () => {
@@ -295,9 +303,11 @@ const MatrixRain = {
     };
 
     onMounted(() => {
+      console.log('🌧 MatrixRain on onMounted');
       init();
       draw();
-      
+      console.log('🌧 MatrixRain draw started');
+
       window.addEventListener('resize', () => {
         init();
       });

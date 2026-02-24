@@ -251,9 +251,10 @@
         }
     </script>    <!-- Vue App Initialization -->
     <script>
-        const { createApp } = Vue;
-        
-        createApp({
+        console.log('🚀 Vue app initialization starting...');
+        console.log('🚀 CyberpunkVue components:', CyberpunkVue.components);
+
+        const app = createApp({
             components: {
                 GlitchText: CyberpunkVue.components.GlitchText,
                 MatrixRain: CyberpunkVue.components.MatrixRain,
@@ -268,38 +269,21 @@
                 };
             },
             mounted() {
+                console.log('🚀 Vue app mounted!');
                 // Welcome animation
                 setTimeout(() => {
                     this.isTyping = false;
                 }, 8000);
             }
-        }).mount('#cyber-app');
-    </script>
-    <!-- Vue App Initialization -->
-    <script>
-        const { createApp } = Vue;
-        
-        createApp({
-            components: {
-                GlitchText: CyberpunkVue.components.GlitchText,
-                MatrixRain: CyberpunkVue.components.MatrixRain,
-                Typewriter: CyberpunkVue.components.Typewriter,
-                NeonBorder: CyberpunkVue.components.NeonBorder,
-                CyberCard: CyberpunkVue.components.CyberCard
-            },
-            data() {
-                return {
-                    matrixChars: 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789',
-                    isTyping: true
-                };
-            },
-            mounted() {
-                // Welcome animation
-                setTimeout(() => {
-                    this.isTyping = false;
-                }, 8000);
-            }
-        }).mount('#cyber-app');
+        });
+
+        console.log('🚀 About to mount to #cyber-app');
+        try {
+            const mounted = app.mount('#cyber-app');
+            console.log('🚀 Vue app mounted successfully:', mounted);
+        } catch (error) {
+            console.error('🚀 Vue app mount error:', error);
+        }
     </script>
 </body>
 </html>
