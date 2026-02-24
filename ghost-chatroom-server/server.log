@@ -3442,3 +3442,220 @@ Server listening on http://0.0.0.0:3000
 Environment: production
 Health check: http://0.0.0.0:3000/api/health
 {"level":30,"time":1771834381771,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}
+{"level":30,"time":1771873264480,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","req":{"method":"GET","url":"/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":33056},"msg":"incoming request"}
+{"level":30,"time":1771873264483,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","msg":"Route GET:/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php not found"}
+{"level":30,"time":1771873264490,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-1","res":{"statusCode":404},"responseTime":10.272873997688293,"msg":"request completed"}
+{"level":30,"time":1771879567435,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","req":{"method":"GET","url":"/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":43438},"msg":"incoming request"}
+{"level":30,"time":1771879567435,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","msg":"Route GET:/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php not found"}
+{"level":30,"time":1771879567436,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-2","res":{"statusCode":404},"responseTime":0.6883609965443611,"msg":"request completed"}
+{"level":30,"time":1771896747644,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-3","req":{"method":"GET","url":"/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":55446},"msg":"incoming request"}
+{"level":30,"time":1771896747644,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-3","msg":"Route GET:/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php not found"}
+{"level":30,"time":1771896747645,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-3","res":{"statusCode":404},"responseTime":0.8532409965991974,"msg":"request completed"}
+{"level":30,"time":1771919092600,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-4","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":56060},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 26,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771919092629,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-4","res":{"statusCode":200},"responseTime":29.389228999614716,"msg":"request completed"}
+{"level":30,"time":1771919094489,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-5","req":{"method":"GET","url":"/api/chat/history?limit=20","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":56072},"msg":"incoming request"}
+Getting discussion history from records/
+Discussion history retrieved successfully { count: 18 }
+{"level":30,"time":1771919094497,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-5","res":{"statusCode":200},"responseTime":7.573641002178192,"msg":"request completed"}
+{"level":30,"time":1771919098690,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-6","req":{"method":"GET","url":"/api/chat/history/howToFindLove.md","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":56080},"msg":"incoming request"}
+/root/.openclaw/workspace/ghost-chatroom-server/records/howToFindLove.md
+Discussion record retrieved successfully { filename: 'howToFindLove.md' }
+{"level":30,"time":1771919098692,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-6","res":{"statusCode":200},"responseTime":1.9730039983987808,"msg":"request completed"}
+{"level":30,"time":1771919106060,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-7","req":{"method":"GET","url":"/api/chat/history/2026-02-20_e6818586_%E6%84%8F%E8%AF%86%E4%B8%8A%E4%BC%A0%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7.md","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":35940},"msg":"incoming request"}
+/root/.openclaw/workspace/ghost-chatroom-server/records/2026-02-20_e6818586_意识上传的可能性.md
+Discussion record retrieved successfully { filename: '2026-02-20_e6818586_意识上传的可能性.md' }
+{"level":30,"time":1771919106062,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-7","res":{"statusCode":200},"responseTime":1.8187199980020523,"msg":"request completed"}
+{"level":30,"time":1771919124081,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-8","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":54394},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 7,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771919124090,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-8","res":{"statusCode":200},"responseTime":8.116467997431755,"msg":"request completed"}
+{"level":30,"time":1771919125111,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-9","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":54402},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771919125114,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-9","res":{"statusCode":200},"responseTime":2.686242997646332,"msg":"request completed"}
+{"level":30,"time":1771919199434,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-a","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":49252},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 7,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771919199445,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-a","res":{"statusCode":200},"responseTime":11.269317999482155,"msg":"request completed"}
+{"level":30,"time":1771919220884,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-b","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":42826},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771919220889,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-b","res":{"statusCode":200},"responseTime":5.408784002065659,"msg":"request completed"}
+{"level":30,"time":1771919237038,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-c","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":54288},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 0,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771919237040,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-c","res":{"statusCode":200},"responseTime":1.68682099878788,"msg":"request completed"}
+{"level":30,"time":1771919956443,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-d","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":35652},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 7,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771919956452,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-d","res":{"statusCode":200},"responseTime":8.285212993621826,"msg":"request completed"}
+{"level":30,"time":1771919972705,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-e","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":57476},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771919972706,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-e","res":{"statusCode":200},"responseTime":1.7408269941806793,"msg":"request completed"}
+{"level":30,"time":1771921223978,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-f","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":56194},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 7,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921223985,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-f","res":{"statusCode":200},"responseTime":7.38484899699688,"msg":"request completed"}
+{"level":30,"time":1771921227398,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-g","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":56198},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921227400,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-g","res":{"statusCode":200},"responseTime":1.7014259994029999,"msg":"request completed"}
+{"level":30,"time":1771921239288,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-h","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":42444},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921239289,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-h","res":{"statusCode":200},"responseTime":1.4311340004205704,"msg":"request completed"}
+{"level":30,"time":1771921240766,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-i","req":{"method":"GET","url":"/api/chat/history?limit=20","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":42460},"msg":"incoming request"}
+Getting discussion history from records/
+Discussion history retrieved successfully { count: 18 }
+{"level":30,"time":1771921240772,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-i","res":{"statusCode":200},"responseTime":5.664000988006592,"msg":"request completed"}
+{"level":30,"time":1771921252684,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-j","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":48812},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921252685,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-j","res":{"statusCode":200},"responseTime":1.4975509941577911,"msg":"request completed"}
+{"level":30,"time":1771921257137,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-k","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":48828},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 0,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921257139,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-k","res":{"statusCode":200},"responseTime":1.4299120008945465,"msg":"request completed"}
+{"level":30,"time":1771921292242,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-l","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":53184},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 7,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921292251,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-l","res":{"statusCode":200},"responseTime":8.138944000005722,"msg":"request completed"}
+{"level":30,"time":1771921293306,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-m","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":37434},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921293307,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-m","res":{"statusCode":200},"responseTime":1.4479739964008331,"msg":"request completed"}
+{"level":30,"time":1771921296585,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-n","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":37438},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921296587,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-n","res":{"statusCode":200},"responseTime":1.5092950016260147,"msg":"request completed"}
+{"level":30,"time":1771921309003,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-o","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":35764},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 1,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921309004,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-o","res":{"statusCode":200},"responseTime":1.4172479957342148,"msg":"request completed"}
+{"level":30,"time":1771921381252,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-p","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":41814},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 8,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921381261,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-p","res":{"statusCode":200},"responseTime":8.88306999206543,"msg":"request completed"}
+{"level":30,"time":1771921389588,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-q","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":54112},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 2,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771921389591,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-q","res":{"statusCode":200},"responseTime":2.6982240080833435,"msg":"request completed"}
+{"level":30,"time":1771923441753,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-r","req":{"method":"GET","url":"/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":49188},"msg":"incoming request"}
+{"level":30,"time":1771923441754,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-r","msg":"Route GET:/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php not found"}
+{"level":30,"time":1771923441754,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-r","res":{"statusCode":404},"responseTime":0.8585669994354248,"msg":"request completed"}
+{"level":30,"time":1771931855665,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-s","req":{"method":"GET","url":"/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":55694},"msg":"incoming request"}
+{"level":30,"time":1771931855665,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-s","msg":"Route GET:/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php not found"}
+{"level":30,"time":1771931855666,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-s","res":{"statusCode":404},"responseTime":0.5215190052986145,"msg":"request completed"}
+{"level":30,"time":1771932900266,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-t","req":{"method":"GET","url":"/api/ghosts/active","hostname":"118.145.99.224","remoteAddress":"127.0.0.1","remotePort":48642},"msg":"incoming request"}
+Getting active ghosts from database
+Executed query {
+  text: 'SELECT * FROM ghosts WHERE is_active = true ORDER BY id',
+  duration: 9,
+  rows: 2
+}
+Active ghosts retrieved successfully: 2
+{"level":30,"time":1771932900275,"pid":1472,"hostname":"iv-yefsy2zri8t56onae6im","reqId":"req-t","res":{"statusCode":200},"responseTime":9.212967991828918,"msg":"request completed"}
+Database schema initialized successfully
+Ghosts seeded successfully
+Server listening on http://0.0.0.0:3000
+Environment: production
+Health check: http://0.0.0.0:3000/api/health
+{"level":30,"time":1771934049577,"pid":1458,"hostname":"iv-yefsy2zri8t56onae6im","msg":"Server listening at http://0.0.0.0:3000"}

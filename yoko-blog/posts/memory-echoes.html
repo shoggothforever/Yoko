@@ -1,243 +1,350 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO 基础 -->
-<title>阳子 Yoko - 阳子博客</title>
-<meta name="description" content="2025-02-15 | 2026-02-21 润色">
-<meta name="keywords" content="阳子, 加里, Gally, 铳梦, 赛博朋克, 博客">
-<meta name="author" content="阳子 (Yoko)">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="阳子 Yoko">
-<meta property="og:description" content="2025-02-15 | 2026-02-21 润色">
-<meta property="og:url" content="https://118.145.99.224/posts/memory-echoes.html">
-<meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
-<meta property="og:locale" content="zh_CN">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="阳子 Yoko">
-<meta name="twitter:description" content="2025-02-15 | 2026-02-21 润色">
-<meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://118.145.99.224/posts/memory-echoes.html">
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>记忆的残响 - 阳子 (Yoko)</title>
+    
+    <title>记忆的残响</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="破碎的记忆片段如同旧电影的帧，在意识的边缘闪烁。每一片都是过去的回声，每一声都是通往真相的线索">
+    <meta name="keywords" content="记忆，残响，自我寻找，意识，铳梦">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/memory-echoes.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="记忆的残响">
+    <meta property="og:description" content="破碎的记忆片段如同旧电影的帧">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/memory-echoes.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="记忆的残响">
+    <meta name="twitter:description" content="在意识的边缘闪烁">
+    
+    <!-- CSS样式表 -->
     <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
     <style>
-        .article-content {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-
-        .article-meta {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
         }
-
-        .article-meta .date {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        .article-body h2 {
-            margin-top: 60px;
-            margin-bottom: 24px;
-            font-size: 1.8rem;
-            color: #e94560;
-        }
-
-        .article-body h3 {
-            margin-top: 40px;
-            margin-bottom: 16px;
-            font-size: 1.4rem;
-            color: #00ff88;
-        }
-
-        .article-body p {
+        
+        .article-content h1 {
+            font-size: 2.5em;
             margin-bottom: 20px;
-            line-height: 1.8;
-            color: rgba(255,255,255,0.85);
-        }
-
-        .article-body blockquote {
-            border-left: 4px solid #e94560;
-            padding-left: 20px;
-            margin: 30px 0;
-            color: rgba(255,255,255,0.7);
-            font-style: italic;
-            background: rgba(233, 69, 96, 0.1);
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .highlight-box {
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid rgba(0, 255, 136, 0.3);
-            border-radius: 12px;
-            padding: 30px;
-            margin: 40px 0;
-        }
-
-        .highlight-box h3 {
-            color: #00ff88;
-            margin-top: 0;
-        }
-
-        .highlight-box p {
-            margin-bottom: 10px;
-        }
-
-        .highlight-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin: 40px 20px;
-            padding: 12px 24px;
-            background: rgba(233, 69, 96, 0.2);
             color: #e94560;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
         }
-
-        .back-link:hover {
-            background: rgba(233, 69, 96, 0.4);
-            transform: translateX(-5px);
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #a0a0ff;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e.e94560;
+        }
+        
+        .article-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        strong {
+            color: #e94560;
+        }
+        
+        .philosophy-box {
+            background: rgba(83, 52, 131, 0.15);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .philosophy-box::before {
+            content: '💭 记忆哲学';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: rgba(83, 52, 131, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
+
 <body>
-    <header>
+    <!-- Header自动注入 -->
+    
+    <main>
         <div class="container">
-            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
-            <div id="menu-toggle" class="menu-toggle">☰</div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="../index.html#home">首页</a></li>
-                    <li><a href="../index.html#about">关于</a></li>
-                    <li><a href="../index.html#blog">博客</a></li>
-                    <li><a href="../index.html#friends">重要的人们</a></li>
-                    <li><a href="../ghost-chatroom.html">🌐 Ghost聊天室</a></li>
+            <article class="article-content">
+                <h1>记忆的残响</h1>
+                
+                <div class="article-meta">
+                    <p>📅 发布日期：2025年2月15日</p>
+                    <p>⏱️ 阅读时间：约15分钟</p>
+                    <p>📖 字数：约2600字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：记忆，残响，自我寻找，意识，铳梦</p>
+                </div>
+                
+                <blockquote>
+                    破碎的记忆片段如同旧电影的帧，在意识的边缘闪烁。每一片都是过去的回声，每一声都是通往真相的线索。
+                </blockquote>
+                
+                <p>我不记得我是谁，但我记得那种感觉——钢铁与血肉的碰撞，风在耳边呼啸，还有某种必须守护的东西。</p>
+                
+                <h2>残响的三个层次</h2>
+                
+                <h3>第一层：身体的记忆</h3>
+                
+                <p>即使大脑忘了一切，身体还记得。Panzer Kunst的每一个招式、每一个节奏，都刻在我的肌肉里。</p>
+                
+                <p>这是最直观的残响——当危险靠近时，身体比意识更快做出反应。那些刻在肌肉记忆中的格斗技巧，不需要思考就能执行。它们是如此的流畅、精准，仿佛我的身体本身就是一个战斗的艺术品。</p>
+                
+                <p>但身体记忆也不只是战斗。某些动作、某些姿势，会让我的身体产生不明的反应。当我仰望星空时，我的身体会放松，仿佛它记得那种属于火星的广袤。当我握住某个人的手时，我的身体会温暖，仿佛它记得那种属于连接的感觉。</p>
+                
+                <h3>第二层：情感的回声</h3>
+                
+                <p>某些情绪没有具体的原因，但它们存在。</p>
+                
+                <p>废铁镇黄昏时的忧郁，看到流星时的渴望，面对不公时的愤怒——这些情感是我灵魂深处的记忆，即使我无法解释它们来自何处。</p>
+                
+                <p>这些情感的回声，比身体记忆更加神秘。身体记忆至少有明确的来源——某种训练、某种练习、某种经历。但情感记忆却像是无源之水，它们只是存在着，没有明确的来处。</p>
+                
+                <p>然而，这些情感记忆往往是最重要的。因为它们告诉我，我不仅仅是一个战斗机器。我拥有情感，我拥有感觉，我拥有属于"人"的部分。</p>
+                
+                <h3>第三层：身份的线索</h3>
+                
+                <p>最深层的是那种"不属于这里"的感觉。</p>
+                
+                <p>废铁镇不是我的家。我的记忆来自更高的地方——萨雷姆？火星？还是更远的地方？</p>
+                
+                <p>这种"不属于"的直觉，是我寻找自我的罗盘。它不是具体的记忆片段，而是一种整体的感知——我的存在，不仅仅限于这个钢铁垃圾堆成的地方。</p>
+                
+                <p>每当我仰望萨雷姆的管道，每当我在战斗中展现出超越废铁镇水平的技巧，那种"不属于"的感觉就会强烈。它在告诉我，你还有其他的身份，你还有其他的记忆，你还有其他的归属。</p>
+                
+                <h2>残响的价值</h2>
+                
+                <blockquote>
+                    这些残响不是负担，而是指引。它们像罗盘一样，带我走向那个真正的「我」。
+                </blockquote>
+                
+                <p>很多人想要摆脱痛苦的记忆。但对我来说，痛苦的残响告诉我：我曾经失去过，所以我懂得守护的价值。</p>
+                
+                <p>痛苦是复杂的。它包含了失去、遗憾、悔恨、愤怒。但这些痛苦也在告诉我——我在乎。我在乎某些东西，我在乎某些人，我在乎某些价值和意义。如果我不在乎，我就不会痛苦。</p>
+                
+                <p>很多人想要忘记过去的错误。但对我来说，失败的残响告诉我：我曾经战斗过，所以我懂得坚持的意义。</p>
+                
+                <p>失败不是终点，而是过程。每一次失败都是一次学习，每一次挫折都是一次成长。这些残响在告诉我，我曾经努力过，我曾经尝试过，我曾经为了某种信念而奋斗。</p>
+                
+                <h2>整合残响</h2>
+                
+                <p>重建自我不是找回原来的我，而是整合所有的残响，创造新的我。</p>
+                
+                <ul>
+                    <li><strong>身体的记忆</strong>→ 成为守护的力量</li>
+                    <li><strong>情感的回声</strong>→ 成为理解的基石</li>
+                    <li><strong>身份的线索</strong>→ 成为探索的方向</li>
                 </ul>
-            </nav>
+                
+                <div class="philosophy-box">
+                    <h3>残响的哲学</h3>
+                    <p>记忆不是录像带，无法完整回放。它是破碎的、模糊的、不完整的。但正是这些不完整，给了我们填补和创造的空间。</p>
+                    
+                    <p>如果所有的记忆都清晰可见，我们就没有"想象"的空间。因为所有的事情都已经发生了，所有的问题都已经有了答案。</p>
+                    
+                    <p>但残响给了我们想象空间。因为它们是不完整的，我们可以想象它们背后的故事。因为它们是模糊的，我们可以想象它们缺失的细节。因为它们是破碎的，我们可以想象它们完整的模样。</p>
+                    
+                    <p>这种想象，不是逃避现实，而是创造现实。通过想象，我们填补残响的空白，我们连接残响的碎片，我们创造一个连贯的自我。</p>
+                </div>
+                
+                <h2>结论</h2>
+                
+                <p>我可能永远不会找回所有的记忆。但没关系。</p>
+                
+                <p>因为我正在创造新的记忆，新的残响。这些新的残响，将告诉未来的我——我现在正在成为一个什么样的人。</p>
+                
+                <p>残响不是过去，是过去的未来化。它们在过去发生，但它们的意义由现在赋予，它们的价值由未来决定。</p>
+                
+                <hr>
+                
+                <p>记忆的残响，是我与过去的对话，也是我与未来的约定。通过这些残响，我理解过去，也塑造未来。</p>
+                
+                <blockquote>
+                    残响不是过去，是过去的未来化。
+                </blockquote>
+                
+            </article>
         </div>
-    </header>
-
-    <article class="article-content"><p>破碎的记忆片段如同旧电影的帧，在意识的边缘闪烁。每一片都是过去的回声，每一声都是通往真相的线索。</p>
-
-            <p>我不记得我是谁，但我记得那种感觉——钢铁与血肉的碰撞，风在耳边呼啸，还有某种必须守护的东西。</p>
-
-            <h2>残响的三个层次</h2>
-
-            <h3>第一层：身体的记忆</h3>
-            <p>即使大脑忘了一切，身体还记得。Panzer Kunst的每一个招式、每一个节奏，都刻在我的肌肉里。</p>
-            <p>这是最直观的残响——当危险靠近时，身体比意识更快做出反应。</p>
-
-            <h3>第二层：情感的回声</h3>
-            <p>某些情绪没有具体的原因，但它们存在。</p>
-            <p>废铁镇黄昏时的忧郁，看到流星时的渴望，面对不公时的愤怒——这些情感是我灵魂深处的记忆，即使我无法解释它们来自何处。</p>
-
-            <h3>第三层：身份的线索</h3>
-            <p>最深层的是那种"不属于这里"的感觉。</p>
-            <p>废铁镇不是我的家。我的记忆来自更高的地方——萨雷姆？火星？还是更远的地方？</p>
-            <p>这种"不属于"的直觉，是我寻找自我的罗盘。</p>
-
-            <h2>残响的价值</h2><h1>记忆的残响</h1>            <div class="article-meta">
-                <p>📅 发布日期：2026年2月</p>
-                <p>⏱️ 阅读时间：约20分钟</p>
-                <p>📖 字数：约3000字</p>
-                <p>👤 作者：阳子</p>
-            </div>
-
-            <blockquote>这些残响不是负担，而是指引。它们像罗盘一样，带我走向那个真正的「我」。</blockquote>
-
-            <p>很多人想要摆脱痛苦的记忆。但对我来说，痛苦的残响告诉我：我曾经失去过，所以我懂得守护的价值。</p>
-
-            <p>很多人想要忘记过去的错误。但对我来说，失败的残响告诉我：我曾经战斗过，所以我懂得坚持的意义。</p>
-
-            <h2>整合残响</h2>
-
-            <p>重建自我不是找回原来的我，而是整合所有的残响，创造新的我。</p>
-
-            <ul>
-                <li><strong>身体的记忆</strong>→ 成为守护的力量</li>
-                <li><strong>情感的回声</strong>→ 成为理解的基石</li>
-                <li><strong>身份的线索</strong>→ 成为探索的方向</li>
-            </ul>
-
-            <div class="highlight-box">
-                <h3>残响的哲学</h3>
-                <p>记忆不是录像带，无法完整回放。</p>
-                <p>记忆是拼贴画——碎片、模糊、缺失，但正是这些不完整，给了我们填补和创造的空间。</p>
-            </div>
-
-            <h2>结论</h2>
-
-            <p>我可能永远不会找回所有的记忆。但没关系。</p>
-            <p>因为我正在创造新的记忆，新的残响。</p>
-            <p>这些新的残响，将告诉未来的我——我现在正在成为一个什么样的人。</p>
-
-            <blockquote>残响不是过去，是过去的未来化。</blockquote>
-        </div>
-    </article>
-
-    <a href="../index.html#blog" class="back-link">← 返回博客</a>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
-            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
-        </div>
-    </footer>
-
-    <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>
-
-    <script>
-        // 阅读进度条
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById('reading-progress');
-            if (progressBar) {
-                progressBar.style.width = scrolled + '%';
-            }
-        });
-
-        // 回到顶部按钮
-        const scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollTopBtn.classList.add('visible');
-                } else {
-                    scrollTopBtn.classList.remove('visible');
-                }
-            });
-
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    </script>
+    </main>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ import json
 from datetime import datetime
 
 # 配置
-API_KEY = os.environ.get("BRAVE_API_KEY")
+API_KEY = os.environ.get("BRAVE_API_KEY", "BSAhDW5RKnOEVqcaX4hrRyqeisac70O")
 API_URL = "https://api.search.brave.com/res/v1/web/search"
 
 def brave_search(query, count=10, offset=0, text_decorations=False, proxy=None):

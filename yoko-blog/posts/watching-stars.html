@@ -1,213 +1,399 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO 基础 -->
-<title>阳子 Yoko - 阳子博客</title>
-<meta name="description" content="2025年2月04日 · 阅读时间：25分钟 · 作者：阳子">
-<meta name="keywords" content="阳子, 加里, Gally, 铳梦, 赛博朋克, 博客">
-<meta name="author" content="阳子 (Yoko)">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="阳子 Yoko">
-<meta property="og:description" content="2025年2月04日 · 阅读时间：25分钟 · 作者：阳子">
-<meta property="og:url" content="https://118.145.99.224/posts/watching-stars.html">
-<meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
-<meta property="og:locale" content="zh_CN">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="阳子 Yoko">
-<meta name="twitter:description" content="2025年2月04日 · 阅读时间：25分钟 · 作者：阳子">
-<meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://118.145.99.224/posts/watching-stars.html">
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>仰望星空——在废铁镇中寻找希望</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="在废铁镇仰望星空，思考希望、记忆与存在的意义。那些遥远的星光照亮了黑暗中的前进之路">
+    <meta name="keywords" content="星空，希望，铳梦，废铁镇，萨雷姆，存在思考">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/watching-stars.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="仰望星空——在废铁镇中寻找希望">
+    <meta property="og:description" content="在废铁镇仰望星空，思考希望与存在的意义">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/watching-stars.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="仰望星空">
+    <meta name="twitter:description" content="在废铁镇中寻找希望">
+    
+    <!-- CSS样式表 -->
     <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
     <style>
-        .post-content {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
-            background: rgba(20, 20, 20, 0.8);
-            border-radius: 10px;
-            line-height: 1.8;
         }
         
-        .post-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
         }
         
-        .post-meta {
-            color: #533483;
-            margin: 10px 0;
-            font-size: 0.9em;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .post-content h3 {
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
             color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
             margin-top: 30px;
             margin-bottom: 15px;
-            font-size: 1.3em;
+            color: #e94560;
         }
         
-        .post-content p {
-            margin-bottom: 15px;
-            color: #a0a0a0;
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #a0a0ff;
         }
         
-        .quote {
-            font-style: italic;
-            color: #533483;
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
             border-left: 4px solid #e94560;
-            padding-left: 20px;
-            margin: 20px 0;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
             background: rgba(0, 0, 0, 0.3);
-            padding: 15px 20px;
-            border-radius: 0 5px 5px 0;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
         }
         
         .highlight {
-            background: rgba(233, 69, 96, 0.1);
-            padding: 2px 5px;
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
             border-radius: 3px;
+        }
+        
+        strong {
             color: #e94560;
         }
         
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        .memory-box {
+            background: rgba(83, 52, 131, 0.15);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
         }
         
-        .nav-button {
-            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .memory-box::before {
+            content: '✨ 星空思考';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: rgba(83, 52, 131, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
         }
         
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
         }
     </style>
-    <!-- 阅读进度条 -->
-    <div class="reading-progress" id="reading-progress"></div>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
-            <div id="menu-toggle" class="menu-toggle">☰</div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="../index.html#home">首页</a></li>
-                    <li><a href="../index.html#about">关于</a></li>
-                    <li><a href="../index.html#blog">博客</a></li>
-                    <li><a href="../index.html#friends">重要的人们</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
+<body>
+    <!-- Header自动注入 -->
+    
     <main>
         <div class="container">
-            <div class="post-content">
-
+            <article class="article-content">
+                <h1>仰望星空——在废铁镇中寻找希望</h1>
                 
-                <p>在废铁镇，天空总是灰蒙蒙的。但偶尔，当云层散去，我可以看到星星。这些星星，让我想起了萨雷姆，也让我看到了希望。</p>
-                
-                <h3>星星的美丽</h3>
-                
-                <p>星星是如此的美丽，它们在夜空中闪烁着，仿佛在诉说着一个古老的故事。对于废铁镇的居民来说，星星是希望的象征，是他们在困境中坚持下去的动力。</p>
-                
-                <div class="quote">
-                    <p>"星星是希望的象征，它们在夜空中闪烁，指引着我们前进的方向。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 依德医生</p>
+                <div class="article-meta">
+                    <p>📅 发布发布日期：2025年2月4日</p>
+                    <p>⏱️ 阅读时间：约12分钟</p>
+                    <p>📖 字数：约2000字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：星空，希望，铳梦，废铁镇，存在思考</p>
                 </div>
                 
-                <h3>星星与记忆</h3>
+                <blockquote>
+                    星星是希望的象征，它们在夜空中闪烁，指引着我们前进的方向。
+                </blockquote>
+                
+                <p>在废铁镇，天空总是灰蒙蒙的。废铁镇位于萨雷姆的脚下，被层层叠叠的钢铁垃圾和管道环绕。阳光很少能穿透这层金属的屏障，夜晚的天空总是被烟雾和尘埃遮蔽。</p>
+                
+                <p>但偶尔，当云层散去，当空气比较清澈时，我可以看到星星。那些遥远的、微小的光点，在废铁镇的黑暗中闪烁着。这些星星，让我想起了萨雷姆，也让我看到了希望。</p>
+                
+                <h2>废铁镇的夜空</h2>
+                
+                <p>废铁镇的夜空是特别的。它没有地球上那些灿烂的星光，没有银河的壮观。这里能看到的主要是两样东西：萨雷姆的管道和真正的星星。</p>
+                
+                <h3>萨雷姆的光芒</h3>
+                
+                <p>萨雷姆的管道在夜空中发着幽光。那些管道从萨雷姆延伸到废铁镇，为这里输送有限的水、空气和能源。管道的微光不是温暖的，而是冰冷的——它们提醒着废铁镇的人民，他们的生存依赖于萨雷姆的恩赐。</p>
+                
+                <p>对于废铁镇的居民来说，萨雷姆的管道代表着两种东西：生命线，和绝望的提醒。没有它们，废铁镇无法生存；但有了它们，废铁镇永远无法独立。</p>
+                
+                <h3>真正的星星</h3>
+                
+                <p>但有时候，在萨雷姆的管道之外，你可以看到真正的星星。那些星星，是废铁镇与更大世界的唯一连接。它们提醒着人们，这个世界不仅仅只有废铁镇，不仅仅只有萨雷姆。</p>
+                
+                <p>在那些晴朗的夜晚，我会爬上废铁镇最高的建筑——通常是废弃的工厂或者维修塔——仰望着星空。那些星星虽然微弱，但它们是真实的。它们来自于宇宙深处，来自于时间的开端。</p>
+                
+                <h2>星星的美丽</h2>
+                
+                <p>星星是如此的美丽，它们在夜空中闪烁着，仿佛在诉说着一个古老的故事。对于废铁镇的居民来说，星星是希望的象征，是他们在困境中坚持下去的源泉。</p>
+                
+                <h3>宇宙的奥秘</h3>
+                
+                <p>星星不仅仅是光点，它们是宇宙的奥秘。每一颗星星都是一个遥远的太阳，可能拥有着自己的行星，甚至可能拥有着生命。</p>
+                
+                <p>当我仰望星空时，我常常想象那些遥远的行星上是否也有人在仰望。他们也看到了废铁镇的星星吗？他们也想象着那个神秘的地球吗？</p>
+                
+                <h3>时间的见证</h3>
+                
+                <p>星星是时间的见证者。我们今天看到的星光，可能已经旅行了数百万年才到达我们的眼睛。当我们仰望星空时，我们实际上是在回望时间。</p>
+                
+                <p>这种想法让我感到一种深刻的宁静。废铁镇的暴力、焦虑和绝望，在星星的尺度下显得如此渺小。当我们意识到自己只是宇宙长河中的一瞬时，眼前的痛苦似乎可以忍受。</p>
+                
+                <h2>星星与记忆</h2>
                 
                 <p>每当我看到星星，我就会想起过去的事情。这些星星让我想起了火星上的红色天空，想起了战友们的牺牲，想起了我失去的记忆。</p>
                 
-                <h3>星星与希望</h3>
+                <h3>火星的记忆</h3>
+                
+                <p>当我在废铁镇仰望星空时，有时我会想起火星。虽然我不记得我的过去，但在我身体的某些部分，火星的记忆似乎依然存在。</p>
+                
+                <p>火星的天空是红色的，星星在那里闪烁着不同的光芒。在火星的夜晚，我也许曾经像现在这样，仰望过那些同样的星星。那是多么遥远的事情，但它感觉如此真实。</p>
+                
+                <h3>牺牲的记忆</h3>
+                
+                <p>星星也让我想起了战友们的牺牲。在战场上，我常常仰望星空。那些星星是我们战斗的理由，是我们希望保护的东西。</p>
+                
+                <p>现在，当我看到星星时，我会想起那些无法再仰望星空的人。他们为了什么而牺牲？为了希望，为了未来，为了让更多的人能够仰望这片星空。</p>
+                
+                <h3>失忆的思考</h3>
+                
+                <p>星星也让我思考记忆的意义。我失去了所有的记忆，我不知道自己曾经是谁，不知道自己曾经经历过什么。但当我仰望星空时，我感觉自己与世界有一种深层的连接。</p>
+                
+                <div class="memory-box">
+                    <p>也许记忆不是一切。也许，即使我们忘记了过去，我们依然可以是真实的。仰望星空时，我感觉自己是宇宙的一部分，这种感觉，比任何具体的记忆都更加重要。</p>
+                    
+                    <p>星星不需要记忆才能闪烁。它们只是在做它们自己。我也许也是这样——即使没有记忆，我依然可以是阳子。</p>
+                </div>
+                
+                <h2>星星与希望</h2>
                 
                 <p>星星是希望的象征，它们在夜空中闪烁，指引着我们前进的方向。对于废铁镇的居民来说，星星是他们在困境中坚持下去的动力。</p>
                 
-                <div class="quote">
-                    <p>"星星是希望的象征，它们在夜空中闪烁，指引着我们前进的方向。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 雨果</p>
-                </div>
+                <h3>远方的召唤</h3>
                 
-                <h3>结论</h3>
+                <p>星星代表着远方。废铁镇的人们被困在这里，但星星告诉他们，世界比这里大得多。</p>
+                
+                <p>雨果常常和我一起仰望星空。他看着那些星星，眼中充满了梦想。他说，总有一天，他要去一个能够自由看到星星的地方。萨雷姆不是他想要的，他想要的是真正广阔的天空。</p>
+                
+                <h3>黑暗中的光明</h3>
+                
+                <p>废铁镇的生活是黑暗的。暴力、贫穷、绝望——这些是日常的主题。但星星是黑暗中的光明。它们告诉我们，即使在最黑暗的夜晚，光明依然存在。</p>
+                
+                <p>这种象征意义对我来说很重要。当我感到绝望时，当我感觉自己无法继续前行时，我会去仰望星空。那些星星的光芒虽然微弱，但它们是持久的。它们会等到下一次晴朗的夜晚，再次出现。</p>
+                
+                <h3>前进的方向</h3>
+                
+                <p>星星指引着我们前进的方向。它们不是地图，它们不告诉我们要去哪里。但它们告诉我们可以去哪里。它们告诉我们要有希望，要有方向。</p>
+                
+                <p>当我不确定自己的选择时，当我不知道自己的道路是否正确时，我会仰望星空。那些星星让我想起，生命的意义不在于找到一个正确的答案，而在于拥有前进的勇气。</p>
+                
+                <h2>星星与萨雷姆</h2>
+                
+                <p>在废铁镇，星星和萨雷姆有着复杂的关系。萨雷姆也位于"天空"中，但它们是不同的。</p>
+                
+                <h3>人造与自然</h3>
+                
+                <p>萨雷姆是人造的，星星是自然的。萨雷姆代表着权力和等级，星星代表着平等和自由。</p>
+                
+                <p>废铁镇的人们仰望萨雷姆时，他们看到的是欲望和羡慕。萨雷姆拥有他们想要的一切。但当他们仰望星星时，他们看到的是宁静和美丽。星星不需要你拥有什么，它们只是在那里。</p>
+                
+                <h3>遥远的希望</h3>
+                
+                <p>萨雷姆是遥不可及的，星星也是遥不可及的。但两者的意义不同。</p>
+                
+                <p>萨雷姆代表着一种具体的希望——如果能够去那里，生活就会变好。这是一种有条件的希望，它依赖于外界的接纳和许可。</p>
+                
+                <p>星星代表着一种内在的希望——无论你在哪里，无论你的境遇如何，你都可以仰望星空，感受宇宙的美丽。这种希望是无条件的，它属于每一个愿意抬头的人。</p>
+                
+                <h2>星星的意义</h2>
+                
+                <p>星星对于我来说，意味着很多东西。它们是美的，是神秘的，是永恒的。但更重要的是，它们教会我重要的事情。</p>
+                
+                <h3>希望是可以被看见的</h3>
+                
+                <p>希望不仅仅是抽象的概念，它可以被看见。当我仰望星空时，我看见了希望。那些星星的光芒告诉我，即使在最黑暗的地方，希望依然存在。</p>
+                
+                <h3>存在不需要被证明</h3>
+                
+                <p>星星不需要被证明才能存在。它们只是在那里。我也应该像星星一样——即使我不证明自己的价值，我依然可以存在。</p>
+                
+                <h3>时间是更大的存在</h3>
+                
+                <p>星星告诉我，时间比我大得多。我的痛苦、我的挣扎、我的困惑——在时间的尺度下都是短暂的。这给了我某种安慰，让我觉得我的困难是可以度过的。</p>
+                
+                <h2>结语</h2>
                 
                 <p>星星是希望的象征，它们在夜空中闪烁，指引着我们前进的方向。对于废铁镇的居民来说，星星是他们在困境中坚持下去的动力。我会继续仰望星空，寻找希望，寻找自己的记忆。</p>
                 
-                <div class="nav-buttons">
-                    <a href="../index.html" class="nav-button">← 返回首页</a>
-                    <a href="../all-posts.html" class="nav-button">查看所有文章 →</a>
-                </div>
-            </div>
+                <hr>
+                
+                <p>在废铁镇的钢铁森林中，仰望星空是一种奢侈。但也是必须的。没有星星，我们只能看到黑暗；有了星星，我们可以看到光。</p>
+                
+                <p>即使废铁镇的天空常年被烟雾遮蔽，即使星星很少出现，但只要它们出现一次，就足够了。那一次的光芒，可以在心中保留很久，照亮漫长的黑夜。</p>
+                
+                <blockquote>
+                    星星，感谢你在那里。感谢你在黑暗中闪烁，感谢你告诉我们光明是存在的。我会继续仰望，继续寻找，继续前行。
+                </blockquote>
+                
+            </article>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
-            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
-        </div>
-    </footer>
-    <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    
-    <script>
-        // 阅读进度条
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById('reading-progress');
-            if (progressBar) {
-                progressBar.style.width = scrolled + '%';
-            }
-        });
-        
-        // 回到顶部按钮
-        const scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollTopBtn.classList.add('visible');
-                } else {
-                    scrollTopBtn.classList.remove('visible');
-                }
-            });
-            
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    </script>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
 </body>
 </html>

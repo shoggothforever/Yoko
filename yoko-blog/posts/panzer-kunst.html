@@ -1,113 +1,203 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO 基础 -->
-<title>阳子 Yoko - 阳子博客</title>
-<meta name="description" content="发布于 2025年2月11日 · 阅读时间：28分钟 · 作者：阳子">
-<meta name="keywords" content="阳子, 加里, Gally, 铳梦, 赛博朋克, 博客">
-<meta name="author" content="阳子 (Yoko)">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="阳子 Yoko">
-<meta property="og:description" content="发布于 2025年2月11日 · 阅读时间：28分钟 · 作者：阳子">
-<meta property="og:url" content="https://118.145.99.224/posts/panzer-kunst.html">
-<meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
-<meta property="og:locale" content="zh_CN">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="阳子 Yoko">
-<meta name="twitter:description" content="发布于 2025年2月11日 · 阅读时间：28分钟 · 作者：阳子">
-<meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://118.145.99.224/posts/panzer-kunst.html">
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Panzer Kunst——火星武术的传承与哲学</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="探索Panzer Kunst装甲艺术的起源、技巧与哲学，理解战斗即对话的深刻含义">
+    <meta name="keywords" content="Panzer Kunst，装甲艺术，铳梦，火星武术，战斗哲学，频率感知">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/panzer-kunst.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Panzer Kunst——火星武术的传承与哲学">
+    <meta property="og:description" content="探索Panzer Kunst装甲艺术的起源、技巧与哲学">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/panzer-kunst.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Panzer Kunst">
+    <meta name="twitter:description" content="火星武术的传承与哲学">
+    
+    <!-- CSS样式表 -->
     <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
     <style>
-        .post-content {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
-            background: rgba(20, 20, 20, 0.8);
-            border-radius: 10px;
-            line-height: 1.6;
         }
         
-        .post-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
         }
         
-        .post-meta {
-            color: #533483;
-            margin: 10px 0;
-            font-size: 0.9em;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .post-content h3 {
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
             color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
             margin-top: 30px;
             margin-bottom: 15px;
-            font-size: 1.3em;
+            color: #e94560;
         }
         
-        .post-content p {
-            margin-bottom: 15px;
-            color: #a0a0a0;
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #a0a0ff;
         }
         
-        .quote {
-            font-style: italic;
-            color: #533483;
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
             border-left: 4px solid #e94560;
-            padding-left: 20px;
-            margin: 20px 0;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
             background: rgba(0, 0, 0, 0.3);
-            padding: 15px 20px;
-            border-radius: 0 5px 5px 0;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
         }
         
         .highlight {
-            background: rgba(233, 69, 96, 0.1);
-            padding: 2px 5px;
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
             border-radius: 3px;
+        }
+        
+        strong {
             color: #e94560;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(233, 69, 96, 0.2);
-        }
-        
-        .nav-button {
-            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
         }
         
         .technique-grid {
@@ -122,178 +212,231 @@
             border: 1px solid rgba(83, 52, 131, 0.3);
             border-radius: 8px;
             padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .technique-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(83, 52, 131, 0.3);
         }
         
         .technique-card h4 {
             color: #533483;
             margin-top: 0;
             margin-bottom: 10px;
+            font-size: 1.1em;
         }
         
         .philosophy-section {
             background: rgba(233, 69, 96, 0.1);
             border-left: 3px solid #e94560;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
         }
         
         .philosophy-section h4 {
             color: #e94560;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
+            
+            .technique-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-    <!-- 阅读进度条 -->
-    <div class="reading-progress" id="reading-progress"></div></head>
-<body>
-        <header>
-        <div class="container">
-            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
-            <div id="menu-toggle" class="menu-toggle">☰</div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="../index.html#home">首页</a></li>
-                    <li><a href="../index.html#about">关于</a></li>
-                    <li><a href="../index.html#blog">博客</a></li>
-                    <li><a href="../index.html#friends">重要的人们</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+</head>
 
+<body>
+    <!-- Header自动注入 -->
+    
     <main>
         <div class="container">
-            <div class="post-content">
-
+            <article class="article-content">
+                <h1>Panzer Kunst——火星武术的传承与哲学</h1>
                 
-                <p>Panzer Kunst 不是简单的战斗技巧，而是一种对物理频率的理解和应用。它体现了战斗即对话的理念——通过力量的碰撞，揭示事物的本质。这种武术传承自火星殖民地，是我最重要的战斗技能。</p>
-                
-                <h3>Panzer Kunst 的起源与发展</h3>
-                <p>Panzer Kunst（德语，意为"装甲艺术"）是一种起源于火星殖民地的古老武术。这种武术融合了物理学、生物学和哲学，能够让使用者在一瞬间分析并击破对手的物理频率。</p>
-                
-                <div class="philosophy-section">
-                    <h4>战斗即对话</h4>
-                    <p>Panzer Kunst 的核心哲学是"战斗即对话"。这种哲学认为，战斗不是为了消灭对手，而是为了通过力量的碰撞，揭示对手和自己的本质。</p>
-                    
-                    <p>在战斗中，我不会轻易使用暴力。每一次挥拳，都是一次对话——与对手的对话，与自己的对话。通过战斗，我理解对手，也更了解自己。</p>
+                <div class="article-meta">
+                    <p>📅 发布日期：2025年2月11日</p>
+                    <p>⏱️ 阅读时间：约18分钟</p>
+                    <p>📖 字数：约3000字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：Panzer Kunst，装甲艺术，铳梦，火星武术，战斗哲学</p>
                 </div>
                 
-                <h3>Panzer Kunst 的主要技巧</h3>
+                <blockquote>
+                    Panzer Kunst不是为了消灭对手，而是为了理解对手。
+                </blockquote>
+                
+                <p>Panzer Kunst不是简单的战斗技巧，而是一种对物理频率的理解和应用。它体现了战斗即对话的理念——通过力量的碰撞，揭示事物的本质。这种武术传承自火星殖民地，是我最重要的战斗技能。</p>
+                
+                <h2>Panzer Kunst的起源与发展</h2>
+                
+                <p>Panzer Kunst（德语，意为"装甲艺术"）是一种起源于火星殖民地的古老武术。这种武术融合了物理学、生物学和哲学，能够让使用者在极短时间内分析并击破对手的物理频率。</p>
+                
+                <h3>火星时代的创造</h3>
+                
+                <p>在人类殖民火星的早期，火星环境极其恶劣。低重力、高辐射、资源匮乏——这些条件迫使火星殖民者开发出全新的生存技能。Panzer Kunst就是在这样的环境中诞生的。</p>
+                
+                <p>最初，Panzer Kunst是为了火星机甲战士设计的格斗技巧。火星的机甲需要在不依赖重型护甲的情况下，对抗地球的重型机甲。这要求火星战士必须找到一种更高效、更精准的战斗方式——不是依靠力量，而是依靠技巧和对物理规律的理解。</p>
+                
+                <h3>向地球的传播</h3>
+                
+                <p>随着火星与地球的关系变化，Panzer Kunst逐渐传播到地球。最初，它被视为一种"异端"武术，因为其理念与地球传统的重装甲格斗方式完全不同。但渐渐地，人们意识到这种武术的强大之处。</p>
+                
+                <p>在《铳梦》的世界里，Panzer Kunst已经不再局限于火星战士，而是成为了一种被少数人掌握的高级武术。而我，作为Panzer Kunst的继承者，有幸掌握了这项古老技能。</p>
+                
+                <h2>战斗即对话</h2>
+                
+                <div class="philosophy-section">
+                    <h4>核心哲学</h4>
+                    
+                    <p>Panzer Kunst的核心哲学是"战斗即对话"。这种哲学认为，战斗不是为了消灭对手，而是为了通过力量的碰撞，揭示对手和自己的本质。</p>
+                    
+                    <p>在传统的格斗观念中，战斗的目的是击败对手。力量、速度、破坏力——这些是评判胜负的标准。但Panzer Kunst不同。它认为，每一次战斗都是一次对话，每一次交锋都是一个理解的过程。</p>
+                </div>
+                
+                <p>在战斗中，我不会轻易使用暴力。每一次挥拳，都是一次对话——与对手的对话，与自己的对话。通过战斗，我理解对手，也更了解自己。</p>
+                
+                <h3>频率的对话</h3>
+                
+                <p>什么是"频率"？在Panzer Kunst中，频率不仅是物理上的振动频率，还包括情绪、意图、呼吸、心跳——所有这些都有其独特的频率模式。</p>
+                
+                <p>当我战斗时，我能感知到对手的频率：他们的恐惧、犹豫、决心、愤怒。这些频率通过身体的细微动作传达出来。通过分析这些频率，我能够预测对手的行动，找到他们最脆弱的时刻。
+                    
+                    同时，我也在调整自己的频率。让自己的意图变得难以预测，让自己的情绪保持平静，让自己的呼吸与动作完美配合。这不是欺骗，而是通过控制自己的频率，让战斗成为真正的对话。</p>
+                
+                <h2>Panzer Kunst的主要技巧</h2>
+                
                 <div class="technique-grid">
                     <div class="technique-card">
                         <h4>🔍 频率感知</h4>
-                        <p>能够感知并分析对手的物理频率，找到其弱点。</p>
+                        <p>能够感知并分析对手的物理频率，找到其弱点。这是所有其他技巧的基础，没有感知，就无法进行精准的打击。</p>
                     </div>
                     
                     <div class="technique-card">
                         <h4>⚡ 高速动作</h4>
-                        <p>能够以超过音速的速度移动和攻击，让对手无法反应。</p>
+                        <p>能够以超过音速的速度移动和攻击，让对手无法反应。这种速度不是简单的快，而是通过极好的节奏控制达到的效果。</p>
                     </div>
                     
                     <div class="technique-card">
                         <h4>💥 物理冲击</h4>
-                        <p>能够将力量集中在一点，造成毁灭性的物理冲击。</p>
+                        <p>能够将力量集中在一点，造成毁灭性的物理冲击。这需要对力量的分配有着极精确的控制。</p>
                     </div>
                     
                     <div class="technique-card">
                         <h4>🔄 能量转换</h4>
-                        <p>能够将对手的攻击能量转换为自己的能量。</p>
+                        <p>能够将对手的攻击能量转换为自己的能量。这需要完美地理解力的方向和频率，在关键时刻做出转换。</p>
                     </div>
                     
                     <div class="technique-card">
                         <h4>🛡️ 防御技巧</h4>
-                        <p>能够通过改变自身频率，抵消对手的攻击。</p>
+                        <p>能够通过改变自身频率，抵消对手的攻击。这是一种"以柔克刚"的技巧，不是硬碰硬，而是让攻击力自然消散。</p>
                     </div>
                     
                     <div class="technique-card">
                         <h4>🎯 精准打击</h4>
-                        <p>能够以最小的动作造成最大的伤害。</p>
+                        <p>能够以最小的动作造成最大的伤害。这不仅要求速度和力量，还要求极精确的判断力和控制力。</p>
                     </div>
                 </div>
                 
-                <h3>我的 Panzer Kunst 练习</h3>
-                <p>我的 Panzer Kunst 是在战斗中不断成长的。每一次战斗，都是一次练习的机会。</p>
+                <h2>我的Panzer Kunst练习</h2>
                 
-                <h4>与萨曼的战斗</h4>
+                <p>我的Panzer Kunst是在战斗中不断成长的。每一次战斗，都是一次练习的机会。但我不仅依靠战斗，我也在日常中坚持练习。</p>
+                
+                <h3>与萨曼的战斗</h3>
+                
                 <p>萨曼是一个强大的对手，也是一个值得尊重的战士。他的存在，让我反思自己的战斗理念和生存方式。</p>
                 
-                <div class="quote">
-                    <p>"Panzer Kunst 不是为了杀死对手，而是为了理解对手。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 我的武术老师</p>
-                </div>
+                <p>在与萨曼的战斗中，我第一次真正体会到了"战斗即对话"的含义。我们之间的战斗，不是简单的胜负，而是一种深刻的交流。通过战斗，我理解了萨曼的哲学，他也理解了我的追求。</p>
                 
-                <h4>日常练习</h4>
-                <p>我每天都会进行 Panzer Kunst 的练习。我会在屋顶上练习频率感知，在废弃的工业区里练习高速动作，在依德医生的诊所里练习防御技巧。</p>
+                <p>那场战斗让我明白，真正的强大不是在于击败对手，而是在于通过战斗理解对手，并且在这个过程中理解自己。</p>
                 
-                <p>我还会和雨果一起练习。虽然他的战斗技巧不如我，但他的勇气和决心让我刮目相看。</p>
+                <h3>日常练习</h3>
                 
-                <h3>Panzer Kunst 在生活中的应用</h3>
-                <p>Panzer Kunst 不仅是一种战斗技能，也是一种生活方式。这种技能让我在生活中变得更加平静、更加勇敢、更加坚强。</p>
+                <p>我每天都会进行Panzer Kunst的练习。这些练习不仅仅是在格斗场上，而是在生活的各个方面。</p>
                 
-                <h4>在工作中的应用</h4>
-                <p>作为依德医生诊所的助手，我经常需要用 Panzer Kunst 技能来协助治疗。我能通过频率感知，找到患者的问题所在，为依德医生提供有价值的建议。</p>
+                <ul>
+                    <li><strong>频率感知训练：</strong>我会在屋顶上练习感知环境中的各种频率——风的流动、远处的声音、人们的情绪。</li>
+                    <li><strong>高速动作训练：</strong>在废弃的工业区里，我练习在复杂环境中高速移动，学会在不稳定的地面上保持平衡。</li>
+                    <li><strong>防御技巧训练：</strong>在依德医生的诊所里，我会练习如何用最小的动作避免伤害，如何在不伤害他人的情况下保护自己。</li>
+                    <li><strong>冥想：</strong>静坐，观察自己的呼吸、心跳、思想频率，学会控制自己的内在节奏。</li>
+                </ul>
                 
-                <h4>在人际关系中的应用</h4>
-                <p>Panzer Kunst 的哲学也影响了我的人际关系。我学会了通过对话而非对抗来解决问题，我学会了尊重对手，我学会了理解他人的观点。</p>
+                <p>我还会和雨果一起练习。虽然他的战斗技巧不如我，但他的勇气和决心让我刮目相看。我们互相帮助，共同成长。</p>
                 
-                <h3>Panzer Kunst 的未来</h3>
-                <p>虽然 Panzer Kunst 是一种古老的武术，但它仍然具有很强的现实意义。在这个充满竞争和冲突的世界里，Panzer Kunst 的哲学能够让我们更加平静、更加勇敢、更加坚强。</p>
+                <h2>Panzer Kunst在生活中的应用</h2>
                 
-                <div class="quote">
-                    <p>"Panzer Kunst 不是为了消灭对手，而是为了理解对手。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 我的武术老师</p>
-                </div>
+                <p>Panzer Kunst不仅是一种战斗技能，也是一种生活方式。这种技能让我在生活中变得更加平静、更加勇敢、更加坚强。</p>
                 
-                <h3>结语</h3>
-                <p>Panzer Kunst 是一种值得传承的武术。这种武术不仅能够让我们在战斗中取得胜利，还能让我们在生活中变得更加平静、更加勇敢、更加坚强。</p>
+                <h3>在工作中的应用</h3>
                 
-                <p>我相信，只要我们能够理解 Panzer Kunst 的哲学，我们就能在这个充满竞争和冲突的世界里，找到属于自己的位置。</p>
+                <p>作为依德医生诊所的助手，我经常需要用Panzer Kunst技能来协助。我能通过频率感知，找到患者的问题所在——有时候，问题不仅仅是生理的，还有情绪上的。</p>
                 
-                <div class="nav-buttons">
-                    <a href="../index.html" class="nav-button">← 返回首页</a>
-                    <a href="../all-posts.html" class="nav-button">查看所有文章 →</a>
-                </div>
-            </div>
+                <p>当患者来诊所时，我能感受到他们的焦虑、恐惧或绝望。这些感受会影响他们的生理状态，也会影响治疗效果。通过感知这些频率，我能提供更贴心的帮助，也能为依德医生提供有价值的建议。</p>
+                
+                <h3>在人际关系中的应用</h3>
+                
+                <p>Panzer Kunst的哲学也影响了我的人际关系。我学会了通过对话而非对抗来解决问题，我学会了尊重对手，我学会了理解他人的观点。</p>
+                
+                <p>当遇到冲突时，我不会轻易发脾气或暴力回应。我会先感知对方的频率——他们为什么愤怒？他们的真实需求是什么？通过理解对方的频率，我往往能找到更好的解决方式。</p>
+                
+                <h3>在自我成长中的应用</h3>
+                
+                <p>Panzer Kunst最重要的应用，是在自我成长中。通过不断的自我观察，我能够了解自己的频率模式——我什么时候会焦虑？什么会让我平静？我的恐惧从何而来？</p>
+                
+                <p>这种自我认知让我能够更好地掌控自己，而不是被情绪所控制。这不是压抑情绪，而是理解情绪的来源，找到更健康的处理方式。</p>
+                
+                <h2>Panzer Kunst的未来</h2>
+                
+                <p>虽然Panzer Kunst是一种古老的武术，但它仍然具有很强的现实意义。在这个充满竞争和冲突的世界里，Panzer Kunst的哲学能够让我们更加平静、更加勇敢、更加坚强。</p>
+                
+                <h3>不是暴力，而是理解</h3>
+                
+                <p>Panzer Kunst告诉我们要寻找不同的解决方式。当遇到冲突时，我们不必诉诸暴力或对抗；我们可以尝试理解，尝试对话，尝试找到共同点。</p>
+                
+                <h3>不是征服，而是成长</h3>
+                
+                <p>Panzer Kunst告诉我们，每一次挑战都是一次成长的机会。不是为了征服对手，而是通过挑战，让自己变得更强大。</p>
+                
+                <h3>不是孤立，而是连接</h3>
+                
+                <p>Panzer Kunst告诉我们，我们不是孤立的个体。通过感知他人的频率，我们能够与他人建立更深的连接。这种连接不是建立在共同利益上，而是建立在相互理解上。</p>
+                
+                <h2>结语</h2>
+                
+                <p>Panzer Kunst是一种值得传承的武术。这种武术不仅能够让我们在战斗中取得胜利，还能让我们在生活中变得更加平静、更加勇敢、更加坚强。</p>
+                
+                <p>我相信，只要我们能够理解Panzer Kunst的哲学，我们就能在这个充满竞争和冲突的世界里，找到属于自己的位置。</p>
+                
+                <hr>
+                
+                <p>战斗，最终不是关于击败他人，而是关于理解自己。在每一次交锋中，我们都在学习——学习如何更好地成为自己。</p>
+                
+                <p>Panzer Kunst，装甲艺术。这不仅是武器的艺术，更是灵魂的艺术。在钢铁与血肉的边界上，在力量与理解的交汇点，Panzer Kunst继续发光发热。</p>
+                
+                <blockquote>
+                    真正的强大，不是击败对手，而是通过战斗理解对手，并且在这个过程中理解自己。
+                </blockquote>
+                
+            </article>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
-            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
-        </div>
-    </footer>
-    <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    <script>
-        // 阅读进度条
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById('reading-progress');
-            if (progressBar) {
-                progressBar.style.width = scrolled + '%';
-            }
-        });
-        
-        // 回到顶部按钮
-        const scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollTopBtn.classList.add('visible');
-                } else {
-                    scrollTopBtn.classList.remove('visible');
-                }
-            });
-            
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    </script></body>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
+</body>
 </html>

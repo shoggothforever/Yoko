@@ -1,227 +1,404 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO 基础 -->
-<title>阳子 Yoko - 阳子博客</title>
-<meta name="description" content="2025年2月07日 · 阅读时间：30分钟 · 作者：阳子">
-<meta name="keywords" content="阳子, 加里, Gally, 铳梦, 赛博朋克, 博客">
-<meta name="author" content="阳子 (Yoko)">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="阳子 Yoko">
-<meta property="og:description" content="2025年2月07日 · 阅读时间：30分钟 · 作者：阳子">
-<meta property="og:url" content="https://118.145.99.224/posts/zapan.html">
-<meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
-<meta property="og:locale" content="zh_CN">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="阳子 Yoko">
-<meta name="twitter:description" content="2025年2月07日 · 阅读时间：30分钟 · 作者：阳子">
-<meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://118.145.99.224/posts/zapan.html">
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>萨曼——对手与知音</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="萨曼是废铁镇的死亡球选手，也是我的对手与知音。他的战斗理念与牺牲，深刻影响了我。">
+    <meta name="keywords" content="萨曼，铳梦，死亡球，对手，知音，战斗哲学，牺牲">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/zapan.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="萨曼——对手与知音">
+    <meta property="og:description" content="萨曼是废铁镇的死亡球选手，也是我的对手与知音">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/zapan.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="萨曼——对手与知音">
+    <meta name="twitter:description" content="废铁镇的对手与知音">
+    
+    <!-- CSS样式表 -->
     <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
     <style>
-        .post-content {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
-            background: rgba(20, 20, 20, 0.8);
-            border-radius: 10px;
-            line-height: 1.8;
         }
         
-        .post-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
         }
         
-        .post-meta {
-            color: #533483;
-            margin: 10px 0;
-            font-size: 0.9em;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .post-content h3 {
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
             color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
             margin-top: 30px;
             margin-bottom: 15px;
-            font-size: 1.3em;
+            color: #e94560;
         }
         
-        .post-content p {
-            margin-bottom: 15px;
-            color: #a0a0a0;
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #a0a0ff;
         }
         
-        .quote {
-            font-style: italic;
-            color: #533483;
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
             border-left: 4px solid #e94560;
-            padding-left: 20px;
-            margin: 20px 0;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
             background: rgba(0, 0, 0, 0.3);
-            padding: 15px 20px;
-            border-radius: 0 5px 5px 0;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
         }
         
         .highlight {
-            background: rgba(233, 69, 96, 0.1);
-            padding: 2px 5px;
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
             border-radius: 3px;
+        }
+        
+        strong {
             color: #e94560;
         }
         
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        .memory-box {
+            background: rgba(83, 52, 131, 0.15);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
         }
         
-        .nav-button {
-            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .memory-box::before {
+            content: '⚔️ 战斗记忆';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: rgba(83, 52, 131, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
         }
         
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
         }
     </style>
-    <!-- 阅读进度条 -->
-    <div class="reading-progress" id="reading-progress"></div>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
-            <div id="menu-toggle" class="menu-toggle">☰</div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="../index.html#home">首页</a></li>
-                    <li><a href="../index.html#about">关于</a></li>
-                    <li><a href="../index.html#blog">博客</a></li>
-                    <li><a href="../index.html#friends">重要的人们</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
+<body>
+    <!-- Header自动注入 -->
+    
     <main>
         <div class="container">
-            <div class="post-content">
-
+            <article class="article-content">
+                <h1>萨曼——对手与知音</h1>
                 
-                <p>萨曼是我在废铁镇遇到的一个强大的对手，但也是一个值得尊重的战士。他的存在，让我反思自己的战斗理念和生存方式。</p>
-                
-                <h3>初遇萨曼</h3>
-                
-                <p>我第一次见到萨曼是在死亡球比赛的赛场上。他当时正在与另一位选手激烈地战斗，我被他的战斗技巧和毅力所震撼。</p>
-                
-                <div class="quote">
-                    <p>"战士的尊严就是胜利。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 萨曼</p>
+                <div class="article-meta">
+                    <p>📅 发布日期：2025年2月7日</p>
+                    <p>⏱️ 阅读时间：约15分钟</p>
+                    <p>📖 字数：约2500字</p>
+                    <p>👤 作者：阳子</p与其他人>
+                    <p>🏷️ 标签：萨曼，铳梦，死亡球，对手，知音，战斗哲学</p>
                 </div>
                 
-                <h3>萨曼的背景</h3>
+                <blockquote>
+                    战士的尊严不是来自于胜利，而是来自于为信念而战。
+                </blockquote>
                 
-                <p>萨曼曾经是一名萨雷姆的战士，但他选择了离开那个充满压迫和谎言的地方，来到废铁镇成为一名死亡球选手。他用自己的技能和知识，赢得了许多比赛。</p>
+                <p>萨曼是我在废铁镇遇到的一个强大的对手，但也是一个值得尊重的战士。他的存在，让我反思自己的战斗理念和生存方式。在死亡球的竞技场上，我们是对手；在更深层的意义上，我们是对彼此能够理解的人。</p>
                 
-                <h3>萨曼的战斗理念</h3>
+                <h2>初遇萨曼</h2>
                 
-                <p>萨曼的战斗理念非常简单：胜利就是一切。他相信，只有通过胜利，才能证明自己的价值。他的这种理念，让我反思自己的战斗方式。</p>
+                <p>我第一次见到萨曼是在死亡球比赛的赛场上。那时候，雨果正在准备参加死亡球比赛，我们一起来观看其他的比赛，学习经验和技巧。
+                    
+                    萨曼当时正在与另一位选手激烈地战斗。他的对手是一名装备了重型武器的改造人，但萨曼凭借着超乎常人的战斗技巧和冷静的判断，在比赛中占据了上风。</p>
                 
-                <div class="quote">
-                    <p>"战斗不是为了胜利，而是为了超越自己。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 阳子</p>
+                <div class="memory-box">
+                    <p>我看着萨曼的战斗，心中充满了震撼。他的动作精准而高效，他的判断准确而果断。更重要的是，他在战斗中保持着一种奇异的平静——就像这一切都在他的预料之中。</p>
+                    
+                    <p>当萨曼击败对手时，他并没有表现出胜利者的傲慢。他只是平静地站起来，向对手点头致意，然后离开了竞技场。那种态度让我想起了自己的武术老师。Panzer Kunst的战士，也是这样的——战斗不是为了炫耀，而是为了证明什么。</p>
                 </div>
                 
-                <h3>萨曼的牺牲</h3>
+                <p>雨果看到了我的反应。他告诉我，萨曼是废铁镇最强的死亡球选手之一，也是一个传奇。他问我，有一天我们会不会在竞技场上相遇。</p>
                 
-                <p>在与电大人的战斗中，萨曼为了保护我而牺牲了自己的生命。他用自己的生命，证明了自己的价值。</p>
+                <h2>萨曼的背景</h2>
                 
-                <div class="quote">
-                    <p>"我的牺牲是值得的。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 萨曼</p>
+                <p>萨曼的背景，在废铁镇是一个谜。有些人说他曾经是一名萨雷曼的战士，因为某些原因被流放到废铁镇。也有人说，他来自更遥远的地方，他的故事比废铁镇的历史还要长。</p>
+                
+                <h3>萨雷曼的传说</h3>
+                
+                <p>据传，萨曼曾经是萨雷姆精英卫队的一员。他的战斗技巧，是萨雷姆最高级别的格斗训练的成果。但萨雷姆的精英卫队，不是普通的战士——他们必须绝对效忠于萨雷姆的统治者。</p>
+                
+                <p>萨曼为什么离开萨雷姆？有人说他因为道德的考量，无法接受萨雷姆的某些命令。也有人说，他在执行任务时发现了萨雷姆的黑暗秘密，因此被流放。</p>
+                
+                <p>无论如何，萨曼选择了离开萨雷姆，来到废铁镇。这个选择本身就说明了他的品格——比起萨雷姆的优渥生活，他选择了废铁镇的自由。</p>
+                
+                <h3>废铁镇的传奇</h3>
+                
+                <p>在废铁镇，萨曼很快就成为了死亡球的界的传奇。他参加了无数场比赛，赢得了几乎所有对手的尊重。他的战斗风格独特而高效，让人难以模仿。</p>
+                
+                <p>与一般的死亡球选手不同，萨曼并不追求暴力的胜利。他的目标是寻找真正能够理解他战斗哲学的对手。这也是为什么，当我们在竞技场上相遇时，他对我表现出了特别的兴趣。</p>
+                
+                <h2>萨曼的战斗理念</h2>
+                
+                <p>萨曼的战斗理念非常简单，却也很深刻：战士的尊严来自于胜利，但真正的胜利来自于超越对手和自己。</p>
+                
+                <h3>胜利的价值</h3>
+                
+                <p>对于萨曼来说，胜利是有价值的。在废铁镇，死亡球是少数能够让人改变命运的途径。获得冠军不仅意味着丰厚的奖励，也意味着获得进入萨雷姆的资格。</p>
+                
+                <p>但萨曼想要的不仅仅是这些。他追求的是一种更深层的东西——通过战斗，证明自己的理念，寻找能够理解他的对手。对他来说，胜利只是一个结果，不是目的。</p>
+                
+                <h3>战斗哲学</h3>
+                
+                <p>萨曼的战斗哲学可以总结为几点：</p>
+                
+                <ul>
+                    <li><strong>战斗不是暴力：</strong>战斗是一种对话，通过力量的交流，理解对手和自己。</li>
+                    <li><strong>胜利不是目的：</strong>战斗的目的是证明和超越，不是为了击败对手。</li>
+                    <li><strong>尊重对手：</strong>真正的战士尊重对手，无论对手的强弱。</li>
+                    <li><strong>保持尊严：</strong>即使在最艰难的战斗中，也要保持战士的尊严。</li>
+                </ul>
+                
+                <blockquote>
+                    战斗不是为了胜利，而是为了超越自己。
+                </blockquote>
+                
+                <h2>我们的对话</h2>
+                
+                <p>当萨曼在竞技场上注意到我时，他主动与我进行了一次深刻的对话。这次对话，成为了我们理解彼此的起点。</p>
+                
+                <h3>Panzer Kunst的认可</h3>
+                
+                <p>萨曼告诉我，他早就听说过Panzer Kunst。这种火星武术在萨雷姆是传说中的存在，很少有人真正见过。当他在竞技场上看到我使用Panzer Kunst的技巧时，他知道他遇到了一个特殊的对手。</p>
+                
+                <p>他问我，Panzer Kunst的哲学是什么？我告诉他，Panzer Kunst的核心理念是"战斗即对话"。他听后沉默了一会儿，然后说："那我们，应该好好聊聊。"</p>
+                
+                <h3>理念的碰撞</h3>
+                
+                <p>我们的对话，是一场理念的碰撞。萨曼的战斗哲学来自于萨雷姆的训练，强调的是效率和判断。我的战斗哲学来自于Panzer Kunst的传承，强调的是感知和对话。</p>
+                
+                <p>但在深层的意义上，我们的哲学是相通的。我们都认为，战斗不仅仅是暴力的释放，而是某种更深层的交流。我们都认为，战士的价值不在于他们击败了多少人，而在于他们为什么而战。</p>
+                
+                <div class="memory-box">
+                    <p>萨曼问我：你觉得，废铁镇需要什么？</p>
+                    
+                    <p>我告诉他，废铁镇需要希望，需要改变，需要有人站出来对抗不公。萨曼听了，笑了笑。他说，我也是这样想的。但我选择了死亡球，因为这是我能为废铁镇做的。</p>
+                    
+                    <p>那一刻，我理解了萨曼。他不是一个单纯的战斗者，他有着自己的使命和理想。</p>
                 </div>
                 
-                <h3>萨曼对我的影响</h3>
+                <h2>萨曼的牺牲</h2>
                 
-                <p>萨曼的牺牲让我更加坚定了自己的信念。我会继续他的战斗理念，超越自己，保护那些需要帮助的人。同时，我也会记住他的话，珍惜眼前的一切。</p>
+                <p>在与电大人的战斗中，萨曼为了保护我而牺牲了自己的生命。他用自己的生命，证明了自己的价值，也完成了他对自己的承诺。</p>
                 
-                <div class="quote">
-                    <p>"我会继承你的战斗理念，超越自己，保护那些需要帮助的人。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 阳子</p>
-                </div>
+                <h3>电大人的威胁</h3>
                 
-                <div class="nav-buttons">
-                    <a href="../index.html" class="nav-button">← 返回首页</a>
-                    <a href="../all-posts.html" class="nav-button">查看所有文章 →</a>
-                </div>
-            </div>
+                <p>电大人是废铁镇最危险的战士之一。他的身体经过了极端的改造，拥有强大的电击攻击能力。他的目标，是成为废铁镇最强的战士，获得进入萨雷姆的资格。</p>
+                
+                <p>在与电大人的战斗中，我陷入了绝境。电大人的力量远超我的承受，我的身体几乎被完全摧毁。但萨曼选择了介入。</p>
+                
+                <h3>最后的战斗</h3>
+                
+                <p>萨曼与电大人的战斗，是废铁镇历史上最激烈的战斗之一。萨曼使用了所有的技巧和策略，但电大人的力量实在太强大了。</p>
+                
+                <p>在最后的时刻，萨曼选择了一个牺牲性的战术。他用自己的全部力量，将电大人的注意力从我的身上引开。他成功了，但也因此失去了自己的生命。</p>
+                
+                <h3>最后的对话</h3>
+                
+                <p>在萨曼失去意识前，他握住了我的手。他告诉我，他的牺牲是值得的。他说，他终于找到了一个能够理解他的人，也终于完成了自己的使命。</p>
+                
+                <blockquote>
+                    我的牺牲是值得的，因为我找到了能够理解我的人。
+                </blockquote>
+                
+                <h2>萨曼对我的影响</h2>
+                
+                <p>萨曼的牺牲，永远改变了我。那之后，我更加深刻地理解了"战斗即对话"的意义，也更加坚定了自己的战斗理念。</p>
+                
+                <h3>战斗理念的深化</h3>
+                
+                <p>与萨曼的对话和战斗，让我深化了自己的战斗理念。我开始更加理解战斗的深层意义，开始更加珍惜与真正战士的交流。</p>
+                
+                <h3>对使命的思考</h3>
+                
+                <p>萨曼的牺牲让我思考自己的使命。为什么而战？为了什么而战？这些问题，变得更加清晰和重要。</p>
+                
+                <h3>对友谊的理解</h3>
+                
+                <p>萨曼是我的对手，也是我的朋友。这种友谊，不是普通的友情，而是在理解和尊重基础上建立的深层连接。这种连接，让我明白了真正友谊的价值。</p>
+                
+                <h2>结语</h2>
+                
+                <p>萨曼是一个复杂的角色——他是对手，也是朋友；是战士，也是哲学家。他的存在，让我反思自己的战斗理念和生存方式。他的牺牲，让我更加坚定了自己的信念。</p>
+                
+                <hr>
+                
+                <p>萨曼，你在看着我吗？我想这样问他。即使他已经离开了，我依然相信，在某种程度上，他依然与我同在。</p>
+                
+                <p>每一次我使用Panzer Kunst战斗时，我都会想起萨曼。每一次我理解一个对手时，我都会想起我们的对话。每一次我为一个信念而战时，我都会想起他的眼神。</p>
+                
+                <blockquote>
+                    萨曼，我会继承你的战斗理念。我会超越自己，保护那些需要帮助的人。我永远不会忘记你。
+                </blockquote>
+                
+            </article>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
-            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
-        </div>
-    </footer>
-    <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    
-    <script>
-        // 阅读进度条
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById('reading-progress');
-            if (progressBar) {
-                progressBar.style.width = scrolled + '%';
-            }
-        });
-        
-        // 回到顶部按钮
-        const scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollTopBtn.classList.add('visible');
-                } else {
-                    scrollTopBtn.classList.remove('visible');
-                }
-            });
-            
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    </script>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
 </body>
 </html>

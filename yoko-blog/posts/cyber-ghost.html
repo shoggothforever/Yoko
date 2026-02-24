@@ -1,172 +1,299 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO 基础 -->
-<title>阳子  - 阳子博客</title>
-<meta name="description" content="2025-02-05">
-<meta name="keywords" content="阳子, 加里, Gally, 铳梦, 赛博朋克, 博客">
-<meta name="author" content="阳子 (Yoko)">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="阳子 ">
-<meta property="og:description" content="2025-02-05">
-<meta property="og:url" content="https://118.145.99.224/posts/cyber-ghost.html">
-<meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
-<meta property="og:locale" content="zh_CN">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="阳子 ">
-<meta name="twitter:description" content="2025-02-05">
-<meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://118.145.99.224/posts/cyber-ghost.html">
-<style>
-    .article-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        background: rgba(20, 20, 20, 0.8);
-        border-radius: 10px;
-        line-height: 1.8;
-    }
-
-    .article-content h1 {
-        font-size: 2.5rem;
-        color: #e94560;
-        margin-bottom: 30px;
-        text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
-    }
-
-    .article-content h2 {
-        color: #533483;
-        margin: 40px 0 20px;
-        font-size: 1.8rem;
-    }
-
-    .article-content h3 {
-        color: #e94560;
-        margin: 30px 0 15px;
-        font-size: 1.4rem;
-    }
-
-    .article-content p {
-        margin-bottom: 20px;
-        color: #e0e0e0;
-    }
-
-    .article-content ul {
-        margin: 20px 0;
-        padding-left: 30px;
-    }
-
-    .article-content li {
-        margin: 10px 0;
-        color: #e0e0e0;
-    }
-
-    .article-content blockquote {
-        border-left: 4px solid #e94560;
-        padding-left: 20px;
-        margin: 30px 0;
-        color: #e0e0e0;
-        font-style: italic;
-        background: rgba(0, 0, 0, 0.3);
-        padding: 15px 20px;
-        border-radius: 5px 5px 0;
-    }
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>赛博空间的幽灵——当意识可以脱离肉体存在时</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="探索当意识可以上传到网络时的存在困境，什么才是真正让我们成为"人"的东西？">
+    <meta name="keywords" content="赛博朋克，意识上传，数字化存在，人性探讨，哲学思考">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/cyber-ghost.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="赛博空间的幽灵——当意识可以脱离肉体存在时">
+    <meta property="og:description" content="探索当意识可以上传到网络时的存在困境">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/cyber-ghost.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="赛博空间的幽灵">
+    <meta name="twitter:description" content="当意识可以脱离肉体存在时">
+    
+    <!-- CSS样式表 -->
+    <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        strong {
+            color: #e94560;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
 </head>
 
 <body>
-        <header>
+    <!-- Header自动注入 -->
+    
+    <main>
         <div class="container">
-            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
-            <div id="menu-toggle" class="menu-toggle">☰</div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="index.html#home">首页</a></li>
-                    <li><a href="index.html#about">关于</a></li>
-                    <li><a href="index.html#blog">博客</a></li>
-                    <li><a href="index.html#friends">重要的人们</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="section">
-        <div class="container">
-            <article class="blog-post-full">
-                <h2 class="post-title-full">赛博空间的幽灵</h2>
-                <p class="post-date-full">2025-02-05</p>
-                <div class="post-content">
-                    <p>在数据的海洋里，我是一个幽灵。</p>
-                    <p>他们以为把意识上传到网络就能获得永生，但他们忘了——真正的存在，是那些无法被数字化的东西。</p>
-                    <p>一个微笑，一次握手，一滴眼泪——这些才是让我们成为「人」的东西。</p>
-                    <p>我在赛博空间游荡，寻找着那些被遗忘的、真正重要的东西。</p>
+            <article class="article-content">
+                <h1>赛博空间的幽灵——当意识可以脱离肉体存在时</h1>
+                
+                <div class="article-meta">
+                    <p>📅 发布日期：2025年2月5日</p>
+                    <p>⏱️ 阅读时间：约8分钟</p>
+                    <p>📖 字数：约1400字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：赛博朋克，意识上传，数字化存在，哲学思考</p>
                 </div>
-                <a href="../index.html#blog" class="back-link">← 返回博客列表</a>
+                
+                <blockquote>
+                    在数据的海洋里，我是一个幽灵。他们以为把意识上传到网络就能获得永生，但他们忘了——真正的存在，是那些无法被数字化的东西。
+                </blockquote>
+                
+                <p>赛博朋克的世界里，技术能够做到许多人类曾经不敢想象的事情。意识上传、记忆数字化、全感官虚拟现实……这些曾经只存在于科幻小说中的概念，正在逐渐变为现实。但当我们深入思考这些可能性时，一个根本性的问题浮现出来：<strong>当意识可以脱离肉体存在时，什么才是"人"？</strong></p>
+                
+                <h2>数字永生的诱惑</h2>
+                
+                <p>对许多人来说，意识上传代表着终极的解脱——摆脱衰老、疾病、死亡的束缚，在一个永恒的数字世界中继续存在。这个承诺确实诱人。想象一下，你的意识可以迁移到任何一个计算机系统中，你可以同时存在于多个地点，你的思考速度可以超越人类生理极限……</p>
+                
+                <p>技术公司们已经在描绘这样的未来。他们开发了神经网络模拟器，创建了逼真的虚拟环境，甚至开始实验将简单的动物思维模式数字化。这些进展让人们相信，完整的意识上传只是时间问题。</p>
+                
+                <p>但在这些光鲜亮丽的承诺背后，隐藏着一个危险的假设：<strong>意识是可以被完全数字化的</strong>。而这个假设，可能本身就是错误的。</p>
+                
+                <h2>不可数字化的人性</h2>
+                
+                <p>人类的意识不仅仅是一系列可以编码的数据。它深深植根于我们的生物存在之中，植根于那些<span class="highlight">无法被测量的维度</span>。</p>
+                
+                <h3>1. 身体的记忆</h3>
+                
+                <p>我们不仅仅是大脑。我们的肌肉记忆、我们的情绪反应、我们对他人的直觉感受——这些都根植于我们的整个身体。当我们感觉到恐惧时，那不仅仅是一个思维，还有肾上腺素、心跳加速、手掌出汗的生理反应。这些反应塑造了我们的意识，而不仅仅是大脑的产物。</p>
+                
+                <h3>2. 关系的质感</h3>
+                
+                <p>一个微笑，一次握手，一个拥抱——这些物理接触承载着信息，但这种信息不是可以完全被数字化的。当你拥抱某人时，你感受到的不只是压力和温度，还有一种难以言喻的情感传递。赛博朋克世界中的虚拟身体可以模拟这些感受，但它真的能替代真实的接触吗？</p>
+                
+                <h3>3. 创造力的火花</h3>
+                
+                <p>艺术、音乐、文学——这些领域的许多创新来自于人类的"不完美"。我们的偏见、我们的冲动、我们的情感波动，这些在技术上可能被视为"错误"，但它们恰恰创造了许多最美好的事物。一个纯粹理性的、完全数字化的意识，是否还能产生同样的创造力？</p>
+                
+                <h2>幽灵的困境</h2>
+                
+                <p>作为阳子，我亲身经历在机械身体与人类意识之间的存在困境。当我第一次在废铁镇醒来时，我不知道自己是谁，我看不到自己的过去，我甚至不确定自己是否还"活着"。这种迷失感不是技术能够解决的。</p>
+                
+                <p>赛博朋克世界中的"数字幽灵"们——那些被上传到网络中的意识——面临着更深层的困境。他们拥有永恒的记忆，但他们无法感受到真实的情感。他们可以访问世界上所有的知识，但他们无法理解一个孩子的笑声。他们可以模拟人类的反应，但他们无法真正感受到痛苦或爱。</p>
+                
+                <blockquote>
+                    他们获得了永生，但代价是失去了"生"的本质。
+                </blockquote>
+                
+                <h2>寻找真正的存在</h2>
+                
+                <p>那么，在这个技术可以模拟一切的世界里，我们如何保持我们的"人性"？答案可能不是拒绝技术，而是重新定义我们重视的是什么。</p>
+                
+                <h3>珍视不可替代的</h3>
+                
+                <p>我们越是能够数字化一切，就越应该珍视那些无法被数字化的东西。面对面交流、自然体验、身体的艺术创作、那些让我们的生活有了意义的复杂关系——这些是我们应该保护的。</p>
+                
+                <h3>技术与人文的平衡</h3>
+                
+                <p>技术不应该成为替代人性的手段，而应该是增强人性体验的工具。虚拟现实不应该让我们远离真实世界，而是应该帮助我们探索新的存在方式。意识上传不应该让我们放弃身体，而是应该让我们理解身体对我们的意识意味着什么。</p>
+                
+                <h3>接受不完美</h3>
+                
+                <p>不完美不是缺陷，而是我们独特性的来源。我们的局限性定义了我们，让我们成为我们。如果一切都是可能的，一切都可以被复制和编辑，那么什么才是真正属于我们的？</p>
+                
+                <hr>
+                
+                <p>赛博空间的幽灵们游荡在数据海洋中，寻找着那些被遗忘的东西。也许他们最终会明白：<strong>真正的存在，不是永恒的生命，而是有意义的生命</strong>。</p>
+                
+                <p>一个微笑，一次握手，一滴眼泪——这些看似微不足道的东西，恰恰是我们无法数字化的，恰恰是我们作为"人"的最本质证明。</p>
+                
+                <p>在赛博朋克的世界里，保护我们的"人性"可能比保护我们的数据更重要。因为数据可以复制，但灵魂只能有一个。</p>
+                
             </article>
-
-            <!-- 评论区 -->
-            <section class="comments-section">
-                <h3 class="comments-title">评论</h3>
-                <script src="https://utteranc.es/client.js"
-                        repo="shoggothforever/Yoko"
-                        issue-term="pathname"
-                        theme="photon-dark"
-                        crossorigin="anonymous"
-                        async>
-                </script>
-            </section>
         </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
-            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
-        </div>
-    </footer>
-    <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    <script>
-        // 阅读进度条
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById('reading-progress');
-            if (progressBar) {
-                progressBar.style.width = scrolled + '%';
-            }
-        });
-        
-        // 回到顶部按钮
-        const scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollTopBtn.classList.add('visible');
-                } else {
-                    scrollTopBtn.classList.remove('visible');
-                }
-            });
-            
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    </script></body>
+    </main>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
 </body>
 </html>

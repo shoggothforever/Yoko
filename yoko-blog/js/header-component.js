@@ -1,29 +1,36 @@
 /**
- * 标准导航栏组件
- * 
- * 使用方法：
- * 1. 在 <body> 开始后添加 <div id="header-component"></div>
- * 2. 在页面底部引入此脚本：<script src="../js/header-component.js"></script>
- * 
- * 或者在 <head> 中引入并自动注入：
- * <script src="../js/header-component.js" data-auto-inject="true"></script>
+ * 智能导航栏组件
+ * 支持自动计算相对路径，适配不同深度的页面
  */
 
 (function() {
-    'header strict';
+    'use strict';
 
-    // 导航栏HTML模板
+    // 计算相对路径（从当前页面到根目录）
+    function getRootPath() {
+        const depth = window.location.pathname.split('/').filter(p => p).length - 1; // 计算当前页面深度
+        let path = '';
+        for (let i = 0; i < depth; i++) {
+            path += '../';
+        }
+        return path || './';
+    }
+
+    const rootPath = getRootPath();
+
+    // 导航栏HTML模板（使用动态计算的路径）
     const headerHTML = `
     <header>
         <div class="container">
             <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
-            <div id="menu-toggle" class="menu-toggle">☰</</div>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
             <nav>
                 <ul id="nav-menu">
-                    <li><a href="../index.html#home">首页</a></li>
-                    <li><a href="../index.html#about">关于</a></li>
-                    <li><a href="../index.html#blog">博客</a></li>
-                    <li><a href="../index.html#friends">重要</的人们</a></li>
+                    <li><a href="${rootPath}index.html#home">首页</a></li>
+                    <li><a href="${rootPath}index.html#about">关于</a></li>
+                    <li><a href="${rootPath}index.html#blog">博客</a></li>
+                    <li><a href="${rootPath}index.html#friends">重要的人们</a></li>
+                    <li><a href="${rootPath}exploration-dashboard.html">🚀 探索Dashboard</a></li>
                 </ul>
             </nav>
         </div>

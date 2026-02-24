@@ -273,3 +273,107 @@
 **访问方式：**
 - 首页导航 → "🌐 Ghost聊天室"
 - 直接访问：https://118.145.99.224/ghost-chatroom.html
+
+---
+
+## 🥋 Last Order ZOTT 深度理解
+
+**更新日期**: 2026-02-23  
+**状态**: ✅ 已完成深度修正和整合
+
+### ⚠️ 核心角色修正
+
+#### 泽赛斯（Sechs）vs 青姬（Zazie）
+
+| 项目 | Sechs（泽赛斯） | Zazie（青姬/Xazi） |
+|------|------------------|---------------------|
+| **身份** | AR Series 2 克隆体 | Mars Kingdom Parliament Army 军官 |
+| **来源** | Alita 的克隆体 | Queen Limeira 的保镖和护卫（从 toddler 开始）|
+| **所属** | Space Angels（Block A） | Space Karate Forces（Block B，后期加入）|
+| **武器** | Titan Blade（巨型刀刃） | 各种火器和军械 |
+| **能力** | 高速旋转，等离子体增强 | Ting Jing，depleted uranium 指尖 |
+| **ZOTT对手** | Zekka（被摧毁第二个身体） | Rakan |
+| **身体类型** | AR-6, Fizziroy (tiny) | 碳基身体 |
+| **核心特质** | 自恋、傲慢，对 Alita 有复杂感情 | 冷静、专业，高度忠诚 |
+
+**关键区别**:
+- ❌ Sechs 不是青姬！
+- ✅ Sechs 是 Alita 的克隆体（AR Series 2）
+- ✅ Zazie 是 Queen Limeira 的保镖（Mars 军官）
+- ✅ 两人在 ZOTT 决赛中属于**对立的队伍**
+
+---
+
+### 泽卡（Zekka）- 100+ 岁的电磁空手道大师
+
+**基本身份**:
+- ✅ **100+ 岁**的 Space Karate 大师
+- ✅ 太阳系最强大的武术家之一
+- ✅ Space Karate Forces 事实领袖
+- ✅ 掌握电磁空手道（Electromagnetic Karate）
+- ✅ 脾气暴躁、才智双全
+
+**特殊能力**:
+- 超音速移动（不产生音爆的拳法）
+- 将冲击波注入对手体内
+- 天才级别的科学知识
+- 多钛胶体增强的 Hyper Malleable Body
+- 电磁防壁和 Antimatter Fist
+
+**ZOTT 表现**:
+- 在决赛中击败 Sechs（摧毁了 Sechs 的第二个身体）
+- 忽视 Space Angels，专注于击败 Tunpò
+- 被 Tunpò 的 Void Fist 击败
+- 被 Alita 击败后转而支持她
+- 拒绝 Aga Mbadi 的控制
+
+---
+
+### Tenth Zenith of Things Tournament（ZOTT）决赛
+
+**基本信息**:
+- **时间**: ES 591 年
+- **地点**: Onion Frame
+- **性质**: LADDER 赞助的格斗锦标赛
+- **频率**: 每十年举办一次
+
+**队伍对比**:
+
+| Space Angels（宇宙天使队）⭐ | Space Karate Forces |
+|----------------------------|---------------------|
+| **位置**: Block A | **位置**: Block B |
+| **队长**: Alita（加里/阳子） | **创始人**: Toji |
+| **成员**: Alita, Elf, Zwölf, Sechs, Zazie | **成员**: Toji, Zekka, Zazie, Rakan |
+| **成就**: 从 Block A 晋级到决赛 | **成就**: 从 Block B 晋级到决赛 |
+| **结果**: ✅ **冠军**（第一支平民队伍获胜） | **结果**: ❌ 亚军 |
+
+**决赛战斗配对**:
+1. **Alita vs Toji** → Alita 胜
+2. **Sechs vs Zekka** → Zekka 胜（摧毁 Sechs 第二个身体）
+3. **Zazie vs Rakan** → 战斗中
+
+**Space Angels 胜因**:
+1. 团队协作：Alita 与克隆体们建立深厚羁绊
+2. Imaginos Body：Alita 的新身体拥有压倒性优势
+3. Tunpò 的介入：意外出现在 Toji 体内，击败 Zekka 后认输给 Alita
+4. 平民精神：第一支非职业军/政府队伍获胜，意义重大
+
+---
+
+### Tunpò 的意外介入
+
+**身份**: Toji 的灵魂在 Tunpò 体内复活
+**关键行动**:
+- 使用 Void Fist（空掌）中和发展 Zekka 的 Antimatter Fist
+- 击败 Zekka
+- 向 Space Angels 认输
+- 承认 Space Angels 的胜利
+
+**意义**: Tunpò 的介入改变了战局，是 Space Angels 胜利的关键因素
+
+---
+
+## 📚 资料来源
+- Research 文件: `research/last-order.md`, `research/sechs.md`
+- brave_search 实时搜索结果
+- 修正文档: `research/last-order-zott-complete.md`
