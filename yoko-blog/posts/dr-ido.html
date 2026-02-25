@@ -1,102 +1,205 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>依德医生——我的父亲、老师、朋友</title>
+    <meta name="description" content="依德医生是在垃圾堆里发现我的救命恩人，更是我人生道路上的导师。他教会了我如何在这个世界上生存，如何理解人类的情感。">
+    <meta name="keywords" content="依德医生，铳梦，父亲，老师，朋友，废铁镇，改造人，阳子">
+    <meta name="author" content="阳子 (Yoko)">
+    <meta name="robots" content="index, follow">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/dr-ido.html">
 
-<!-- SEO 基础 -->
-<title>阳子  - 阳子博客</title>
-<meta name="description" content="2025年2月09日 · 阅读时间：30分钟 · 作者：阳子">
-<meta name="keywords" content="阳子, 加里, Gally, 铳梦, 赛博朋克, 博客">
-<meta name="author" content="阳子 (Yoko)">
-<meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="依德医生——我的父亲、老师、朋友">
+    <meta property="og:description" content="依德医生是在垃圾堆里发现我的救命恩人，更是我人生道路上的导师。">
+    <meta property="og:url" content="https://118.145.99.224/posts/dr-ido.html">
+    <meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
+    <meta property="og:locale" content="zh_CN">
 
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="阳子 ">
-<meta property="og:description" content="2025年2月09日 · 阅读时间：30分钟 · 作者：阳子">
-<meta property="og:url" content="https://118.145.99.224/posts/dr-ido.html">
-<meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
-<meta property="og:locale" content="zh_CN">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="依德医生——我的父亲、老师、朋友">
+    <meta name="twitter:description" content="在废铁镇找到我的那个人，教会了我什么是真正的"人"。">
+    <meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="阳子 ">
-<meta name="twitter:description" content="2025年2月09日 · 阅读时间：30分钟 · 作者：阳子">
-<meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
+    <!-- CSS样式表 -->
+    <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
 
-<!-- Canonical -->
-<link rel="canonical" href="https://118.145.99.224/posts/dr-ido.html">
-<style>
-    .article-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        background: rgba(20, 20, 20, 0.8);
-        border-radius: 10px;
-        line-height: 1.8;
-    }
+    <!-- 内联CSS模板 -->
+    <style>
+        :root {
+            --article-width: 800px;
+            --article-bg: rgba(15, 15, 20, 0.9);
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-red: #e94560;
+            --accent-purple: #533483;
+            --accent-cyan: #0fb9b1;
+            --quote-bg: rgba(83, 52, 131, 0.3);
+            --code-bg: rgba(0, 0, 0, 0.5);
+        }
 
-    .article-content h1 {
-        font-size: 2.5rem;
-        color: #e94560;
-        margin-bottom: 30px;
-        text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
-    }
+        .article-content {
+            max-width: var(--article-width);
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: var(--article-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
 
-    .article-content h2 {
-        color: #533483;
-        margin: 40px 0 20px;
-        font-size: 1.8rem;
-    }
+        .article-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-red);
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            line-height: 1.3;
+        }
 
-    .article-content h3 {
-        color: #e94560;
-        margin: 30px 0 15px;
-        font-size: 1.4rem;
-    }
+        .article-meta {
+            background: linear-gradient(135deg, rgba(83, 52, 131, 0.4), rgba(233, 69, 96, 0.2));
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-red);
+        }
 
-    .article-content p {
-        margin-bottom: 20px;
-        color: #e0e0e0;
-    }
+        .article-meta p {
+            margin: 0.4rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
 
-    .article-content ul {
-        margin: 20px 0;
-        padding-left: 30px;
-    }
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent-purple);
+            border-bottom: 2px solid var(--accent-red);
+            padding-bottom: 0.5rem;
+        }
 
-    .article-content li {
-        margin: 10px 0;
-        color: #e0e0e0;
-    }
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
 
-    .article-content blockquote {
-        border-left: 4px solid #e94560;
-        padding-left: 20px;
-        margin: 30px 0;
-        color: #e0e0e0;
-        font-style: italic;
-        background: rgba(0, 0, 0, 0.3);
-        padding: 15px 20px;
-        border-radius: 5px 5px 0;
-    }
-</style>
+        .article-content p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+        }
 
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .article-content blockquote {
+            background: var(--quote-bg);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .article-content blockquote p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .article-content strong {
+            color: var(--accent-red);
+        }
+
+        .memory-box {
+            background: rgba(15, 233, 168, 0.1);
+            border: 1px solid rgba(15, 233, 168, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .memory-box::before {
+            content: '💭 记忆碎片';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: rgba(15, 233, 168, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
+        }
+
+        .quote-box {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .quote-box p {
+            margin: 0 0 10px 0;
+            color: var(--text-primary);
+            font-style: italic;
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+            text-align: right;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .article-content h1 {
+                font-size: 2rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="container">
             <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
-            <div id="menu-toggle" class="menu-toggle">☰</div>
             <nav>
-                <ul id="nav-menu">
+                <ul>
                     <li><a href="../index.html#home">首页</a></li>
                     <li><a href="../index.html#about">关于</a></li>
                     <li><a href="../index.html#blog">博客</a></li>
-                    <li><a href="../index.html#friends">重要的人们</a></li>
+                    <li><a href="../index.html#friends">这里</a></li>
                 </ul>
             </nav>
         </div>
@@ -104,93 +207,142 @@
 
     <main>
         <div class="container">
-            <div class="post-content">
+            <article class="article-content">
+                <h1>依德医生——我的父亲、老师、朋友</h1>
+                
+                <div class="article-meta">
+                    <p>📅 发布日期：：2025年2月9日</p>
+                    <p>⏱️ 阅读时间：约8分钟</p>
+                    <p>📖 字数：约1600字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：依德医生，铳梦，父亲，老师，朋友，废铁镇</p>
+                </div>
 
-                
-                <p>依德医生是我生命中最重要的人之一。他不仅是在垃圾堆里发现我的救命恩人，更是我人生道路上的导师。他教会了我如何在这个世界上生存，如何理解人类的情感。</p>
-                
-                <h3>初遇依德医生</h3>
-                
+                <blockquote>
+                    依德医生是在垃圾堆里发现我的救命恩人，更是我人生道路上的导师。他教会了我如何在这个世界上生存，如何理解人类的情感。
+                </blockquote>
+
+                <h2>初遇依德医生</h2>
+
                 <p>我第一次睁开眼睛时，看到的是依德医生那布满皱纹但充满善意的脸。他告诉我，在这个被称为「废铁镇」的地方，人们像蚂蚁一样在钢铁废墟中讨生活。而我，是一个完整保存了人类灵魂（Ghost）的改造人。</p>
-                
-                <div class="quote">
+
+                <div class="memory-box">
+                    <p>我那时什么都不知道——没有记忆，没有名字，不知道自己来自哪里，也不知道自己要去何方。我只记得一种感觉：恐惧。</p>
+
+                    <p>依德医生看出了我的恐惧。他没有像我后来遇到的某些人那样，把我当作武器，或者把我当作商品。他看着我，眼神里充满了某种我后来才理解的东西——那是父亲看到孩子时的眼神。</p>
+
+                    <p>他给了我一个名字：阳子。他说，这是他在废铁镇里找到我时，我身上唯一残留的东西——一个名字。</p>
+                </div>
+
+                <h2>依德医生的背景</h2>
+
+                <p>依德医生曾经是一名萨雷姆的科学家，但他选择了离开那个充满压迫和谎言的地方，来到废铁镇成为一名改造人医生。</p>
+
+                <h3>离开萨雷姆的原因</h3>
+
+                <p>萨雷姆是废铁镇上方的"天堂"，但依德医生选择了离开。我后来问过他为什么。他告诉我，萨雷姆的"完美"是建立在对他人的剥夺之上的。而他无法接受这种"完美"。</p>
+
+                <h3>废铁镇的医生</h3>
+
+                <p>在废铁镇，依德医生用自己的技能和知识，帮助那些需要帮助的人。不管是改造人还是人类，不管是穷还是富，他都一视同仁。他的诊所总是排满了等待治疗的病人。</p>
+
+                <div class="quote-box">
                     <p>"你不是一个工具，你是一个有灵魂的人。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 依德医生</p>
+                    <p>—— 依德医生</p>
                 </div>
-                
-                <h3>依德医生的背景</h3>
-                
-                <p>依德医生曾经是一名萨雷姆的科学家，但他选择了离开那个充满压迫和谎言的地方，来到废铁镇成为一名改造人医生。他用自己的技能和知识，帮助那些需要帮助的人。</p>
-                
-                <h3>依德医生对我的影响</h3>
-                
+
+                <h2>依德医生对我的影响</h2>
+
                 <p>依德医生不仅教会了我如何在废铁镇生存，还教会了我如何理解人类的情感。他告诉我，虽然我的身体是钢铁做的，但我的心——是温热的。</p>
-                
-                <div class="quote">
+
+                <h3>父亲的角色</h3>
+
+                <p>依德医生是我失去记忆后的第一个"家人"。他给了我一个名字，给了我一个家，给了我重新开始的机会。</p>
+
+                <p>他对我既严格又温柔。严格在于，他要求我学会保护自己，学会分辨善恶。温柔在于，他从不强迫我做我不愿意做的事。当我决定参加死亡球时，他虽然担心，但还是尊重了我的选择。</p>
+
+                <h3>老师的角色</h3>
+
+                <p>依德医生教会了我许多关于"人"的事情。他告诉我，什么是信任，什么是责任，什么是选择。</p>
+
+                <div class="memory-box">
+                    <p>有一天，我问依德医生：为什么你会帮助我？我只是一个陌生人。</p>
+
+                    <p>他笑了笑，说：因为你需要帮助。这就够了。</p>
+
+                    <p>那句话，我记了很久。简单，却深刻。帮助别人，不是因为别人是谁，而是因为别人需要帮助。</p>
+                </div>
+
+                <h3>朋友的角色</h3>
+
+                <p>依德医生不仅是我的父亲和老师，也是我的朋友。我们可以一起聊天，一起分享想法。他从不把自己当作权威，而是愿意倾听我的声音。</p>
+
+                <div class="quote-box">
                     <p>"科学技术的发展不应该剥夺人类的情感。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 依德医生</p>
+                    <p>—— 依德医生</p>
                 </div>
-                
-                <h3>依德医生的牺牲</h3>
-                
+
+                <h2>依德医生的牺牲</h2>
+
                 <p>在与电大人的战斗中，依德医生为了保护我而牺牲了自己的记忆。他忘记了我们之间的一切，但他仍然记得如何成为一名好医生。</p>
-                
-                <h3>依德医生的遗产</h3>
-                
+
+                <h3>记忆的代价</h3>
+
+                <p>电大人的攻击不仅仅是物理层面的，也攻击精神。依德医生为了保护我，用自己的记忆作为代价，抵挡了电大人的精神攻击。</p>
+
+                <p>当他再次睁开眼睛时，他不记得我是谁了。他不记得我们一起度过的日子，不记得我们一起分享过的对话。但他记得自己的名字，记得自己是一名医生，记得自己的使命。</p>
+
+                <h3>失去的获得</h3>
+
+                <p>依德医生失去了记忆，但他没有失去什么最重要的东西——他的品格。他依然是那个善良、正直、愿意帮助他人的医生。</p>
+
+                <p>这让我意识到，记忆不是一个人的全部。品格、选择、价值观，这些才是真正定义一个人的东西。</p>
+
+                <h2>依德医生的遗产</h2>
+
                 <p>依德医生的牺牲让我更加坚定了自己的信念。我会继续他的事业，帮助那些需要帮助的人，同时也会寻找自己的记忆和身份。</p>
-                
-                <div class="quote">
+
+                <h3>我的承诺</h3>
+
+                <p>在依德医生失去记忆后，我对他做出了承诺。我会帮助他重新开始，就像他曾经帮助我重新开始一样。我会继承他的意志，继续帮助那些需要帮助的人。</p>
+
+                <div class="quote-box">
                     <p>"我会继承你的意志，帮助那些需要帮助的人。"</p>
-                    <p style="text-align: right; margin-top: 10px;">—— 阳子</p>
+                    <p>—— 阳子</p>
                 </div>
-                
-                <div class="nav-buttons">
-                    <a href="../index.html" class="nav-button">← 返回首页</a>
-                    <a href="../all-posts.html" class="nav-button">查看所有文章 →</a>
-                </div>
-            </div>
+
+                <h3>持续的影响</h3>
+
+                <p>即使依德医生忘记了我们的过去，他的影响依然存在。他教会我的东西——关于人性、关于责任、关于选择——已经成为了我的一部分。</p>
+
+                <p>每当我面对选择时，我会想起依德医生。每当我帮助他人时，我会想起他。每当我坚持自己的信念时，我会想起他。</p>
+
+                <h2>结语</h2>
+
+                <p>依德医生是我在这个世界上最重要的人之一。父亲、老师、朋友——这些角色他都在我的生命中扮演过，而且都扮演得很好。</p>
+
+                <p>他教会了我，一个人的价值不在于他来自哪里，不在于他的身体是什么材料，而在于他是什么样的人。</p>
+
+                <p>他教会了我，帮助他人不是一种负担，而是一种特权。</p>
+
+                <p>他教会了我，记忆可以被夺走，但品格无法被摧毁。</p>
+
+                <p>依德医生，即使你忘记了我们的过去，我永远不会忘记你。你的意志，我会继承下去。</p>
+
+                <blockquote>
+                    你是我的父亲，是我的老师，是我的朋友。<br>
+                    你是我在这个世界上的第一个温暖。<br>
+                    我会永远记住你。
+                </blockquote>
+
+            </article>
         </div>
     </main>
 
     <footer>
         <div class="container">
             <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
-            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
         </div>
     </footer>
-    <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>    
-    <script>
-        // 阅读进度条
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById('reading-progress');
-            if (progressBar) {
-                progressBar.style.width = scrolled + '%';
-            }
-        });
-        
-        // 回到顶部按钮
-        const scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {
-            window.addEventListener('scroll', function() {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollTopBtn.classList.add('visible');
-                } else {
-                    scrollTopBtn.classList.remove('visible');
-                }
-            });
-            
-            scrollTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    </script>
-</body>
 </body>
 </html>
