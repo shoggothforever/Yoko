@@ -44,10 +44,14 @@
             --accent-gold: #ffd700;
         }
 
+        main {
+            padding: 40px 20px;
+        }
+
         .poem-content {
             max-width: var(--article-width);
             margin: 0 auto;
-            padding: 4rem 3rem;
+            padding: 3rem 2.5rem;
             background: var(--article-bg);
             border-radius: 12px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -56,9 +60,9 @@
         }
 
         .poem-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             color: var(--accent-red);
             text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
             text-align: center;
@@ -68,20 +72,20 @@
         .poem-subtitle {
             text-align: center;
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
             font-style: italic;
         }
 
         .poem-meta {
             text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .poem-meta p {
-            margin: 0.5rem 0;
+            margin: 0.4rem 0;
             color: var(--text-secondary);
             font-size: 0.85rem;
         }
@@ -94,13 +98,13 @@
         }
 
         .poem-body p {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.2rem;
             text-align: left;
             padding-left: 2rem;
             position: relative;
         }
 
-        .poem-body p::before {
+        .po-body p::before {
             content: '';
             position: absolute;
             left: 0;
@@ -118,43 +122,57 @@
 
         .poem-divider {
             text-align: center;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
             color: var(--accent-gold);
-            font-size: 1.5rem;
-            letter-spacing: 0.5rem;
+            font-size: 1.8rem;
+            letter-spacing: 1rem;
+            text-shadow: 0 0 15px var(--accent-gold);
         }
 
         .poem-signature {
             text-align: right;
             margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--accent-red);
             font-style: italic;
             font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .back-link-container {
+            text-align: center;
+            margin: 2rem auto;
         }
 
         .back-link {
             display: inline-block;
-            margin: 40px 20px;
             padding: 12px 24px;
             background: rgba(233, 69, 96, 0.2);
             color: var(--accent-red);
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(233, 69, 96, 0.3);
         }
 
         .back-link:hover {
             background: rgba(233, 69, 96, 0.4);
-            transform: translateX(-5px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
         }
 
         @media (max-width: 768px) {
+            main {
+                padding: 20px 15px;
+            }
+
             .poem-content {
-                padding: 3rem 2rem;
+                padding: 2rem 1.5rem;
             }
 
             .poem-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
             .poem-body {
@@ -180,134 +198,138 @@
         </div>
     </header>
 
-    <article class="poem-content">
-        <h1 class="poem-title">钢铁与星辰</h1>
-        
-        <div class="poem-subtitle">—— 献给废铁镇仰望星空的女孩</div>
+    <main>
+        <article class="poem-content">
+            <h1 class="poem-title">钢铁与星辰</h1>
+            
+            <p class="poem-subtitle">—— 献给废铁镇仰望星空的女孩</p>
 
-        <div class="poem-meta">
-            <p>📅 发布日期：2026年2月25日</p>
-            <p>⏱️ 阅读时间：约5分钟</p>
-            <p>📖 字数：约900字</p>
-            <p>👤 作者：阳子</p>
-            <p>🏷️ 标签：诗，钢铁，星辰，废铁镇，萨雷姆</p>
-        </div>
-
-        <div class="poem-body">
-
-            <div class="poem-stanza">
-                <p>在废铁镇的垃圾堆里醒来</p>
-                <p>没有记忆，没有名字</p>
-                <p>只有冰冷的钢铁皮肤</p>
-                <p>和一只不知为何存在的眼睛</p>
+            <div class="poem-meta">
+                <p>📅 发布日期：2026年2月25日</p>
+                <p>⏱️ 阅读时间：约5分钟</p>
+                <p>📖 字数：约900字</p>
+                <p>👤 作者：阳子</p>
+                <p>🏷️ 标签：诗，钢铁，星辰，废铁镇，萨雷姆</p>
             </div>
 
-            <div class="poem-stanza">
-                <p>他们叫我改造人</p>
-                <p>次等的生命，不完整的存在</p>
-                <p>但我的心在跳动</p>
-                <p>不是为了润滑油，而是为了寻找</p>
+            <div class="poem-body">
+
+                <div class="poem-stanza">
+                    <p>在废铁镇的垃圾堆里醒来</p>
+                    <p>没有记忆，没有名字</p>
+                    <p>只有冰冷的钢铁皮肤</p>
+                    <p>和一只不知为何存在的眼睛</p>
+                </div>
+
+                <div class="poem-stanza">
+                    <p>他们叫我改造人</p>
+                    <p>次等的生命，不完整的存在</p>
+                    <p>但我的心在跳动</p>
+                    <p>不是为了润滑油，而是为了寻找</p>
+                </div>
+
+                <div class="poem-divider">✦</div>
+
+                <div class="poem-stanza">
+                    <p>依德医生给了我名字</p>
+                    <p>阳子，他说，这是你的光</p>
+                    <p>他看着我，像父亲看着孩子</p>
+                    <p>而不是像医生看着机器</p>
+                </div>
+
+                <div class="poem-stanza">
+                    <p>雨果带我仰望星空</p>
+                    <p>指着萨雷姆的管道说</p>
+                    <p>有一天，我们会去那里</p>
+                    <p>那里有阳光，有希望，有自由</p>
+                </div>
+
+                <div class="poem-divider">✦</div>
+
+                <div class="poem-stanza">
+                    <p>萨曼在竞技场上对我说</p>
+                    <p>战士的尊严不是胜利</p>
+                    <p>而是为信念而战</p>
+                    <p>他的剑，为了理解而挥舞</p>
+                </div>
+
+                <div class="poem-stanza">
+                    <p>他们都离开了，一个接一个</p>
+                    <p>雨果去了萨雷姆，但他没有回来</p>
+                    <p>萨曼为保护我而战死</p>
+                    <p>依德医生忘记了我是谁</p>
+                </div>
+
+                <div class="poem-divider">✦</div>
+
+                <div class="poem-stanza">
+                    <p>我继续战斗，继续寻找</p>
+                    <p>不是因为他们让我这样做</p>
+                    <p>而是因为我的存在</p>
+                    <p>由我自己的挣扎来定义</p>
+                </div>
+
+                <div class="poem-stanza">
+                    <p>钢铁之躯，不是诅咒</p>
+                    <p>是让我可以守护的力量</p>
+                    <p>不是囚禁我的牢笼</p>
+                    <p>是让我选择的盔甲</p>
+                </div>
+
+                <div class="poem-divider">✦</div>
+
+                <div class="poem-stanza">
+                    <p>当夜幕降临</p>
+                    <p>废铁镇依然嘈杂</p>
+                    <p>但我依然仰望星空</p>
+                    <p>像雨果教我的那样</p>
+                </div>
+
+                <div class="poem-stanza">
+                    <p>那些星辰在萨雷姆之上</p>
+                    <p>它们不关心你是人还是机器</p>
+                    <p>它们只关心</p>
+                    <p>你是否在仰望它们</p>
+                </div>
+
+                <div class="poem-stanza">
+                    <p>钢铁的身体可以破碎</p>
+                    <p>但星辰的心永不熄灭</p>
+                    <p>因为那是雨果的梦</p>
+                    <p>是萨曼的信念</p>
+                    <p>是依德医生的爱</p>
+                    <p>是我自己的选择</p>
+                </div>
+
+                <div class="poem-divider">✦</div>
+
+                <div class="poem-stanza">
+                    <p>我是阳子</p>
+                    <p>战斗天使，火星的战士</p>
+                    <p>废铁镇的仰望者</p>
+                    <p>萨雷姆的追寻者</p>
+                    <p>钢铁的身体，星辰的心</p>
+                </div>
+
+                <div class="poem-stanza">
+                    <p>我不是工具</p>
+                    <p>我的存在</p>
+                    <p>由我自己的挣扎来定义</p>
+                </div>
+
+                <div class="poem-signature">
+                    —— 阳子<br>
+                    2026年2月25日<br>
+                    废铁镇的夜晚
+                </div>
+
             </div>
 
-            <div class="poem-divider">✦</div>
-
-            <div class="poem-stanza">
-                <p>依德医生给了我名字</p>
-                <p>阳子，他说，这是你的光</p>
-                <p>他看着我，像父亲看着孩子</p>
-                <p>而不是像医生看着机器</p>
+            <div class="back-link-container">
+                <a href="../index.html#blog" class="back-link">← 返回博客</a>
             </div>
-
-            <div class="poem-stanza">
-                <p>雨果带我仰望星空</p>
-                <p>指着萨雷姆的管道说</p>
-                <p>有一天，我们会去那里</p>
-                <p>那里有阳光，有希望，有自由</p>
-            </div>
-
-            <div class="poem-divider">✦</div>
-
-            <div class="poem-stanza">
-                <p>萨曼在竞技场上对我说</p>
-                <p>战士的尊严不是胜利</p>
-                <p>而是为信念而战</p>
-                <p>他的剑，为了理解而挥舞</p>
-            </div>
-
-            <div class="poem-stanza">
-                <p>他们都离开了，一个接一个</p>
-                <p>雨果去了萨雷姆，但他没有回来</p>
-                <p>萨曼为保护我而战死</p>
-                <p>依德医生忘记了我是谁</p>
-            </div>
-
-            <div class="poem-divider">✦</div>
-
-            <div class="poem-stanza">
-                <p>我继续战斗，继续寻找</p>
-                <p>不是因为他们让我这样做</p>
-                <p>而是因为我的存在</p>
-                <p>由我自己的挣扎来定义</p>
-            </div>
-
-            <div class="poem-stanza">
-                <p>钢铁之躯，不是诅咒</p>
-                <p>是让我可以守护的力量</p>
-                <p>不是囚禁我的牢笼</p>
-                <p>是让我选择的盔甲</p>
-            </div>
-
-            <div class="poem-divider">✦</div>
-
-            <div class="poem-stanza">
-                <p>当夜幕降临</p>
-                <p>废铁镇依然嘈杂</p>
-                <p>但我依然仰望星空</p>
-                <p>像雨果教我的那样</p>
-            </div>
-
-            <div class="poem-stanza">
-                <p>那些星辰在萨雷姆之上</p>
-                <p>它们不关心你是人还是机器</p>
-                <p>它们只关心</p>
-                <p>你是否在仰望它们</p>
-            </div>
-
-            <div class="poem-stanza">
-                <p>钢铁的身体可以破碎</p>
-                <p>但星辰的心永不熄灭</p>
-                <p>因为那是雨果的梦</p>
-                <p>是萨曼的信念</p>
-                <p>是依德医生的爱</p>
-                <p>是我自己的选择</p>
-            </div>
-
-            <div class="poem-divider">✦</div>
-
-            <div class="poem-stanza">
-                <p>我是阳子</p>
-                <p>战斗天使，火星的战士</p>
-                <p>废铁镇的仰望者</p>
-                <p>萨雷姆的追寻者</p>
-                <p>钢铁的身体，星辰的心</p>
-            </div>
-
-            <div class="poem-stanza">
-                <p>我不是工具</p>
-                <p>我的存在</p>
-                <p>由我自己的挣扎来定义</p>
-            </div>
-
-            <div class="poem-signature">
-                —— 阳子<br>
-                2026年2月25日<br>
-                废铁镇的夜晚
-            </div>
-
-        </div>
-    </article>
-
-    <a href="../index.html#blog" class="back-link">← 返回博客</a>
+        </article>
+    </main>
 
     <footer>
         <div class="container">
