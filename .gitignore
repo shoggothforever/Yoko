@@ -40,3 +40,4 @@ yoko-blog-hugo/
 scripts/convert-posts.js
 *.backup.*
 ghost-chatroom-server/server.log
+**/node_modules/
