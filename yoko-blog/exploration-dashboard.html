@@ -324,36 +324,34 @@
     <script src="js/footer-component.js" data-auto-inject="true"></script>
     
     <script>
-        // 探索数据
-        const explorations = {
-            "2026-02-24": {
-                theme: "网页设计与美化",
-                articles_created: 1,
-                articles_refined: 8,
-                agent_created: 1,
-                level: 4
-            },
-            "2026-02-23": {
-                theme: "赛博朋克文化与身份认同",
-                articles_created: 5,
-                level: 3
-            },
-            "2026-02-22": {
-                theme: "记忆奥德赛",
-                articles_created: 1,
-                level: 2
-            },
-            "2026-02-21": {
-                theme: "情感与社交",
-                articles_created: 2,
-                level: 2
-            },
-            "2026-02-16": {
-                theme: "ZOTT竞技场",
-                articles_created: 2,
-                level: 3
+        // API基础URL
+        const API_BASE = 'http://118.145.99.224:3031/api';
+        
+        // 探索数据（从API加载）
+        let explorations = {};
+        let stats = {};
+        
+        // 从API加载数据
+        async function loadExplorationData() {
+            try {
+                const response = await fetch(`${API_BASE}/exploration?t=${Date.now()}`);
+                const data = await response.json();
+                
+                explorations = data.explorations || {};
+                stats = data.stats || {};
+                
+                // 更新统计显示
+                document.getElementById('total-days').textContent = stats.total_days || 0;
+                document.getElementById('total-articles').textContent = stats.total_articles || 0;
+                
+                // 重新生成图表和列表
+                generateContributionGraph();
+                generateExplorationList();
+                
+            } catch (error) {
+                console.error('加载探索数据失败:', error);
             }
-        };
+        }
         
         // 生成贡献图
         function generateContributionGraph() {
@@ -414,16 +412,13 @@
             });
         }
         
-        // 更新统计
-        function updateStats() {
-            const totalDays = Object.keys(explorations).length;
-            document.getElementById('total-days').textContent = totalDays;
-        }
+        // 初始化：从API加载数据
+        loadExplorationData();
         
-        // 初始化
-        generateContributionGraph();
-        generateExplorationList();
-        updateStats();
+        // 每60秒自动刷新
+        setInterval(() => {
+            loadExplorationData();
+        }, 60000);
     </script>
 </body>
 </html>

@@ -335,6 +335,8 @@
     }
 
     async function startDiscussion() {
+        // 重新获取 DOM 元素，避免作用域问题
+        const topicInput = document.getElementById('topic-input');
         const topic = topicInput.value.trim();
 
         if (!topic || selectedGhosts.length === 0) {

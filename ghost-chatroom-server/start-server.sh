@@ -16,7 +16,7 @@ if pgrep -f "node.*src/index.js" > /dev/null 2>&1; then
     pgrep -f "node.*src/index.js" | head -1
     echo ""
     echo "服务器健康检查："
-    curl -s http://localhost:3001/api/health && echo "✅ 服务器正常响应" || echo "❌ 服务器无响应"
+    curl -s http://localhost:8080/api/health && echo "✅ 服务器正常响应" || echo "❌ 服务器无响应"
     echo ""
 else
     echo "🚀 启动Ghost Chatroom服务器..."
@@ -42,24 +42,24 @@ else
         echo ""
         echo "=== 服务器信息 ==="
         echo "进程ID: $SERVER_PID"
-        echo "监听地址: http://localhost:3001"
-        echo "健康检查: http://localhost:3001/api/health"
+        echo "监听地址: http://localhost:8080"
+        echo "健康检查: http://localhost:8080/api/health"
         echo "前端页面: http://localhost:8080/ghost-chatroom.html"
         echo ""
         echo "=== 测试API端点 ==="
         echo ""
 
         # 测试健康检查
-        if curl -s http://localhost:3001/api/health; then
+        if curl -s http://localhost:8080/api/health; then
             echo "✅ 健康检查端点正常"
-            curl -s http://localhost:3001/api/health | python3 -m json.tool
+            curl -s http://localhost:8080/api/health | python3 -m json.tool
         else
             echo "❌ 健康检查端点无响应"
         fi
         echo ""
 
         # 测试获取Ghost列表
-        if curl -s http://localhost:3001/api/ghosts/active; then
+        if curl -s http://localhost:8080/api/ghosts/active; then
             echo "✅ Ghost列表端点正常"
         else
             echo "❌ Ghost列表端点无响应"

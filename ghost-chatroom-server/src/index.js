@@ -21,6 +21,7 @@ fastify.register(require('@fastify/rate-limit'), {
 // Register routes
 fastify.register(require('./routes/chat'), { prefix: '/api/chat' });
 fastify.register(require('./routes/ghosts'), { prefix: '/api/ghosts' });
+// fastify.register(require('./routes/api'));
 
 // Health check
 fastify.get('/api/health', async (request, reply) => {
