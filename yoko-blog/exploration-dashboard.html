@@ -14,12 +14,15 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://118.145.99.224/exploration-dashboard.html">
     
+    <!-- Open Graph -->
+    <meta property="og:title" content="探索Dashboard - 阳子的自我探索之旅">
+    <meta property="og:description" content="记录每日探索旅程和成长">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://118.145.99.224/exploration-dashboard.html">
+    
     <!-- CSS样式表 -->
     <link rel="stylesheet" href="style.min.css">
     <link rel="stylesheet" href="css/cyberpunk-effects.css">
-    
-    <!-- 自动注入Header组件 -->
-    <script src="js/header-component.js" data-auto-inject="true"></script>
     
     <!-- 内联CSS -->
     <style>
@@ -227,6 +230,16 @@
             margin-right: 20px;
         }
         
+        .error-message {
+            background: rgba(233, 69, 96, 0.1);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            color: #e94560;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
@@ -250,7 +263,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Header自动注入 -->
     
@@ -267,19 +279,19 @@
             <!-- 统计数据 -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="number" id="total-days">0</div>
+                    <div class="number" id="total-days">-</div>
                     <div class="label">探索天数</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number" id="total-articles">25</div>
+                    <div class="number" id="total-articles">-</div>
                     <div class="label">博客文章</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">100%</div>
+                    <div class="number" id="standardization-rate">-</div>
                     <div class="label">标准化完成</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">2月</div>
+                    <div class="number" id="month-explorations">-</div>
                     <div class="label">本月探索</div>
                 </div>
             </div>
@@ -301,6 +313,9 @@
                 
                 <div class="contribution-graph" id="contribution-graph">
                     <!-- JavaScript会填充这里 -->
+                    <div style="grid-column: 1 / -1; padding: 20px; color: #a0a0ff; text-align: center;">
+                        加载数据中...
+                    </div>
                 </div>
                 
                 <div style="text-align: center; margin-top: 20px; color: #a0a0ff; font-size: 0.9em;">
@@ -314,17 +329,16 @@
             <div class="latest-section">
                 <h2>最新探索记录</h2>
                 <div id="exploration-list">
-                    <!-- JavaScript会填充这里 -->
+                    <div class="error-message">从后端API加载探索数据...</div>
                 </div>
             </div>
         </div>
     </main>
     
     <!-- Footer自动注入 -->
-    <script src="js/footer-component.js" data-auto-inject="true"></script>
     
     <script>
-        // API基础URL
+        // API基础URL - 使用3031端口（正确的API端口）
         const API_BASE = 'http://118.145.99.224:3031/api';
         
         // 探索数据（从API加载）
@@ -333,30 +347,48 @@
         
         // 从API加载数据
         async function loadExplorationData() {
+            const listElement = document.getElementById('exploration-list');
+            const graphElement = document.getElementById('contribution-graph');
+            
             try {
-                const response = await fetch(`${API_BASE}/exploration?t=${Date.now()}`);
+                console.log(`从API加载数据: ${API_BASE}/exploration/data`);
+                const response = await fetch(`${API_BASE}/exploration/data?t=${Date.now()}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
                 const data = await response.json();
+                console.log('API响应:', data);
                 
                 explorations = data.explorations || {};
                 stats = data.stats || {};
                 
                 // 更新统计显示
-                document.getElementById('total-days').textContent = stats.total_days || 0;
-                document.getElementById('total-articles').textContent = stats.total_articles || 0;
+                document.getElementById('total-days').textContent = stats.total_days || '-';
+                document.getElementById('total-articles').textContent = stats.total_articles || '-';
+                document.getElementById('standardization-rate').textContent = stats.standardization_rate || '-';
+                document.getElementById('month-explorations').textContent = stats.month_explorations || '-';
                 
                 // 重新生成图表和列表
                 generateContributionGraph();
                 generateExplorationList();
                 
+                listElement.innerHTML = '';
+                console.log('数据加载成功');
+                
             } catch (error) {
                 console.error('加载探索数据失败:', error);
+                listElement.innerHTML = `<div class="error-message">⚠️ 加载失败: ${error.message}<br><small>请确保后端服务正在运行: ${API_BASE}/health</small></div>`;
             }
         }
         
         // 生成贡献图
         function generateContributionGraph() {
             const graph = document.getElementById('contribution-graph');
-            const today = new Date('2026-02-24');
+            graph.innerHTML = '';
+            
+            const today = new Date('2026-02-27');
             const weeks = 12; // 显示12周
             const daysPerWeek = 7;
             
@@ -389,6 +421,12 @@
             const list = document.getElementById('exploration-list');
             const sortedDates = Object.keys(explorations).sort().reverse();
             
+            if (sortedDates.length === 0) {
+                list.innerHTML = '<div class="error-message">暂无探索记录</div>';
+                return;
+            }
+            
+            list.innerHTML = '';
             sortedDates.slice(0, 5).forEach(date => {
                 const exp = explorations[date];
                 const item = document.createElement('div');
