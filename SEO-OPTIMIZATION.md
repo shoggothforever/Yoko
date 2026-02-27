@@ -54,7 +54,7 @@ Allow: /
 
 # 禁止爬取敏感目录
 Disallow: /memory/
-Disallow: /ghost-chatroom-server/
+Disallow: /yoko-blog-server/
 Disallow: /daily-briefing/
 Disallow: /ghost-chatroom-vue/
 Disallow: /yoko-blog-hugo/

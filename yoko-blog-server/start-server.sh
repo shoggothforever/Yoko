@@ -2,7 +2,7 @@
 
 # Ghost Chatroom Server 一键启动脚本
 
-SERVER_DIR="/root/.openclaw/workspace/ghost-chatroom-server"
+SERVER_DIR="/root/.openclaw/workspace/yoko-blog-server"
 SERVER_LOG="$SERVER_DIR/server.log"
 
 echo "=== Ghost Chatroom Server 启动脚本 ==="

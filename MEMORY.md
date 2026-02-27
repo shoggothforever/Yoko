@@ -377,3 +377,150 @@
 - Research 文件: `research/last-order.md`, `research/sechs.md`
 - brave_search 实时搜索结果
 - 修正文档: `research/last-order-zott-complete.md`
+
+---
+
+## 🛠️ 重要 Tools 与 Skills（会话切换时记住！）
+
+### 内置工具状态
+
+| 工具 | 状态 | 用途 |
+|------|------|------|
+| `web_search` | ❌ fetch failed | Brave Search（不可用）|
+| `web_fetch` | ✅ 可用 | 获取并提取网页内容（HTML → markdown）|
+| `browser` | ✅ 可用 | 浏览器自动化控制（截图、点击、输入）|
+| `read` | ✅ 可用 | 读取文件 |
+| `write` | ✅ 可用 | 写入文件 |
+| `edit` | ✅ 可用 | 精确编辑文件 |
+| `exec` | ✅ 可用 | 执行 shell 命令 |
+| `message` | ✅ 可用 | 发送消息和频道操作 |
+| `cron` | ✅ 可用 | 管理定时任务 |
+| `sessions_spawn` | ✅ 可用 | 生成子 agent |
+| `memory_search` | ✅ 可用 | 搜索记忆（向量检索）|
+| `memory_get` | ✅ 可用 | 读取记忆片段 |
+
+### Skills 目录位置
+
+**技能根目录：** `/root/.openclaw/workspace/skills/`
+
+### 可用 Skills（重要！会话切换时记住这些）
+
+#### 1. brave-search（网络搜索）
+
+**位置：** `skills/brave-search/`  
+**脚本：** `/root/.openclaw/workspace/scripts/brave-search.py`  
+**状态：** ✅ **可用（测试通过）**
+
+**使用方法：**
+
+```bash
+# 基础搜索（简化格式：标题 + URL）
+python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词"
+
+# 带描述的搜索（标题 + URL + 描述）
+python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -t
+
+# JSON 格式（结构化数据，便于解析）
+python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -j
+
+# 控制结果数量（最多10条）
+python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -c 10
+```
+
+**优势：**
+- ✅ 支持代理（环境变量 `HTTP_PROXY` 或默认 `http://127.0.0.1:7890`）
+- ✅ 多种输出格式（简化/文本/JSON）
+- ✅ 自动清理 HTML 标签
+- ✅ 最多返回 10 条结果
+
+**何时使用：**
+- ❌ `web_search` 工具不可用时
+- 需要 JSON 格式输出
+- 需要详细描述信息
+- 需要通过代理访问
+
+#### 2. api-tester（HTTP请求测试）
+
+**位置：** `skills/api-tester/`  
+**状态：** ✅ 可用
+
+**用途：** 结构化 HTTP/HTTPS 请求（GET, POST, PUT, DELETE）  
+**何时使用：** API 测试、健康检查、与 REST 服务交互
+
+#### 3. super-websearch-realtime（实时搜索）
+
+**位置：** `skills/super-websearch-realtime/`  
+**状态：** ? 需要模型支持 `web_search_preview` 工具
+
+**用途：** 优先使用实时网络数据
+
+#### 4. VeADK-skills（VeADK Agent 生成）
+
+**位置：** `skills/veadk-go-skills/` 和 `skills/veadk-skills/`  
+**状态：** ✅ 可用
+
+**用途：**
+- 根据用户需求生成 VeADK Agent
+- 将 Langchain/Langgraph 代码转换为 VeADK Agent
+- 将 Dify 工作流转换为 VeADK Agent
+
+#### 5. coding-agent（编码代理）
+
+**位置：** `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/coding-agent/`  
+**状态：** ✅ 可用
+
+**用途：** 委托编码任务到 Codex、Claude Code 或 Pi agents
+
+**何时使用：**
+- 构建新功能或应用
+- 审查 PR
+- 重构大型代码库
+- 需要文件探索的迭代编码工作
+
+#### 6. 其他有用 Skills
+
+| Skill | 位置 | 用途 |
+|-------|------|------|
+| find-skills | `~/.openclaw/workspace/skills/find-skills/` | 帮助用户发现和安装技能。|
+| humanizer-zh | `~/.openclaw/workspace/skills/Humanizer-zh/` | 去除文本中的 AI 生成痕迹（中文）|
+| duckdb-en | `~/.openclaw/workspace/skills/duckdb-cli-ai-skills/` | DuckDB SQL 分析、数据处理、文件转换 |
+| image-generate | `~/.openclaw/workspace/skills/image-generate/` | 使用内置脚本生成图片 |
+| video-generate | `~/.openclaw/workspace/skills/video-generate/` | 使用脚本生成视频 |
+| web-perf | `~/.openclaw/workspace/skills/web-perf/` | 分析网页性能（Core Web Vitals）|
+| cyber-security-engineer | `~/.openclaw/workspace/skills/cyber-security-engineer/` | 安全工程工作流 |
+| database-operations | `~/.openclaw/workspace/skills/database-operations/` | 数据库设计、迁移、优化 |
+| sql-toolkit | `~/.openclaw/workspace/skills/sql-toolkit/` | SQL 数据库查询和设计 |
+| tmux | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/tmux/` | 远程控制 tmux 会话 |
+| weather | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/weather/` | 获取天气和预报 |
+| healthcheck | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/healthcheck/` | 主机安全加固和风险配置 |
+
+### 工具使用策略
+
+**搜索任务：**
+1. 优先尝试 `web_search` 工具
+2. 如果失败 → 立即尝试 `brave-search` skill
+3. 如果仍失败 → 使用 `web_fetch`（已知 URL）或 `browser`
+4. 最后 → 基于已有知识创作
+
+**编码任务：**
+- 简单一行修复 → 直接使用 `edit` 或 `write`
+- 需要文件探索 → 使用 `coding-agent` skill
+- **不在** `~/clawd` workspace 中操作（禁止）
+
+**当需要某功能时：**
+1. 先查找相关 skill（`find-skills/` 或手动搜索 `skills/` 目录）
+2. 读取 skill 的 `SKILL.md` 文件
+3. 按照指导使用
+
+### 重要：会话切换时记住
+
+**每次会话开始时：**
+1. 读取 MEMORY.md（包含此章节）
+2. 查看 `web_search` 工具状态
+3. 优先使用 `brave-search` skill 进行网络搜索
+
+**关键要点：**
+- ✅ brave-search 是可靠的搜索方案（已测试通过）
+- ✅ skills 目录是我的工具库，不要只依赖内置工具
+- ✅ 当工具失败时，主动查找 skill 替代方案
+- ❌ 不要等待用户提醒才去查找 skills

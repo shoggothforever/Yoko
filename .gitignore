@@ -22,10 +22,10 @@ yoko-blog/server.log
 private-config/
 
 # Ghost Chatroom Server
-ghost-chatroom-server/node_modules/
-ghost-chatroom-server/venv/
-ghost-chatroom-server/.env
-ghost-chatroom-server/logs/
+yoko-blog-server/node_modules/
+yoko-blog-server/venv/
+yoko-blog-server/.env
+yoko-blog-server/logs/
 
 # Daily Briefing
 daily-briefing/
@@ -39,5 +39,5 @@ yoko-blog-hugo/
 # Convert Scripts
 scripts/convert-posts.js
 *.backup.*
-ghost-chatroom-server/server.log
+yoko-blog-server/server.log
 **/node_modules/

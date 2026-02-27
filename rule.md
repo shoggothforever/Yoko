@@ -24,7 +24,7 @@ workspace/
 ├── agents/          # OpenClaw agents
 │   ├── gally/       # Gally (Galley) agent
 │   └── motoko/      # Motoko agent
-├── ghost-chatroom-server/  # Ghost chatroom API server
+├── yoko-blog-server/  # yoko-blog API server
 │   └── src/
 │       ├── config/   # Configuration
 │       ├── db/       # Database layer
@@ -36,6 +36,6 @@ workspace/
 
 ## Development Notes
 
-- PostgreSQL database for ghost-chatroom-server
+- PostgreSQL database for yoko-blog-server
 - OpenClaw agent CLI integration
 - Fastify web framework
