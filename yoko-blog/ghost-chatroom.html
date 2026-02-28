@@ -142,6 +142,9 @@
     // 应用状态
     let allGhosts = [];
     let selectedGhosts = [];
+    // API 配置
+    const API_HOST = 'http://118.145.99.224:8080';
+
     let currentPage = 0;
     const GHOSTS_PER_PAGE = 6;
     let isLoading = false;
@@ -516,7 +519,7 @@
     // 加载讨论历史
     async function loadDiscussionHistory() {
         try {
-            const response = await fetch('http://118.145.99.224:8080/api/chat/history?limit=20');
+            const response = await fetch(`${API_HOST}/api/chat/history?limit=20`);
             const result = await response.json();
 
             if (result.success && result.data) {
@@ -606,7 +609,7 @@
     // 查看单个讨论记录
     async function viewDiscussionRecord(filename) {
         try {
-            const response = await fetch(`http://118.145.99.224:8080/api/chat/history/${filename}`);
+            const response = await fetch(`${API_HOST}/api/chat/history/${filename}`);
             const result = await response.json();
 
             if (result.success && result.data) {

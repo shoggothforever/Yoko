@@ -46,7 +46,7 @@ cd /root/.openclaw/workspace
 python3 scripts/blog-management/generate-sitemap.py
 
 # 生成 all-posts.html
-. python3 scripts/blog-management/generate-all-posts.py
+python3 scripts/blog-management/generate-all-posts.py
 
 # 更新首页列表
 python3 scripts/blog-management/update-index-blog-list.py
