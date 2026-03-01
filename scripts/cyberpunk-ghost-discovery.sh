@@ -1,9 +1,9 @@
 #!/bin/bash
 # 赛博朋克 Ghost 发现脚本
 # 每天通过 brave-search.py 搜索赛博朋克主题的艺术作品，创建探索 Agent
-# 支持 novels, comics, movies, arts, games 等多种体裁
+# 将所有相关文件组织到按日期分类的目录中
 
-set -e  # 任何错误时退出
+set -e
 
 # 配置
 WORKSPACE="/root/.openclaw/workspace"
@@ -16,6 +16,10 @@ BRAVE_SEARCH="$WORKSPACE/scripts/brave-search.py"
 DATE=$(date +%Y-%m-%d)
 WEEK_DAY=$(date +%u)  # 1=周一, 7=周日
 RUN_TIME=$(date +%H:%M)
+
+# 创建日期目录
+DAY_DIR="$MEMORY_DIR/ghost-discovery/$DATE"
+mkdir -p "$DAY_DIR"
 
 # 艺术体裁分类（5个主要体裁）
 MEDIUM_TYPES=(
@@ -69,6 +73,7 @@ error_exit() {
 # 创建必要的目录
 mkdir -p "$MEMORY_DIR" 2>/dev/null || error_exit "无法创建目录: $MEMORY_DIR"
 mkdir -p "$AGENTS_DIR" 2>/dev/null || error_exit "无法创建目录: $AGENTS_DIR"
+mkdir -p "$DAY_DIR" 2>/dev/null || error_exit "无法创建目录: $DAY_DIR"
 
 log "🚀 赛博朋克 Ghost 发现开始"
 log "📅 日期: $DATE"
@@ -82,8 +87,8 @@ log "🌐 开始搜索..."
 SEARCH_OUTPUT=$(python3 "$BRAVE_SEARCH" "$SEARCH_QUERY" -c 8 -t 2>&1)
 
 if [ -z "$SEARCH_OUTPUT" ]; then
-    log "⚠️️ 未找到相关结果"
-    log "📝 退出脚本"
+    log "⚠️ 未找到相关结果"
+    log "🏁 退出脚本"
     exit 0
 fi
 
@@ -103,7 +108,7 @@ while IFS= read -r line; do
     # 提取标题（格式：1. 标题）
     if echo "$line" | grep -qE "^[0-9]+\."; then
         # 清理标题
-        CURRENT_TITLE=$(echo "$line" | sed 's/^[0-9]*\.\s*//' | cut -c1-100)
+        CURRENT_TITLE=$(echo "$line" | sed 's/^[0-9]*\. //' | cut -c1-100)
     fi
     
     # 提取描述（以空白开头的行）
@@ -133,8 +138,8 @@ log "📊 共找到 ${#WORK_TITLES[@]} 个作品"
 
 # 如果没有可用的作品，退出
 if [ ${#WORK_TITLES[@]} -eq 0 ]; then
-    log "⚠️️ 没有可分析的作品"
-    log "📝 退出脚本"
+    log "⚠️ 没有可分析的作品"
+    log "🏁 退出脚本"
     exit 0
 fi
 
@@ -144,9 +149,9 @@ MAX_AGENTS=2
 log "📋 计划创建 $MAX_AGENTS 个 Agent"
 log ""
 
-# 创建探索记录
+# 创建探索记录（在日期目录下）
 RUN_ID="${RUN_TIME//:/_}"
-RUN_DISCOVERY="$MEMORY_DIR/ghost-discovery-$DATE-$RUN_ID.md"
+RUN_DISCOVERY="$DAY_DIR/ghost-discovery-$RUN_ID.md"
 
 # 体裁映射
 MEDIUM_NAMES=("科幻小说" "漫画/图像小说" "电影/动画" "电子游戏" "视觉艺术")
@@ -213,6 +218,7 @@ MEDIUM_NAME="${MEDIUM_NAMES[$MEDIUM_INDEX]}"
     echo ""
     echo "**Agent 创建位置：**"
     echo "- 路径：agents/{agent-name}/"
+    echo "- 记录：$DAY_DIR/"
     echo ""
     echo "---"
     echo ""
@@ -231,7 +237,7 @@ for ((i=0; i<MAX_AGENTS; i++)); do
     DESC="${WORK_REMAIN##*|}"
     
     if [ -z "$TITLE" ] || [ -z "$URL" ]; then
-        log "⚠️️ 无可用的作品"
+        log "⚠️ 无可用的作品"
         continue
     fi
     
@@ -351,7 +357,7 @@ for ((i=0; i<MAX_AGENTS; i++)); do
         echo "## Context"
         echo ""
         echo "dsm 创造了阳子和这个 Ghost 发现系统。"
-        echo "dsm 对赛博朋克 fanculture 和哲学感兴趣。"
+        echo "dsm 对赛博朋克幻想文化和哲学感兴趣。"
     } > "$AGENT_DIR/USER.md"
     
     # 创建引导文档
@@ -442,7 +448,6 @@ for ((i=0; i<MAX_AGENTS; i++)); do
         echo "*每一个 Ghost 都是赛博朋克文化的一个窗口。通过对话，我们可以看到不同的世界。*"
     } > "$AGENT_DIR/talk-to-ghost.md"
     
-    
     AGENTS_CREATED=$((AGENTS_CREATED + 1))
     log "   ✅ SOUL.md: 已创建"
     log "   ✅ AGENTS.md: 已创建"
@@ -467,6 +472,7 @@ log "✅ 所有 Ghost Agent 创建完成"
 log "总计: $AGENTS_CREATED 个 Ghost Agent"
 
 log "📊 发现日志: $DISCOVERY_LOG"
+log "📂 日期目录: $DAY_DIR"
 
 # 输出摘要
 echo ""
@@ -480,6 +486,7 @@ echo "🔍 搜索: $SEARCH_QUERY"
 echo "📊 搜索作品: ${#WORK_TITLES[@]} 个"
 echo "📊 创建 Ghost Agent: $AGENTS_CREATED 个"
 echo ""
+echo "📂 日期目录: $DAY_DIR"
 echo "📊 发现文档: $RUN_DISCOVERY"
 echo "========================================"
 

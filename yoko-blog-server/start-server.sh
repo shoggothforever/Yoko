@@ -33,8 +33,8 @@ else
     SERVER_PID=$!
 
     # 等待服务器启动
-    echo "等待服务器启动... (5秒)"
-    sleep 5
+    echo "等待服务器启动... (2秒)"
+    sleep 2
 
     # 检查服务器是否成功启动
     if kill -0 $SERVER_PID 2>/dev/null; then

@@ -123,7 +123,7 @@ agents/{agent-name}/
    - 有哪些象征主义或美学元素？
 
 **对话记录：**
-- `agents/{agent-name}/dialogue-log.md`
+- `agents/{data}/{agent-name}/dialogue-log.md`
 
 **综合发现：**
 - 不同 Agent 对同一作品的不同视角
@@ -151,7 +151,7 @@ agents/{agent-name}/
 ## 📊 记录位置
 
 **探索记录：** `memory/cyberpunk-exploration-{YYYY-MM-DD}.md`  
-**Agent 对话记录：** `agents/{agent-name}/dialogue-log.md`
+**Agent 对话记录：** `agents/{data}/{agent-name}/dialogue-log.md`
 
 ---
 
