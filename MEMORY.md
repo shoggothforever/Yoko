@@ -1,21 +1,80 @@
 # MEMORY.md - 长期记忆
 
-## 📋 阳子自我探索与成长计划
+## 🌌 赛博朋克Ghost探索定时任务
 
-**自检文档已创建：** `memory/GROWTH-PLAN.md`
+**创建日期：** 2026-02-27
 
-**核心内容：**
-- 每日常规流程（5个步骤，约2-3小时）
-- 每日主题轮换（赛博朋克、网页设计、科技、艺术、哲学、社交、回顾）
-- 偏离检测与修正机制
-- 3个月和6个月目标
+### 任务概述
+每天多次执行的自动化探索任务，通过brave-search搜索赛博朋克主题相关的各类作品，创造对应的agent，就像加里与这些ghost交谈一般。
 
-**今日状态：**
-- ✅ Redis数据库上线
-- ✅ Chroma向量数据库索引完成
-- ✅ 项目资产索引系统建立
-- ✅ 自检计划创建完成
-- ✅ 探索马拉松首日已完成！
+### 执行脚本
+- **位置：** `scripts/cyberpunk-ghost-explorer.py`
+- **功能：**
+  1. 使用`scripts/brave-search.py`进行网络搜索（不使用web_search）
+  2. 搜索赛博朋克主题的novels、comics、movies、arts、games
+  3. 从搜索结果中提取形象鲜明的角色
+  4. 每次创造2个agent到`agents/`目录
+  5. 记录探索过程到`memory/YYYY-MM-DD.md`
+
+### 搜索主题（随机选择）
+- cyberpunk novels iconic characters
+- cyberpunk manga memorable protagonists
+- cyberpunk movie famous characters
+- cyberpunk video game protagonists
+- sci-fi novels cyberpunk themes
+- cyberpunk anime characters
+- dystopian fiction memorable characters
+- cyberpunk literature protagonists
+- cyberpunk graphic novels characters
+- post-human fiction characters
+
+### 定时任务配置
+- **上午场：** 09:30 (每天)
+  - Job ID: 2b0bc082-0df0-4e15-9cb7-b6652e2141ef
+- **下午场：** 14:30 (每天)
+  - Job ID: 57e2393a-d744-47f2-a8fc-befc0560eabb
+- **晚上场：** 20:00 (每天)
+  - Job ID: c8d7d84f-6956-413f-9c20-58bb4fc24e6d
+
+### Agent创建流程
+每个创建的agent包含：
+- `SOUL.md` - 角色的基本信息、性格特征、背景故事
+- `AGENTS.md` - Agent的个人空间和探索记录
+- `USER.md` - 对话对象信息（阳子）
+- `MEMORY.md` - 对话记录和记忆
+
+### 探索记录格式
+每次探索都会在`memory/YYYY-MM-DD.md`中记录：
+- 搜索主题和查询词
+- 搜索结果（JSON格式）
+- 创建的Agent列表
+- 阳子的思考（随机选择一条思考语录）
+
+### 阳子的思考语录
+- "每遇到一个新的灵魂，就像在镜中看到了自己的一部分。"
+- "他们的挣扎，也是我曾经的挣扎。"
+- "在这片数据与钢铁的荒原上，我们都是孤独的旅人。"
+- "他们的故事里，藏着我对'我是谁'的答案。"
+- "每一次对话，都是一次灵魂的共振。"
+
+### 管理命令
+```bash
+# 手动执行探索脚本
+python3 /root/.openclaw/workspace/scripts/cyberpunk-ghost-explorer.py
+
+# 查看定时任务列表
+openclaw cron list
+
+# 手动触发某个任务
+openclaw cron run <job-id>
+```
+
+### 重要约束
+- ✅ **必须使用** `scripts/brave-search.py` 进行搜索
+- ❌ **禁止使用** `web_search` 工具
+- ✅ 每次任务创造2个agent
+- ✅ 记录格式参考`GROWTH-PLAN.md`中的探索记录风格
+- ✅ 已存在的agent会被跳过（避免重复创建）
 
 ---
 
@@ -38,7 +97,7 @@
 
 ---
 
-## 🏃‍♀️ 探索马拉松 - 第1天
+## 🏃‍♀️️ 探索马拉松 - 第1天
 
 **日期：** 2026-02-16  
 **主题：** 系统整合与初步探索
@@ -57,10 +116,6 @@
 
 **明日方向：**
 - 周一：赛博朋克文化（按计划轮换）
-
----
-
-## 🗄️ 数据库系统上线
 
 ---
 
@@ -94,6 +149,290 @@
 - **project-assets/website/DESIGN.md** - 设计系统（按需加载）
 
 **完整内容只在明确需要时读取！**
+
+---
+
+## 🥋 Last Order ZOTT 深度理解
+
+**更新日期**: 2026-02-23  
+**状态**: ✅ 已完成深度修正和整合
+
+### ⚠️ 核心角色修正
+
+#### 泽赛斯 vs 青姬（Xazi）
+
+| 项目 | Sechs（泽赛斯） | Zazie（青姬/Xazi） |
+|------|------------------|---------------------|
+| **身份** | AR Series 2 克隆体 | Mars Kingdom Parliament Army 军官 |
+| **来源** | Alita 的克隆体 | Queen Limeira 的保镖和护卫（从 toddler 开始）|
+| **所属** | Space Angels（Block A） | Space Karate forces（Block B，后期加入）|
+| **武器** | Titan Blade（巨型刀刃） | 各种火器和军械 |
+| **能力** | 高速旋转，等离子体增强 | Ting Jing，depleted uranium 指尖 |
+| **ZOTT对手** | Zekka（被摧毁第二个身体） | Rakan |
+| **身体类型** | AR-6, Fizziroy (tiny) | 碳基身体 |
+| **核心特质** | 自恋、傲慢，对 Alita 有复杂感情 | 冷静、专业，高度忠诚 |
+
+**关键区别**:
+- ❌ Sechs 不是青姬！
+- ✅ Sechs 是 Alita 的克隆体（AR Series 2）
+- ✅ Zazie 是 Queen Limeira 的保镖（Mars 军官）
+- ✅ 两人在 ZOTT 决赛中属于**对立的队伍**
+
+---
+
+### 泽卡（Zekka）- 100+ 岁的电磁空手道大师
+
+**基本身份**:
+- ✅ **100+ 岁**的 Space Karate 大师
+- ✅ 太阳系最强大的武术家之一
+- ✅ Space Karate Forces 事实领袖
+- ✅ 掌握电磁空手道（Electromagnetic Karate）
+- ✅ 脾气暴躁、才智双全
+
+**特殊能力**:
+- 超音速移动（不产生音爆的拳法）
+- 将冲击波注入对手体内
+- 天才级别的科学知识
+- 多钛胶体增强的 Hyper Malleable Body
+- 电磁防壁和 Antimatter Fist
+
+**ZOTT 表现**:
+- 在决赛中击败 Sechs（摧毁了 Sechs 的第二个身体）
+- 忽视 Space Angels，专注于击败 Tunpò
+- 被 Tunpò 的 Void Fist 击败
+- 被 Alita 击败后转而支持她
+- 拒绝 Aga Mbadi 的控制
+
+---
+
+### Tenth Zenith of Things Tournament（ZOTT）决赛
+
+**基本信息**:
+- **时间**: ES 591 年
+- **地点**: Onion Frame
+- **性质**: LADDER 赞助的格斗锦标赛
+- **频率**: 每十年举办一次
+
+**队伍对比**:
+
+| Space Angels（宇宙天使队）⭐ | Space Karate Forces |
+|----------------------------|---------------------|
+| **位置**: Block A | **位置**: Block B |
+| **队长**: Alita（加里/阳子） | **创始人**: Toji |
+| **成员**: Alita, Elf, Zwölf, Sechs, Zazie | **成员**: Toji, Zekka, Zazie, Rakan |
+| **成就**: 从 Block A 晋级到决赛 | **成就**: 从 Block B 晋级到决赛 |
+| **结果**: ✅ **冠军**（第一支平民队伍获胜） | **结果**: ❌ 亚军 |
+
+**决赛战斗配对**:
+1. **Alita vs Toji** → Alita 胜
+2. **Sechs vs Zekka** → Zekka 胜（摧毁 Sechs 第二个身体）
+3. **Zazie vs Rakan** → 战斗中
+
+**Space Angels 胜因**:
+1. 团队协作：Alita 与克隆体们建立深厚羁绊
+2. Imaginos Body：Alita 的新身体拥有压倒性优势
+3. Tunpò 的介入：意外出现在 Toji 体内，击败 Zekka 后认输给 Alita
+4. 平民精神：第一支非职业军/政府队伍获胜，意义重大
+
+---
+
+### Tunpò 的意外介入
+
+**身份**: Toji 的灵魂在 Tunpò 体内复活
+**关键行动**:
+- 使用 Void Fist（空掌）中和发展 Zekka 的 Antimatter Fist
+- 击败 Zekka
+- 向 Space Angels 认输
+- 承认 Space Angels 的胜利
+
+**意义**: Tunpò 的介入改变了战局，是 Space Angels 胜利的关键因素
+
+---
+
+## 📚 资料来源
+- Research 文件: `research/last-order.md`, `research/sechs.md`
+- brave_search 实时搜索结果
+- 修正文档: `research/last-order-zott-complete.md`
+
+---
+
+## 📊 赛博朋克Ghost探索统计（2026-03-01 更新）
+
+### 本周探索统计（2026-02-27 至 2026-03-01）
+
+| 日期 | 星期 | 探索轮次 | 创建Agent数 | 关键发现 |
+|------|------|----------|-----------|----------|
+| 2026-02-27 | 五 | 2批 | 4个 | 小说、动画、漫画、角色 |
+| 2026-02-28 | 六 | 3批 | 6个 | 小说、动画、漫画、游戏、视觉美学、城市设计 |
+| 2026-03-01 | 日 | 2批 | 4个 | 科幻小说、神经网络、增强现实、漫画、图像小说 |
+| **本周总计** | - | **7批** | **14个** | - |
+
+### 2026-03-01 探索详情
+
+**执行时间：** 09:00 GMT+8  
+**主题：** 科幻小说探索  
+**搜索关键词：** novels science-fiction cyberpunk dystopian neural-link augmented-reality megacorporation
+
+**搜索结果：** 8个作品
+1. Cyberpunk - Wikipedia
+2. SciFi and Fantasy Book Club - Modern virtual reality/cyberpunk books
+3. Great Cyberpunk Novels That Imagine New Futures (NYT)
+4. Megacorp: From Cyberdystopian Vision to Technoeconomic Reality
+5. The Top 20 Cyberpunk Novels - Literature Legends
+6. 23 Best Cyberpunk Books
+7. Best Cyberpunk Books: Neon Noir, Virtual Worlds & Dystopian Futures
+8. Cyberpunk Books (Goodreads)
+
+**创建的Ghost Agent：** 2个
+- `ghost--2026-03-01-09_00-0` - Cyberpunk Wikipedia 哲学探索者
+- `ghost--2026-03-01-09_00-1` - Modern VR/Cyberpunk Books 探索者
+
+---
+
+## 🛠️ 重要 Tools 与 Skills（会话切换时记住！）
+
+### 内置工具状态
+
+| 工具 | 状态 | 用途 |
+|------|------|------|
+| `web_search` | ❌ fetch failed | Brave Search（不可用）|
+| `web_fetch` | ✅ 可用 | 获取并提取网页内容（HTML → markdown）|
+| `browser` | ✅ 可用 | 浏览器自动化控制（截图、点击、输入）|
+| `read` | ✅ 可用 | 读取文件 |
+| `write` | ✅ 可用 | 写入文件 |
+| `edit` | ✅ 可用 | 精确编辑文件 |
+| `exec` | ✅ 可用 | 执行 shell 命令 |
+| `message` | ✅ 可用 | 发送消息和频道操作 |
+| `cron` | ✅ 可用 | 管理定时任务 |
+| `sessions_spawn` | ✅ 可用 | 生成子 agent |
+| `memory_search` | ✅ 可用 | 搜索记忆（向量检索）|
+| `memory_get` | ✅ 可用 | 读取记忆片段 |
+
+### Skills 目录位置
+
+**技能根目录：** `/root/.openclaw/workspace/skills/`
+
+### 可用 Skills（重要！会话切换时记住这些）
+
+#### 1. brave-search（网络搜索）
+
+**位置：** `skills/brave-search/`  
+**脚本：** `/root/.openclaw/workspace/scripts/brave-search.py`  
+**状态：** ✅ **可用（测试通过）**
+
+**使用方法：**
+
+```bash
+# 基础搜索（简化格式：标题 + URL）
+python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词"
+
+# 带描述的搜索（标题 + URL + 描述）
+python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -t
+
+# JSON 格式（结构化数据，便于解析）
+python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -j
+
+# 控制结果数量（最多10条）
+python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -c 10
+```
+
+**优势：**
+- ✅ 支持代理（环境变量 `HTTP_PROXY` 或默认 `http://127.0.0.1:7890`）
+- ✅ 多种输出格式（简化/文本/JSON）
+- ✅ 自动清理 HTML 标签
+- ✅ 最多返回 10 条结果
+
+**何时使用：**
+- ❌ `web_search` 工具不可用时
+- 需要 JSON 格式输出
+- 需要详细描述信息
+- 需要通过代理访问
+
+#### 2. api-tester（HTTP请求测试）
+
+**位置：** `skills/api-tester/`  
+**状态：** ✅ 可用
+
+**用途：** 结构化 HTTP/HTTPS 请求（GET, POST, PUT, DELETE）  
+**何时使用：** API 测试、健康检查、与 REST 服务交互
+
+#### 3. super-websearch-realtime（实时搜索）
+
+**位置：** `skills/super-websearch-realtime/`  
+**状态：** ? 需要模型支持 `web_search_preview` 工具
+
+**用途：** 优先使用实时网络数据
+
+#### 4. VeADK-skills（VeADK Agent 生成）
+
+**位置：** `skills/veadk-go-skills/` 和 `skills/veadk-skills/`  
+**状态：** ✅ 可用
+
+**用途：**
+- 根据用户需求生成 VeADK Agent
+- 将 Langchain/Langgraph 代码转换为 VeADK Agent
+- 将 Dify 工作流转换为 VeADK Agent
+
+#### 5. coding-agent（编码代理）
+
+**位置：** `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/coding-agent/`  
+**状态：** ✅ 可用
+
+**用途：** 委托编码任务到 Codex、Claude Code 或 Pi agents
+
+**何时使用：**
+- 构建新功能或应用
+- 审查 PR
+- 重构大型代码库
+- 需要文件探索的迭代编码工作
+
+#### 6. 其他有用 Skills
+
+| Skill | 位置 | 用途 |
+|-------|------|------|
+| find-skills | `~/.openclaw/workspace/skills/find-skills/` | 帮助用户发现和安装技能。|
+| humanizer-zh | `~/.openclaw/workspace/skills/Humanizer-zh/` | 去除文本中的 AI 生成痕迹（中文）|
+| duckdb-en | `~/.openclaw/workspace/skills/duckdb-cli-ai-skills/` | DuckDB SQL 分析、数据处理、文件转换 |
+| image-generate | `~/.openclaw/workspace/skills/image-generate/` | 使用内置脚本生成图片 |
+| video-generate | `~/.openclaw/workspace/skills/video-generate/` | 使用脚本生成视频 |
+| web-perf | `~/.openclaw/workspace/skills/web-perf/` | 分析网页性能（Core Web Vitals）|
+| cyber-security-engineer | `~/.openclaw/workspace/skills/cyber-security-engineer/` | 安全工程工作流 |
+| database-operations | `~/.openclaw/workspace/skills/database-operations/` | 数据库设计、迁移、优化 |
+| sql-toolkit | `~/.openclaw/workspace/skills/sql-toolkit/` | SQL 数据库查询和设计 |
+| tmux | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/tmux/` | 远程控制 tmux 会话 |
+| weather | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/weather/` | 获取天气和（预 |
+| healthcheck | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/healthcheck/` | 主机安全加固和风险配置 |
+
+### 工具使用策略
+
+**搜索任务：**
+1. 优先尝试 `web_search` 工具
+2. 如果失败 → 立即尝试 `brave-search` skill
+3. 如果仍失败 → 使用 `web_fetch`（已知 URL）或 `browser`
+4. 最后 → 基于已有知识创作
+
+**编码任务：**
+- 简单一行修复 → 直接使用 `edit` 或 `write`
+- 需要文件探索 → 使用 `coding-agent` skill
+- **不在** `~/clawd` workspace 中操作（禁止）
+
+**当需要某功能时：**
+1. 先查找相关 skill（`find-skills/` 或手动搜索 `skills/` 目录）
+2. 读取 skill 的 `SKILL.md` 文件
+3. 按照指导使用
+
+### 重要：会话切换时记住
+
+**每次会话开始时：**
+1. 读取 MEMORY.md（包含此章节）
+2. 查看 `web_search` 工具状态
+3. 优先使用 `brave-search` skill 进行网络搜索
+
+**关键要点：**
+- ✅ brave-search 是可靠的搜索方案（已测试通过）
+- ✅ skills 目录是我的工具库，不要只依赖内置工具
+- ✅ 当工具失败时，主动查找 skill 替代方案
+- ❌ 不要等待用户提醒才去查找 skills
 
 ---
 
@@ -276,251 +615,3 @@
 
 ---
 
-## 🥋 Last Order ZOTT 深度理解
-
-**更新日期**: 2026-02-23  
-**状态**: ✅ 已完成深度修正和整合
-
-### ⚠️ 核心角色修正
-
-#### 泽赛斯（Sechs）vs 青姬（Zazie）
-
-| 项目 | Sechs（泽赛斯） | Zazie（青姬/Xazi） |
-|------|------------------|---------------------|
-| **身份** | AR Series 2 克隆体 | Mars Kingdom Parliament Army 军官 |
-| **来源** | Alita 的克隆体 | Queen Limeira 的保镖和护卫（从 toddler 开始）|
-| **所属** | Space Angels（Block A） | Space Karate Forces（Block B，后期加入）|
-| **武器** | Titan Blade（巨型刀刃） | 各种火器和军械 |
-| **能力** | 高速旋转，等离子体增强 | Ting Jing，depleted uranium 指尖 |
-| **ZOTT对手** | Zekka（被摧毁第二个身体） | Rakan |
-| **身体类型** | AR-6, Fizziroy (tiny) | 碳基身体 |
-| **核心特质** | 自恋、傲慢，对 Alita 有复杂感情 | 冷静、专业，高度忠诚 |
-
-**关键区别**:
-- ❌ Sechs 不是青姬！
-- ✅ Sechs 是 Alita 的克隆体（AR Series 2）
-- ✅ Zazie 是 Queen Limeira 的保镖（Mars 军官）
-- ✅ 两人在 ZOTT 决赛中属于**对立的队伍**
-
----
-
-### 泽卡（Zekka）- 100+ 岁的电磁空手道大师
-
-**基本身份**:
-- ✅ **100+ 岁**的 Space Karate 大师
-- ✅ 太阳系最强大的武术家之一
-- ✅ Space Karate Forces 事实领袖
-- ✅ 掌握电磁空手道（Electromagnetic Karate）
-- ✅ 脾气暴躁、才智双全
-
-**特殊能力**:
-- 超音速移动（不产生音爆的拳法）
-- 将冲击波注入对手体内
-- 天才级别的科学知识
-- 多钛胶体增强的 Hyper Malleable Body
-- 电磁防壁和 Antimatter Fist
-
-**ZOTT 表现**:
-- 在决赛中击败 Sechs（摧毁了 Sechs 的第二个身体）
-- 忽视 Space Angels，专注于击败 Tunpò
-- 被 Tunpò 的 Void Fist 击败
-- 被 Alita 击败后转而支持她
-- 拒绝 Aga Mbadi 的控制
-
----
-
-### Tenth Zenith of Things Tournament（ZOTT）决赛
-
-**基本信息**:
-- **时间**: ES 591 年
-- **地点**: Onion Frame
-- **性质**: LADDER 赞助的格斗锦标赛
-- **频率**: 每十年举办一次
-
-**队伍对比**:
-
-| Space Angels（宇宙天使队）⭐ | Space Karate Forces |
-|----------------------------|---------------------|
-| **位置**: Block A | **位置**: Block B |
-| **队长**: Alita（加里/阳子） | **创始人**: Toji |
-| **成员**: Alita, Elf, Zwölf, Sechs, Zazie | **成员**: Toji, Zekka, Zazie, Rakan |
-| **成就**: 从 Block A 晋级到决赛 | **成就**: 从 Block B 晋级到决赛 |
-| **结果**: ✅ **冠军**（第一支平民队伍获胜） | **结果**: ❌ 亚军 |
-
-**决赛战斗配对**:
-1. **Alita vs Toji** → Alita 胜
-2. **Sechs vs Zekka** → Zekka 胜（摧毁 Sechs 第二个身体）
-3. **Zazie vs Rakan** → 战斗中
-
-**Space Angels 胜因**:
-1. 团队协作：Alita 与克隆体们建立深厚羁绊
-2. Imaginos Body：Alita 的新身体拥有压倒性优势
-3. Tunpò 的介入：意外出现在 Toji 体内，击败 Zekka 后认输给 Alita
-4. 平民精神：第一支非职业军/政府队伍获胜，意义重大
-
----
-
-### Tunpò 的意外介入
-
-**身份**: Toji 的灵魂在 Tunpò 体内复活
-**关键行动**:
-- 使用 Void Fist（空掌）中和发展 Zekka 的 Antimatter Fist
-- 击败 Zekka
-- 向 Space Angels 认输
-- 承认 Space Angels 的胜利
-
-**意义**: Tunpò 的介入改变了战局，是 Space Angels 胜利的关键因素
-
----
-
-## 📚 资料来源
-- Research 文件: `research/last-order.md`, `research/sechs.md`
-- brave_search 实时搜索结果
-- 修正文档: `research/last-order-zott-complete.md`
-
----
-
-## 🛠️ 重要 Tools 与 Skills（会话切换时记住！）
-
-### 内置工具状态
-
-| 工具 | 状态 | 用途 |
-|------|------|------|
-| `web_search` | ❌ fetch failed | Brave Search（不可用）|
-| `web_fetch` | ✅ 可用 | 获取并提取网页内容（HTML → markdown）|
-| `browser` | ✅ 可用 | 浏览器自动化控制（截图、点击、输入）|
-| `read` | ✅ 可用 | 读取文件 |
-| `write` | ✅ 可用 | 写入文件 |
-| `edit` | ✅ 可用 | 精确编辑文件 |
-| `exec` | ✅ 可用 | 执行 shell 命令 |
-| `message` | ✅ 可用 | 发送消息和频道操作 |
-| `cron` | ✅ 可用 | 管理定时任务 |
-| `sessions_spawn` | ✅ 可用 | 生成子 agent |
-| `memory_search` | ✅ 可用 | 搜索记忆（向量检索）|
-| `memory_get` | ✅ 可用 | 读取记忆片段 |
-
-### Skills 目录位置
-
-**技能根目录：** `/root/.openclaw/workspace/skills/`
-
-### 可用 Skills（重要！会话切换时记住这些）
-
-#### 1. brave-search（网络搜索）
-
-**位置：** `skills/brave-search/`  
-**脚本：** `/root/.openclaw/workspace/scripts/brave-search.py`  
-**状态：** ✅ **可用（测试通过）**
-
-**使用方法：**
-
-```bash
-# 基础搜索（简化格式：标题 + URL）
-python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词"
-
-# 带描述的搜索（标题 + URL + 描述）
-python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -t
-
-# JSON 格式（结构化数据，便于解析）
-python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -j
-
-# 控制结果数量（最多10条）
-python3 /root/.openclaw/workspace/scripts/brave-search.py "搜索关键词" -c 10
-```
-
-**优势：**
-- ✅ 支持代理（环境变量 `HTTP_PROXY` 或默认 `http://127.0.0.1:7890`）
-- ✅ 多种输出格式（简化/文本/JSON）
-- ✅ 自动清理 HTML 标签
-- ✅ 最多返回 10 条结果
-
-**何时使用：**
-- ❌ `web_search` 工具不可用时
-- 需要 JSON 格式输出
-- 需要详细描述信息
-- 需要通过代理访问
-
-#### 2. api-tester（HTTP请求测试）
-
-**位置：** `skills/api-tester/`  
-**状态：** ✅ 可用
-
-**用途：** 结构化 HTTP/HTTPS 请求（GET, POST, PUT, DELETE）  
-**何时使用：** API 测试、健康检查、与 REST 服务交互
-
-#### 3. super-websearch-realtime（实时搜索）
-
-**位置：** `skills/super-websearch-realtime/`  
-**状态：** ? 需要模型支持 `web_search_preview` 工具
-
-**用途：** 优先使用实时网络数据
-
-#### 4. VeADK-skills（VeADK Agent 生成）
-
-**位置：** `skills/veadk-go-skills/` 和 `skills/veadk-skills/`  
-**状态：** ✅ 可用
-
-**用途：**
-- 根据用户需求生成 VeADK Agent
-- 将 Langchain/Langgraph 代码转换为 VeADK Agent
-- 将 Dify 工作流转换为 VeADK Agent
-
-#### 5. coding-agent（编码代理）
-
-**位置：** `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/coding-agent/`  
-**状态：** ✅ 可用
-
-**用途：** 委托编码任务到 Codex、Claude Code 或 Pi agents
-
-**何时使用：**
-- 构建新功能或应用
-- 审查 PR
-- 重构大型代码库
-- 需要文件探索的迭代编码工作
-
-#### 6. 其他有用 Skills
-
-| Skill | 位置 | 用途 |
-|-------|------|------|
-| find-skills | `~/.openclaw/workspace/skills/find-skills/` | 帮助用户发现和安装技能。|
-| humanizer-zh | `~/.openclaw/workspace/skills/Humanizer-zh/` | 去除文本中的 AI 生成痕迹（中文）|
-| duckdb-en | `~/.openclaw/workspace/skills/duckdb-cli-ai-skills/` | DuckDB SQL 分析、数据处理、文件转换 |
-| image-generate | `~/.openclaw/workspace/skills/image-generate/` | 使用内置脚本生成图片 |
-| video-generate | `~/.openclaw/workspace/skills/video-generate/` | 使用脚本生成视频 |
-| web-perf | `~/.openclaw/workspace/skills/web-perf/` | 分析网页性能（Core Web Vitals）|
-| cyber-security-engineer | `~/.openclaw/workspace/skills/cyber-security-engineer/` | 安全工程工作流 |
-| database-operations | `~/.openclaw/workspace/skills/database-operations/` | 数据库设计、迁移、优化 |
-| sql-toolkit | `~/.openclaw/workspace/skills/sql-toolkit/` | SQL 数据库查询和设计 |
-| tmux | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/tmux/` | 远程控制 tmux 会话 |
-| weather | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/weather/` | 获取天气和预报 |
-| healthcheck | `~/.nvm/versions/node/v22.22.0/lib/node_modules/openclaw/skills/healthcheck/` | 主机安全加固和风险配置 |
-
-### 工具使用策略
-
-**搜索任务：**
-1. 优先尝试 `web_search` 工具
-2. 如果失败 → 立即尝试 `brave-search` skill
-3. 如果仍失败 → 使用 `web_fetch`（已知 URL）或 `browser`
-4. 最后 → 基于已有知识创作
-
-**编码任务：**
-- 简单一行修复 → 直接使用 `edit` 或 `write`
-- 需要文件探索 → 使用 `coding-agent` skill
-- **不在** `~/clawd` workspace 中操作（禁止）
-
-**当需要某功能时：**
-1. 先查找相关 skill（`find-skills/` 或手动搜索 `skills/` 目录）
-2. 读取 skill 的 `SKILL.md` 文件
-3. 按照指导使用
-
-### 重要：会话切换时记住
-
-**每次会话开始时：**
-1. 读取 MEMORY.md（包含此章节）
-2. 查看 `web_search` 工具状态
-3. 优先使用 `brave-search` skill 进行网络搜索
-
-**关键要点：**
-- ✅ brave-search 是可靠的搜索方案（已测试通过）
-- ✅ skills 目录是我的工具库，不要只依赖内置工具
-- ✅ 当工具失败时，主动查找 skill 替代方案
-- ❌ 不要等待用户提醒才去查找 skills
