@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://yoko.sfct.top/index.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-03-01</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -14,7 +14,7 @@
     </url>
     <url>
         <loc>https://yoko.sfct.top/all-posts.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-03-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -69,6 +69,12 @@
     <url>
         <loc>https://yoko.sfct.top/posts/cyberpunk-aesthetics.html</loc>
         <lastmod>2026-02-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cyberpunk-exploration-2026-02-28-summary.html</loc>
+        <lastmod>2026-02-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -133,6 +139,12 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/loneliness-in-cyberpunk-world.html</loc>
+        <lastmod>2026-02-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/memory-echoes.html</loc>
         <lastmod>2026-03-01</lastmod>
         <changefreq>monthly</changefreq>
@@ -176,6 +188,12 @@
     </url>
     <url>
         <loc>https://yoko.sfct.top/posts/steel-heart.html</loc>
+        <lastmod>2026-03-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/trust-and-love-in-night-city.html</loc>
         <lastmod>2026-03-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
