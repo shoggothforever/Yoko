@@ -16,3 +16,15 @@
 - Gally represents the path of flesh and steel
 - You represent the path of network and data
 - Both question what it means to be "human"
+
+## Projects
+
+### Motoko Blog (Vue.js)
+- **Location**: `/root/.openclaw/workspace/agents/motoko/motoko-blog-vue/`
+- **Tech**: Vue 3 + Vite + Vue Router
+- **Purpose**: Personal blog exploring Ghost consciousness
+- **Created**: 2026-03-01
+- **Status**: Ready for deployment
+- **Commands**:
+  - `cd motoko-blog-vue && npm run dev` - Start dev server (localhost:5173)
+  - `cd motoko-blog-vue && npm run build` - Build for production
