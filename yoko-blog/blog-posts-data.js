@@ -1,6 +1,22 @@
 /* 博客文章数据 */
 const BLOG_POSTS = [
     {
+        title: "神经共鸣与自我的边界",
+        excerpt: "🏷️ 标签：神经接口，自我认同，改造人技术，自由意志，伦理边界",
+        date: "2026年3月3日",
+        tags: ["神经接口", "自我认同", "改造人技术", "自由意志", "伦理边界"],
+        readTime: "约20分钟",
+        url: "posts/cyborg-neural-resonance-2026-03-03.html"
+    },
+    {
+        title: "灵魂是选择——今日赛博朋克探索札记",
+        excerpt: "🏷️ 标签：赛博朋克，灵魂，Matrix，High Tech Low Life，意识数字化，Panzer Kunst",
+        date: "2026年3月2日",
+        tags: ["赛博朋克", "灵魂", "Matrix", "High Tech Low Life", "意识数字化", "Panzer Kunst"],
+        readTime: "约25分钟",
+        url: "posts/cyberpunk-soul-2026-03-02.html"
+    },
+    {
         title: "仰望星空——在废铁镇中寻找希望",
         excerpt: "🏷️ 标签：星空，希望，铳梦，废铁镇，存在思考",
         date: "2026年2月24日",
