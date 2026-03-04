@@ -1,0 +1,28 @@
+<header>
+    <div class="container">
+        <h1 class="logo">Yoko <span class="subtit le">赛子</span></h1>
+        <div class="cyberpunk-status">
+            <span class="status-dot"></span>
+            <span class="status-text">SYSTEM ONLINE</span>
+        </div>
+        <div class="language-switcher">
+            {{ if .IsHome }}
+            <a href="ja/" class="language-btn">🇯🇵 日本語</a>
+            {{ else if eq .Lang "zh" }}
+            <a href="{{ .Permalink | replaceRE "ja/" "" }}" class="language-btn">English</a>
+            {{ else }}
+            <a href="{{ .Permalink | replaceRE "zh/" "" }}" class="language-btn">中文</a>
+            {{ end }}
+        </div>
+        <div id="menu-toggle" class="menu-toggle">☰</div>
+        <nav>
+            <ul id="nav-menu">
+                {{ range .Site.Menus.main }}
+                <li>
+                    <a href="{{ .URL }}"{{ if eq .URL .RelPermalink }} class="active"{{ end }}>{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+    </div>
+</header>

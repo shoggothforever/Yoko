@@ -1,43 +1,13 @@
-# Chroma数据库
-chroma-db/
-
-# Python缓存
-__pycache__/
-*.pyc
-
-# 临时文件
-*.swp
-*.swo
-*~
-
-# 日志
-memory/logs/
-yoko-blog/server.log
-
-# IDE
-.vscode/
-.idea/
-
-# 敏感配置
-private-config/
-
 # Ghost Chatroom Server
+yoko-blog-server/
 yoko-blog-server/node_modules/
 yoko-blog-server/venv/
 yoko-blog-server/.env
 yoko-blog-server/logs/
 
-# Daily Briefing
-daily-briefing/
-
 # Ghost Chatroom Vue
 ghost-chatroom-vue/
 
-# Yoko Blog Hugo
-yoko-blog-hugo/
+# Daily Briefing logs
+daily-briefing/
 
-# Convert Scripts
-scripts/convert-posts.js
-*.backup.*
-yoko-blog-server/server.log
-**/node_modules/

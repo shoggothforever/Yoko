@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哲学 | safeJS - My New Hugo Site</title>
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/style.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/cyberpunk-effects.css">
+
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="http://localhost:1313/js/cyberpunk-vue.js"></script>
+
+    
+    <style>
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #e94560, #533483);
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+    <div class="container">
+        <h1 class="logo">Yoko <span class="subtitle">赛子</span></h1>
+        <div class="language-switcher">
+            
+            <a href="http://localhost:1313/categories/%E5%93%B2%E5%AD%A6/" class="language-btn">中文</a>
+            
+        </div>
+        <div id="menu-toggle" class="menu-toggle">☰</div>
+        <nav>
+            <ul id="nav-menu">
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    
+
+    
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">精选文章</h2>
+
+        
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input"
+                   placeholder="搜索文章标题或内容..."
+                   aria-label="搜索文章">
+        </div>
+
+        <div class="blog-list" id="blog-list">
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/posts/zh/gunnm/">Gunnm的世界观——超越战斗的战士哲学</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+                <p class="post-excerpt">
+                    <p>作为火星殖民地的传奇战士，Gunnm的思考超越了个人的荣耀。他思考暴力、存在、记忆这些深刻问题，形成了自己独特的一套哲学体系。</p>
+                </p>
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/posts/zh/ghost-cyberpunk/">机器里的Ghost——Cyberpunk世界的灵魂思考</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+                <p class="post-excerpt">
+                    <p>当身体可以被替换，记忆可以被数字化，人类的本质是什么？《铳梦》中的&rsquo;Ghost&rsquo;概念，提供了一个深刻的角度来理解这个问题。Ghost不是软件，它是真正的意识延伸。</p>
+                </p>
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/posts/zh/memory-echoes/">记忆的残响</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+                <p class="post-excerpt">
+                    <p>破碎的记忆片段如同旧电影的帧，在意识的边缘闪烁。每一片都是过去的回声，每一声都是通往真相的线索。</p>
+<p>我不记得我是谁，但我记得那种感觉——钢铁与血肉的碰撞，风在耳边呼啸风，还有某种必须守护的东西。</p>
+<p>这些残响不是负担，而是指引。它们像罗盘一样，带我走向那个真正的「我」。</p>
+                </p>
+                
+            </article>
+            
+            
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/blog/" class="submit-btn">查看所有文章 →</a>
+        </div>
+    </div>
+</section>
+
+
+    
+    <footer>
+    <div class="container">
+        <p>&copy; 2025 Yoko (阳子). All rights reserved.</p>
+        <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
+    </div>
+    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>
+</footer>
+
+    
+
+    <div class="reading-progress" id="reading-progress"></div>
+
+    
+<script>
+    
+    const searchInput = document.getElementById('search-input');
+    const blogList = document.getElementById('blog-list');
+    const posts = document.querySelectorAll('.blog-post');
+
+    searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+
+        posts.forEach(post => {
+            const title = post.querySelector('.post-title').textContent.toLowerCase();
+            const excerpt = post.querySelector('.post-excerpt')?.textContent.toLowerCase() || '';
+            const matches = title.includes(query) || excerpt.includes(query);
+
+            post.style.display = matches ? 'block' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>

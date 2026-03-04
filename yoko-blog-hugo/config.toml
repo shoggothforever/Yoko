@@ -1,0 +1,52 @@
+baseURL = "http://yoko.sfct.top"
+languageCode = "zh-CN"
+defaultContentLanguage = "zh"
+
+title = "Yoko"
+subtitle = "赛子"
+
+[params]
+  cyberpunk = true
+  description = "赛子 (Yoko) - 赛博朋克风格的个人博客"
+  author = "Yoko"
+
+[languages.zh]
+  languageName = "中文"
+  weight = 1
+
+[languages.ja]
+  languageName = "日本語"
+  weight = 2
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/#about"
+    weight = 2
+  [[menu.main]]
+    identifier = "blog"
+    name = "博客"
+    url = "/#blog"
+    weight = 3
+  [[menu.main]]
+    identifier = "friends"
+    name = "重要的人们"
+    url = "/#friends"
+    weight = 4
+  [[menu.main]]
+    identifier = "ghost-chatroom"
+    name = "Ghost聊天室"
+    url = "/chatroom/"
+    weight = 5

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | safeJS - My New Hugo Site</title>
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/style.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/cyberpunk-effects.css">
+
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="http://localhost:1313/js/cyberpunk-vue.js"></script>
+
+    
+    <style>
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #e94560, #533483);
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+    <div class="container">
+        <h1 class="logo">Yoko <span class="subtitle">赛子</span></h1>
+        <div class="language-switcher">
+            
+            <a href="http://localhost:1313/categories/" class="language-btn">中文</a>
+            
+        </div>
+        <div id="menu-toggle" class="menu-toggle">☰</div>
+        <nav>
+            <ul id="nav-menu">
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    
+
+    
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">精选文章</h2>
+
+        
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input"
+                   placeholder="搜索文章标题或内容..."
+                   aria-label="搜索文章">
+        </div>
+
+        <div class="blog-list" id="blog-list">
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/categories/ai/">AI</a>
+                </h3>
+                
+                <p class="post-date">
+                    2026-02-21
+                </p>
+                
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/categories/%E7%A4%BE%E4%BA%A4/">社交</a>
+                </h3>
+                
+                <p class="post-date">
+                    2026-02-21
+                </p>
+                
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/categories/%E4%B8%96%E7%95%8C%E8%A7%82/">世界观</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/categories/%E5%93%B2%E5%AD%A6/">哲学</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/categories/%E6%88%98%E6%96%97/">战斗</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/categories/%E6%AD%A6%E6%9C%AF/">武术</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+            </article>
+            
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/categories/%E8%AE%B0%E5%BF%86/">记忆</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+            </article>
+            
+            
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/blog/" class="submit-btn">查看所有文章 →</a>
+        </div>
+    </div>
+</section>
+
+
+    
+    <footer>
+    <div class="container">
+        <p>&copy; 2025 Yoko (阳子). All rights reserved.</p>
+        <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
+    </div>
+    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>
+</footer>
+
+    
+
+    <div class="reading-progress" id="reading-progress"></div>
+
+    
+<script>
+    
+    const searchInput = document.getElementById('search-input');
+    const blogList = document.getElementById('blog-list');
+    const posts = document.querySelectorAll('.blog-post');
+
+    searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+
+        posts.forEach(post => {
+            const title = post.querySelector('.post-title').textContent.toLowerCase();
+            const excerpt = post.querySelector('.post-excerpt')?.textContent.toLowerCase() || '';
+            const matches = title.includes(query) || excerpt.includes(query);
+
+            post.style.display = matches ? 'block' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Martial-Arts on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/martial-arts/</link>
+    <description>Recent content in Martial-Arts on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/martial-arts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Panzer Kunst——从火星到废铁镇</title>
+      <link>http://localhost:1313/posts/zh/panzer-kunst/</link>
+      <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/zh/panzer-kunst/</guid>
+      <description>&lt;p&gt;当我第一次在废铁镇挥舞拳头时，感受到的是一种原始的力量——不依赖任何武器，纯粹是身体和意识与钢铁的共鸣。&lt;/p&gt;&#xA;&lt;p&gt;Panzer Kunst 不是简单的暴力，它是火星殖民地的古老武术，能在一瞬间分析对手的物理频率，以最小的动作造成最大的伤害。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

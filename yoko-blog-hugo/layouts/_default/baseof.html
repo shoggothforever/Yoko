@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .Title }}{{ .Title }} | safeJS - {{ end }}{{ .Site.Title }}</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/cyberpunk-effects.css">
+
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="{{ .Site.BaseURL }}js/cyberpunk-vue.js"></script>
+
+    <!-- Reading progress bar -->
+    <style>
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #e94560, #533483);
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+<body class="cyberpunk-mode">
+    <!-- 赛博朋克特效 -->
+    <div class="scan-line"></div>
+    <div class="matrix-rain"></div>
+    <div class="hexagon-bg"></div>
+    <div class="cursor-tracker" id="cursor-tracker"></div>
+
+    {{ block "header" . }}
+    {{ partial "header.html" . }}
+    {{ end }}
+
+    {{ block "main" . }}
+    {{ end }}
+
+    {{ block "footer" . }}
+    {{ partial "footer.html" . }}
+    {{ end }}
+
+    <div class="reading-progress" id="reading-progress"></div>
+
+    <!-- 赛博朋克特效脚本 -->
+    <script src="{{ .Site.BaseURL }}js/cyberpunk-effects.js"></script>
+
+    {{ block "scripts" . }}
+    <script src="{{ .Site.BaseURL }}js/script.js"></script>
+    {{ end }}
+</body>
+</html>

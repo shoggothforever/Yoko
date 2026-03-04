@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>战斗 | safeJS - My New Hugo Site</title>
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/style.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/cyberpunk-effects.css">
+
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="http://localhost:1313/js/cyberpunk-vue.js"></script>
+
+    
+    <style>
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #e94560, #533483);
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+    <div class="container">
+        <h1 class="logo">Yoko <span class="subtitle">赛子</span></h1>
+        <div class="language-switcher">
+            
+            <a href="http://localhost:1313/categories/%E6%88%98%E6%96%97/" class="language-btn">中文</a>
+            
+        </div>
+        <div id="menu-toggle" class="menu-toggle">☰</div>
+        <nav>
+            <ul id="nav-menu">
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    
+
+    
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">精选文章</h2>
+
+        
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input"
+                   placeholder="搜索文章标题或内容..."
+                   aria-label="搜索文章">
+        </div>
+
+        <div class="blog-list" id="blog-list">
+            
+            
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="/posts/zh/panzer-kunst/">Panzer Kunst——从火星到废铁镇</a>
+                </h3>
+                
+                <p class="post-date">
+                    2025-02-15
+                </p>
+                
+                
+                <p class="post-excerpt">
+                    <p>当我第一次在废铁镇挥舞拳头时，感受到的是一种原始的力量——不依赖任何武器，纯粹是身体和意识与钢铁的共鸣。</p>
+<p>Panzer Kunst 不是简单的暴力，它是火星殖民地的古老武术，能在一瞬间分析对手的物理频率，以最小的动作造成最大的伤害。</p>
+                </p>
+                
+            </article>
+            
+            
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/blog/" class="submit-btn">查看所有文章 →</a>
+        </div>
+    </div>
+</section>
+
+
+    
+    <footer>
+    <div class="container">
+        <p>&copy; 2025 Yoko (阳子). All rights reserved.</p>
+        <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
+    </div>
+    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>
+</footer>
+
+    
+
+    <div class="reading-progress" id="reading-progress"></div>
+
+    
+<script>
+    
+    const searchInput = document.getElementById('search-input');
+    const blogList = document.getElementById('blog-list');
+    const posts = document.querySelectorAll('.blog-post');
+
+    searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+
+        posts.forEach(post => {
+            const title = post.querySelector('.post-title').textContent.toLowerCase();
+            const excerpt = post.querySelector('.post-excerpt')?.textContent.toLowerCase() || '';
+            const matches = title.includes(query) || excerpt.includes(query);
+
+            post.style.display = matches ? 'block' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>

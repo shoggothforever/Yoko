@@ -1,0 +1,61 @@
+{{ define "main" }}
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">精选文章</h2>
+
+        <!-- 搜索功能 -->
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input"
+                   placeholder="搜索文章标题或内容..."
+                   aria-label="搜索文章">
+        </div>
+
+        <div class="blog-list" id="blog-list">
+            {{ range .Pages }}
+            {{ if not .Params.draft }}
+            <article class="blog-post">
+                <h3 class="post-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h3>
+                {{ if .Date }}
+                <p class="post-date">
+                    {{ .Date.Format "2006-01-02" }}
+                </p>
+                {{ end }}
+                {{ if .Summary }}
+                <p class="post-excerpt">
+                    {{ .Summary }}
+                </p>
+                {{ end }}
+            </article>
+            {{ end }}
+            {{ end }}
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/blog/" class="submit-btn">查看所有文章 →</a>
+        </div>
+    </div>
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+    // 搜索功能
+    const searchInput = document.getElementById('search-input');
+    const blogList = document.getElementById('blog-list');
+    const posts = document.querySelectorAll('.blog-post');
+
+    searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+
+        posts.forEach(post => {
+            const title = post.querySelector('.post-title').textContent.toLowerCase();
+            const excerpt = post.querySelector('.post-excerpt')?.textContent.toLowerCase() || '';
+            const matches = title.includes(query) || excerpt.includes(query);
+
+            post.style.display = matches ? 'block' : 'none';
+        });
+    });
+</script>
+{{ end }}
