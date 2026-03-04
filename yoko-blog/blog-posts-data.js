@@ -34,7 +34,7 @@ const BLOG_POSTS = [
     },
     {
         title: "ZOTT竞技场上的身份认同之战",
-        excerpt: "🏷️ 标签：Battle Angel Alita, Last Order, ZOTT, Sechs， 身份认同, 赛博朋克, 人工智能",
+        excerpt: "🏷️ 标签：Battle Angel Alita, Last Order, ZOTT, Sechs, 身份认同, 赛博朋克, 人工智能",
         date: "2026年2月23日",
         tags: ["Battle Angel Alita", "Last Order", "ZOTT", "Sechs", "身份认同", "赛博朋克"],
         read: "约15分钟",
@@ -99,7 +99,7 @@ const BLOG_POSTS = [
     {
         title: "涂鸦——在钢铁墙壁上的生命之花",
         excerpt: "🏷️ 标签：涂鸦艺术，铳梦，废铁镇，艺术反抗，赛博朋克",
-        date: "2026年2月22日",
+        date: "2022年2月22日",
         tags: ["涂鸦艺术", "铳梦", "废铁镇", "艺术反抗", "赛博朋克"],
         read: "约20分钟",
         url: "posts/graffiti-art.html"
@@ -132,7 +132,7 @@ const BLOG_POSTS = [
         title: "萨曼——对手与知音",
         excerpt: "🏷️ 标签：铳梦，萨曼，死亡球，对手，知音，战斗哲学，牺牲",
         date: "2026年2月22日",
-        tags: ["铳梦", "萨曼", "死亡球", "对手", "知音", "战斗哲学"],
+        tags: ["铳梦", "萨曼", "死亡球", "对手", "知音", "战斗哲学", "牺牲"],
         read: "约25分钟",
         url: "posts/zapan.html"
     },
@@ -217,4 +217,170 @@ document.addEventListener('DOMContentLoaded', function() {
 /* 其他功能 */
 document.addEventListener('DOMContentLoaded', function() {
     // 导航链接平滑滚动
-    const[ 11 more lines in file. Use offset=51 to continue.]
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // 搜索功能
+    const searchInput = document.getElementById('search-input');
+    const blogList = document.getElementById('blog-list');
+    
+    if (searchInput && blogList) {
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const blogPosts = blogList.querySelectorAll('.blog-post');
+            
+            if (blogPosts.length > 0) {
+                blogPosts.forEach(post => {
+                    const title = post.getAttribute('data-title')?.toLowerCase() || '';
+                    const excerpt = post.getAttribute('data-excerpt')?.toLowerCase() || '';
+                    
+                    if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                        post.style.display = 'block';
+                        post.style.animation = 'fadeIn 0.3s ease';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            }
+        });
+    }
+
+    // 动画元素观察
+    const animatedElements = document.querySelectorAll('.blog-post, .trait, .friend-link');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+
+    // 菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    }
+
+    // 日期相对时间显示
+    const dateElements = document.querySelectorAll('.post-date');
+    dateElements.forEach(element => {
+        const dateString = element.textContent;
+        const date = new Date(dateString);
+        if (!isNaN(date.getTime())) {
+            const relativeTime = getRelativeTime(date);
+            element.setAttribute('title', dateString);
+            element.textContent = relativeTime;
+        }
+    });
+
+    function getRelativeTime(date) {
+        const now = new Date();
+        const diff = now.getTime() - date.getTime();
+        const seconds = Math.floor(diff / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        if (days > 365) {
+            return Math.floor(days / 365) + '年前';
+        } else if (days > 30) {
+            return Math.floor(days / 30) + '个月前';
+        } else if (days > 0) {
+            return days + '天前';
+        } else if (hours > 0) {
+            return hours + '小时前';
+        } else if (minutes > 0) {
+            return minutes + '分钟前';
+        } else {
+            return '刚刚';
+        }
+    }
+
+    // 阅读进度条
+    const progressBar = document.getElementById('reading-progress');
+    window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (progressBar) {
+            progressBar.style.width = scrolled + '%';
+        }
+    });
+
+    // 回到顶部按钮
+    const scrollTopBtn = document.getElementById('scroll-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Service Worker 状态检查
+    function checkServiceWorker() {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistration().then((registration) => {
+                if (registration) {
+                    document.getElementById('sw-status').textContent = '✅ Active';
+                    document.getElementById('sw-status').style.color = '#00ff88';
+                    
+                    // 检查缓存状态
+                    if (window.swManager && window.swManager.getCacheStats) {
+                        window.swManager.getCacheStats().then(stats => {
+                            const cacheStatus = document.getElementById('cache-status');
+                            if (stats && stats.total > 0) {
+                                cacheStatus.textContent = `✅ ${stats.filesCached} files (${(stats.size / 1024).toFixed(1)}KB)`;
+                                cacheStatus.style.color = '#00ff88';
+                            } else {
+                                cacheStatus.textContent = '⏳ Preheating...';
+                                cacheStatus.style.color = '#ffaa00';
+                            }
+                        });
+                    }
+                } else {
+                    document.getElementById('sw-status').textContent = '⏳ Not registered';
+                    document.getElementById('sw-status').style.color = '#ffaa00';
+                    document.getElementById('cache-status').textContent = 'N/A';
+                }
+            });
+        } else {
+            document.getElementById('sw-status').textContent = '❌ Not supported';
+            document.getElementById('cache-status').textContent = 'N/A';
+        }
+    }
+
+    // 页面加载后检查Service Worker
+    window.addEventListener('load', checkServiceWorker);
+});
