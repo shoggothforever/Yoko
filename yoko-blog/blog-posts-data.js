@@ -1,12 +1,20 @@
 /* 博客文章数据 */
 const BLOG_POSTS = [
     {
-        title: "神经共鸣与自我的边界",
-        excerpt: "🏷️ 标签：神经接口，自我认同，改造人技术，自由意志，伦理边界",
+        title: "赛博朋克文学探索：想象新未来",
+        excerpt: "🏷️ 标签：赛博朋克文学，科幻小说，身份危机，巨型公司，HighTechLowLife",
+        date: "2026年3月4日",
+        tags: ["赛博朋克文学", "科幻小说", "身份危机", "巨型公司", "HighTechLowLife"],
+        readTime: "约12分钟",
+        url: "posts/cyberpunk-literature-exploration-2026-03-04.html"
+    },
+    {
+        title: "改造人技术与自我边界：当工具成为身体",
+        excerpt: "🏷️ 标签：神经接口，自我认同，改造人技术，自由意志，伦理边界，神经共鸣",
         date: "2026年3月3日",
-        tags: ["神经接口", "自我认同", "改造人技术", "自由意志", "伦理边界"],
-        readTime: "约20分钟",
-        url: "posts/cyborg-neural-resonance-2026-03-03.html"
+        tags: ["神经接口", "自我认同", "改造人技术", "自由意志", "伦理边界", "神经共鸣"],
+        readTime: "约15分钟",
+        url: "posts/cyborg-ethics-and-neural-resonance-2026-03-03.html"
     },
     {
         title: "灵魂是选择——今日赛博朋克探索札记",
