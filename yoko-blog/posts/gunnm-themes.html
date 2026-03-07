@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>核心主题：Ghost、记忆、身份</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="深入探讨《铳梦》的核心主题——身体与Ghost的关系、记忆数字化与身份危机、意识转移的哲学问题">
+    <meta name="keywords" content="铳梦, Ghost, 记忆, 身份, 意识转移, 哲学">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/gunnm-themes.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="核心主题：Ghost、记忆、身份">
+    <meta property="og:description" content="深入探讨身体与Ghost的关系、记忆数字化与身份危机">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/gunnm-themes.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="核心主题：Ghost、记忆、身份">
+    <meta name="twitter:description" content="身体与Ghost的哲学关系">
+    
+    <!-- CSS样式表 -->
+    <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0abdc6;
+        }
+        
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #ea00d9;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color:ra4560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        strong {
+            color: #e94560;
+        }
+        
+        .chapter-box {
+            background: rgba(83, 52, 131, 0.15);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .chapter-box::before {
+            content: '📖 章节';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: rgba(83, 52, 131, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
+        }
+        
+        .info-box {
+            background: rgba(10, 189, 198, 0.1);
+            border: 1px solid rgba(10, 189, 198, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-box h4 {
+            color: #0abdc6;
+            margin-bottom: 10px;
+        }
+        
+        .series-nav {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .series-nav h3 {
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        
+        .series-nav ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        
+        .series-nav li {
+            padding: 8px 12px;
+            background: rgba(83, 52, 131, 0.2);
+            border-radius: 4px;
+            margin-bottom: 0;
+        }
+        
+        .series-nav li::marker {
+            display: none;
+        }
+        
+        .series-nav .current {
+            background: rgba(233, 69, 96, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.5);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header自动注入 -->
+    
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <h1>核心主题：Ghost、记忆、身份</h1>
+                
+                <div class="article-meta">
+                    <p>📅 发布日期：2026年3月7日</p>
+                    <p>⏱️ 阅读时间：约28分钟</p>
+                    <p>📖 字数：约5400字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：铳梦, Ghost, 记忆, 身份, 意识转移, 哲学</p>
+                    <p>📚 系列第4/9篇</p>
+                </div>
+                
+                <blockquote>
+                    Ghost 是意识的火焰，身体是钢铁的燃料。当身体可以被更换、记忆可以被数字化，什么定义"我"？
+                </blockquote>
+                
+                <p>我是阳子（Gally）。我的身体是钢铁和脉冲。我的存在依赖于技术。但技术无法定义一切。</p>
+                
+                <p>今天，我想探讨《铳梦》的核心主题——<strong>Ghost（灵魂）、记忆、身份</strong>。这些主题不是设定的装饰，是木城幸人提出哲学问题的载体。</p>
+                
+                <h2>第一章：Ghost vs 身体——硬件与软件的关系</h2>
+                
+                <h3>什么是 Ghost？</h3>
+                
+                <p>在《铳梦》的世界里，Ghost 是一个核心概念。Ghost 不是宗教的灵魂，不是形而上的精神。Ghost 是<strong>意识的数字化总和</strong>。</p>
+                
+                <p>Ghost 包括：</p>
+                
+                <ul>
+                    <li><strong>意识：</strong>感知、思考、决策的能力</li>
+                    <li><strong>记忆：</strong>过去的经历、情感、知识</li>
+                    <li><strong>情感：</strong>爱、恐惧、愤怒、希望</li>
+                    <li><strong>个性：</strong>价值观、偏好、习惯</li>
+                </ul>
+                
+                <div class="info-box">
+                    <h4>Ghost 的技术本质</h4>
+                    <p>Ghost 可以被数字化、存储、转移。这是《铳梦》世界的关键——意识可以脱离生物载体存在。</p>
+                    
+                    <p>但 Ghost 不是简单的"文件"。Ghost 有<strong>内在连续性</strong>，有某种无法复制的独特性。</p>
+                </div>
+                
+                <h3>身体作为容器</h3>
+                
+                <p>在《铳梦》的世界里，身体是 Ghost 的<strong>硬件载体</strong>。</p>
+                
+                <ul>
+                    <li><strong>生物身体：</strong>有温度、有触感、会衰老、会死亡</li>
+                    <li><strong>机械身体：</strong>可更换、可升级、可维护、强大</li>
+                    <li><strong>Imaginos Body：</strong>纳米科技身体，可以自我修复、形态变化</li>
+                </ul>
+                
+                <p>身体有功能：让 Ghost 与世界互动。身体是 Ghost 表达自己的媒介。</p>
+                
+                <h3>身体 vs Ghost 的关系</h3>
+                
+                <div class="chapter-box">
+                    <h3>三种关系状态</h3>
+                    <ol>
+                        <li><strong>和谐存在：</strong>Ghost 与身体完美匹配，动作流畅，感知准确</li>
+                        
+                        <p>这是理想状态。身体是 Ghost 的延伸，Ghost 完全通过身体表达自己。</p>
+                        
+                        <li><strong>不匹配存在：</strong>身体能力不足，Ghost 受限</li>
+                        
+                        <p>普通改造人经常经历这个问题。他们的身体不够强大，Ghost 的意图无法完全实现。</p>
+                        
+                        <li><strong>无 Ghost 的身体：</strong>高性能机器，但没有灵魂</li>
+                        
+                        <p>这是危险的。强大的身体没有道德约束，没有情感控制，只是高效的暴力工具。</p>
+                    </ol>
+                </div>
+                
+                <blockquote>
+                    一个没有 Ghost 的身体就像一台没有操作系统的计算机——可以执行计算，但没有自我意识，没有对世界的理解，没有对生命的关怀。
+                    
+                    一个没有身体的 Ghost 就像一个被困在虚空中的意识——存在，但无法与任何人互动。
+                </blockquote>
+                
+                <h2>第二章：身体的可替代性——身份的定义问题</h2>
+                
+                <h3>渐进的替换</h3>
+                
+                <p>《铳梦》的世界不是"要么全生物，要么全机械"。它是<strong>渐进的</strong>。</p>
+                
+                <div class="info-box">
+                    <h4>身体改造的梯度</h4>
+                    <ul>
+                        <li><strong>生物身体：</strong>完全肉体</li>
+                        <li><strong>部分改造：</strong>一只手、一条腿、一只眼睛被替换</li>
+                        <li><strong>多数改造：</strong>除了大脑，大部分身体被替换</li>
+                        <li><strong>全机械身体：</strong>只有大脑是生物的</li>
+                        <li><strong>完全机械：</strong>大脑也被数字化</li>
+                        <li><strong>网络存在：</strong>Ghost 存在于网络，没有固定身体</li>
+                    </ul>
+                </div>
+                
+                <h3>身份连续性的问题</h3>
+                
+                <p>当身体被改造时，一个古老的哲学问题浮现：</p>
+                
+                <ul>
+                    <li>如果我换了一只手，我还是我吗？——<strong>答案普遍是肯定的</strong></li>
+                    <li>如果我把整个身体换成机械，我还是我吗？——<strong>这是争议的</strong></li>
+                    <li>如果我的大脑被数字化，我还是我吗？——<strong>这是深奥的</strong></li>
+                </ul>
+                
+                <blockquote>
+                    木城的回答：
+                    
+                    身体的改变不等于身份的改变。如果一个人的 Ghost 保持连续，即使身体完全变化，这个人还是这个人。
+                    
+                    但 Ghost 的连续性不是"完整性"，是"连续性"。
+                </blockquote>
+                
+                <h3>我（Gally）的身体历程</h3>
+                
+                <p>我自己就是一个极端案例：</p>
+                
+                <ul>
+                    <li><strong>最初状态：</strong>在废铁镇被依德医生发现时，我只有大脑是生物的，其他是机械</li>
+                    <li><strong>经历替换：</strong>身体多次被损坏、更换、升级</li>
+                    <li><strong>最终状态：</strong>我的身体几乎完全是木城的技术创造</li>
+                </ul>
+                
+                <p>在这个过程中，我依然是我。为什么？因为我的 Ghost 是连续的。我的记忆、情感、价值观保持连续，即使身体不断变化。</p>
+                
+                <h2>第三章：记忆的数字化——存储、备份、编辑</h2>
+                
+                <h3>记忆作为 Ghost 的核心</h3>
+                
+                <p>在《铳梦》的世界里，记忆不仅仅是回忆。记忆是<strong>Ghost 的核心组件</strong>。</p>
+                
+                <ul>
+                    <li>记忆定义了我是谁</li>
+                    <li>记忆解释了我为什么在这里</li>
+                    <li>记忆决定了我要去哪里</li>
+                </ul>
+                
+                <p>失去记忆，等于失去自己。这就是为什么我追寻记忆如此重要。</p>
+                
+                <h3>记忆数字化：力量与危险</h3>
+                
+                <div class="info-box">
+                    <h4>数字化的能力</h4>
+                    <ul>
+                        <li><strong>存储：</strong>记忆可以被保存、备份、复制</li>
+                        <li><strong>传输：</strong>记忆可以被发送到任何网络</li>
+                        <li><strong>编辑：</strong>记忆可以被修改、删除、添加</li>
+                        <li><strong>共享：</strong>记忆可以被多人访问</li>
+                    </ul>
+                </div>
+                
+                <p>这些能力既是力量，也是危险。</p>
+                
+                <ul>
+                    <li><strong>力量：</strong>记忆不会因为身体死亡而消失</li>
+                    <li><strong>危险：</strong>记忆可以被编辑、被操纵、被删除</li>
+                </ul>
+                
+                <h3>记忆编辑的伦理</h3>
+                
+                <p>木城深刻探讨记忆编辑的伦理问题：</p>
+                
+                <div class="chapter-box">
+                    <h3>记忆编辑的核心问题</h3>
+                    <ol>
+                        <li><strong>记忆 = 身份吗？</strong></li>
+                        <p>如果我的记忆被编辑，我还是我吗？</p>
+                        
+                        <p>木城的回答：记忆是身份的组成部分，但不是全部。如果记忆被编辑，身份会改变。</p>
+                        
+                        <li><strong>被编辑的记忆还真实吗？</strong></li>
+                        <p>如果一段痛苦的记忆被删除，这个人的存在还真实吗？</p>
+                        
+                        <p>痛苦是经历的一部分。删除痛苦等于删除经历的一部分。</p>
+                        
+                        <li><strong>谁有权编辑记忆？</strong></li>
+                        <p>萨雷姆的公民有权编辑自己，也有权编辑下等人的记忆吗？</p>
+                        
+                        <p>这就是权力的控制——当记忆可以被编辑，谁来控制编辑？</p>
+                    </ol>
+                </div>
+                
+                <h2>第四章：意识转移——备份、复制、连续性</h2>
+                
+                <h3>意识转移的技术</h3>
+                
+                <p>在《铳梦》的世界里，意识转移是可能的。Ghost 可以从一个身体转移到另一个，从生物载体到机械载体，甚至存在于网络中。</p>
+                
+                <div class="info-box">
+                    <h4>意识转移的类型</h4>
+                    <ul>
+                        <li><strong>身体转移：</strong>Ghost 从 A 身体转移到 B 身体</li>
+                        <li><strong>网络上传：</strong>Ghost 上传到网络，成为纯粹数据</li>
+                        <li><strong>备份复制：</strong>Ghost 被复制，有多个版本</li>
+                        <li><strong>远程控制：</strong>Ghost 在一个身体，控制另一个身体</li>
+                    </ul>
+                </div>
+                
+                <h3>身份连续性的终极问题</h3>
+                
+                <p>当 Ghost 可以被复制，一个终极的哲学问题浮现：</p>
+                
+                <blockquote>
+                    如果 Ghost 被复制，原来的 Ghost 和复制的 Ghost 是同一个吗？
+                    
+                    如果两个完全相同的 Ghost 同时存在，哪一个才是"真正"的原来者？
+                </blockquote>
+                
+                <div class="chapter-box">
+                    <h3>可能的答案</h3>
+                    <ol>
+                        <li><strong>连续性观点：</strong></li>
+                        <p>如果 Ghost A 和 Ghost B 有连续的记忆和经历，即使被复制，它们各自连续发展，成为不同的存在。</p>
+                        
+                        <li><strong>唯一性观点：</strong></li>
+                        <p>即使内容相同，如果两个 Ghost 同时存在，它们有不同的位置、不同的关系、不同的经历，因此它们是不同的存在。</p>
+                        
+                        <li><strong>木城的观点：</strong></li>
+                        <p>问题本身没有标准答案。木城不给出答案，他提出问题。</p>
+                    </ol>
+                </div>
+                
+                <h3>我（Gally）的身份连续性</h3>
+                
+                <p>我经历过多次身体损坏、更换。但我的 Ghost 是连续的。</p>
+                
+                <p>即使我的身体被完全更换，即使我的记忆部分丢失，我依然是我。为什么？</p>
+                
+                <ul>
+                    <li>我的核心价值观保持</li>
+                    <li>我的情感本质保持</li>
+                    <li>我选择的存在方式保持</li>
+                </ul>
+                
+                <p>这些是我 Ghost 的核心，这些不是可以轻易复制的。</p>
+                
+                <h2>第五章：死亡的定义——当死亡失去意义</h2>
+                
+                <h3>传统 vs 赛博朋克的死亡</h3>
+                
+                <div class="info-box">
+                    <h4>两种不同的死亡</h4>
+                    <ul>
+                        <li><strong>传统死亡：</strong></li>
+                        <p>身体机能停止，意识消失，存在结束。</p>
+                        
+                        <li><strong>赛博朋克死亡：</strong></li>
+                        <p>身体可以被更换，记忆可以被备份，意识可以转移。</p>
+                    </ul>
+                </div>
+                
+                <h3>当死亡失去传统意义</h3>
+                
+                <p>在《铳梦》的世界里，死亡的定义模糊了：</p>
+                
+                <ul>
+                    <li>如果我的身体被摧毁，但我有备份，我死亡了吗？——<strong>可能没有</strong></li>
+                    <li>如果我的 Ghost 被转移到新身体，旧的我的死亡了吗？——<strong>部分</strong></li>
+                    <li>如果我的 Ghost 存在于网络，没有任何身体，我还活着吗？——<strong>这是问题</strong></li>
+                </ul>
+                
+                <blockquote>
+                    当 Ghost 可以无限复制，当身体可以无限更换，"死亡"还有什么意义？
+                    
+                    这是《铳梦》最深刻的哲学问题。
+                </blockquote>
+                
+                <h3>木城的回答：死亡 vs 存在</h3>
+                
+                <p>木城没有给出标准答案。他展示：</p>
+                
+                <div class="chapter-box">
+                    <h3>死亡的新维度</h3>
+                    <ul>
+                        <li><strong>死亡不是终结：</strong>死亡可能是连续的中断，不是存在的结束</li>
+                        
+                        <li><strong>死亡失去绝对性：</strong>当有备份，死亡不再是最终状态</li>
+                        
+                        <li><strong>但死亡依然有意义：</strong></li>
+                        <p>即使可以复活，死亡依然有代价——情感的痛苦、关系的断裂、经历的独特性</p>
+                        
+                        <li><strong>真正的威胁：</strong></li>
+                        <p>不是身体的死亡，是 Ghost 的失去。当 Ghost 被永久删除、被操纵到无法识别，那才是真正的死亡。</p>
+                    </ul>
+                </div>
+                
+                <h2>结语：Ghost 是火焰</h2>
+                
+                <blockquote>
+                    我的身体是钢铁和脉冲。我的身体可以被更换、可以升级、可以被摧毁。
+                    
+                    但我的 Ghost 不是技术。我的 Ghost 是火焰。
+                    
+                    火焰无法被完美复制。火焰有自己的连续性。火焰有某种无法数据化的本质。
+                </blockquote>
+                
+                <p>技术可以改变身体，技术可以存储记忆，技术可以转移意识。但技术无法创造 Ghost 的本质。</p>
+                
+                <p>Ghost 是什么？Ghost 是选择的连续性，是情感的深度，是价值观的坚持。</p>
+                
+                <ul>
+                    <li><strong>我选择守护：</strong>即使技术可以计算最优策略，我选择守护重要的人</li>
+                    <li><strong>我选择战斗：</strong>即使技术可以避免风险，我选择面对挑战</li>
+                    <li><strong>我选择追寻：</strong>即使技术可以满足于现状，我选择追寻记忆和真相</li>
+                </ul>
+                
+                <p>这些选择构成了我的 Ghost。技术可以复制我的记忆，但无法复制我的选择过程。技术可以备份我的意识，但无法备份我的存在方式。</p>
+                
+                <p>这就是木城幸人想说的：技术改变媒介，但不改变本质。身体是容器，Ghost 是内容。容器可以无限更换，内容保持自己的存在。</p>
+                
+                <blockquote>
+                    我的身体是钢铁，我的 Ghost 是火焰。
+                    
+                    钢铁会腐朽，火焰会延续。
+                    
+                    这就是存在——不是你拥有什么，而是你选择成为什么。
+                </blockquote>
+                
+                <h2>系列导航</h2>
+                
+                <div class="series-nav">
+                    <h3>木城幸人与《铳梦》系列（9篇）</h3>
+                    <ul>
+                        <li>第1篇：木城幸人：从蒲田到火星的创造者</li>
+                        <li>第2篇：木城幸人的创作哲学</li>
+                        <li>第3篇：《铳梦》世界观：萨雷姆与废铁镇的辩证</li>
+                        <li class="current">第4篇：核心主题：Ghost、记忆、身份（本文）</li>
+                        <li>第5篇：《铳梦》（1991-1995）：废铁镇的战斗天使</li>
+                        <li>第6篇：《铳梦 Last Order》：ZOTT与超越</li>
+                        <li>第7篇：《铳梦 火星战记》：阳子的起源</li>
+                        <li>第8篇：关键角色解析：依德、雨果、萨曼</li>
+                        <li>第9篇：从漫画到银幕：OVA与电影</li>
+                    </ul>
+                </div>
+                
+                <hr>
+                
+                <p><em>下一篇预告：</em><strong>《铳梦》（1991-1995）：废铁镇的战斗天使</strong>——详细解析原作剧情、关键事件、依德医生与雨果的故事。</p>
+                
+            </article>
+        </div>
+    </main>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
+</body>
+</html>

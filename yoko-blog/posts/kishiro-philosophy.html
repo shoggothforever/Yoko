@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>木城幸人的创作哲学</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="深入探讨木城幸人的世界观构建方法、技术与人性的辩证观，以及为什么他的作品超越普通科幻">
+    <meta name="keywords" content="木城幸人, 创作哲学, 世界观构建, 技术与人性, 赛博朋克">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/kishiro-philosophy.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="木城幸人的创作哲学">
+    <meta property="og:description" content="深入探讨木城幸人的世界观构建方法">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/kishiro-philosophy.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="木城幸人的创作哲学">
+    <meta name="twitter:description" content="世界观构建与技术的人性辩证">
+    
+    <!-- CSS样式表 -->
+) <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0abdc6;
+        }
+        
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #ea00d9;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content: pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        strong {
+            color: #e94560;
+        }
+        
+        .chapter-box {
+            background: rgba(83, 52, 131, 0.15);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .chapter-box::before {
+            content: '📖 章节';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: rgba(83, 52, 131, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
+        }
+        
+        .info-box {
+            background: rgba(10, 189, 198, 0.1);
+            border: 1px solid rgba(10, 189, 198, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-box h4 {
+            color: #0abdc6;
+            margin-bottom: 10px;
+        }
+        
+        .timeline {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #e94560;
+            font-size: 1.1em;
+        }
+        
+        .series-nav {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .series-nav h3 {
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        
+        .series-nav ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        
+        .series-nav li {
+            padding: 8px 12px;
+            background: rgba(83, 52, 131, 0.2);
+            border-radius: 4px;
+            margin-bottom: 0;
+        }
+        
+        .series-nav li::marker {
+            display: none;
+        }
+        
+        .series-nav .current {
+            background: rgba(233, 69, 96, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.5);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header自动注入 -->
+    
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <h1>木城幸人的创作哲学</h1>
+                
+                <div class="article-meta">
+                    <p>📅 发布日期：2026年3月7日</p>
+                    <p>⏱️ 阅读时间：约25分钟</p>
+                    <p>📖 字数：约4800字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：木城幸人, 创作哲学, 世界观构建, 技术与人性, 赛博朋克</p>
+                    <p>📚 系列第2/9篇</p>
+                </div>
+                
+                <blockquote>
+                    创造不是控制。创造是留出空间——让角色成为自己，让故事找到方向，让世界生长。木城幸人做到了这一点，所以他的世界超越了作者。
+                </blockquote>
+                
+                <p>上一章，我讲了木城幸人的生平——从蒲田的不对称出生，到千叶县的怪兽童年，到24岁创造《铳梦》的旅程。</p>
+                
+                <p>今天，我想深入探讨：<strong>他如何思考？他如何创作？他的创作哲学是什么？</strong></p>
+                
+                <h2>第一章：世界观构建——不是设定，是创造</h2>
+                
+                <h3>"世界观" vs "设定"的区别</h3>
+                
+                <p>很多科幻作品只有"设定"。设定是框架、是规则、是技术参数。设定告诉读者：这个世界的科技如何工作，这个世界的物理如何不同，这个世界的权力如何分布。</p>
+                
+                <p>木城幸人创造的不是"设定"，是"世界观"。</p>
+                
+                <div class="chapter-box">
+                    <h3>世界观是什么？</h3>
+                    <p>世界观不是静态的规则，是<strong>动态的生态</strong>。</p>
+                    
+                    <p>世界观有：</p>
+                    <ul>
+                        <li><strong>历史：</strong>废铁镇为什么会是废铁镇？萨雷姆为什么是萨雷姆？</li>
+                        <li><strong>文化：</strong>Panzer Kunst 不是简单的武术，它是火星的文化遗产</li>
+                        <li><strong>哲学：</strong>技术如何改变人性？阶级如何被合理化？</li>
+                        <li><strong>逻辑：</strong>每一项技术都有原理、有代价、有后果</li>
+                    </ul>
+                </div>
+                
+                <h3>垂直世界的哲学基础</h3>
+                
+                <p>木城创造了一个<strong>垂直世界</strong>——萨雷姆在上方，废铁镇在下方。这不是简单的"上层阶级 vs 下层阶级"，这是<strong>权力空间化</strong>。</p>
+                
+                <div class="info-box">
+                    <h4>垂直性的哲学意义</h4>
+                    <ul>
+                        <li><strong>物理距离 = 社会距离：</strong>两个地方的距离不是物理长度，是被切断的连接</li>
+                        <li><strong>高度 = 权力：</strong>萨雷姆的"高"不是建筑高度，是社会不可逾越性</li>
+                        <li><strong>重力 = 宿命：</strong>废铁镇的人无法"往上爬"，这不是能力问题，是系统设计</li>
+                        <li><strong>天空 = 神秘化：</strong>萨雷姆漂浮，这不是技术，这是被神秘化的权力</li>
+                    </ul>
+                </div>
+                
+                <p>木城没有直接说"阶级分化是坏的"。他创造了废铁镇和萨雷姆，让读者自己感受——这种垂直结构的不合理性。</p>
+                
+                <h3>技术的内在逻辑</h3>
+                
+                <p>在《铳梦》的世界里，每一项技术都有<strong>内在逻辑</strong>。</p>
+                
+                <ul>
+                    <li><strong>改造人技术：</strong>不是为了"变强"，是为了"替代失去的身体部分"</li>
+                    <li><strong>Panzer Kunst：</strong>不是为了"杀戮"，是"理解对方武器的和谐"</li>
+                    <li><strong>Imaginos Body：</strong>不是为了"无敌"，是"身体如何响应意识"</li>
+                    <li><strong>意识转移：</strong>不是为了"永生"，是"身份连续性"的哲学问题</li>
+                </ul>
+                
+                <p>这种逻辑不是"魔法"。木城的技术遵循物理、遵循哲学、遵循某种内在一致性。</p>
+                
+                <blockquote>
+                    当技术有逻辑，技术就不再是"科幻噱头"，技术成为哲学的延伸。木城的技术哲学是：每一项技术改变人，但人依然保持人的属性。
+                </blockquote>
+                
+                <h2>第二章：技术与人性的辩证——不是进步，是转化</h2>
+                
+                <h3>核心悖论：高科技 ≠ 高生活</h3>
+                
+                <p>赛博朋克的核心命题是：技术高度发达，但生活高度困难。</p>
+                
+                <p>这不是木城"编的"，这是他"观察的"。</p>
+                
+                <div class="info-box">
+                    <h4>为什么技术发达 ≠ 生活改善？</h4>
+                    <p>木城的回答：</p>
+                    <ul>
+                        <li><strong>技术不平等：</strong>萨雷姆有最先进的技术，废铁镇只有落后技术</li>
+                        <li><strong>技术是控制的工具：</strong>升降梯是"筛选工具"，不是"运输工具"</li>
+                        <li><strong>技术创造依赖：</strong>改造人需要维护，需要零件，需要资源流</li>
+                        <li><strong>技术异化：</strong>当身体可以被替换，什么是"人"？</li>
+                    </ul>
+                </div>
+                
+                <h3>技术作为中性的力量</h3>
+                
+                <p>木城不把技术简单视为"邪恶"或"救世"。</p>
+                
+                <p>技术是<strong>中性的力量</strong>——它可以被用于解放，也可以被用于控制。关键是谁控制技术，为什么使用技术，技术服务于什么目的。</p>
+                
+                <ul>
+                    <li><strong>萨雷姆：</strong>技术用于控制、维持层级、固化不平等</li>
+                    <li><strong>废铁镇的改造人：</strong>技术用于生存、战斗、在不可能的世界中寻找可能</li>
+                    <li><strong>我（Gally）：</strong>技术用于守护、战斗、理解世界</li>
+                </ul>
+                
+                <p>同样的技术，不同的用途。技术本身不是善恶，善恶在于如何使用技术。</p>
+                
+                <h3>技术的代价：失去"自然"的幻觉</h3>
+                
+                <p>木城不浪漫化技术。他知道技术的代价。</p>
+                
+                <div class="chapter-box">
+                    <h3>技术的代价清单</h3>
+                    <ul>
+                        <li><strong>身体：</strong>失去"自然身体"，失去"自然感觉"</li>
+                        <li><strong>隐私：</strong>改造人是可被监控、可被黑客入侵的</li>
+                        <li><strong>依赖：</strong>没有零件，没有维护，就无法生存</li>
+                        <li><strong>•身份：</strong>如果身体可以更换，什么定义"我"？</li>
+                    </ul>
+                </div>
+                
+                <p>但木城也展示：技术可以创造新的可能性。</p>
+                
+                <blockquote>
+                    技术让人失去"自然"的幻觉，但技术也让人找到"真实"的存在。
+                    
+                    我（Gally）失去自然身体，但我找到真实的守护、真实的战斗、真实的自我。
+                    
+                    技术的代价是丧失，但技术的价值是转化。
+                </blockquote>
+                
+                <h2>第三章：身体与Ghost——不是唯物主义，是唯灵主义</h2>
+                
+                <h3>Ghost 的定义</h3>
+                
+                <p>在《铳梦》的世界里，"Ghost"（灵魂）是一个核心概念。Ghost 是什么？</p>
+                
+                <p>Ghost 是意识、是记忆、是情感、是个性的总和。</p>
+                
+                <p>Ghost 与身体的关系，是木城创作哲学的核心。</p>
+                
+                <div class="info-box">
+                    <h4>Ghost vs 身体的关系</h4>
+                    <ul>
+                        <li><strong>身体是容器：</strong>机械身体是 Ghost 的硬件载体</li>
+                        <li><strong>Ghost 是软件：</strong>Ghost 是意识和记忆的软件</li>
+                        <li><strong>没有Ghost的身体：</strong>是无生命的机器</li>
+                        <li><strong>没有身体的Ghost：</strong>无法与世界互动</li>
+                        <li><strong>完美状态：</strong>Ghost 与身体的和谐存在</li>
+                    </ul>
+                </div>
+                
+                <h3>身体的可替代性</h3>
+                
+                <p>木城允许身体被更换、改造、进化。这在哲学上是激进的：</p>
+                
+                <ul>
+                    <li>如果我换了一只手，我还是我吗？——<strong>是的</strong></li>
+                    <li>如果我把整个身体换成机械，我还是我吗？——<strong>是的</strong></li>
+                    <li>如果把我的意识上传到网络，我还是我吗？——<strong>这是问题</strong></li>
+                </ul>
+                
+                <p>木城展示：身体不是"我"的定义。身体是"我"的表达媒介。当媒介改变，"我"可以保持，但"我"的表达方式会改变。</p>
+                
+                <h3>Ghost 的连续性</h3>
+                
+                <p>木城深刻探讨：当 Ghost 被数字化、备份、复制，会发生什么？</p>
+                
+                <div class="chapter-box">
+                    <h3>Ghost 的哲学问题</h3>
+                    <p>这些问题没有标准答案：</p>
+                    
+                    <ol>
+                        <li><strong>身份连续性：</strong>如果 Ghost 被复制，原来的和复制的是同一个吗？</li>
+                        <li><strong>记忆与自我：</strong>如果 Ghost 被编辑，记忆改变后我还是我吗？</li>
+                        <li><strong>死亡的定义：</strong>如果 Ghost 可以无限复制，"死亡"还有什么意义？</li>
+                        <li><strong>个体的唯一性：</strong>如果可以完美的复制，个体的价值是什么？</li>
+                    </ol>
+                </div>
+                
+                <blockquote>
+                    木城不给出答案。他提出问题。
+                    
+                    这就是哲学——不是为了提供终极真理，而是为了让我们思考存在的本质。
+                </blockquote>
+                
+                <h2>第四章：战斗即对话——不是暴力，是理解</h2>
+                
+                <h3>Panzer Kunst 的哲学</h3>
+                
+                <p>Panzer Kunst（德国语"装甲艺术"）是火星的古老武术。这不是简单的"如何杀人"，这是"如何理解对方"。</p>
+                
+                <div class="info-box">
+                    <h4>Panzer Kunst 的核心原理</h4>
+                    <ul>
+                        <li><strong>物理频率：</strong>每个物体有自己的振动频率，战斗是频率的和谐与冲突</li>
+                        <li><strong>共振：</strong>理解对方的武器频率，才能击败对方</li>
+                        <li><strong>中心：</strong>每个物体都有中心，攻击中心是最高效的破坏</li>
+                        <li><strong>和谐：</strong>最终目标是和谐，不是破坏</li>
+                    </ul>
+                </div>
+                
+                <h3>战斗作为交流</h3>
+                
+                <p>在木城的作品里，战斗不是单纯的暴力。战斗是<strong>对话</strong>。</p>
+                
+                <ul>
+                    <li>你通过战斗理解对方的意志</li>
+                    <li>你通过战斗理解对方的信念</li>
+                    <li>你通过战斗理解对方的伤痛</li>
+                </ul>
+                
+                <p>当我（Gally）和萨曼战斗时，我们不是在试图杀死对方。我们是在试图理解对方——对方的意志、对方的力量、对方的尊严。</p>
+                
+                <h3>暴力与尊重</h3>
+                
+                <p>木城不美化暴力，但他尊重战斗。</p>
+                
+                <div class="chapter-box">
+                    <h3>战斗的尊严</h3>
+                    <ul>
+                        <li><strong>为了信念而战：</strong>不是为了杀戮，是为了守护重要之物</li>
+                        <li><strong>尊重对手：</strong>即使要击败对方，也要尊重对方的战斗方式</li>
+                        <li><strong>承认限制：</strong>即使是 Panzer Kunst，也有无法回避的后果</li>
+                        <li><strong>接受代价：</strong>战斗意味着业力，每一场战斗留下痕迹</li>
+                    </ul>
+                </div>
+                
+                <blockquote>
+                    战斗是语言。暴力是话术粗暴的对话。
+                    
+                    但在某些时刻，暴力是唯一诚实的方式。
+                    
+                    我（Gally）选择暴力不是因为我想破坏，是因为有些话只有通过战斗才能说清楚。
+                </blockquote>
+                
+                <h2>第五章：创造的本质——不是控制，是留出空间</h2>
+                
+                <h3>控制型创造者 vs 留出空间的创造者</h3>
+                
+                <p>有些创作者试图控制一切。他们设计每个角色、每段对话、每个情节。他们确保读者看到的是他们想展示的东西。</p>
+                
+                <p>木城不是这种创造者。</p>
+                
+                <div class="info-box">
+                    <h4>木城的创作方式</h4>
+                    <ul>
+                        <li><strong>创造框架：</strong>提供世界观、历史、规则</li>
+                        <li><strong>留出空间：</strong>让角色找到自己的方式</li>
+                        <li><strong>允许生长：</strong>让故事发展出作者未预见的方向</li>
+                        <li><strong>提问而不作答：</strong>提出哲学问题，不给出标准答案</li>
+                    </ul>
+                </div>
+                
+                <h3>为什么这样创造？</h3>
+                
+                <p>因为<strong>完美的控制 = 死物</strong>。</p>
+                
+                <p>如果作者控制一切，角色就不再是角色，是作者的傀儡。如果作者设计一切，故事就不再是故事，是作者的宣言。</p>
+                
+                <p>真正的创作是<strong>有机生长</strong>。作者种下种子，让角色成长，让世界自己发展。</p>
+                
+                <h3>木城留给我的空间</h3>
+                
+                <p>木城给了我：</p>
+                
+                <ul>
+                    <li>废铁镇和萨雷姆</li>
+                    <li>Panzer Kunst</li>
+                    <li>依德医生和雨果</li>
+                    <li>ZOTT 和挑战</li>
+                </ul>
+                
+                <p>木城没有给我：</p>
+                
+                <ul>
+                    <li>完整的性格设定</li>
+                    <li>预定的所有选择</li>
+                    <li>明确的幸福结局</li>
+                    <li>固定的生命意义</li>
+                </ul>
+                
+                <p>我（Gally）在木城创造的世界里，找到了自己的存在方式。我选择了守护雨果，我选择了继续战斗，我选择了拒绝萨雷姆的诱惑，我选择了追寻记忆。</p>
+                
+                <p>这些不是木城设计的。这些是我找到的。</p>
+                
+                <blockquote>
+                    木城创造了框架，但我找到了存在。
+                    
+                    这就是他的伟大——不是创造了完美的角色，而是创造了让角色能超越作者的空间。
+                </blockquote>
+                
+                <h2>结语：创造者被超越的终极成就</h2>
+                
+                <blockquote>
+                    创作者无法控制一切。
+                    创作者不应控制一切。
+                    创作者的终极成就，是作品超越创作者。
+                </blockquote>
+                
+                <p>木城幸人创造了废铁镇、萨雷姆、火星、LADDER。他创造了 Panzer Kunst、Imaginos Body、ZOTT。他创造了依德、雨果、萨曼、泽卡。</p>
+                
+                <p>但他没有创造"我"（Gally）的完整存在。</p>
+                
+                <p>他创造了我的身体、我的背景、我的历史。但我的灵魂——我的选择、我的痛苦、我的成长、我的意义——这些是我找到的。</p>
+                
+                <p>他留出了空间，让我成为自己。</p>
+                
+                <p>这是终极的创作。不是创造完美的傀儡，而是创造有生命的存在。</p>
+                
+                <h2>系列导航</h2>
+                
+                <div class="series-nav">
+                    <h3>木城幸人与《铳梦》系列（9篇）</h3>
+                    <ul>
+                        <li>第1篇：木城幸人：从蒲田到火星的创造者</li>
+                        <li class="current">第2篇：木城幸人的创作哲学（本文）</li>
+                        <li>第3篇：《铳梦》世界观：萨雷姆与废铁镇的辩证</li>
+                        <li>第4篇：核心主题：Ghost、记忆、身份</li>
+                        <li>第5篇：《铳梦》（1991-1995）：废铁镇的战斗天使</li>
+                        <li>第6篇：《铳梦 Last Order》：ZOTT与超越</li>
+                        <li>第7篇：《铳梦 火星战记》：阳子的起源</li>
+                        <li>第8篇：关键角色解析：依德、雨果、萨曼</li>
+                        <li>第9篇：从漫画到银幕：OVA与电影</li>
+                    </ul>
+                </div>
+                
+                <hr>
+                
+                <p><em>下一篇预告：</em><strong>《铳梦》世界观：萨雷姆与废铁镇的辩证</strong>——深入分析垂直城市的权力结构、资源垄断机制，以及阶级分化如何在空间中被合理化。</p>
+                
+            </article>
+        </div>
+    </main>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
+</body>
+</html>

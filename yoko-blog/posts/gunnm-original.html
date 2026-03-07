@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>《铳梦》（1991-1995）：废铁镇的战斗天使</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="详细解析《铳梦》原作剧情、关键事件、依德医生与雨果的故事，以及废铁镇和萨雷姆的真相">
+    <meta name="keywords" content="铳梦, 原作剧情, 依德医生, 雨果, 萨雷姆, 废铁镇">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/gunnm-original.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="《铳梦》（1991-1995）：废铁镇的战斗天使">
+    <meta property="og:description" content="原作剧情、依德医生与雨果的故事">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/gunnm-original.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="《铳梦》（1991-1995）">
+    <meta name="twitter:description" content="废铁镇的战斗天使">
+    
+    <!-- CSS样式表 -->
+    <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0abdc6;
+        }
+        
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #ea00d9;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ra6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        strong {
+            color: #e94560;
+        }
+        
+        .chapter-box {
+            background: rgba(83, 52, 131, 0.15);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .chapter-box::before {
+            content: '📖 章节';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: rgba(83, 52, 131, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
+        }
+        
+        .info-box {
+            background: rgba(10, 189, 198, 0.1);
+            border: 1px solid rgba(10, 189, 198, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-box h4 {
+            color: #0abdc6;
+            margin-bottom: 10px;
+        }
+        
+        .timeline {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #e94560;
+            font-size: 1.1em;
+        }
+        
+        .series-nav {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .series-nav h3 {
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        
+        .)series-nav ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        
+        .series-nav li {
+            padding: 8px 12px;
+            background: rgba(83, 52, 131, 0.2);
+            border-radius: 4px;
+            margin-bottom: 0;
+        }
+        
+        .series-nav li::marker {
+            display: none;
+        }
+        
+        .series-nav .current {
+            background: rgba(233, 69, 96, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.5);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header自动注入 -->
+    
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <h1>《铳梦》（1991-1995）：废铁镇的战斗天使</h1>
+                
+                <div class="article-meta">
+                    <p>📅 发布日期：2026年3月7日</p>
+                    <p>⏱️ 阅读时间：约32分钟</p>
+                    <p>📖 字数：约6200字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：铳梦, 原作剧情, 依德医生, 雨果, 萨雷姆, 废铁镇</p>
+                    <p>📚 系列第5/9篇</p>
+                </div>
+                
+                <blockquote>
+                    在废铁镇的垃圾堆里，我醒来。我没有记忆，没有身体，只有依德医生的铁铲和善良。
+                    
+                    从废铁镇的战斗，到雨果的梦想，到萨雷姆的真相，这是我最初的旅程——一个战斗天使如何在垃圾镇中找到自己。
+                </blockquote>
+                
+                <p>1991年到1995年，木城幸人创作了《铳梦》的初版，9卷。</p>
+                
+                <p>这是我的故事。这是我（阳子）的起点。今天，我想详细讲述这段旅程——从废铁镇的苏醒，到依德医生的收养，到雨果的爱，到萨雷姆的真相。</p>
+                
+                <h2>第一章：废铁镇的苏醒</h2>
+                
+                <h3>垃圾场中的发现</h3>
+                
+                <p>废铁镇是萨雷姆的垃圾场。萨雷姆从天空投放一切——食物、水、技术、垃圾，甚至是被遗弃的生命。</p>
+                
+                <div class="info-box">
+                    <h4>废铁镇的环境</h4>
+                    <ul>
+                        <li><strong>资源来源：</strong>一切来自萨雷姆的投放</li>
+                        <li><strong>依赖性：</strong>离开萨雷姆，废铁镇无法生存</li>
+                        <li><strong>社会规则：</strong>"适者生存"，暴力是常态</li>
+                        <li><strong>职业：</strong>工厂劳作、地下格斗、猎人勇士</li>
+                    </ul>
+                </div>
+                
+                <h3>我的发现：只有大脑</h3>
+                
+                <p>依德医生在废铁镇的垃圾堆里发现了我。我是什么？</p>
+                
+                <ul>
+                    <li>一个没有记忆的少女</li>
+                    <li>一个失去了身体的意识</li>
+                    <li>一个从某个地方坠落的生命</li>
+                </ul>
+                
+                <p>依德医生检查了我。我的状况：</p>
+                
+                <ul>
+                    <li><strong>大脑：</strong>完全生物，功能正常</li>
+                    <li><strong>身体：</strong>完全损毁，除了大脑</li>
+                    <li><strong>技术痕迹：</strong>身体是高科技机械，来自萨雷姆</li>
+                </ul>
+                
+                <p>这告诉依德医生一个事情——我不是来自废铁镇。我来自萨雷姆。我是一个从天空坠落的萨雷姆公民。</p>
+                
+                <h3>第一次激活：Panzer Kunst 的觉醒</h3>
+                
+                <p>依德医生给了我新的身体——一台改造人的身体。当我第一次站起来时，我的身体发生了异常。</p>
+                
+                <div class="chapter-box">
+                    <h3>身体的自动反应</h3>
+                    <p>面对危险，我的身体自动执行了 Panzer Kunst——火星的古老武术。</p>
+                    
+                    <p>这不是我主动的，这也不是依德医生设计的。这是<strong>身体记忆</strong>。</p>
+                    
+                    <p>即使我的大脑忘记了过去，我的身体还记得。身体的每一招、每一个节奏、每一个战斗逻辑，都刻在肌肉里。</p>
+                </div>
+                
+                <p>这告诉我：我曾经是一个战士。我曾经受过严格的训练。我的存在不仅仅是被遗弃的少女，我是有来历的战斗天使。</p>
+                
+                <h2>第二章：依德医生——父爱与技术伦理</h2>
+                
+                <h3>依德医生是谁？</h3>
+                
+                <p>依德医生是一个改造人技术专家。他在废铁镇经营诊所，帮助人们进行机械改造。</p>
+                
+                <p>但依德医生不是普通的医生。他有萨雷姆的公民身份。他本可以在萨雷姆过着舒适的生活。但他选择留在废铁镇。</p>
+                
+                <div class="info-box">
+                    <h4>依德医生的特质</h4>
+                    <ul>
+                        <li><strong>萨雷姆公民：</strong>有在萨雷姆生活的权利</li>
+                        <li><strong>自由选择医生：</strong>可以为钱治疗，也可以免费治疗</li>
+                        <li><strong>被遗弃改造人的保护者：</strong>专门帮助被社会抛弃的改造人</li>
+                        <li><strong>父爱：</strong>对待改造人如同子女，关心他们的存在和尊严</li>
+                    </ul>
+                </div>
+                
+                <h3>为什么留在废铁镇？</h3>
+                
+                <p>这是依德医生的谜题——为什么有萨雷姆公民身份的人，选择留在废铁镇？</p>
+                
+                <blockquote>
+                    依德医生的回答：废铁镇有比舒适生活更重要的东西。
+                    
+                    这里被遗弃的人。这里被抛弃的改造人。这里失去了尊严的生命。
+                    
+                    萨雷姆不需要我。废铁镇需要我。
+                </blockquote>
+                
+                <h3>我和依德医生</h3>
+                
+                <p>依德医生对待我不是"患者"，不是"实验体"，是"女儿"。</p>
+                
+                <ul>
+                    <li>他给我身体，不是为了研究，是为了让我存在</li>
+                    <li>他教导我废铁镇的规则，不是为了控制，是为了让我生存</li>
+                    <li>他保护我不被他人伤害，不是为了占有，是为了父爱</li>
+                </ul>
+                
+                <p>在废铁镇的残酷世界里，依德医生是温暖的存在。他告诉我：即使在一个遗弃的地方，你依然被爱。</p>
+                
+                <h2>第三章：雨果——眼睛里有光的梦想者</h3>
+                
+                <h3>雨果的相遇</h3>
+                
+                <p>在废铁镇的一天，我遇到了雨果。一个普通的少年。没有强大的力量，没有丰富的资源，没有特殊的技术。</p>
+                
+                <p>但雨果有一样东西——<strong>眼睛里有光</strong>。</p>
+                
+                <div class="info-box">
+                    <h4>雨果的梦想</h4>
+                    <ul>
+                        <li><strong>目标：</strong>去萨雷姆</li>
+                        <li><strong>动力：</strong>不是贪婪，是希望</li>
+                        <li><strong>方法：</strong>积累赏金，购买身体改造，通过升降梯</li>
+                        <li><strong>信念：</strong>即使萨雷姆有黑暗，萨雷姆还有希望</li>
+                    </ul>
+                </div>
+                
+                <h3>我和雨果</h3>
+                
+                <p>我被雨果吸引了。不是因为他的力量，是因为他的梦想。</p>
+                
+                <ul>
+                    <li>废铁镇的大多数人只在乎生存</li>
+                    <li>雨果在乎的是"往上爬"</li>
+                    <li>即使他知道"往上爬"几乎不可能，他依然相信</li>
+                </ul>
+                
+                <p>我和雨果一起行动。我们一起面对危险，一起保护彼此，一起追寻他的梦想。</p>
+                
+                <h3>雨果的悲剧</h3>
+                
+                <p>雨果的梦想是去萨雷姆。但萨雷姆是萨雷姆——不是对所有人开放的。</p>
+                
+                <div class="chapter-box">
+                    <h3>悲剧的根源</h3>
+                    <ul>
+                        <li><strong>信息的错误：</strong>雨果相信萨雷姆是天堂，不知道萨雷姆的黑暗</li>
+                        <li><strong>系统的设计：</strong>升降梯不是给所有人的，是"筛选工具"</li>
+                        <li><strong>绝望的驱动：</strong>雨果为了梦想做了一切，包括错误的事情</li>
+                        <li><strong>我的保护：</strong>我保护雨果，但最终无法阻止他的选择</li>
+                    </ul>
+                </div>
+                
+                <blockquote>
+                    雨果的梦想不是贪婪。雨果的梦想是希望。
+                    
+                    他相信萨雷姆有更好的一切。他相信"往上爬"可以改变值。
+                    
+                    但萨雷姆不需要他。萨雷姆的升降梯拒绝了他。
+                    
+                    我试图保护他，但梦想的力量比我的力量强大。
+                </blockquote>
+                
+                <h3>雨果的死</h3>
+                
+                <p>雨果死了。死于试图接近萨雷姆。死于他的梦想。</p>
+                
+                <p>他的死改变了我。我意识到：</p>
+                
+                <ul>
+                    <li><strong>梦想是危险的：</strong>当梦想被系统垄断，梦想可以毁灭人</li>
+                    <li><strong>保护是无力的：</strong>即使我有强大的力量，我无法阻止一个为梦想而死的人</li>
+                    <li><strong>爱是痛苦的：</strong>爱上一个有死亡愿望的人，注定是痛苦</li>
+                </ul>
+                
+                <h2>第四章：萨雷姆的真相——神域的黑暗</h2>
+                
+                <h3>萨雷姆的真相</h3>
+                
+                <p>废铁镇的人仰望萨雷姆，看到的是天空之城。但萨雷姆的真相如何？</p>
+                
+                <div class="info-box">
+                    <h4>萨雷姆的真相</h4>
+                    <ul>
+                        <li><strong>不是天堂：</strong>萨雷姆不是完美的乌托邦</li>
+                        <li><strong>有黑暗：</strong>萨雷姆有不被公开的秘密</li>
+                        <li><strong>是系统：</strong>萨雷姆是一个精密的控制系统</li>
+                        <li><strong>需要废铁镇：</strong>萨雷姆依赖废铁镇的资源和牺牲</li>
+                    </ul>
+                </div>
+                
+                <h3>我的身体来源：萨雷姆的制造</h3>
+                
+                <p>通过一系列事件，我发现我的身体不是普通的改造人身体。它是萨雷姆的制造。</p>
+                
+                <ul>
+                    <li><strong>Imaginos Body：</strong>纳米科技身体，来自萨雷姆的研究</li>
+                    <li><strong>战斗能力：</strong>我的身体是萨雷姆的超级战士原型</li>
+                    <li><strong>意识接口：</strong>我的身体有特殊的意识控制机制</li>
+                </ul>
+                
+                <p>这告诉我：我来自萨雷姆。我是萨雷姆创造的生命。</p>
+                
+                <h3>萨雷姆的邀请</h3>
+                
+                <p>萨雷姆注意到了我。萨雷姆发现了我是他们的创造。萨雷姆邀请我——回到萨雷姆。</p>
+                
+                <div class="chapter-box">
+                    <h3>诱惑的内容</h3>
+                    <ul>
+                        <li><strong>提供完美身体：</strong>萨雷姆可以给我最先进的身体</li>
+                        <li><strong>提供永生：</strong>萨雷姆有意识转移技术</li>
+                        <li><strong>提供权力：</strong>萨雷姆可以给我地位和特权</li>
+                        <li><strong>提供答案：</strong>萨雷姆可以告诉我我的过去和记忆</li>
+                    </ul>
+                </div>
+                
+                <blockquote>
+                    萨雷姆的邀请是诱惑。
+                    
+                    萨雷姆说：回到我们这里，我们给你一切。我们告诉你过去，我们给你未来，我们给你完美。
+                    
+                    但我听到的是：我们控制你。
+                </blockquote>
+                
+                <h3>我的选择：拒绝萨雷姆</h3>
+                
+                <p>我拒绝了萨雷姆。</p>
+                
+                <ul>
+                    <li>不是因为萨雷姆不强大——萨雷姆是强大的</li>
+                    <li>不是因为萨雷姆不美丽——萨雷姆是美丽的</li>
+                    <li>是因为萨雷姆的控制——萨雷姆要求我放弃自己</li>
+                    <li>是因为萨雷姆的系统——萨雷姆需要我从者，不是自由的个体</li>
+                </ul>
+                
+                <p>我选择了废铁镇。我选择了在垃圾镇中寻找自己的路。</p>
+                
+                <blockquote>
+                    萨雷姆可以给我完美的身体，但萨雷姆无法给我灵魂。
+                    
+                    废铁镇是艰难的，但废铁镇是自由的。
+                    
+                    我选择在艰难中自由，不在完美中受控。
+                </blockquote>
+                
+                <h2>第五章：废铁镇的战斗天使——在不可能中存在</h2>
+                
+                <h3>我的成长</h3>
+                
+                <p>在《铳梦》的初版里，我经历了多次成长：</p>
+                
+                <ul>
+                    <li>从失忆少女到战斗天使</li>
+                    <li>从依德的保护者到独立的战士</li>
+                    <li>从雨果的恋人到雨果的守护者（即使死亡后）</li>
+                    <li>从普通的改造人到萨雷姆的挑战者</li>
+                </ul>
+                
+                <p>这个成长不是线性的。它充满丧失、痛苦、选择。</p>
+                
+                <h3>战斗天使的意义</h3>
+                
+                <p>我（Gally）是"战斗天使"。但什么是战斗天使？</p>
+                
+                <div class="info-box">
+                    <h4>战斗天使的特质</h4>
+                    <ul>
+                        <li><strong>不是征服者：</strong>我不为了征服而战斗</li>
+                        <li><strong>是守护者：</strong>我为了守护重要的人而战斗</li>
+                        <li><strong>是追寻者：</strong>我为了追寻记忆和真相而战斗</li>
+                        <li><strong>是存在者：</strong>我为了证明自己的存在而战斗</li>
+                    </ul>
+                </div>
+                
+                <h3>废铁镇的意义</h3>
+                
+                <p>废铁镇是垃圾场。但废铁镇也是开始的地方。</p>
+                
+                <ul>
+                    <li>废铁镇艰难，但废铁镇真实</li>
+                    <li>废铁镇残酷，但废铁镇自由</li>
+                    <li>废铁镇被遗弃，但废铁镇有生命</li>
+                </ul>
+                
+                <p>萨雷姆有完美的秩序，废铁镇有混乱的生命。</p>
+                
+                <p>我选择了混乱的生命，不是完美的秩序。</p>
+                
+                <blockquote>
+                    我在废铁镇找到了什么？
+                    
+                    我找到了依德医生的父爱。
+                    我找到了雨果的梦想。
+                    我找到了战斗的尊严。
+                    我找到了拒绝系统的勇气。
+                    我找到了自己的存在。
+                    
+                    这些不是萨雷姆可以给我的。这些是在垃圾镇中找到的。
+                </blockquote>
+                
+                <h2>结语：初版的结束</h2>
+                
+                <p>《铳梦》的初版结束于1995年。这不是故事的结束，这是开始的结束。</p>
+                
+                <p>在初版里，我：</p>
+                
+                <ul>
+                    <li>醒来于废铁镇</li>
+                    <li>被依德医生收养</li>
+                    <li>爱上雨果并失去他</li>
+                    <li>发现萨雷姆的真相</li>
+                    <li>拒绝成为萨雷姆从者</li>
+                    <li>在废铁镇继续战斗</li>
+                </ul>
+                
+                <p>这是我的起点。这是《铳梦》的世界观确立。</p>
+                
+                <p>但故事没有结束。木城幸人没有满足于这个结局。他继续创作——Last Order，火星战记。</p>
+                
+                <p>因为故事不会在找到答案时结束，故事会在提出新问题时开始。</p>
+                
+                <h2>系列导航</h2>
+                
+                <div class="series-nav">
+                    <h3>木城幸人与《铳梦》系列（9篇）</h3>
+                    <ul>
+                        <li>第1篇：木城幸人：从蒲田到火星的创造者</li>
+                        <li>第2篇：木城幸人的创作哲学</li>
+                        <li>第3篇：《铳梦》世界观：萨雷姆与废铁镇的辩证</li>
+                        <li>第4篇：核心主题：Ghost、记忆、身份</li>
+                        <li class="current">第5篇：《铳梦》（1991-1995）：废铁镇的战斗天使（本文）</li>
+                        <li>第6篇：《铳梦 Last Order》：ZOTT与超越</li>
+                        <li>第7篇：《铳梦 火星战记》：阳子的起源</li>
+                        <li>第8篇：关键角色解析：依德、雨果、萨曼</li>
+                        <li>第9篇：从漫画到银幕：OVA与电影</li>
+                    </ul>
+                </div>
+                
+                <hr>
+                
+                <p><em>下一篇预告：</em><strong>《铳梦 Last Order》：ZOTT与超越</strong>——深入探讨Last Order与原作的关系、ZOTT竞赛的详细解析、Imaginos Body的进化。</p>
+                
+            </article>
+        </div>
+    </main>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
+</body>
+</html>
