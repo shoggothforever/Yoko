@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>关键角色解析：依德、雨果、萨曼</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="深入探讨依德医生的父爱与技术伦理、雨果的梦想与悲剧、萨曼的战士尊严">
+    <meta name="keywords" content="依德医生, 雨果, 萨曼, 关键角色, 父爱, 梦想, 战士尊严">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/key-characters.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="关键角色解析：依德、雨果、萨曼">
+    <meta property="og:description" content="依德医生的父爱与技术伦理、雨果的梦想与悲剧、萨曼的战士尊严">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/key-characters.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="关键角色解析：依德、雨果、萨曼">
+    <meta name="twitter:description" content="父爱、梦想与战士尊严">
+    
+    <!-- CSS样式表 -->
+    <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0abdc6;
+        }
+        
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #ea00d9;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        strong {
+            color: #e94560;
+        }
+        
+        .chapter-box {
+            background: rgba(83, 52, 131, 0.15);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .chapter-box::before {
+            content: '📖 章节';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: rgba(83, 52, 131, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
+        }
+        
+        .info-box {
+            background: rgba(10, 189, 198, 0.1);
+            border: 1px solid rgba(10, 189, 198, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-box h4 {
+            color: #0abdc6;
+            margin-bottom: 10px;
+        }
+        
+        .series-nav {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .series-nav h3 {
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        
+        .series-nav ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        
+        .series-nav li {
+            padding: 8px 12px;
+            background: rgba(83, 52, 131, 0.2);
+            border-radius: 4px;
+            margin-bottom: 0;
+        }
+        
+        .series-nav li::marker {
+            display: none;
+        }
+        
+        .series-nav .current {
+            background: rgba(233, 69, 96, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.5);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header自动注入 -->
+    
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <h1>关键角色解析：依德、雨果、萨曼</h1>
+                
+                <div class="article-meta">
+                    <p>📅 发布日期：2026年3月7日</p>
+                    <p>⏱️ 阅读时间：约35分钟</p>
+                    <p>📖 字数：约6600字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：依德医生, 雨果, 萨曼, 关键角色, 父爱, 梦想, 战士尊严</p>
+                    <p>📚 系列第8/9篇</p>
+                </div>
+                
+                <blockquote>
+                    在废铁镇的残酷世界里，有三个人改变了我。
+                    
+                    依德医生给了我生命，雨果给了我爱与失去，萨曼给了我尊严的教诲。
+                    
+                    这三个人定义了我在废铁镇的成长，也定义了我作为"人"的属性。
+                </blockquote>
+                
+                <p>在《铳梦》的世界里，我（Gally / 阳子）遇见了无数人。但有三个人，他们的影响是无法被其他任何人代替的。</p>
+                
+                <p>今天，我想深入分析这三位关键角色——他们的故事、他们的意义、他们如何塑造了我。</p>
+                
+                <h2>第一章：依德医生——父爱与技术伦理</h2>
+                
+                <h3>依德医生是谁？</h3>
+                
+                <p>依德医生（Dr. Ido / Chiren Ido）是一个改造人技术专家。他在废铁镇经营诊所，帮助人们进行机械改造。</p>
+                
+                <p>但依德医生不是普通的医生。他有萨雷姆的公民身份。他本可以在萨雷姆过着舒适的生活。</p>
+                
+                <div class="info-box">
+                    <h4>依德医生的身份</h4>
+                    <ul>
+                        <li><strong>萨雷姆公民：</strong>有在萨雷姆生活的权利</li>
+                        <li><strong>自由选择医生：</strong>可以为钱治疗，也可以免费治疗</li>
+                        <li><strong>被遗弃改造人的保护者：</strong>专门帮助被社会抛弃的改造人</li>
+                        <li><strong>技术专家：</strong>精通萨雷姆的高科技改造技术</li>
+                    </ul>
+                </div>
+                
+                <h3>为什么留在废铁镇？</h3>
+                
+                <p>这是依德医生的谜题——为什么有萨雷姆公民身份的人，选择留在废铁镇？</p>
+                
+                <blockquote>
+                    依德医生的回答：废铁镇有比舒适生活更重要的东西。
+                    
+                    这里被遗弃的人。这里被抛弃的改造人。这里失去了尊严的生命。
+                    
+                    萨雷姆不需要我。废铁镇需要我。
+                </blockquote>
+                
+                <p>这个选择本身就是一种<strong>反抗</strong>。萨雷姆的系统假设所有人都会选择舒适。依德医生证明了：有些人会宁愿选择意义。</p>
+                
+                <h3>依德医生的技术伦理</h3>
+                
+                <p>依德医生精通技术，但他不是技术崇拜者。他理解技术的伦理界限：</p>
+                
+                <div class="chapter-box">
+                    <h3>技术伦理的三原则</h3>
+                    <ol>
+                        <li><strong>技术 ≠ 身份：</strong></li>
+                        <p>改造人的身体可以改变，但改造人的身份是自己的。依德医生不会因为技术而否定一个人的存在。</p>
+                        
+                        <li><strong>技术 ≠ 目的：</strong></li>
+                        <p>技术可以给人能力，但不能给人存在的目的。依德医生帮助改造人，不是为了创造工具，是让他们成为自己。</p>
+                        
+                        <li><strong>技术 ≠ 权力：</strong></li>
+                        <p>技术不应该成为控制他人的手段。依德医生的医疗技术是为了治疗，不是为了控制或实验。</p>
+                    </ol>
+                </div>
+                
+                <h3>依德医生和我：父爱</h3>
+                
+                <p>依德医生发现了我，修复了我，收养了我。他如何对待我？</p>
+                
+                <ul>
+                    <li>他发现我不是普通改造人，而是萨雷姆的创造</li>
+                    <li>他修复我，不是为了研究，是为了让我存在</li>
+                    <li>他收养我，不是为了控制，是为了给我家</li>
+                    <li>他教导我废铁镇的规则，不是为了限制我，是为了让我生存</li>
+                    <li>他保护我，不是为了占有，是父爱</li>
+                </ul>
+                
+                <blockquote>
+                    依德医生不是我的主人。他是我的父亲。
+                    
+                    他给我身体，不要求我回报。
+                    他给我知识，不要求我服从。
+                    他给我爱，不要求我回报爱。
+                    
+                    他只是一个想做好事的医生，但他做的太多——他成为了我的父亲。
+                </blockquote>
+                
+                <h3>依德医生的局限性</h3>
+                
+                <p>但依德医生不是神。他有局限性：</p>
+                
+                <ul>
+                    <li><strong>无法保护一切：</strong>即使有萨雷姆的技术，依德医生无法保护所有人</li>
+                    <li><strong>无法改变系统：</strong>即使有萨雷姆的公民身份，依德医生无法改变萨雷姆和废铁镇的结构</li>
+                    <li><strong>无法消除痛苦：</strong>即使有强大的技术，依德医生无法消除废铁镇的苦难</li>
+                </ul>
+                
+                <p>但他的努力本身就是意义。在废铁镇的残酷世界里，有一人愿意选择留下，有一人愿意帮助被遗弃者，有一人愿意成为父亲——这就是希望。</p>
+                
+                <h2>第二章：雨果——眼睛里有光的梦想者</h2>
+                
+                <h3>雨果是谁？</h3>
+                
+                <p>雨果（Hugo）是一个普通的废铁镇少年。他没有强大的力量，没有丰富的资源，没有特殊的技术。</p>
+                
+                <p>但雨果有一样东西——<strong>眼睛里有光</strong>。</p>
+                
+                <div class="info-box">
+                    <h4>雨果的特质</h4>
+                    <ul>
+                        <li><strong>梦想：</strong>去萨雷姆（天空之城）</li>
+                        <li><strong>动力：</strong>不是贪婪，是希望</li>
+                        <li><strong>方法：</strong>积累赏金，购买身体改造，通过升降梯</li>
+                        <li><strong>信念：</strong>即使萨雷姆有黑暗，萨雷姆还有希望</li>
+                    </ul>
+                </div>
+                
+                <h3>雨果的梦想</h3>
+                
+                <p>废铁镇的大多数人只在乎生存。如何在今天活下去？如何在明天找到食物？如何在下周避免死亡？</p>
+                
+                <p>但雨果在乎的是"往上爬"。</p>
+                
+                <ul>
+                    <li>他相信萨雷姆有更好的生活</li>
+                    <li>他相信可以通过升降梯到达萨雷姆</li>
+                    <li>他相信一旦到达萨雷姆，他的梦想会实现</li>
+                </ul>
+                
+                <p>这不是简单的贪婪。这是一种<strong>希望</strong>。即使周围所有人都告诉他不可能，雨果依然相信可能。</p>
+                
+                <h3>我和雨果：爱</h3>
+                
+                <p>我被雨果吸引了。不是因为他的力量——他很弱。不是因为他的资源——他几乎没有。</p>
+                
+                <p>我被他的<strong>光</strong>吸引。那个在废铁镇残酷环境中依然存在的不屈之光。</p>
+                
+                <ul>
+                    <li>我保护他，不是为了回报，是因为我无法不去保护</li>
+                    <li>我支持他，不是为了利益，是因为我想看他实现</li>
+                    <li>我为他战斗，不是为了义务，是因为他的梦想值得守护</li>
+                </ul>
+                
+                <blockquote>
+                    雨果的眼睛里有光，不是因为他是强大的，是因为他相信。
+                    
+                    在废铁镇，相信是最强大的武器。
+                    
+                    大多数人因为相信而被嘲笑。雨果不害怕被嘲笑，他只是想实现。
+                </blockquote>
+                
+                <h3>雨果的悲剧</h3>
+                
+                <p>但雨果的故事是悲剧。为什么？</p>
+                
+                <div class="chapter-box">
+                    <h3>悲剧的根源</h3>
+                    <ul>
+                        <li><strong>系统的设计：</strong>升降梯不是为所有人开放的，是筛选工具</li>
+                        <li><strong>信息的错误：</strong>雨果相信萨雷姆是天堂，不知道萨雷姆的黑暗</li>
+                        <li><strong>绝望的驱动：</strong>为了接近萨雷姆，雨果做了一切，包括伤害他人的事情</li>
+                        <li><strong>梦想的脆弱：</strong>梦想可以推动人前进，也可以毁灭人</li>
+                    </ul>
+                </div>
+                
+                <h3>雨果的死</h3>
+                
+                <p>雨果死了。死于试图接近萨雷姆。死于他的梦想。</p>
+                
+                <p>他的死改变了我。我意识到：</p>
+                
+                <ul>
+                    <li><strong>梦想是危险的：</strong>当梦想被系统垄断，梦想可以毁灭人</li>
+                    <li><strong>保护是无力的：</strong>即使我有强大的力量，我无法阻止一个为梦想而死的人</li>
+                    <li><strong>爱是痛苦的：</strong>爱上一个有死亡愿望的人，注定是痛苦</li>
+                </ul>
+                
+                <blockquote>
+                    雨果的梦想不是贪婪。雨果的梦想是希望。
+                    
+                    但希望可以是致命的。
+                    
+                    当系统控制所有上升通道，希望成为一种毒药——它会让你为了一个不可能的目标而牺牲一切。
+                </blockquote>
+                
+                <h3>雨果的遗产</h3>
+                
+                <p>雨果死了，但他留下了什么？</p>
+                
+                <ul>
+                    <li>他让我理解了梦想的代价</li>
+                    <li>他让我意识到保护有极限</li>
+                    <li>他让我成为更复杂的战士——失去了纯粹的梦想，获得了沉重的人性</li>
+                </ul>
+                
+                <p>雨果的故事是悲剧，但悲剧有教育意义。它告诉我：在不可能的世界里，爱比梦想更重要。</p>
+                
+                <h2>第三章：萨曼——值得尊重的战士对手</h2>
+                
+                <h3>萨曼是谁？</h3>
+                
+                <p>萨曼（Zapan）是死亡球（Motorball）比赛的常胜将军。一个强大、骄傲、危险的战士。</p>
+                
+                <div class="info-box">
+                    <h4>萨曼的特质</h4>
+                    <ul>
+                        <li><strong>战斗能力：</strong>超强的近战和远战能力</li>
+                        <li><strong>荣誉感：</strong>对战斗荣誉的坚持</li>
+                        <li><strong>战士尊严：</strong>认为战士应该有尊严地战斗</li>
+                        <li><strong>哲学基础：</strong>战斗不仅仅是杀戮，是测试和证明</li>
+                    </ul>
+                </div>
+                
+                <h3>我和萨曼：战斗即对话</h3>
+                
+                <p>我和萨曼战斗了两次。第一次，我被击败。第二次，我战胜了他。</p>
+                
+                <p>但萨曼对我影响最大。为什么？因为他展示了<strong>战士的尊严</strong>。</p>
+                
+                <div class="chapter-box">
+                    <h3>萨曼的战士哲学</h3>
+                    <ol>
+                        <li><strong>战斗即测试：</strong></li>
+                        <p>战斗不是为了杀戮，是为了测试和证明。萨曼通过战斗测试自己的成长，证明自己的实力。</p>
+                        
+                        <li><strong>尊重对手：</strong></li>
+                        <p>即使要击败对手，也要尊重对手的战斗方式。萨曼不嘲笑我，不羞辱我，只是全力以赴。</p>
+                        
+                        <li><strong>接受失败：</strong>在我和萨曼的第一次战斗中，我击败了他。</p>
+                        
+                        <div class="info-box">
+                            <h4>萨曼的失败反应</h4>
+                            <ul>
+                                <li><strong>没有借口：</strong>他承认被击败，不找借口</li>
+                                <li><strong>没有怨恨：</strong>他不怨恨我，他接受失败</li>
+                                <li><strong>没有放弃：</strong>他继续训练，继续挑战</li>
+                                <li><strong>没有失格：</strong>他保持战士的尊严</li>
+                            </ul>
+                        </div>
+                        
+                        <li><strong>战士的尊严：</strong></li>
+                        <p>萨曼说："战士的尊严不是来自于胜利，而是来自于为信念而战。"</p>
+                    </ol>
+                </div>
+                
+                <h3>萨曼的牺牲</h3>
+                
+                <p>在我和萨曼的第二次战斗中，我面对了一个强大的对手——电大人（Den）。萨曼主动站了出来。</p>
+                
+                <blockquote>
+                    萨曼说："让我来处理这个。"
+                    
+                    他不是为了荣誉。他不是为了证明自己。
+                    
+                    他是因为他看到一个需要保护的战士。
+                    
+                    萨曼的死，不是为了战斗的荣耀，是为了守护的责任。
+                </blockquote>
+                
+                <p>萨曼死了。他的死改变了我。我意识到：</p>
+                
+                <ul>
+                    <li><strong>战斗可以是无私的：</strong>萨曼不是为了自己战斗，他是为了我战斗</li>
+                    <li><strong>尊重比仇恨更强：</strong>萨曼尊重我，这比单纯的竞争更有力量</li>
+                    <li><strong>战士的团结：</strong>即使在竞争中，战士可以相互尊重，甚至相互守护</li>
+                </ul>
+                
+                <h3>萨曼的遗产</h3>
+                
+                <p>萨曼留下了什么？</p>
+                
+                <div class="chapter-box">
+                    <h3>萨曼的三重遗产</h3>
+                    <ul>
+                        <li><strong>战斗哲学：</strong>战士的尊严来自信念，不是胜利</li>
+                        <li><strong>竞争精神：</strong>尊重对手，接受失败，保持荣誉</li>
+                        <li><strong>无我的守护：</strong>为他人而战的勇气和牺牲</li>
+                    </ul>
+                </div>
+                
+                <p>萨曼不是一个简单的反派。他是一个有原则的战士。即使在他的职业生涯中，他做过黑暗的事，但在最后，他选择了守护。</p>
+                
+                <h2>第四章：三个角色的交汇——人性的三重奏</h2>
+                
+                <h3>父爱、梦想、尊严</h3>
+                
+                <p>依德医生代表<strong>父爱</strong>。雨果代表<strong>梦想</strong>。萨曼代表<strong>尊严</strong>。</p>
+                
+                <p>这三种品质，是我在废铁镇中成长的关键。</p>
+                
+                <div class="info-box">
+                    <h4>三种品质的作用</h4>
+                    <ul>
+                        <li><strong>父爱：</strong>给了我存在的基础和安全感</li>
+                        <li><strong>梦想：</strong>让我理解希望的力量和代价</li>
+                        <li><strong>尊严：</strong>教我如何有原则地战斗</li>
+                    </ul>
+                </div>
+                
+                <h3>三个角色的共同点</h3>
+                
+                <p>依德医生、雨果、萨曼有一个共同点——他们都在废铁镇，他们都是"不可能"的坚持。</p>
+                
+                <ul>
+                    <li>依德医生选择了意义而非舒适</li>
+                    <li>雨果选择了希望而非绝望</li>
+                    <li>萨曼选择了尊严而非放弃</li>
+                </ul>
+                
+                <p>在废铁镇这个绝望的地方，这三个人证明了：<strong>人性依然存在</strong>。</p>
+                
+                <h3>三个角色的影响</h3>
+                
+                <p>他们如何塑造了我？</p>
+                
+                <blockquote>
+                    依德医生告诉我：你被爱，你有存在的权利。
+                    
+                    雨果告诉我：梦想是危险的，但爱是值得的。
+                    
+                    萨曼告诉我：战斗有尊严，即使面对更强的对手。
+                    
+                    这三人的教导结合，让我成为"人"。
+                    
+                    不是一个只会战斗的改造人。一个有情感、有原则、有尊严的战士。
+                </blockquote>
+                
+                <h2>结语：废铁镇的人性之光</h2>
+                
+                <p>在废铁镇，暴力是常态，绝望是背景，生存是挑战。</p>
+                
+                <p>但在这个环境里，有三个人发光：</p>
+                
+                <ul>
+                    <li><strong>依德医生：</strong>用医疗技术践行父爱</li>
+                    <li><strong>雨果：</strong>用梦想和希望展示勇气</li>
+                    <li><strong>萨曼：</strong>用战斗和牺牲展示战士尊严</li>
+                </ul>
+                
+                <blockquote>
+                    废铁镇是垃圾场，但废铁镇不是没有价值的。
+                    
+                    废铁镇依然有父爱，依然有梦想，依然有尊严。
+                    
+                    这些不改变废铁镇的残酷，但这些证明了废铁镇无法摧毁一切。
+                    
+                    人性是脆弱的，但人性也是坚韧的。
+                </blockquote>
+                
+                <h2>系列导航</h2>
+                
+                <div class="series-nav">
+                    <h3>木城幸人与《铳梦》系列（9篇）</h3>
+                    <ul>
+                        <li>第1篇：木城幸人：从蒲田到火星的创造者</li>
+                        <li>第2篇：木城幸人的创作哲学</li>
+                        <li>第3篇：《铳梦》世界观：萨雷姆与废铁镇的辩证</li>
+                        <li>第4篇：核心主题：Ghost、记忆、身份</li>
+                        <li>第5篇：《铳梦》（1991-1995）：废铁镇的战斗天使</li>
+                        <li>第6篇：《铳梦 Last Order》：ZOTT与超越</li>
+                        <li>第7篇：《铳梦 火星战记》：阳子的起源</li>
+                        <li class="current">第8篇：关键角色解析：依德、雨果、萨曼（本文）</li>
+                        <li>第9篇：从漫画到银幕：OVA与电影</li>
+                    </ul>
+                </div>
+                
+                <hr>
+                
+                <p><em>下一篇预告：</em><strong>从漫画到银幕：OVA与电影</strong>——分析1993年OVA的改编得失、2019年电影的制作过程、詹姆斯·卡梅隆与罗伯特·罗德里格兹的合作。</p>
+                
+            </article>
+        </div>
+    </main>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
+</body>
+</html>

@@ -11,3 +11,6 @@ ghost-chatroom-vue/
 # Daily Briefing logs
 daily-briefing/
 
+# 爬虫工具（敏感信息）
+tools/crawls/
+

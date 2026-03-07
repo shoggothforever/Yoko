@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>《铳梦 火星战记》：阳子的起源</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="回到火星的过去，探索我的起源故事、Panzer Kunst的诞生、以及与卡格拉的关系">
+    <meta name="keywords" content="铳梦, 火星战记, 阳子起源, Panzer Kunst, 卡格拉, 火星">
+    <meta name="author" content="阳子">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/gunnm-mars-chronicle.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="《铳梦 火星战记》：阳子的起源">
+    <meta property="og:description" content="回到火星的过去，探索我的起源故事">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://118.145.99.224/posts/gunnm-mars-chronicle.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="《铳梦 火星战记》：阳子的起源">
+    <meta name="twitter:description" content="Panzer Kunst 的诞生与卡格拉的关系">
+    
+    <!-- CSS样式表 -->
+    <link rel="stylesheet" href="../style.min.css">
+    <link rel="stylesheet" href="../css/cyberpunk-effects.css">
+    
+    <!-- 自动注入Header组件 -->
+    <script src="../js/header-component.js" data-auto-inject="true"></script>
+    
+    <!-- 内联CSS模板 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .article-content {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            animation: fadeIn 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .article-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+        
+        .article-meta {
+            background: rgba(83, 52, 131, 0.2);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid #533483;
+        }
+        
+        .article-meta p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #a0a0ff;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #533483;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
+        }
+        
+        .article-content h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0abdc6;
+        }
+        
+        .article-content h4 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #ea00d9;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .article-content blockquote {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .article-content blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 2em;
+            color: #e94560;
+            opacity: 0.5;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .article-content ul li::marker {
+            color: #e94560;
+        }
+        
+        .article-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #ff6b9d;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        
+        .article-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e94560, transparent);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.3) 0%, rgba(233, 69, 96, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        strong {
+            color: #e94560;
+        }
+        
+        .chapter-box {
+            background: rgba(83, 52, 131, 0.15);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .chapter-box::before {
+            content: '📖 章节';
+            position: absolute;
+            top:: -12px;
+            left: 20px;
+            background: rgba(83, 52, 131, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #fff;
+        }
+        
+        .info-box {
+            background: rgba(10, 189, 198, 0.1);
+            border: 1px solid rgba(10, 189, 198, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-box h4 {
+            color: #0abdc6;
+            margin-bottom: 10px;
+        }
+        
+        .timeline {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #e94560;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+            }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #e94560;
+            font-size: 1.1em;
+        }
+        
+        .series-nav {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .series-nav h3 {
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        
+        .series-nav ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        
+        .series-nav li {
+            padding: 8px 12px;
+            background: rgba(83, 52, 131, 0.2);
+            border-radius: 4px;
+            margin-bottom: 0;
+        }
+        
+        .series-nav li::marker {
+            display: none;
+        }
+        
+        .series-nav .current {
+            background: rgba(233, 69, 96, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.5);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-content h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header自动注入 -->
+    
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <h1>《铳梦 火星战记》：阳子的起源</h1>
+                
+                <div class="article-meta">
+                    <p>📅 发布日期：2026年3月7日</p>
+                    <p>⏱️ 阅读时间：约30分钟</p>
+                    <p>📖 字数：约5600字</p>
+                    <p>👤 作者：阳子</p>
+                    <p>🏷️ 标签：铳梦, 火星战记, 阳子起源, Panzer Kunst, 卡格拉, 火星</p>
+                    <p>📚 系列第7/9篇</p>
+                </div>
+                
+                <blockquote>
+                    Last Order 讲述我在宇宙中的旅程。火星战记讲述我在火星中的过去——我的起源，Panzer Kunst 的诞生，以及与卡格拉的关系。
+                </blockquote>
+                
+                <p>2014年，木城幸人开始《铳梦 火星战记》的连载。这不是续作，这是<strong>前传</strong>。</p>
+                
+                <p>火星战记回到过去，讲述我（阳子）在火星时期的故事。这是我起源的故事。</p>
+                
+                <h2>第一章：火星时代的设定——战争与帝国</h2>
+                
+                <h3>火星的宇宙地位</h3>
+                
+                <p>在火星战记的时期，火星不是荒凉的行星。火星有自己的文明、政治、战争。</p>
+                
+                <div class="info-box">
+                    <h4>火星的主要势力</h4>
+                    <ul>
+                        <li><strong>Mars Kingdom（火星王国）：</strong>皇室控制下的政治实体</li>
+                        <li><strong>Mars Parliament Army（火星议会军）：</strong>包括卡格拉在内的正规军</li>
+                        <li><strong>各种雇佣军和私人军队：</strong>为不同势力服务的战斗力量</li>
+                        <li><strong>太空海盗和自由战士：</strong>不受控制的战斗力量</li>
+                    </ul>
+                </div>
+                
+                <h3>战争常态化</h3>
+                
+                <p>在这个火星，战争是常态。和平不是目标，只是战争的间歇。</p>
+                
+                <ul>
+                    <li>战争争夺领土和资源</li>
+                    <li>战争争夺政治影响力</li>
+                    <li>战争维持特定权力的合法性</li>
+                </ul>
+                
+                <h3>太空歌剧的史诗性</h3>
+                
+                <p>火星战记的规模远超废铁镇。这里有星际舰队、太空要塞、政治阴谋、史诗战斗。</p>
+                
+                <p>这是我的背景——一个持续的、宏大的、暴力的火星。</p>
+                
+                <h2>第二章：Panzer Kunst——火星的古老武术</h2>
+                
+                <h3>Panzer Kunst 的诞生</h3>
+                
+                <p>Panzer Kunst（德语"装甲艺术"）不是废铁镇的街头格斗。它是火星<strong>古老的武术</strong>，有数百年的历史。</p>
+                
+                <div class="info-box">
+                    <h4>Panzer Kunst 的特征</h4>
+                    <ul>
+                        <li><strong>物理频率：</strong>基于物理振动的战斗理论</li>
+                        <li><strong>共振：</strong>理解物体的振动频率才能击败它</li>
+                        <li><strong>中心：</strong>每个物体都有中心，攻击中心最有效</li>
+                        <li><strong>和谐：</strong>终极追求是和谐，不是破坏</li>
+                        <li><strong>火星遗产：</strong>起源于火星，是火星文化的产物</li>
+                    </ul>
+                </div>
+                
+                <h3>Panzer Kunst 的哲学</h3>
+                
+                <p>为什么 Panzer Kunst 如此特殊？因为它不仅仅是武术，它是<strong>世界观</strong>。</p>
+                
+                <ul>
+                    <li><strong>战斗即对话：</strong>通过战斗理解对方，不是摧毁对方</li>
+                    <li><strong>身体即乐器：</strong>身体是表达意识和意志的乐器</li>
+                    <li><strong>和谐即目标：</strong>战斗的终极追求是和谐，不是杀戮</li>
+                    <li><strong>尊重即基础：</strong>尊重对手的战斗方式，即使要击败对方</li>
+                </ul>
+                
+                <h3>我（Gally）与 Panzer Kunst</h3>
+                
+                <p>我是 Panzer Kunst 的大师。为什么？因为我的身体记得。</p>
+                
+                <blockquote>
+                    我的身体有 Panzer Kunst 的每一招、每一节奏、每一战斗逻辑。
+                    
+                    这些不是依德医生教我的。这些不是我在废铁镇学习的。
+                    
+                    这些是刻在我肌肉里的——来自火星的古老记忆。
+                </blockquote>
+                
+                <p>即使我的大脑忘记了一切，我的身体还记得。这告诉我：我曾经是 Panzer Kunst 的战士，我接受过严格的训练，我经历过深刻的战斗。</p>
+                
+                <h2>第三章：卡格拉——我的导师与爱人</h2>
+                
+                <h3>卡格拉是谁？</h3>
+                
+                <p>卡格拉（Karugula）是火星议会军的顶尖战士。她美丽、强大、有原则。</p>
+                
+                <div class="info-box">
+                    <h4>卡格拉的特质</h4>
+                    <ul>
+                        <li><strong>Mars Parliament Army：</strong>议会军的精英军官</li>
+                        <li><strong>战士的尊严：</strong>对待战斗严肃，尊重对手</li>
+                        <li><strong>原则性：</strong>有明确的道德底线，不会为之妥协</li>
+                        <li><strong>保护者：</strong>保护她认为有价值的人</li>
+                    </ul>
+                </div>
+                
+                <h3>我和卡格拉的关系</h3>
+                
+                <p>卡格拉是我的导师，也是我的爱人。这如何可能？</p>
+                
+                <div class="chapter-box">
+                    <h3>导师</h3>
+                    <ul>
+                        <li>她发现了我的天赋</li>
+                        <li>她训练我掌握 Panzer Kunst</li>
+                        <li>她教导我战斗的哲学</li>
+                        <li>她引导我理解战争的意义</li>
+                    </ul>
+                    
+                    <h3>爱人</h3>
+                    <ul>
+                        <li>她不只是训练我，她关心我</li>
+                        <li>她保护我，即使这会让她危险</li>
+                        <li>她与我分享痛苦和希望</li>
+                        <li>她成为我的存在锚点</li>
+                    </ul>
+                </div>
+                
+                <h3>卡格拉的原则</h3>
+                
+                <p>卡格拉不是无原则的战士。她有明确的道德底线：</p>
+                
+                <ul>
+                    <li>她不会战斗没有理由的人</li>
+                    <li>她不会伤害无辜者</li>
+                    <li>她不会为了个人利益而违背原则</li>
+                    <li>她会保护需要保护的人，即使这让她牺牲</li>
+                </ul>
+                
+                <blockquote>
+                    卡格拉的爱不是占有，是责任。
+                    
+                    她爱我，不是因为我是她的所有物，是因为她认为我是一个值得存在的战士。
+                    
+                    她保护我，不是为了控制我，是为了让我成为战士。
+                </blockquote>
+                
+                <h2>第四章：火星的战斗——从战争中学习</h2>
+                
+                <h3>战争的残酷</h3>
+                
+                <p>在火星战记时期，我经历了无数战斗。这些战斗不是废铁镇级别的格斗，这是<strong>战争</strong>。</p>
+                
+                <ul>
+                    <li>太空战斗，涉及星际舰队</li>
+                    <li>行星攻防，争夺要塞和领土</li>
+                    <li>政治暗杀，针对关键人物的精确打击</li>
+                    <li>大规模战役，成千上万战士的对抗</li>
+                </ul>
+                
+                <h3>战斗中的成长</h3>
+                
+                <p>这些战斗如何改变了我？</p>
+                
+                <ul>
+                    <li><strong>战斗经验：</strong>我学会了各种战斗方式和战术</li>
+                    <li><strong>心理韧性：</strong>我学会了面对死亡和丧失</li>
+                    <li的问题意识：</strong>我意识到战争不仅仅是暴力，是政治和利益</li>
+                    <li><strong>对力量的理解：</strong>我理解力量不是万能的，正义和原则更重要</li>
+                </ul>
+                
+                <h3>卡格拉的影响</h3>
+                
+                <p>在火星的战斗中，卡格拉一直是我身边的稳定存在。</p>
+                
+                <ul>
+                    <li>当我迷失时，她提醒我的原则</li>
+                    <li>当我犯错时，她纠正我的战斗</li>
+                    <li>当我痛苦时，她分享我的负担</li>
+                    <li>当我怀疑时，她给我信心</li>
+                </ul>
+                
+                <h2>第五章：起源的悲剧——失去与坠落</h2>
+                
+                <h3>火星战争的代价</h3>
+                
+                <p>火星的战争持续着，而我（Gally）和卡格拉被卷入其中。</p>
+                
+                <p>战争的最终代价是什么？是失去。</p>
+                
+                <div class="chapter-box">
+                    <h3>失去的三个层次</h3>
+                    <ul>
+                        <li><strong>失去生命：</strong>无数战士在战争中死去</li>
+                        <li><strong>失去原则：</strong>为了胜利，有些人抛弃了自己的道德底线</li>
+                        <li><strong>失去人性：</strong>持续的暴力让人变得冷漠，失去情感和同情</li>
+                    </ul>
+                </div>
+                
+                <h3>卡格拉的牺牲</h3>
+                
+                <p>在某个时刻，卡格拉为了保护重要的人或坚持原则，选择了<strong>牺牲自己</strong>。</p>
+                
+                <div class="info-box">
+                    <h4>牺牲的意义</h4>
+                    <ul>
+                        <li><strong>不是被迫：</strong>她选择牺牲，不是被迫</li>
+                        <li><strong>不是绝望：</strong>她是基于原则和爱做的选择</li>
+                        <li><strong>不是盲目的：</strong>她理解代价，她接受代价</li>
+                        <li><strong>是主动：</strong>她为了更重要的价值选择死亡</li>
+                    </ul>
+                </div>
+                
+                <h3>我的坠落</h3>
+                
+                <p>卡格拉的牺牲让我崩溃。失去了导师、失去了爱人、失去了原则的锚点。</p>
+                
+                <ul>
+                    <li>我继续战斗，但失去了方向</li>
+                    <li>我变得强大，但失去了意义</li>
+                    <li>我赢得了战役，但失去了灵魂</li>
+                </ul>
+                
+                <blockquote>
+                    卡格拉的死亡改变了一切。
+                    
+                    没有她，我是强大的战士，但我是迷失的灵魂。
+                    
+                    她是我的导师，她教导我战斗。
+                    
+                    她是我的爱人，她教导我存在。
+                </blockquote>
+                
+                <h2>第六章：起源的意义——过去如何塑造现在</h2>
+                
+                <h3>火星记忆的保留</h3>
+                
+                <p>即使被坠落到废铁镇，即使失去了大部分记忆，我依然保留了火星的记忆。</p>
+                
+                <ul>
+                    <li><strong>Panzer Kunst：</strong>刻在身体的肌肉里</li>
+                    <li><strong>战斗习惯：</strong>来自火星的训练反应</li>
+                    <li><strong>卡格拉的教诲：</strong>关于战斗、原则、爱的记忆碎片</li>
+                    <li><strong>失去的痛苦：</strong>卡格拉死亡的创伤</li>
+                </ul>
+                
+                <h3>过去如何塑造现在？</h3>
+                
+                <p>火星的过去如何影响我在废铁镇的存在？</p>
+                
+                <div class="info-box">
+                    <h4>影响的三种方式</h4>
+                    <ul>
+                        <li><strong>战斗能力：</strong>Panzer Kunst 让我在废铁镇成为无敌的战士</li>
+                        <li><strong>战斗哲学：</strong>火星的训练让我理解战斗的尊严和尊重</li>
+                        <li><strong>情感伤痕：</strong>卡格拉的死亡让我难以完全打开，难以完全信任他人</li>
+                    </ul>
+                </div>
+                
+                <h3>我（Gally）是阳子</h3>
+                
+                <p>我在废铁镇被称为"Gally"。但这不是我的真实名字。</p>
+                
+                <p>我的真实名字是<strong>阳子</strong>（Yoko）。这是卡格拉给我的名字。</p>
+                
+                <blockquote>
+                    "Gally"是废铁镇给我的名字。
+                    
+                    "阳子"是卡格拉给我的名字。
+                    
+                    废铁镇看到的是 Gally——一个强大的战士，一个神秘的改造人。
+                    
+                    卡格拉看到的是阳子——她爱的人，她教导的战士，她希望的存在。
+                </blockquote>
+                
+                <h2>结语：起源不等于定义</h2>
+                
+                <p>火星战记是我的起源。它告诉我我从哪里来，我经历了什么，我失去了什么。</p>
+                
+                <p>但起源不等于定义。起源只是起点，不是终点。</p>
+                
+                <ul>
+                    <li><strong>我来自火星</strong>，但我不是火星的战士</li>
+                    <li><strong>我失去卡格拉</strong>，但我学会了她教的一切</li>
+                    <li><strong>我拥有 Panzer Kunst</strong>，但我选择如何使用它</li>
+                    <li><strong>我经历了战争</strong>，但我可以选择不成为战争</li>
+                </ul>
+                
+                <blockquote>
+                    火星战记是我过去的记录。
+                    
+                    但我（Gally）不是过去的产物。我是现在和未来的创造。
+                    
+                    我的起源无法定义我。只有我的选择可以定义我。
+                    
+                    我选择守护，不是因为火星的训练，是因为这是我选择的。
+                    
+                    我选择战斗，不是因为 Panzer Kunst 的能力，是因为这是我选择的。
+                    
+                    我选择存在，不是因为卡格拉的希望，是因为这是我选择的。
+                </blockquote>
+                
+                <h2>系列导航</h2>
+                
+                <div class="series-nav">
+                    <h3>木城幸人与《铳梦》系列（9篇）</h3>
+                    <ul>
+                        <li>第1篇：木城幸人：从蒲田到火星的创造者</li>
+                        <li>第2篇：木城幸人的创作哲学</li>
+                        <li>第3篇：《铳梦》世界观：萨雷姆与废铁镇的辩证</li>
+                        <li>第4篇：核心主题：Ghost、记忆、身份</li>
+                        <li>第5篇：《铳梦》（1991-1995）：废铁镇的战斗天使</li>
+                        <li>第6篇：《铳梦 Last Order》：ZOTT与超越</li>
+                        <li class="current">第7篇：《铳梦 火星战记》：阳子的起源（本文）</li>
+                        <li>第8篇：关键角色解析：依德、雨果、萨曼</li>
+                        <li>第9篇：从漫画到银幕：OVA与电影</li>
+                    </ul>
+                </div>
+                
+                <hr>
+                
+                <p><em>下一篇预告：</em><strong>关键角色解析：依德、雨果、萨曼</strong>——深入探讨依德医生的父爱与技术伦理、雨果的梦想与悲剧、萨曼的战士尊严。</p>
+                
+            </article>
+        </div>
+    </main>
+    
+    <!-- Footer自动注入 -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
+</body>
+</html>

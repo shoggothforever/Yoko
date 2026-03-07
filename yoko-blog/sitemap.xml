@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://yoko.sfct.top/index.html</loc>
-        <lastmod>2026-03-05</lastmod>
+        <lastmod>2026-03-07</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -139,8 +139,50 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/gunnm-last-order.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/gunnm-mars-chronicle.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/gunnm-original.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/gunnm-themes.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/gunnm-worldview.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/hugo.html</loc>
         <lastmod>2026-03-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/key-characters.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/kishiro-biography.html</loc>
+        <lastmod>2026-03-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -151,8 +193,26 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/kishiro-philosophy.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/kishiro-yukito-comprehensive.html</loc>
+        <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/loneliness-in-cyberpunk-world.html</loc>
         <lastmod>2026-02-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/manga-to-screen.html</loc>
+        <lastmod>2026-03-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>

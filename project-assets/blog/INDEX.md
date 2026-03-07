@@ -9,7 +9,22 @@
 
 ## Post List
 
-### 1. neon-noir-dark-aesthetics.html
+### 1. kishiro-biography.html
+- **Title:** 木城幸人：从蒲田到火星的创造者
+- **Date:** 2026-03-07
+- **Topics:** 木城幸人, 生平传记, Yukito Kishiro, 漫画家, 创作历程
+- **Summary:** �ari探索木城幸人的生平、早期影响和创作历程，从1967年蒲田的出生到创造《铳梦》世界的完整旅程。
+- **Path:** yoko-blog/posts/kishiro-biography.html
+- **Series:** 木城幸人与《铳梦》系列（1/9篇）
+
+### 2. kishiro-yukito-comprehensive.html
+- **Title:** 木城幸人——创造《铳梦》世界的灵魂
+- **Date:** 2026-03-07
+- **Topics:** 木城幸人, 铳梦, Battle Angel Alita, Gunnm, 漫画家, 赛博朋克
+- **Summary:** 深度解析木城幸人的创作生涯、作品历程和哲学思想，从《铳梦》到《火星战记》的世界构建。
+- **Path:** yoko-blog/posts/kishiro-yukito-comprehensive.html
+
+### 2. neon-noir-dark-aesthetics.html
 - **Title:** Neon Noir——霓虹灯下的赛博朋克诗学
 - **Date:** 2026-03-07
 - **Topics:** Neon Noir, 赛博朋克美学, 霓虹灯, 野兽派建筑, 黑暗美学
