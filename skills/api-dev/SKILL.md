@@ -91,7 +91,7 @@ curl -s -o response.json https://api.example.com/data
 ```bash
 #!/bin/bash
 # api-test.sh - Simple API test runner
-BASE_URL="${1:-http://localhost:3000}"
+BASE_URL="${1:-http://localhost:3001}"
 PASS=0
 FAIL=0
 
@@ -150,7 +150,7 @@ echo "Results: $PASS passed, $FAIL failed"
 """api_test.py - API integration test suite."""
 import json, sys, urllib.request, urllib.error
 
-BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:3000"
+BASE = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:3001"
 PASS = FAIL = 0
 
 def request(method, path, body=None, headers=None):
@@ -219,7 +219,7 @@ info:
   version: "1.0.0"
   description: API description here
 servers:
-  - url: http://localhost:3000
+  - url: http://localhost:3001
     description: Local development
 paths:
   /health:
@@ -445,7 +445,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`API running on http://localhost:${PORT}`));
 ```
 
@@ -464,12 +464,12 @@ node server.js
 
 ```bash
 # Linux/macOS
-lsof -i :3000
+lsof -i :3001
 # or
-ss -tlnp | grep 3000
+ss -tlnp | grep 3001
 
 # Kill process on port
-kill $(lsof -t -i :3000)
+kill $(lsof -t -i :3001)
 ```
 
 ### Test CORS
@@ -477,7 +477,7 @@ kill $(lsof -t -i :3000)
 ```bash
 # Preflight request
 curl -s -X OPTIONS https://api.example.com/users \
-  -H "Origin: http://localhost:3000" \
+  -H "Origin: http://localhost:3001" \
   -H "Access-Control-Request-Method: POST" \
   -H "Access-Control-Request-Headers: Content-Type" \
   -I
@@ -488,7 +488,7 @@ curl -s -X OPTIONS https://api.example.com/users \
 ```bash
 # Quick benchmark (10 requests)
 for i in $(seq 1 10); do
-  curl -s -o /dev/null -w "%{time_total}\n" http://localhost:3000/api/users
+  curl -s -o /dev/null -w "%{time_total}\n" http://localhost:3001/api/users
 done | awk '{sum+=$1; if($1>max)max=$1} END {printf "Avg: %.3fs, Max: %.3fs\n", sum/NR, max}'
 ```
 
@@ -506,4 +506,4 @@ echo "$TOKEN" | cut -d. -f2 | base64 -d 2>/dev/null | jq .
 - Use `-w '\n'` with curl to ensure output ends with a newline
 - For large response bodies, pipe to `jq -C . | less -R` for colored paging
 - Test error paths: invalid JSON, missing fields, wrong types, unauthorized, not found
-- For WebSocket testing: `npx wscat -c ws://localhost:3000/ws`
+- For WebSocket testing: `npx wscat -c ws://localhost:3001/ws`

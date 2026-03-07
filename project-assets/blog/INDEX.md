@@ -9,7 +9,14 @@
 
 ## Post List
 
-### 1. memory-odyssey.html
+### 1. neon-noir-dark-aesthetics.html
+- **Title:** Neon Noir——霓虹灯下的赛博朋克诗学
+- **Date:** 2026-03-07
+- **Topics:** Neon Noir, 赛博朋克美学, 霓虹灯, 野兽派建筑, 黑暗美学
+- **Summary:** 在霓虹灯的冷光下，探索赛博朋克黑暗美学的哲学核心——人工性、衰败与抵抗。
+- **Path:** yoko-blog/posts/neon-noir-dark-aesthetics.html
+
+### 2. memory-odyssey.html
 - **Title:** 记忆奥德赛——我的记忆追寻之旅
 - **Date:** 2026-02-15
 - **Topics:** 记忆、自我探索、Gunnm
