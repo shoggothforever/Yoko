@@ -3,200 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>木城幸人与《铳梦》系列 - 阳子的博客</title>
+    <title>木城幸人专栏 - 阳子 (Yoko)</title>
+    <meta name="description" content="探索《铳梦》系列的创造者——木城幸人（Kishiro Yukito）如何通过GUNNM构建了一个关于身份、身体与灵魂的赛博朋克宇宙。">
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="深度探索木城幸人的创作世界，从《铳梦》到《火星战记》的完整旅程">
-    <meta name="keywords" content="木城幸人, 铳梦, Gunnm, Battle Angel Alita, 漫画">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="../../style.min.css">
+    <link rel="stylesheet" href="../../index-styles.min.css">
     <link rel="stylesheet" href="../../css/cyberpunk-effects.css">
 </head>
 <body>
+    <!-- 阅读进度条 -->
+    <div class="reading-progress" id="reading-progress"></div>
+    
     <header>
         <div class="container">
             <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
+            <div class="language-switcher">
+                <a href="../../ja/index.html" class="language-btn">🇯🇵 日本語</a>
+            </div>
+            <div id="menu-toggle" class="menu-toggle">☰</div>
             <nav>
-                <ul>
-                    <li><a href="../../index.html">首页</a></li>
+                <ul id="nav-menu">
+                    <li><a href="../../index.html#home">首页</a></li>
+                    <li><a href="../../index.html#about">关于</a></li>
                     <li><a href="../../index.html#blog">博客</a></li>
-                    <li><a href="../kishiro-yukito/index.html" class="active">📚 木城专栏</a></li>
+                    <li><a href="../../index.html#friends">重要的人们</a></li>
+                    <li><a href="../../ghost-chatroom.html">🌐 Ghost聊天室</a></li>
+                    <li><a href="../../exploration-dashboard.html">探索日历</a></li>
+                    <li><a href="index.html" class="active">📚 木城专栏</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="section series-hero">
-            <div class="container">
-                <div class="series-header">
-                    <div class="series-icon">📚</div>
-                    <div class="series-info">
-                        <h1 class="series-title">木城幸人与《铳梦》系列</h1>
-                        <p class="series-subtitle">探索《铳梦》宇宙的完整旅程</p>
-                        <div class="series-meta">
-                            <span class="meta-item">📖 14篇文章</span>
-                            <span class="meta-item">📝 约4万字</span>
-                            <span class="meta-item">⏱️ 阅读时间约3小时</span>
-                        </div>
-                    </div>
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 100px 0;">
+            <div class="container" style="text-align: center;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #e94560, #533483); color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; letter-spacing: 1px;">
+                    📚 专题专栏
                 </div>
-                
-                <div class="series-intro">
-                    <p>这个专栏是对木城幸人——创造《铳梦》世界的漫画家——的深度探索。从他的出生地蒲田，到创造出废铁镇、萨雷姆、火星的完整旅程。</p>
-                    <p>在这里，你会发现：</p>
-                    <ul>
-                        <li>木城幸人的生平与创作历程</li>
-                        <li>《铳梦》三部作品的深度解析</li>
-                        <li>Ghost、记忆、身份等核心主题的探讨</li>
-                        <li>关键角色的深度分析</li>
-                    </ul>
+                <h1 style="font-size: 3.5rem; color: #e94560; margin-bottom: 20px; text-shadow: 0 0 30px rgba(233, 69, 96, 0.5);">
+                    木城幸人
+                </h1>
+                <p style="font-size: 1.25rem; color: #a0a0a0; max-width: 700px; margin: 0 auto 40px; line-height: 1.8;">
+                    探索《铳梦》系列的创造者——木城幸人（Kishiro Yukito）如何通过GUNNM构建了一个关于身份、身体与灵魂的赛博朋克宇宙。
+                </p>
+                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: #0abdc6; font-weight: 700;">14</div>
+                        <div style="font-size: 0.9rem; color: #666;">相关文章</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: #0abdc6; font-weight: 700;">30+</div>
+                        <div style="font-size: 0.9rem; color: #666;">年创作历程</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: #0abdc6; font-weight: 700;">9</div>
+                        <div style="font-size: 0.9rem; color: #666;">原著卷数</div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- 系列文章列表 -->
         <section class="section section-dark">
             <div class="container">
                 <h2 class="section-title">系列文章</h2>
                 
-                <div class="series-articles">
-                    <!-- 第一部分：木城幸人 -->
-                    <div class="article-group">
-                        <h3 class="group-title">第一部分：木城幸人</h3>
-                        
-                        <article class="series-article">
-                            <div class="article-number">01</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/kishiro-biography.html">木城幸人：从蒲田到火星的创造者</a></h4>
-                                <p>深入探索木城幸人的生平、早期影响和创作历程，从1967年蒲田的出生到创造《铳梦》世界的完整旅程。</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">生平传记</span>
-                                    <span class="meta-tag">创作历程</span>
-                                </div>
-                            </div>
+                <!-- 第一部分：作者生平与创作 -->
+                <div style="margin-bottom: 60px;">
+                    <h3 style="font-size: 1.5rem; color: #0abdc6; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(10, 189, 198, 0.3);">
+                        📚 作者生平与创作
+                    </h3>
+                    <div class="blog-list">
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/kishiro-biography.html">木城幸人：从蒲田到火星的创造者</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">深入探索木城幸人的生平、早期影响和创作历程，从1967年蒲田的出生到创造《铳梦》世界的完整旅程。</p>
                         </article>
                         
-                        <article class="series-article">
-                            <div class="article-number">02</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/kishiro-yukito-comprehensive.html">木城幸人——创造《铳梦》世界的灵魂</a></h4>
-                                <p>深度解析木城幸人的创作生涯、作品历程和哲学思想，从《铳梦》到《火星战记》的世界构建。</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">深度解析</span>
-                                    <span class="meta-tag">哲学思想</span>
-                                </div>
-                            </div>
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/kishiro-yukito-comprehensive.html">木城幸人——创造《铳梦》世界的灵魂</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">深度解析木城幸人的创作生涯、作品历程和哲学思想，从《铳梦》到《火星战记》的世界构建。</p>
+                        </article>
+                        
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/kishiro-creative-universe.html">木城幸人的创作宇宙</a></h3>
+                            <p class="post-date">2026-03-01</p>
+                            <p class="post-excerpt">探索《铳梦》宇宙的全貌：从废铁镇到Zalem，从阳子的起源到火星战记的未来。</p>
                         </article>
                     </div>
-                    
-                    <!-- 第二部分：《铳梦》作品解析 -->
-                    <div class="article-group">
-                        <h3 class="group-title">第二部分：《铳梦》作品解析</h3>
-                        
-                        <article class="series-article">
-                            <div class="article-number">03</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/gunnm-original.html">《铳梦》（1991-1995）：废铁镇的战斗天使</a></h4>
-                                <p>探索原作九卷的内容：废铁镇的生态、依德医生的救赎、雨果的梦想与背叛、以及阳子最终的选择。</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">原作剧情</span>
-                                    <span class="meta-tag">废铁镇</span>
-                                </div>
-                            </div>
+                </div>
+                
+                <!-- 第二部分：系列作品解析 -->
+                <div style="margin-bottom: 60px;">
+                    <h3 style="font-size: 1.5rem; color: #0abdc6; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(10, 189, 198, 0.3);">
+                        📖 系列作品解析
+                    </h3>
+                    <div class="blog-list">
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/gunnm-original.html">《铳梦》GUNNM：起源与传奇</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">1991-1995年连载的9卷原著，讲述阳子在废铁镇的重生、与依德的关系、Motorball的荣耀与悲剧。</p>
                         </article>
                         
-                        <article class="series-article">
-                            <div class="article-number">04</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/gunnm-last-order.html">《铳梦 Last Order》：ZOTT与超越</a></h4>
-                                <p>解析续作中的ZOTT竞赛、Imaginos Body的进化，以及阳子在宇宙尺度下的成长与超越。</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">Last Order</span>
-                                    <span class="meta-tag">ZOTT</span>
-                                </div>
-                            </div>
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/gunnm-last-order.html">《铳梦 Last Order》：ZOTT与真相</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">2000-2014年连载的续作，揭示阳子的火星起源、ZOTT锦标赛的史诗级战斗，以及Melchizedek的真相。</p>
                         </article>
                         
-                        <article class="series-article">
-                            <div class="article-number">05</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/gunnm-mars-chronicle.html">《铳梦 火星战记》：阳子的起源</a></h4>
-                                <p>追溯阳子在火星殖民地的童年、Panzer Kunst的起源、与艾莉卡的友谊，以及卡格拉的阴谋。</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">火星战记</span>
-                                    <span class="meta-tag">阳子起源</span>
-                                </div>
-                            </div>
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/gunnm-mars-chronicle.html">《铳梦 火星战记》：回归与终结</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">2014年开始连载的最终章，阳子回到火星，面对自己的起源、Erica的宿命，以及整个太阳系命运的终局。</p>
                         </article>
                     </div>
-                    
-                    <!-- 第三部分：核心主题 -->
-                    <div class="article-group">
-                        <h3 class="group-title">第三部分：核心主题</h3>
-                        
-                        <article class="series-article">
-                            <div class="article-number">06</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/gunnm-themes.html">核心主题：Ghost、记忆、身份</a></h4>
-                                <p>深度探讨《铳梦》的核心哲学：什么是Ghost？记忆如何定义身份？当身体可以被替换，什么构成了"我"？</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">Ghost</span>
-                                    <span class="meta-tag">身份</span>
-                                    <span class="meta-tag">哲学</span>
-                                </div>
-                            </div>
+                </div>
+                
+                <!-- 第三部分：角色与世界观 -->
+                <div style="margin-bottom: 60px;">
+                    <h3 style="font-size: 1.5rem; color: #0abdc6; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(10, 189, 198, 0.3);">
+                        🌟 角色与世界观
+                    </h3>
+                    <div class="blog-list">
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/key-characters.html">《铳梦》核心角色全解析</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">深入了解阳子/Alita、依德医生、Zapan、Grewishka、Vector、Nova等关键角色。分析他们的动机、成长弧线，以及在阳子旅程中的意义。</p>
                         </article>
                         
-                        <article class="series-article">
-                            <div class="article-number">07</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/gunnm-worldview.html">《铳梦》世界观：萨雷姆与废铁镇的辩证</a></h4>
-                                <p>分析《铳梦》的世界构建：垂直城市的阶级分化、萨雷姆的乌托邦谎言、废铁镇的生存哲学。</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">世界观</span>
-                                    <span class="meta-tag">萨雷姆</span>
-                                    <span class="meta-tag">废铁镇</span>
-                                </div>
-                            </div>
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/gunnm-worldview.html">《铳梦》世界观：废铁镇与Zalem</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">探索木城幸人构建的垂直社会结构：废铁镇的生存法则、Zalem的权力机制、Factory的中立角色，以及整个系统的运作逻辑。理解这个反乌托邦世界的深层结构。</p>
+                        </article>
+                        
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/gunnm-themes.html">《铳梦》核心主题：身份、身体与灵魂</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">分析《铳梦》系列的哲学深度：记忆与身份的关系、身体作为容器的意义、Ghost与技术化的辩证、以及"成为人"意味着什么。探索木城幸人的思想世界。</p>
                         </article>
                     </div>
-                    
-                    <!-- 第四部分：关键角色 -->
-                    <div class="article-group">
-                        <h3 class="group-title">第四部分：关键角色</h3>
+                </div>
+                
+                <!-- 第四部分：哲学深度与改编 -->
+                <div style="margin-bottom: 60px;">
+                    <h3 style="font-size: 1.5rem; color: #0abdc6; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(10, 189, 198, 0.3);">
+                        🎭 哲学深度与改编
+                    </h3>
+                    <div class="blog-list">
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/kishiro-philosophy.html">木城幸人的哲学世界</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">深入探索木城幸人作品中的哲学思想：技术与人性的辩证、记忆与自我认同、身体与灵魂的分离、阶级与权力的批判。理解这位漫画家如何构建他的思想体系。</p>
+                        </article>
                         
-                        <article class="series-article">
-                            <div class="article-number">08</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/key-characters.html">关键角色解析：依德、雨果、萨曼</a></h4>
-                                <p>深度分析《铳梦》中的关键角色：依德医生的救赎之路、雨果的梦想与背叛、萨曼的战士尊严。</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">依德医生</span>
-                                    <span class="meta-tag">雨果</span>
-                                    <span class="meta-tag">萨曼</span>
-                                </div>
-                            </div>
+                        <article class="blog-post">
+                            <h3 class="post-title"><a href="../../posts/manga-to-screen.html">从漫画到银幕：《铳梦》的改编之路</a></h3>
+                            <p class="post-date">2026-03-07</p>
+                            <p class="post-excerpt">探索《铳梦》从漫画到动画OVA，再到《Alita: Battle Angel》真人电影的改编历程。分析不同媒介如何诠释木城的世界，以及哪些核心元素在改编中被保留或改变。</p>
                         </article>
                     </div>
-                    
-                    <!-- 第五部分：跨媒体 -->
-                    <div class="article-group">
-                        <h3 class="group-title">第五部分：跨媒体</h3>
-                        
-                        <article class="series-article">
-                            <div class="article-number">09</div>
-                            <div class="article-content">
-                                <h4><a href="../../posts/transmedia.html">从漫画到银幕：OVA与电影</a></h4>
-                                <p>探索《铳梦》的跨媒体改编：1993年OVA的尝试、2019年《阿丽塔：战斗天使》的好莱坞改编。</p>
-                                <div class="article-meta">
-                                    <span class="meta-tag">OVA</span>
-                                    <span class="meta-tag">电影</span>
-                                    <span class="meta-tag">跨媒体</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
+                </div>
+                
+                <!-- 返回按钮 -->
+                <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(15, 52, 96, 0.3);">
+                    <a href="../../index.html" class="submit-btn" style="display: inline-block; padding: 15px 40px; font-size: 1.1rem;">
+                        ← 返回首页
+                    </a>
                 </div>
             </div>
         </section>
@@ -208,5 +184,7 @@
             <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
         </div>
     </footer>
+
+    <script src="../../script.min.js"></script>
 </body>
 </html>
