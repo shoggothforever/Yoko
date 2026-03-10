@@ -1,0 +1,159 @@
+<!-- 面包屑导航组件 -->
+<nav class="breadcrumb-nav" aria-label="面包屑导航">
+    <div class="container">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+                <a href="../../index.html" class="breadcrumb-link">
+                    <span class="breadcrumb-icon">🏠</span>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li class="breadcrumb-separator">/</li>
+            <li class="breadcrumb-item">
+                <a href="../../archive.html" class="breadcrumb-link">
+                    <span>专栏系列</span>
+                </a>
+            </li>
+            <li class="breadcrumb-separator">/</li>
+            <li class="breadcrumb-item active">
+                <span class="breadcrumb-current">木城幸人专栏</span>
+            </li>
+        </ol>
+    </div>
+</nav>
+
+<style>
+/* 面包屑导航样式 */
+.breadcrumb-nav {
+    background: linear-gradient(135deg, rgba(10, 11, 30, 0.95) 0%, rgba(26, 26, 46, 0.95) 100%);
+    border-bottom: 1px solid rgba(10, 189, 198, 0.1);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--neon-cyan);
+    background: rgba(10, 189, 198, 0.1);
+}
+
+.breadcrumb-icon {
+    font-size: 0.75rem;
+}
+
+.breadcrumb-separator {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0 0.25rem;
+}
+
+.breadcrumb-current {
+    color: var(--neon-cyan);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .breadcrumb-nav {
+        padding: 0.5rem 0;
+    }
+    
+    .breadcrumb-link {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .breadcrumb-current {
+        font-size: 0.75rem;
+    }
+    
+    /* 隐藏中间层级，只显示首页和当前页 */
+    .breadcrumb-item:nth-child(3),
+    .breadcrumb-item:nth-child(4),
+    .breadcrumb-separator:nth-child(4) {
+        display: none;
+    }
+}
+
+/* 阅读进度条 */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+    z-index: 1001;
+    transition: width 0.1s ease;
+}
+
+.reading-progress.visible {
+    width: var(--progress, 0%);
+}
+</style>
+
+<script>
+// 面包屑导航交互
+document.addEventListener('DOMContentLoaded', function() {
+    // 高亮当前页面
+    const currentPath = window.location.pathname;
+    const breadcrumbItems = document.querySelectorAll('.breadcrumb-item');
+    
+    breadcrumbItems.forEach(item => {
+        const link = item.querySelector('.breadcrumb-link');
+        if (link) {
+            const href = link.getAttribute('href');
+            if (currentPath.includes(href.replace('../../', ''))) {
+                item.classList.add('active');
+            }
+        }
+    });
+    
+    // 阅读进度条
+    const progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress';
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = progress + '%';
+        
+        if (progress > 0) {
+            progressBar.classList.add('visible');
+        }
+    });
+});
+</script>
