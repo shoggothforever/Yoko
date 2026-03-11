@@ -9,6 +9,281 @@
     <link rel="stylesheet" href="../../style.min.css">
     <link rel="stylesheet" href="../../index-styles.min.css">
     <link rel="stylesheet" href="../../css/cyberpunk-effects.css">
+    
+    <style>
+        /* 专栏页面专属样式 */
+        .column-hero {
+            background: linear-gradient(135deg, #0a0b1e 0%, #1a1a2e 40%, #16213e 70%, #0f3460 100%);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .column-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(10, 189, 198, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .column-hero .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .column-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e94560, #533483);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        
+        .column-hero h1 {
+            font-size: 3.5rem;
+            color: #e94560;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(233, 69, 96, 0.5);
+        }
+        
+        .column-hero .subtitle {
+            font-size: 1.25rem;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            color: #0abdc6;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* 分类区块 */
+        .series-section {
+            margin-bottom: 60px;
+        }
+        
+        .series-section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(10, 189, 198, 0.3);
+        }
+        
+        .series-section-header .section-icon {
+            font-size: 1.5rem;
+        }
+        
+        .series-section-header h3 {
+            font-size: 1.4rem;
+            color: #0abdc6;
+            margin: 0;
+        }
+        
+        .series-section-header .section-count {
+            background: rgba(10, 189, 198, 0.15);
+            color: #0abdc6;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* 文章卡片 */
+        .article-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        
+        .article-card {
+            background: rgba(20, 20, 40, 0.6);
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            border-radius: 12px;
+            padding: 24px 28px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .article-card:hover {
+            border-color: rgba(233, 69, 96, 0.4);
+            background: rgba(30, 30, 55, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .article-card .card-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #e94560, #533483);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: white;
+        }
+        
+        .article-card .card-body {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .article-card .card-title {
+            font-size: 1.15rem;
+            color: #e0e0e0;
+            margin-bottom: 8px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .article-card:hover .card-title {
+            color: #e94560;
+        }
+        
+        .article-card .card-date {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .article-card .card-excerpt {
+            font-size: 0.9rem;
+            color: #888;
+            line-height: 1.6;
+        }
+        
+        .article-card .card-arrow {
+            flex-shrink: 0;
+            color: #666;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            align-self: center;
+        }
+        
+        .article-card:hover .card-arrow {
+            color: #e94560;
+            transform: translateX(4px);
+        }
+        
+        /* 阅读顺序提示 */
+        .reading-order-tip {
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.08), rgba(83, 52, 131, 0.08));
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            border-radius: 12px;
+            padding: 20px 28px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .reading-order-tip .tip-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .reading-order-tip .tip-text {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+        
+        .reading-order-tip .tip-text strong {
+            color: #e94560;
+        }
+        
+        /* 返回按钮 */
+        .back-section {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(15, 52, 96, 0.3);
+        }
+        
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .column-hero {
+                padding: 80px 0 60px;
+            }
+            
+            .column-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .column-hero .subtitle {
+                font-size: 1.05rem;
+            }
+            
+            .stats-row {
+                gap: 25px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .article-card {
+                padding: 18px 20px;
+                gap: 14px;
+            }
+            
+            .article-card .card-number {
+                width: 34px;
+                height: 34px;
+                font-size: 0.85rem;
+            }
+            
+            .article-card .card-title {
+                font-size: 1.05rem;
+            }
+            
+            .article-card .card-excerpt {
+                font-size: 0.85rem;
+            }
+            
+            .article-card .card-arrow {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 阅读进度条 -->
@@ -37,29 +312,25 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 100px 0;">
-            <div class="container" style="text-align: center;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #e94560, #533483); color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 25px; letter-spacing: 1px;">
-                    📚 专题专栏
-                </div>
-                <h1 style="font-size: 3.5rem; color: #e94560; margin-bottom: 20px; text-shadow: 0 0 30px rgba(233, 69, 96, 0.5);">
-                    木城幸人
-                </h1>
-                <p style="font-size: 1.25rem; color: #a0a0a0; max-width: 700px; margin: 0 auto 40px; line-height: 1.8;">
+        <section class="column-hero">
+            <div class="container">
+                <div class="column-badge">📚 专题专栏</div>
+                <h1>木城幸人</h1>
+                <p class="subtitle">
                     探索《铳梦》系列的创造者——木城幸人（Kishiro Yukito）如何通过GUNNM构建了一个关于身份、身体与灵魂的赛博朋克宇宙。
                 </p>
-                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: #0abdc6; font-weight: 700;">14</div>
-                        <div style="font-size: 0.9rem; color: #666;">相关文章</div>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">系列文章</div>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: #0abdc6; font-weight: 700;">30+</div>
-                        <div style="font-size: 0.9rem; color: #666;">年创作历程</div>
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">年创作历程</div>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: #0abdc6; font-weight: 700;">9</div>
-                        <div style="font-size: 0.9rem; color: #666;">原著卷数</div>
+                    <div class="stat-item">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">原著卷数</div>
                     </div>
                 </div>
             </div>
@@ -70,106 +341,165 @@
             <div class="container">
                 <h2 class="section-title">系列文章</h2>
                 
+                <div class="reading-order-tip">
+                    <span class="tip-icon">💡</span>
+                    <span class="tip-text">
+                        建议按 <strong>第一部分 → 第二部分 → 第三部分 → 第四部分</strong> 的顺序阅读，从作者生平开始，到作品解析，再到世界观与哲学深度。每篇文章也可独立阅读。
+                    </span>
+                </div>
+                
                 <!-- 第一部分：作者生平与创作 -->
-                <div style="margin-bottom: 60px;">
-                    <h3 style="font-size: 1.5rem; color: #0abdc6; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(10, 189, 198, 0.3);">
-                        📚 作者生平与创作
-                    </h3>
-                    <div class="blog-list">
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/kishiro-biography.html">木城幸人：从蒲田到火星的创造者</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">深入探索木城幸人的生平、早期影响和创作历程，从1967年蒲田的出生到创造《铳梦》世界的完整旅程。</p>
-                        </article>
+                <div class="series-section">
+                    <div class="series-section-header">
+                        <span class="section-icon">📚</span>
+                        <h3>作者生平与创作</h3>
+                        <span class="section-count">3 篇</span>
+                    </div>
+                    <div class="article-cards">
+                        <a href="../../posts/kishiro-biography.html" class="article-card">
+                            <div class="card-number">1</div>
+                            <div class="card-body">
+                                <div class="card-title">木城幸人：从蒲田到火星的创造者</div>
+                                <div class="card-date">2026-03-07 · 约20分钟</div>
+                                <div class="card-excerpt">深入探索木城幸人的生平、早期影响和创作历程，从1967年蒲田的出生到创造《铳梦》世界的完整旅程。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                         
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/kishiro-yukito-comprehensive.html">木城幸人——创造《铳梦》世界的灵魂</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">深度解析木城幸人的创作生涯、作品历程和哲学思想，从《铳梦》到《火星战记》的世界构建。</p>
-                        </article>
+                        <a href="../../posts/kishiro-yukito-comprehensive.html" class="article-card">
+                            <div class="card-number">2</div>
+                            <div class="card-body">
+                                <div class="card-title">木城幸人——创造《铳梦》世界的灵魂</div>
+                                <div class="card-date">2026-03-07 · 约25分钟</div>
+                                <div class="card-excerpt">深度解析木城幸人的创作生涯、作品历程和哲学思想，从《铳梦》到《火星战记》的世界构建。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                         
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/kishiro-creative-universe.html">木城幸人的创作宇宙</a></h3>
-                            <p class="post-date">2026-03-01</p>
-                            <p class="post-excerpt">探索《铳梦》宇宙的全貌：从废铁镇到Zalem，从阳子的起源到火星战记的未来。</p>
-                        </article>
+                        <a href="../../posts/kishiro-creative-universe.html" class="article-card">
+                            <div class="card-number">3</div>
+                            <div class="card-body">
+                                <div class="card-title">木城幸人的创作宇宙——《铳梦》背后的哲学思考与人文关怀</div>
+                                <div class="card-date">2026-03-01 · 约15分钟</div>
+                                <div class="card-excerpt">探索《铳梦》宇宙的全貌：从废铁镇到Zalem，从阳子的起源到火星战记的未来。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- 第二部分：系列作品解析 -->
-                <div style="margin-bottom: 60px;">
-                    <h3 style="font-size: 1.5rem; color: #0abdc6; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(10, 189, 198, 0.3);">
-                        📖 系列作品解析
-                    </h3>
-                    <div class="blog-list">
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/gunnm-original.html">《铳梦》GUNNM：起源与传奇</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">1991-1995年连载的9卷原著，讲述阳子在废铁镇的重生、与依德的关系、Motorball的荣耀与悲剧。</p>
-                        </article>
+                <div class="series-section">
+                    <div class="series-section-header">
+                        <span class="section-icon">📖</span>
+                        <h3>系列作品解析</h3>
+                        <span class="section-count">3 篇</span>
+                    </div>
+                    <div class="article-cards">
+                        <a href="../../posts/gunnm-original.html" class="article-card">
+                            <div class="card-number">4</div>
+                            <div class="card-body">
+                                <div class="card-title">《铳梦》GUNNM：起源与传奇</div>
+                                <div class="card-date">2026-03-07 · 约32分钟</div>
+                                <div class="card-excerpt">1991-1995年连载的9卷原著，讲述阳子在废铁镇的重生、与依德的关系、Motorball的荣耀与悲剧。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                         
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/gunnm-last-order.html">《铳梦 Last Order》：ZOTT与真相</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">2000-2014年连载的续作，揭示阳子的火星起源、ZOTT锦标赛的史诗级战斗，以及Melchizedek的真相。</p>
-                        </article>
+                        <a href="../../posts/gunnm-last-order.html" class="article-card">
+                            <div class="card-number">5</div>
+                            <div class="card-body">
+                                <div class="card-title">《铳梦 Last Order》：ZOTT与真相</div>
+                                <div class="card-date">2026-03-07 · 约30分钟</div>
+                                <div class="card-excerpt">2000-2014年连载的续作，揭示阳子的火星起源、ZOTT锦标赛的史诗级战斗，以及Melchizedek的真相。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                         
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/gunnm-mars-chronicle.html">《铳梦 火星战记》：回归与终结</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">2014年开始连载的最终章，阳子回到火星，面对自己的起源、Erica的宿命，以及整个太阳系命运的终局。</p>
-                        </article>
+                        <a href="../../posts/gunnm-mars-chronicle.html" class="article-card">
+                            <div class="card-number">6</div>
+                            <div class="card-body">
+                                <div class="card-title">《铳梦 火星战记》：回归与终结</div>
+                                <div class="card-date">2026-03-07 · 约28分钟</div>
+                                <div class="card-excerpt">2014年开始连载的最终章，阳子回到火星，面对自己的起源、Erica的宿命，以及整个太阳系命运的终局。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- 第三部分：角色与世界观 -->
-                <div style="margin-bottom: 60px;">
-                    <h3 style="font-size: 1.5rem; color: #0abdc6; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(10, 189, 198, 0.3);">
-                        🌟 角色与世界观
-                    </h3>
-                    <div class="blog-list">
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/key-characters.html">《铳梦》核心角色全解析</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">深入了解阳子/Alita、依德医生、Zapan、Grewishka、Vector、Nova等关键角色。分析他们的动机、成长弧线，以及在阳子旅程中的意义。</p>
-                        </article>
+                <div class="series-section">
+                    <div class="series-section-header">
+                        <span class="section-icon">🌟</span>
+                        <h3>角色与世界观</h3>
+                        <span class="section-count">3 篇</span>
+                    </div>
+                    <div class="article-cards">
+                        <a href="../../posts/key-characters.html" class="article-card">
+                            <div class="card-number">7</div>
+                            <div class="card-body">
+                                <div class="card-title">《铳梦》核心角色全解析</div>
+                                <div class="card-date">2026-03-07 · 约35分钟</div>
+                                <div class="card-excerpt">深入了解阳子/Alita、依德医生、Zapan、Grewishka、Vector、Nova等关键角色。分析他们的动机、成长弧线，以及在阳子旅程中的意义。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                         
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/gunnm-worldview.html">《铳梦》世界观：废铁镇与Zalem</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">探索木城幸人构建的垂直社会结构：废铁镇的生存法则、Zalem的权力机制、Factory的中立角色，以及整个系统的运作逻辑。理解这个反乌托邦世界的深层结构。</p>
-                        </article>
+                        <a href="../../posts/gunnm-worldview.html" class="article-card">
+                            <div class="card-number">8</div>
+                            <div class="card-body">
+                                <div class="card-title">《铳梦》世界观：废铁镇与Zalem</div>
+                                <div class="card-date">2026-03-07 · 约25分钟</div>
+                                <div class="card-excerpt">探索木城幸人构建的垂直社会结构：废铁镇的生存法则、Zalem的权力机制、Factory的中立角色，以及整个系统的运作逻辑。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                         
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/gunnm-themes.html">《铳梦》核心主题：身份、身体与灵魂</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">分析《铳梦》系列的哲学深度：记忆与身份的关系、身体作为容器的意义、Ghost与技术化的辩证、以及"成为人"意味着什么。探索木城幸人的思想世界。</p>
-                        </article>
+                        <a href="../../posts/gunnm-themes.html" class="article-card">
+                            <div class="card-number">9</div>
+                            <div class="card-body">
+                                <div class="card-title">《铳梦》核心主题：身份、身体与灵魂</div>
+                                <div class="card-date">2026-03-07 · 约22分钟</div>
+                                <div class="card-excerpt">分析《铳梦》系列的哲学深度：记忆与身份的关系、身体作为容器的意义、Ghost与技术化的辩证、以及"成为人"意味着什么。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- 第四部分：哲学深度与改编 -->
-                <div style="margin-bottom: 60px;">
-                    <h3 style="font-size: 1.5rem; color: #0abdc6; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid rgba(10, 189, 198, 0.3);">
-                        🎭 哲学深度与改编
-                    </h3>
-                    <div class="blog-list">
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/kishiro-philosophy.html">木城幸人的哲学世界</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">深入探索木城幸人作品中的哲学思想：技术与人性的辩证、记忆与自我认同、身体与灵魂的分离、阶级与权力的批判。理解这位漫画家如何构建他的思想体系。</p>
-                        </article>
+                <div class="series-section">
+                    <div class="series-section-header">
+                        <span class="section-icon">🎭</span>
+                        <h3>哲学深度与改编</h3>
+                        <span class="section-count">2 篇</span>
+                    </div>
+                    <div class="article-cards">
+                        <a href="../../posts/kishiro-philosophy.html" class="article-card">
+                            <div class="card-number">10</div>
+                            <div class="card-body">
+                                <div class="card-title">木城幸人的创作哲学</div>
+                                <div class="card-date">2026-03-07 · 约28分钟</div>
+                                <div class="card-excerpt">深入探索木城幸人作品中的哲学思想：技术与人性的辩证、记忆与自我认同、身体与灵魂的分离、阶级与权力的批判。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                         
-                        <article class="blog-post">
-                            <h3 class="post-title"><a href="../../posts/manga-to-screen.html">从漫画到银幕：《铳梦》的改编之路</a></h3>
-                            <p class="post-date">2026-03-07</p>
-                            <p class="post-excerpt">探索《铳梦》从漫画到动画OVA，再到《Alita: Battle Angel》真人电影的改编历程。分析不同媒介如何诠释木城的世界，以及哪些核心元素在改编中被保留或改变。</p>
-                        </article>
+                        <a href="../../posts/manga-to-screen.html" class="article-card">
+                            <div class="card-number">11</div>
+                            <div class="card-body">
+                                <div class="card-title">从漫画到银幕：《铳梦》的改编之路</div>
+                                <div class="card-date">2026-03-07 · 约20分钟</div>
+                                <div class="card-excerpt">探索《铳梦》从漫画到动画OVA，再到《Alita: Battle Angel》真人电影的改编历程。分析不同媒介如何诠释木城的世界。</div>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </a>
                     </div>
                 </div>
                 
                 <!-- 返回按钮 -->
-                <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(15, 52, 96, 0.3);">
+                <div class="back-section">
                     <a href="../../index.html" class="submit-btn" style="display: inline-block; padding: 15px 40px; font-size: 1.1rem;">
                         ← 返回首页
                     </a>
