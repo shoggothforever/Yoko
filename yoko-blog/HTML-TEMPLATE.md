@@ -28,10 +28,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="文章标题">
     <meta name="twitter:description" content="文章简短描述">
-    <meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
+    <meta name="twitter:image" content="https://yoko.sfct.top/public/images/加里.webp">
     
     <!-- Canonical -->
-    <link rel="canonical"=" href="https://118.145.99.224/posts/文章文件名.html">
+    <link rel="canonical" href="https://yoko.sfct.top/posts/文章文件名.html">
     
     <!-- CSS样式表 -->
     <link rel="stylesheet" href="../style.min.css">

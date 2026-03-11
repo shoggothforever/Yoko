@@ -138,7 +138,7 @@ python3 scripts/update-articles-to-components.py
     
     <!-- SEO meta tags... -->
     
-    <link rel="canonical" href="https://118.145.99.224/posts/emotional-resonance.html">
+    <link rel="canonical" href="https://yoko.sfct.top/posts/emotional-resonance.html">
     
     <!-- CSS样式表 -->
     <link rel="stylesheet" href="../style.min.css">
