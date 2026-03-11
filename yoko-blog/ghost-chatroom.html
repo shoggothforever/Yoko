@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.min.css">
     <link rel="stylesheet" href="ghost-chatroom.min.css">
     <link rel="stylesheet" href="ghost-chatroom-improvements.css">
+    <link rel="stylesheet" href="ghost-chatroom-history.css">
+    <!-- Markdown渲染库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
     <script src="ghost-sse.js"></script>
 </head>
 <body>
@@ -34,12 +37,12 @@
         <!-- 讨论历史区 -->
         <section class="history-section" id="history-section" style="display: none;">
             <h2 class="section-title">📜 讨论历史</h2>
-            <p class="section-desc">查看Ghost们之前的精彩对话（18条记录）</p>
+            <p class="section-desc">查看Ghost们之前的精彩对话 · 思想碰撞的记录</p>
 
             <!-- 加载状态 -->
             <div class="loading-state" id="history-loading" style="display: none;">
                 <div class="loading-spinner"></div>
-                <p>正在加载讨论历史...</p>
+                <p>正在从虚拟空间加载讨论历史...</p>
             </div>
 
             <!-- 历史记录列表 -->
@@ -58,7 +61,7 @@
         <!-- Ghost卡片展示区 -->
         <section class="ghosts-section">
             <h2 class="section-title">🌐 选择Ghost进行讨论</h2>
-            <p class="section-desc" style="color:#0de334;">点击卡片选择参与讨论的Ghost（可多选）</p>
+            <p class="section-desc" style="color:#0de334;">点击卡片选择参与讨论的Ghost（可多选）· 左右滑动查看更多</p>
 
             <!-- 加载中状态 -->
             <div class="loading-state" id="loading-state" style="display: none;">
@@ -66,21 +69,15 @@
                 <p>正在从数据库加载Ghost...</p>
             </div>
 
-            <!-- Ghost卡片容器 - 支持滑动 -->
-            <div class="ghosts-container" id="ghosts-container">
-                <!-- 卡片将通过JS动态加载 -->
-            </div>
-
-            <!-- 左右滑动按钮 -->
-            <div class="swipe-controls">
-                <button class="swipe-btn" id="swipe-left" disabled>
-                    <span>⬅</span>
-                    <span>查看更多</span>
-                </button>
-                <button class="swipe-btn" id="swipe-right" disabled>
-                    <span>查看更多</span>
-                    <span>➡</span>
-                </button>
+            <!-- Ghost卡片轮播容器 -->
+            <div class="ghosts-carousel">
+                <button class="carousel-arrow carousel-left" id="carousel-left" disabled>‹</button>
+                <div class="ghosts-track-wrapper">
+                    <div class="ghosts-track" id="ghosts-container">
+                        <!-- 卡片将通过JS动态加载 -->
+                    </div>
+                </div>
+                <button class="carousel-arrow carousel-right" id="carousel-right" disabled>›</button>
             </div>
         </section>
 
@@ -99,6 +96,27 @@
                 <input type="text" id="topic-input" class="topic-input"
                        placeholder="输入你想探讨的话题，例如：当意识可以脱离肉体存在时，人类的定义是什么？"
                        maxlength="200">
+            </div>
+            <!-- 讨论轮数选择 -->
+            <div class="rounds-selector">
+                <label class="rounds-label">
+                    <span class="rounds-icon">⚙</span>
+                    <span>讨论深度</span>
+                </label>
+                <div class="rounds-control">
+                    <input type="range" id="rounds-slider" class="rounds-slider"
+                           min="2" max="12" value="6" step="1">
+                    <div class="rounds-display">
+                        <span class="rounds-value" id="rounds-value">6</span>
+                        <span class="rounds-unit">轮</span>
+                    </div>
+                    <div class="rounds-hints">
+                        <span class="hint-left">快速交锋</span>
+                        <span class="hint-right">深度思辨</span>
+                    </div>
+                </div>
+            </div>
+            <div class="start-wrapper">
                 <button class="start-btn" id="start-discussion" disabled onclick="startDiscussion()">
                     🚀 开始讨论
                 </button>
@@ -145,8 +163,6 @@
     // API 配置
     const API_HOST = 'http://118.145.99.224:8080';
 
-    let currentPage = 0;
-    const GHOSTS_PER_PAGE = 6;
     let isLoading = false;
 
     // 初始化
@@ -198,23 +214,24 @@
         }
     }
 
+    let carouselOffset = 0;
+
     function renderGhosts() {
         const container = document.getElementById('ghosts-container');
         container.innerHTML = '';
 
-        const startIndex = currentPage * GHOSTS_PER_PAGE;
-        const endIndex = Math.min(startIndex + GHOSTS_PER_PAGE, allGhosts.length);
-        const ghostsToShow = allGhosts.slice(startIndex, endIndex);
-
-        ghostsToShow.forEach(ghost => {
+        // 渲染所有Ghost卡片到轨道上
+        allGhosts.forEach(ghost => {
             const isSelected = selectedGhosts.includes(ghost.id);
             const card = createGhostCard(ghost, isSelected);
             container.appendChild(card);
         });
 
-        // 更新滑动按钮状态
-        updateSwipeControls();
-                // 阅读进度条
+        // 初始化轮播位置
+        carouselOffset = 0;
+        updateCarousel();
+
+        // 阅读进度条
         window.addEventListener('scroll', function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -224,6 +241,35 @@
                 progressBar.style.width = scrolled + '%';
             }
         });
+    }
+
+    function updateCarousel() {
+        const track = document.getElementById('ghosts-container');
+        track.style.transform = `translateX(-${carouselOffset}px)`;
+
+        const wrapper = document.querySelector('.ghosts-track-wrapper');
+        if (!wrapper) return;
+
+        const maxScroll = track.scrollWidth - wrapper.clientWidth;
+        document.getElementById('carousel-left').disabled = carouselOffset <= 0;
+        document.getElementById('carousel-right').disabled = carouselOffset >= maxScroll;
+    }
+
+    function scrollCarousel(direction) {
+        const wrapper = document.querySelector('.ghosts-track-wrapper');
+        const track = document.getElementById('ghosts-container');
+        if (!wrapper || !track) return;
+
+        const scrollAmount = wrapper.clientWidth * 0.7;
+        const maxScroll = Math.max(0, track.scrollWidth - wrapper.clientWidth);
+
+        if (direction === 'left') {
+            carouselOffset = Math.max(0, carouselOffset - scrollAmount);
+        } else {
+            carouselOffset = Math.min(maxScroll, carouselOffset + scrollAmount);
+        }
+
+        updateCarousel();
     }
 
     function createGhostCard(ghost, isSelected = false) {
@@ -257,32 +303,17 @@
         }
 
         console.log('当前选择:', selectedGhosts);
-        renderGhosts();
+        // 更新卡片的选中状态而不重新渲染整个轨道
+        document.querySelectorAll('.ghost-card').forEach(card => {
+            const gid = card.dataset.ghostId;
+            if (selectedGhosts.includes(gid)) {
+                card.classList.add('selected');
+            } else {
+                card.classList.remove('selected');
+            }
+        });
         updateSelectedGhostsDisplay();
         updateStartButton();
-    }
-
-    function updateSwipeControls() {
-        const leftBtn = document.getElementById('swipe-left');
-        const rightBtn = document.getElementById('swipe-right');
-
-        leftBtn.disabled = currentPage === 0;
-        rightBtn.disabled = (currentPage + 1) * GHOSTS_PER_PAGE >= allGhosts.length;
-    }
-
-    function swipeLeft() {
-        if (currentPage > 0) {
-            currentPage--;
-            renderGhosts();
-        }
-    }
-
-    function swipeRight() {
-        const maxPage = Math.ceil(allGhosts.length / GHOSTS_PER_PAGE) - 1;
-        if (currentPage < maxPage) {
-            currentPage++;
-            renderGhosts();
-        }
     }
 
     function updateSelectedGhostsDisplay() {
@@ -312,16 +343,64 @@
     }
 
     function initEventListeners() {
-        // 滑动按钮
-        document.getElementById('swipe-left').addEventListener('click', () => {
-            if (!isLoading) {
-                swipeLeft();
-            }
+        // 轮播箭头按钮
+        document.getElementById('carousel-left').addEventListener('click', () => {
+            if (!isLoading) scrollCarousel('left');
         });
-        document.getElementById('swipe-right').addEventListener('click', () => {
-            if (!isLoading) {
-                swipeRight();
-            }
+        document.getElementById('carousel-right').addEventListener('click', () => {
+            if (!isLoading) scrollCarousel('right');
+        });
+
+        // 支持触摸/鼠标拖拽滑动
+        const trackWrapper = document.querySelector('.ghosts-track-wrapper');
+        let isDragging = false;
+        let startX = 0;
+        let startOffset = 0;
+
+        trackWrapper.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startOffset = carouselOffset;
+            trackWrapper.style.cursor = 'grabbing';
+        });
+        trackWrapper.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const diff = startX - e.clientX;
+            const track = document.getElementById('ghosts-container');
+            const maxScroll = Math.max(0, track.scrollWidth - trackWrapper.clientWidth);
+            carouselOffset = Math.max(0, Math.min(maxScroll, startOffset + diff));
+            updateCarousel();
+        });
+        trackWrapper.addEventListener('mouseup', () => {
+            isDragging = false;
+            trackWrapper.style.cursor = 'grab';
+        });
+        trackWrapper.addEventListener('mouseleave', () => {
+            isDragging = false;
+            trackWrapper.style.cursor = 'grab';
+        });
+
+        // 触摸滑动
+        trackWrapper.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startOffset = carouselOffset;
+        }, { passive: true });
+        trackWrapper.addEventListener('touchmove', (e) => {
+            const diff = startX - e.touches[0].clientX;
+            const track = document.getElementById('ghosts-container');
+            const maxScroll = Math.max(0, track.scrollWidth - trackWrapper.clientWidth);
+            carouselOffset = Math.max(0, Math.min(maxScroll, startOffset + diff));
+            updateCarousel();
+        }, { passive: true });
+
+        // 轮数滑块
+        const roundsSlider = document.getElementById('rounds-slider');
+        const roundsValue = document.getElementById('rounds-value');
+        roundsSlider.addEventListener('input', (e) => {
+            roundsValue.textContent = e.target.value;
+            // 更新滑块轨道颜色
+            const percent = ((e.target.value - 2) / 10) * 100;
+            roundsSlider.style.setProperty('--slider-percent', percent + '%');
         });
 
         // 话题输入
@@ -347,6 +426,9 @@
             return;
         }
 
+        // 从滑块获取用户设定的讨论轮数
+        const maxRounds = parseInt(document.getElementById('rounds-slider').value) || 6;
+
         // 禁用UI，显示进度
         disableUI(true);
         hideSection('ghosts-section');
@@ -358,8 +440,8 @@
         isLoading = true;
 
         try {
-            // 调用 ghost.min.js 中的 API 函数
-            const session = await startDiscussionApi(topic, selectedGhosts, 'web_user', 6);
+            // 调用 ghost-sse.js 中的 API 函数，传入用户选择的轮数
+            const session = await startDiscussionApi(topic, selectedGhosts, 'web_user', maxRounds);
 
             // 显示讨论区
             showSection('discussion-section');
@@ -504,7 +586,7 @@
     }
 
     function disableUI(disabled) {
-        document.querySelectorAll('.ghost-card, .topic-input, .start-btn, .swipe-btn').forEach(el => {
+        document.querySelectorAll('.ghost-card, .topic-input, .start-btn, .carousel-arrow').forEach(el => {
             el.disabled = disabled;
         });
 
@@ -550,60 +632,62 @@
         });
     }
 
+    // Ghost名称到图标的映射
+    const GHOST_ICON_MAP = {
+        'gally': '🔥', 'Gally': '🔥',
+        'motoko': '👤', 'Motoko': '👤',
+        'nova': '🤖', 'Nova': '🤖', '诺瓦': '🤖',
+        'k': '🌊', 'K': '🌊',
+        'ghost': '👻', 'Ghost': '👻',
+        'undefined': '👻'
+    };
+
+    function getGhostIcon(name) {
+        return GHOST_ICON_MAP[name] || '👻';
+    }
+    
+    // 格式化Ghost名称显示
+    function formatGhostName(name) {
+        if (!name || name === 'undefined') return 'Ghost';
+        return name;
+    }
+
     // 创建历史记录卡片
     function createHistoryCard(record) {
         const card = document.createElement('div');
         card.className = 'history-card';
 
-        // 解析内容（提取Ghost参与情况）
-        const ghosts = extractGhostsFromContent(record.content);
         const date = record.date || '未知日期';
+        const topic = record.topic || '未知话题';
+        const ghosts = record.ghosts || [];
+        const totalRounds = record.totalRounds || 0;
+        
+        // 过滤并格式化Ghost名称
+        const formattedGhosts = ghosts
+            .map(g => formatGhostName(g))
+            .filter(g => g && g !== '未知话题' && g.length <= 20);
 
         card.innerHTML = `
             <div class="history-header">
-                <h3 class="history-title">${record.topic || '未知话题'}</h3>
-                <p class="history-date">${date}</p>
+                <h3 class="history-title">${topic}</h3>
+                <div class="history-meta">
+                    <span class="history-date">${date}</span>
+                    ${totalRounds > 0 ? `<span class="history-rounds">${totalRounds}轮</span>` : ''}
+                </div>
             </div>
             <div class="history-ghosts">
-                ${ghosts.map(g => `<span class="history-ghost-badge">${g.icon} ${g.name}</span>`).join('')}
+                ${formattedGhosts.length > 0 
+                    ? formattedGhosts.map(g => `<span class="history-ghost-badge">${getGhostIcon(g)} ${g}</span>`).join('')
+                    : '<span class="history-ghost-badge">👻 Ghost</span>'}
             </div>
             <div class="history-actions">
                 <button class="history-btn view-btn" onclick="viewDiscussionRecord('${record.fileName}')">
                     👁 查看完整对话
                 </button>
-
             </div>
         `;
 
         return card;
-    }
-
-    // 从MD内容中提取Ghost参与情况
-    function extractGhostsFromContent(content) {
-        const ghosts = [];
-        const ghostPatterns = [
-            { name: 'Gally', icon: '🦊', pattern: /第\d+轮 - Gally/g },
-            { name: 'Motoko', icon: '👤', pattern: /第\d+轮 - Motoko/g },
-            { name: 'Nova', icon: '🤖', pattern: /第\d+轮 - Nova/g }
-        ];
-
-        ghostPatterns.forEach(ghost => {
-            if (ghost.pattern.test(content)) {
-                ghosts.push(ghost);
-            }
-        });
-
-        // 如果没有找到Ghost，尝试从其他模式提取
-        if (ghosts.length === 0) {
-            if (content.includes('Galley') || content.includes('galley')) {
-                ghosts.push({ name: 'Galley', icon: '🦊' });
-            }
-            if (content.includes('Motoko') || content.includes('motoko')) {
-                ghosts.push({ name: 'Motoko', icon: '👤' });
-            }
-        }
-
-        return ghosts;
     }
 
     // 查看单个讨论记录
@@ -629,6 +713,27 @@
         const modal = document.createElement('div');
         modal.className = 'history-modal-overlay';
 
+        // 渲染Markdown为HTML
+        let renderedContent = '';
+        try {
+            if (typeof marked !== 'undefined') {
+                // 配置marked选项
+                marked.setOptions({
+                    breaks: true,
+                    gfm: true,
+                    headerIds: true,
+                    mangle: false
+                });
+                renderedContent = marked.parse(content);
+            } else {
+                // 降级为纯文本
+                renderedContent = `<pre>${escapeHtml(content)}</pre>`;
+            }
+        } catch (error) {
+            console.error('Markdown渲染失败:', error);
+            renderedContent = `<pre>${escapeHtml(content)}</pre>`;
+        }
+
         modal.innerHTML = `
             <div class="history-modal">
                 <div class="modal-header">
@@ -638,7 +743,7 @@
                     </button>
                 </div>
                 <div class="modal-content">
-                    <pre class="markdown-content">${escapeHtml(content)}</pre>
+                    <div class="markdown-content">${renderedContent}</div>
                 </div>
             </div>
         `;
@@ -653,7 +758,7 @@
         });
     }
 
-    // HTML转义
+    // HTML转义（降级使用）
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;

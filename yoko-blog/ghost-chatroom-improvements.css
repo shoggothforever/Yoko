@@ -1,5 +1,71 @@
 /* Ghost聊天室视觉优化方案 */
 
+/* ========================================
+   Ghost选择 - 水平滑动轮播
+   ======================================== */
+
+.ghosts-carousel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.ghosts-track-wrapper {
+    flex: 1;
+    overflow: hidden;
+    cursor: grab;
+    border-radius: 15px;
+    padding: 10px 0;
+}
+
+.ghosts-track,
+.ghosts-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 20px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 5px;
+    justify-content: flex-start !important;
+}
+
+.ghosts-carousel .ghost-card {
+    flex: 0 0 300px;
+    min-width: 300px;
+    max-width: 300px;
+    width: 300px !important;
+}
+
+.carousel-arrow {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(83, 52, 131, 0.3) 100%);
+    border: 2px solid rgba(233, 69, 96, 0.4);
+    color: #e94560;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.15);
+}
+
+.carousel-arrow:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.4) 0%, rgba(83, 52, 131, 0.5) 100%);
+    border-color: #e94560;
+    box-shadow: 0 0 25px rgba(233, 69, 96, 0.4), 0 0 10px rgba(83, 52, 131, 0.3);
+    transform: scale(1.1);
+}
+
+.carousel-arrow:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
 /* 响应式卡片优化 - 大屏显示更大的卡片 */
 @media (min-width: 1200px) {
     .ghost-card {
@@ -186,5 +252,454 @@ h2.section-title {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+/* ========================================
+   轮数选择器 - 赛博朋克风格
+   ======================================== */
+
+.rounds-selector {
+    margin-top: 25px;
+    padding: 28px 30px;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
+    border: 1px solid rgba(15, 52, 96, 0.6);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 扫描线装饰 */
+.rounds-selector::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e94560, #533483, transparent);
+    animation: scanLine 3s linear infinite;
+}
+
+@keyframes scanLine {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { transform: translateY(80px); opacity: 0; }
+}
+
+.rounds-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    color: #e94560;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.rounds-icon {
+    font-size: 1.3rem;
+    animation: gearSpin 4s linear infinite;
+}
+
+@keyframes gearSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.rounds-control {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* 自定义Range滑块 */
+.rounds-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    min-width: 200px;
+    height: 8px;
+    background: linear-gradient(90deg, 
+        #e94560 0%, 
+        #e94560 var(--slider-percent, 40%), 
+        #0f3460 var(--slider-percent, 40%), 
+        #0f3460 100%);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.rounds-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #ff6b81, #e94560);
+    border: 2px solid #533483;
+    cursor: pointer;
+    box-shadow: 
+        0 0 10px rgba(233, 69, 96, 0.6),
+        0 0 20px rgba(233, 69, 96, 0.3);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.rounds-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 
+        0 0 15px rgba(233, 69, 96, 0.8),
+        0 0 30px rgba(233, 69, 96, 0.5),
+        0 0 45px rgba(83, 52, 131, 0.3);
+}
+
+.rounds-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #ff6b81, #e94560);
+    border: 2px solid #533483;
+    cursor: pointer;
+    box-shadow: 
+        0 0 10px rgba(233, 69, 96, 0.6),
+        0 0 20px rgba(233, 69, 96, 0.3);
+}
+
+.rounds-slider::-moz-range-track {
+    height: 6px;
+    background: #0f3460;
+    border-radius: 3px;
+}
+
+/* 轮数数值显示 */
+.rounds-display {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    min-width: 80px;
+    justify-content: center;
+}
+
+.rounds-value {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #e94560;
+    text-shadow: 
+        0 0 10px rgba(233, 69, 96, 0.5),
+        0 0 20px rgba(233, 69, 96, 0.2);
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+}
+
+.rounds-unit {
+    font-size: 1.05rem;
+    color: #533483;
+    letter-spacing: 1px;
+}
+
+/* 提示文字 */
+.rounds-hints {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-basis: 100%;
+    margin-top: 8px;
+}
+
+.hint-left, .hint-right {
+    font-size: 0.85rem;
+    color: rgba(160, 160, 160, 0.5);
+    letter-spacing: 1px;
+}
+
+.hint-left {
+    color: rgba(0, 255, 136, 0.4);
+}
+
+.hint-right {
+    color: rgba(233, 69, 96, 0.4);
+}
+
+/* 开始按钮独立行 */
+.start-wrapper {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.start-wrapper .start-btn {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px 50px;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   讨论进行中 - 赛博朋克增强
+   ======================================== */
+
+/* 进度区霓虹脉冲 */
+.progress-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.03) 0%, transparent 60%);
+    animation: radarSweep 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes radarSweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 进度条赛博朋克强化 */
+.progress-bar {
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.2) 3px,
+        rgba(0, 0, 0, 0.2) 4px
+    );
+    pointer-events: none;
+    border-radius: 5px;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #e94560, #533483, #e94560) !important;
+    background-size: 200% 100% !important;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    bottom: -3px;
+    width: 3px;
+    background: #fff;
+    box-shadow: 0 0 8px #e94560, 0 0 15px #e94560;
+    border-radius: 2px;
+}
+
+/* 进度文字数据终端风 */
+.progress-text {
+    font-family: 'Courier New', monospace !important;
+    letter-spacing: 1px;
+    color: #00ff88 !important;
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+
+/* 消息卡片入场动画 */
+@keyframes messageSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.95);
+        border-left-color: transparent;
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(5px) scale(1.01);
+    }
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+.message-card {
+    animation: messageSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    border-left: 4px solid #e94560 !important;
+}
+
+/* 每条消息左边框颜色循环 - 用不同accent色区分角色 */
+.message-card:nth-child(3n+1) {
+    border-left-color: #e94560 !important;
+}
+.message-card:nth-child(3n+2) {
+    border-left-color: #00ff88 !important;
+}
+.message-card:nth-child(3n) {
+    border-left-color: #533483 !important;
+}
+
+/* 消息头像呼吸光效 */
+.message-avatar {
+    position: relative;
+}
+
+.message-avatar::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.2) 0%, transparent 70%);
+    animation: avatarPulse 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes avatarPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* 轮次标签霓虹徽章 */
+.message-round {
+    border: 1px solid rgba(233, 69, 96, 0.3) !important;
+    text-shadow: 0 0 5px rgba(83, 52, 131, 0.5);
+    animation: badgeGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes badgeGlow {
+    0% { box-shadow: 0 0 3px rgba(233, 69, 96, 0.2); }
+    100% { box-shadow: 0 0 8px rgba(233, 69, 96, 0.4); }
+}
+
+/* 讨论话题标签 - 全息投影感 */
+.discussion-topic {
+    position: relative;
+    overflow: hidden;
+}
+
+.discussion-topic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    animation: holoSweep 4s ease-in-out infinite;
+}
+
+@keyframes holoSweep {
+    0% { left: -50%; }
+    100% { left: 150%; }
+}
+
+/* 共识区 - 完成时的庆祝效果 */
+.consensus-section {
+    position: relative;
+}
+
+.consensus-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    background: linear-gradient(#1f2a37, #1f2a37) padding-box,
+                linear-gradient(135deg, #e94560, #533483, #00ff88, #e94560) border-box;
+    background-size: 100% 100%, 300% 300%;
+    animation: borderRainbow 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes borderRainbow {
+    0% { background-position: 0% 0%, 0% 0%; }
+    50% { background-position: 0% 0%, 100% 100%; }
+    100% { background-position: 0% 0%, 0% 0%; }
+}
+
+/* 共识条目入场 */
+.consensus-item {
+    animation: consensusFadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.consensus-item:nth-child(1) { animation-delay: 0.1s; }
+.consensus-item:nth-child(2) { animation-delay: 0.25s; }
+.consensus-item:nth-child(3) { animation-delay: 0.4s; }
+.consensus-item:nth-child(4) { animation-delay: 0.55s; }
+.consensus-item:nth-child(5) { animation-delay: 0.7s; }
+.consensus-item:nth-child(6) { animation-delay: 0.85s; }
+
+@keyframes consensusFadeIn {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 讨论区标题闪烁光标 */
+.discussion-section .section-title::after {
+    content: '█';
+    animation: cursorBlink 1s step-end infinite;
+    color: #00ff88;
+    margin-left: 4px;
+    font-size: 0.8em;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ========================================
+   移动端响应式调整
+   ======================================== */
+@media (max-width: 768px) {
+    .rounds-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .rounds-slider {
+        min-width: 100%;
+    }
+    
+    .rounds-display {
+        justify-content: center;
+    }
+    
+    .start-wrapper .start-btn {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .topic-input-wrapper {
+        flex-direction: column;
+    }
+
+    .ghosts-carousel .ghost-card {
+        flex: 0 0 260px;
+        min-width: 260px;
+        max-width: 260px;
+        width: 260px !important;
+    }
+
+    .carousel-arrow {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.4rem;
     }
 }
