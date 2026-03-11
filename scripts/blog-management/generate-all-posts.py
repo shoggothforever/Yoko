@@ -1,243 +1,354 @@
 #!/usr/bin/env python3
 """
-自动生成 all-posts.html
-根据 posts 目录下的实际 HTML 文件生成文章列表
+generate-all-posts.py — 生成 blog-posts-data.js
+扫描 yoko-blog/posts/ 目录（含子目录），从每篇 HTML 文章中提取元数据，
+输出 blog-posts-data.js 供 all-posts.html 和 index.html 使用。
 """
 
 import os
 import re
+import json
+import math
 from pathlib import Path
 from datetime import datetime
 
-# 路径配置
+# ── 路径配置 ──────────────────────────────────────────────────
 BLOG_DIR = Path("/root/.openclaw/workspace/yoko-blog")
 POSTS_DIR = BLOG_DIR / "posts"
-ALL_POSTS_FILE = BLOG_DIR / "all-posts.html"
+OUTPUT_JS = BLOG_DIR / "blog-posts-data.js"
 
-# 文件名到标题的映射（用于没有正确标题的文章）
+# ── 域名 ─────────────────────────────────────────────────────
+BASE_URL = "https://yoko.sfct.top"
+
+# ── 阅读速度（中文，字/分钟） ────────────────────────────────
+READING_SPEED = 400
+
+# ── 无效标题关键词（用于过滤 logo 等非文章标题） ─────────────
+INVALID_TITLE_PATTERNS = [
+    r"^\s*阳子\s*(Yoko)?\s*$",
+    r"^\s*Yoko\s*$",
+    r"^\s*阳子\s*Yoko\s*-\s*阳子博客\s*$",
+    r"^\s*阳子\s*-\s*阳子博客\s*$",
+]
+
+# ── 需要手动映射标题的文件 ────────────────────────────────────
 TITLE_MAP = {
-    "cyber-ghost.html": "赛博空间的幽灵——当意识可以脱离肉体存在时",
-    "gunnm-worldview.html": "《铳梦》的世界观设定——赛博朋克下的悲壮史诗",
-    "kishiro-gunnm-background.html": "木城幸人与《铳梦》的创作背景",
-    "yoko-growth.html": "阳子（加里）的个人成长轨迹——从失忆少女到战斗天使",
-    "battle-as-dialogue.html": "战斗即对话——我的战斗理念",
-    "cellist.html": "大提琴与流星——音乐如何触动改造人的心弦",
-    "dr-ido.html": "依德医生——我的父亲、老师、朋友",
-    "graffiti-art.html": "涂鸦——在钢铁墙壁上的生命之之花",
-    "watching-stars.html": "仰望星空——在废铁镇中寻找希望",
-    "zapan.html": "萨曼——对手与知音",
-    "hugo.html": "雨果——我最重要的人",
-    "memory-echoes.html": "记忆的残响——过去如何在现在回响",
-    "steel-heart.html": "钢铁之心——机械身体里的炽热灵魂",
+    "from-scrapyard-to-zalem.html": "从废铁镇到萨雷姆——阳子的旅程",
 }
 
-def extract_article_info(html_file):
-    """从 HTML 文件中提取文章信息"""
-    content = html_file.read_text(encoding='utf-8', errors='ignore')
-    
-    # 提取标题 - 优先从 h1 提取，其次从 meta title
-    title_match = re.search(r'<h1[^>]*>([^<]+)</h1>', content, re.IGNORECASE)
-    if title_match:
-        title = title_match.group(1).strip()
-    else:
-        title_match = re.search(r'<title>([^<]+)</title>', content, re.IGNORECASE)
-        title = title_match.group(1).strip() if title_match else html_file.stem
-    
-    # 如果标题是默认的，使用映射
-    if "阳子 Yoko - 阳子博客" in title or "阳子  - 阳子博客" in title:
-        # 尝试从 h2 找第一个有效的标题
-        h2_matches = re.findall(r'<h2[^>]*>([^<]+)</h2>', content, re.IGNORECASE)
-        # 排除一些常见的章节标题
-        skip_titles = ["残响的三个层次", "残响的价值", "整合残响", "结论"]
-        for h2 in h2_matches:
-            h2_clean = h2.strip()
-            if len(h2_clean) > 10 and h2_clean not in skip_titles:
-                title = h2_clean
-                break
-        
-        # 如果还是默认的，使用映射
-        if "阳子 Yoko - 阳子博客" in title or "阳子  - 阳子博客" in title:
-            title = TITLE_MAP.get(html_file.name, html_file.stem.replace('-', ' ').title())
-    
-    # 提取日期 - 优先从标准元数据提取，其次从内容
-    date_match = re.search(r'📅 发布日期：(\d{4})年(\d{1,2})月(\d{1,2})日', content)
-    if date_match:
-        year = date_match.group(1)
-        month = date_match.group(2).zfill(2)
-        day = date_match.group(3).zfill(2)
-        date = f"{year}-{month}-{day}"
-    else:
-        # 尝试从 "发布于 YYYY年MM月DD日" 格式提取
-        desc_match = re.search(r'发布于\s*(\d{4})年(\d{1,2})月(\d{1,2})日', content)
-        if desc_match:
-            year = desc_match.group(1)
-            month = desc_match.group(2).zfill(2)
-            day = desc_match.group(3).zfill(2)
-            date = f"{year}-{month}-{day}"
-        else:
-            # 尝试从 "YYYY-MM-DD" 格式提取
-            desc_match = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})', content)
-            if desc_match:
-                year = desc_match.group(1)
-                month = desc_match.group(2).zfill(2)
-                day = desc_match.group(3).zfill(2)
-                date = f"{year}-{month}-{day}"
-            else:
-                # 从文件修改时间获取日期
-                mod_time = datetime.fromtimestamp(html_file.stat().st_mtime)
-                date = mod_time.strftime("%Y-%m-%d")
-    
-    # 提取摘要 - 从文章内容的第一个有意义段落
-    # 找到第一个有实际内容的 p 标签
-    p_matches = re.findall(r'<p[^>]*>([^<]{20,})</p>', content, re.IGNORECASE)
-    excerpt = "点击查看文章详情"
-    if p_matches:
-        for p in p_matches:
-            p_clean = re.sub(r'<[^>]+>', '', p).strip()
-            # 排除纯日期的内容
-            if not re.match(r'^[\d\-年月日\s·分钟字作者]+$', p_clean) and len(p_clean) > 15:
-                excerpt = p_clean
-                # 限制长度
-                if len(excerpt) > 150:
-                    excerpt = excerpt[:147] + "..."
-                break
-    
+
+def is_valid_title(title: str) -> bool:
+    """判断标题是否有效（排除 logo / 通用无意义标题）"""
+    if not title or not title.strip():
+        return False
+    for pat in INVALID_TITLE_PATTERNS:
+        if re.match(pat, title, re.IGNORECASE):
+            return False
+    return True
+
+
+def clean_title(raw: str) -> str:
+    """清理标题：去除常见后缀"""
+    t = raw.strip()
+    # 去掉 " - 阳子 (Yoko)" / " | 阳子的赛博朋克探索" 等后缀
+    t = re.sub(r"\s*[-|]\s*阳子.*$", "", t)
+    t = re.sub(r"\s*[-|]\s*Yoko.*$", "", t, flags=re.IGNORECASE)
+    return t.strip()
+
+
+def extract_title(content: str, filepath: Path) -> str:
+    """多层 fallback 提取文章标题"""
+    # 优先级0：手动映射
+    if filepath.name in TITLE_MAP:
+        return TITLE_MAP[filepath.name]
+
+    # 优先级1：<title> 标签
+    m = re.search(r"<title>([^<]+)</title>", content, re.IGNORECASE)
+    if m:
+        t = clean_title(m.group(1))
+        if is_valid_title(t):
+            return t
+
+    # 优先级2：og:title
+    m = re.search(r'property="og:title"\s+content="([^"]+)"', content, re.IGNORECASE)
+    if m:
+        t = clean_title(m.group(1))
+        if is_valid_title(t):
+            return t
+
+    # 优先级3：文章正文中的 <h1>（排除 logo class）
+    for h1 in re.finditer(r"<h1([^>]*)>([^<]+)</h1>", content, re.IGNORECASE):
+        attrs, text = h1.group(1), h1.group(2).strip()
+        # 跳过 class="logo" 的 h1
+        if "logo" in attrs.lower():
+            continue
+        if is_valid_title(text):
+            return text
+
+    # 优先级4：<h2> 中第一个看起来像标题的
+    for h2 in re.finditer(r"<h2[^>]*>([^<]+)</h2>", content, re.IGNORECASE):
+        text = h2.group(1).strip()
+        if len(text) > 6 and is_valid_title(text):
+            return text
+
+    # 优先级5：从文件名推断
+    stem = filepath.stem
+    return stem.replace("-", " ").title()
+
+
+def extract_date(content: str, filepath: Path) -> str:
+    """提取文章发布日期，返回 YYYY-MM-DD"""
+    # 方法1："📅 发布日期：2026年3月10日"
+    m = re.search(r"📅\s*发布日期[：:]\s*(\d{4})年(\d{1,2})月(\d{1,2})日", content)
+    if m:
+        y, mo, d = m.group(1), m.group(2).zfill(2), m.group(3).zfill(2)
+        if 2024 <= int(y) <= 2030:
+            return f"{y}-{mo}-{d}"
+
+    # 方法2："发布于 2026年2月15日"
+    m = re.search(r"发布于\s*(\d{4})年(\d{1,2})月(\d{1,2})日", content)
+    if m:
+        y, mo, d = m.group(1), m.group(2).zfill(2), m.group(3).zfill(2)
+        if 2024 <= int(y) <= 2030:
+            return f"{y}-{mo}-{d}"
+
+    # 方法3：meta description 中的日期（如 "2026-02-21 | 星期六"）
+    m = re.search(r'<meta\s+name="description"\s+content="(20(?:2[4-9]|[3-9]\d))-(\d{2})-(\d{2})', content, re.IGNORECASE)
+    if m:
+        return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+
+    # 方法4：HTML 正文中的中文日期（仅匹配 2024-2030 年）
+    m = re.search(r"(20(?:2[4-9]|[3-9]\d))年(\d{1,2})月(\d{1,2})日", content)
+    if m:
+        y, mo, d = m.group(1), m.group(2).zfill(2), m.group(3).zfill(2)
+        return f"{y}-{mo}-{d}"
+
+    # 方法5：HTML 正文中的 ISO 日期（仅匹配 2024-2030 年）
+    m = re.search(r"(20(?:2[4-9]|[3-9]\d))-(\d{2})-(\d{2})", content)
+    if m:
+        return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+
+    # 方法6：文件修改时间
+    mod_time = datetime.fromtimestamp(filepath.stat().st_mtime)
+    return mod_time.strftime("%Y-%m-%d")
+
+
+def extract_description(content: str) -> str:
+    """提取文章摘要"""
+    # 方法1：meta description
+    m = re.search(r'<meta\s+name="description"\s+content="([^"]+)"', content, re.IGNORECASE)
+    if m:
+        desc = m.group(1).strip()
+        # 排除纯日期类 description（如 "2026-02-21 | 星期六"）
+        if not re.match(r"^[\d\-\s|星期一二三四五六日]+$", desc) and len(desc) > 10:
+            return desc
+
+    # 方法2：og:description
+    m = re.search(r'property="og:description"\s+content="([^"]+)"', content, re.IGNORECASE)
+    if m:
+        desc = m.group(1).strip()
+        if len(desc) > 10:
+            return desc
+
+    # 方法3：第一个有意义的 <p> 段落
+    for p in re.finditer(r"<p[^>]*>(.+?)</p>", content, re.IGNORECASE | re.DOTALL):
+        text = re.sub(r"<[^>]+>", "", p.group(1)).strip()
+        # 跳过纯日期/元信息
+        if re.match(r"^[\d\-年月日\s·分钟字作者阅读时间约：|星期]+$", text):
+            continue
+        if len(text) > 15:
+            if len(text) > 200:
+                text = text[:197] + "..."
+            return text
+
+    return ""
+
+
+def extract_tags(content: str) -> list:
+    """提取文章标签"""
+    # 方法1：meta keywords
+    m = re.search(r'<meta\s+name="keywords"\s+content="([^"]+)"', content, re.IGNORECASE)
+    if m:
+        raw = m.group(1)
+        # 支持中英文逗号分隔
+        tags = [t.strip() for t in re.split(r"[,，]", raw) if t.strip()]
+        # 过滤掉过于通用的标签
+        generic = {"阳子", "加里", "Gally", "铳梦", "赛博朋克", "博客"}
+        specific_tags = [t for t in tags if t not in generic]
+        # 如果过滤完没了，就保留原来的
+        return specific_tags if specific_tags else tags
+
+    # 方法2：正文中的 "🏷️ 标签：xxx, yyy"
+    m = re.search(r"🏷️\s*标签[：:]\s*(.+?)(?:<|$)", content)
+    if m:
+        tags = [t.strip() for t in re.split(r"[,，]", m.group(1)) if t.strip()]
+        return tags
+
+    return []
+
+
+def estimate_read_time(content: str) -> str:
+    """估算阅读时间"""
+    # 去掉 HTML 标签
+    text = re.sub(r"<[^>]+>", "", content)
+    text = re.sub(r"\s+", "", text)
+    char_count = len(text)
+    minutes = max(1, math.ceil(char_count / READING_SPEED))
+    return f"约{minutes}分钟"
+
+
+def format_date_cn(iso_date: str) -> str:
+    """将 ISO 日期转为中文格式：2026年3月10日"""
+    try:
+        dt = datetime.strptime(iso_date, "%Y-%m-%d")
+        return f"{dt.year}年{dt.month}月{dt.day}日"
+    except ValueError:
+        return iso_date
+
+
+def extract_article(filepath: Path) -> dict | None:
+    """从单个 HTML 文件提取完整文章信息"""
+    try:
+        content = filepath.read_text(encoding="utf-8", errors="ignore")
+    except Exception as e:
+        print(f"  ⚠️  读取失败: {filepath} ({e})")
+        return None
+
+    title = extract_title(content, filepath)
+    if not is_valid_title(title):
+        print(f"  ⚠️  跳过 (无有效标题): {filepath.name}")
+        return None
+
+    date_iso = extract_date(content, filepath)
+    date_cn = format_date_cn(date_iso)
+    excerpt = extract_description(content)
+    tags = extract_tags(content)
+    read_time = estimate_read_time(content)
+
+    # 计算相对于 yoko-blog 的 URL
+    rel_path = filepath.relative_to(BLOG_DIR)
+    url = str(rel_path)
+
     return {
-        'title': title,
-        'date': date,
-        'excerpt': excerpt,
-        'filename': html_file.name,
-        'date_obj': datetime.strptime(date, "%Y-%m-%d")
+        "title": title,
+        "excerpt": excerpt,
+        "date": date_cn,
+        "dateISO": date_iso,
+        "tags": tags,
+        "read": read_time,
+        "url": url,
     }
 
-def generate_html(articles):
-    """生成 all-posts.html 内容"""
-    
-    # 按日期排序（新的在前）
-    articles.sort(key=lambda x: x['date_obj'], reverse=True)
-    
-    # 构建 article HTML
-    articles_html = "\n".join([
-        f'''                <article class="blog-post">
-                    <h3 class="post-title"><a href="posts/{article['filename']}">{article['title']}</a></h3>
-                    <p class="post-date">{article['date']}</p>
-                    <p class="post-excerpt">{article['excerpt']}</p>
-                </article>'''
-        for article in articles
-    ])
-    
-    # 完整的 HTML 模板
-    template = f'''<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>所有文章 - 阳子的博客</title>
-    <link rel="stylesheet" href="style.min.css">
-    <!-- 阅读进度条 -->
-    <div class="reading-progress" id="reading-progress"></div>
-</head>
-<body>
-        <header>
-        <div class="container">
-            <h1 class="logo">阳子 <span class="subtitle">Yoko</span></h1>
-            <div id="menu-toggle" class="menu-toggle">☰</div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="index.html#home">首页</a></li>
-                    <li><a href="index.html#about">关于</a></li>
-                    <li><a href="index.html#blog">博客</a></li>
-                    <li><a href="index.html#friends">重要的人们</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">所有文章</h2>
-            
-            <div class="blog-list">
-{articles_html}
-            </div>
-        </div>
-    </section>
+def generate_blog_posts_js(articles: list) -> str:
+    """生成 blog-posts-data.js 内容"""
+    # 按日期倒序排列
+    articles.sort(key=lambda a: a["dateISO"], reverse=True)
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
-            <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
-        </div>
-    </footer>
-    <!-- 回到顶部按钮 -->
-    <button class="scroll-top" id="scroll-top" aria-label="回到顶部">↑</button>
-    <script>
-        // 阅读进度条
-        window.addEventListener('scroll', function() {{
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById('reading-progress');
-            if (progressBar) {{
-                progressBar.style.width = scrolled + '%';
-            }}
-        }});
-        
-        // 回到顶部按钮
-        const scrollTopBtn = document.getElementById('scroll-top');
-        if (scrollTopBtn) {{
-            window.addEventListener('scroll', function() {{
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {{
-                    scrollTopBtn.classList.add('visible');
-                }} else {{
-                    scrollTopBtn.classList.remove('visible');
-                }}
-            }});
-            
-            scrollTopBtn.addEventListener('click', function() {{
-                window.scrollTo({{
-                    top: 0,
-                    behavior: 'smooth'
-                }});
-            }});
-        }}
-    </script>
-</body>
-</html>'''
+    # 构造 JS 对象数组
+    entries = []
+    for a in articles:
+        # 转义 JS 字符串中的特殊字符
+        title_js = a["title"].replace("\\", "\\\\").replace('"', '\\"')
+        excerpt_js = a["excerpt"].replace("\\", "\\\\").replace('"', '\\"')
+        tags_js = json.dumps(a["tags"], ensure_ascii=False)
+
+        entry = f"""    {{
+        title: "{title_js}",
+        excerpt: "{excerpt_js}",
+        date: "{a['date']}",
+        dateISO: "{a['dateISO']}",
+        tags: {tags_js},
+        read: "{a['read']}",
+        url: "{a['url']}"
+    }}"""
+        entries.append(entry)
+
+    entries_str = ",\n".join(entries)
+
+    js = f"""/* ============================================================
+ * 博客文章数据 (自动生成)
+ * 
+ * ⚠️ 此文件由 oneforall.sh 脚本自动生成，请勿手动编辑！
+ * 运行 `bash scripts/blog-management/oneforall.sh` 即可重新生成。
+ * 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+ * ============================================================ */
+const BLOG_POSTS = [
+{entries_str}
+];
+
+console.log('📝 博客文章数量:', BLOG_POSTS.length);
+
+/* 加载博客文章到页面 (用于 index.html 首页展示) */
+function loadBlogPosts(maxCount) {{
+    const blogList = document.getElementById('blog-list');
+    const countLabel = document.querySelector('.count-label');
     
-    return template
+    if (!blogList) return;
+
+    // 首页只显示最新的 maxCount 篇
+    const postsToShow = maxCount ? BLOG_POSTS.slice(0, maxCount) : BLOG_POSTS;
+
+    if (countLabel) {{
+        countLabel.textContent = `（${{BLOG_POSTS.length}}篇）`;
+    }}
+
+    const postsHTML = postsToShow.map((post, index) => `
+        <article class="blog-post" data-title="${{post.title}}" data-excerpt="${{post.excerpt}}">
+            <h3 class="post-title"><a href="${{post.url}}">${{post.title}}</a></h3>
+            <p class="post-date">${{post.date}}</p>
+            <p class="post-excerpt">${{post.excerpt}}</p>
+        </article>
+    `).join('');
+
+    blogList.innerHTML = postsHTML;
+
+    const posts = blogList.querySelectorAll('.blog-post');
+    posts.forEach((post, index) => {{
+        post.style.opacity = '0';
+        post.style.animation = `fadeIn 0.3s ease ${{index * 0.1}}s forwards`;
+    }});
+
+    console.log(`✅ 已加载${{postsToShow.length}}篇博客文章`);
+}}
+"""
+    return js
+
 
 def main():
-    """主函数"""
-    # 确保目录存在
+    print("📝 正在扫描文章并生成 blog-posts-data.js ...")
+
     if not POSTS_DIR.exists():
-        print(f"错误：文章目录不存在：{POSTS_DIR}")
+        print(f"❌ 错误：文章目录不存在：{POSTS_DIR}")
         return
-    
-    # 找到所有 HTML 文件
-    html_files = sorted(POSTS_DIR.glob("*.html"))
-    
+
+    # 递归查找所有 HTML 文件（支持子目录如 posts/social/）
+    html_files = sorted(POSTS_DIR.rglob("*.html"))
     if not html_files:
-        print("错误：没有找到任何文章文件")
+        print("❌ 错误：没有找到任何文章文件")
         return
-    
-    print(f"找到 {len(html_files)} 篇文章")
-    
-    # 提取所有文章信息
+
+    print(f"🔍 找到 {len(html_files)} 个 HTML 文件")
+
     articles = []
-    for html_file in html_files:
-        info = extract_article_info(html_file)
-        articles.append(info)
-        print(f"  ✓ {info['date']} - {info['title'][:50]}")
-    
-    # 生成 HTML
-    html_content = generate_html(articles)
-    
-    # 写入文件
-    ALL_POSTS_FILE.write_text(html_content, encoding='utf-8')
-    
-    print(f"\n✅ 成功生成：{ALL_POSTS_FILE}")
-    print(f"   总计 {len(articles)} 篇文章")
+    skipped = []
+    for f in html_files:
+        info = extract_article(f)
+        if info:
+            articles.append(info)
+            print(f"  ✅ {info['dateISO']}  {info['title'][:60]}")
+        else:
+            skipped.append(f.name)
+
+    # 生成 JS
+    js_content = generate_blog_posts_js(articles)
+    OUTPUT_JS.write_text(js_content, encoding="utf-8")
+
+    print(f"\n✅ 成功生成：{OUTPUT_JS}")
+    print(f"   共 {len(articles)} 篇文章")
+    if skipped:
+        print(f"   ⚠️  跳过 {len(skipped)} 个文件: {', '.join(skipped)}")
+
 
 if __name__ == "__main__":
     main()
