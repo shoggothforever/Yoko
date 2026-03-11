@@ -5,7 +5,7 @@ const path = require('path');
 const recordsDir = path.join(__dirname, '../../records');
 
 async function chatRoutes(fastify, options) {
-  // Start new chat with
+  // Start new chat — 异步启动，立即返回 session_id
   fastify.post('/start', async (request, reply) => {
     try {
       console.log('Starting new chat session', request.body);
@@ -24,14 +24,43 @@ async function chatRoutes(fastify, options) {
         mainGhost: main_ghost
       };
 
-      const result = await flowService.startFlow(topic, ghost_ids, user_id, options);
+      // 先创建 session 记录，立即返回 session_id
+      const { v4: uuidv4 } = require('uuid');
+      const sessionId = uuidv4();
+      const timestamp = new Date().toISOString();
+      
+      await db.query(
+        'INSERT INTO chat_sessions (id, topic, user_id, created_at, updated_at, status) VALUES ($1, $2, $3, $4, $5, $6)',
+        [sessionId, topic, user_id, timestamp, timestamp, 'active']
+      );
 
-      console.log('Chat session started successfully', { session_id: result.session_id });
+      console.log('Chat session created, starting async flow', { session_id: sessionId });
 
-      return reply.send({
+      // 立即返回 session_id，让前端马上建立 SSE 连接
+      reply.send({
         success: true,
-        data: result
+        data: {
+          session_id: sessionId,
+          topic,
+          status: 'active',
+          max_rounds: options.maxRounds
+        }
       });
+
+      // 异步执行讨论流程（不阻塞响应）
+      // 传入已创建的 sessionId，避免重复创建
+      options.sessionId = sessionId;
+      flowService.startFlow(topic, ghost_ids, user_id, options).then(result => {
+        console.log('Chat session completed successfully', { session_id: sessionId });
+      }).catch(error => {
+        console.error('Chat session failed', { session_id: sessionId, error: error.message });
+        // 更新 session 状态为失败
+        db.query(
+          'UPDATE chat_sessions SET status = $1, updated_at = $2 WHERE id = $3',
+          ['failed', new Date().toISOString(), sessionId]
+        ).catch(e => console.error('Failed to update session status:', e));
+      });
+
     } catch (error) {
       console.error('Failed to start chat', error);
 
@@ -224,25 +253,36 @@ async function chatRoutes(fastify, options) {
     reply.raw.setHeader('Cache-Control', 'no-cache');
     reply.raw.setHeader('Connection', 'keep-alive');
     reply.raw.setHeader('X-Accel-Buffering', 'no');
+    reply.raw.setHeader('Access-Control-Allow-Origin', '*');
 
     // Check if session exists
     const sessionResult = await db.query(
-      'SELECT id, status FROM chat_sessions WHERE id = $1',
+      'SELECT id, status, topic FROM chat_sessions WHERE id = $1',
       [id]
     );
 
     if (sessionResult.rows.length === 0) {
-      reply.raw.write('event: error\ndata: {"error":"Session not found"}\n\n');
+      reply.raw.write(`data: ${JSON.stringify({ type: 'error', error: 'Session not found' })}\n\n`);
       return reply.raw.end();
     }
 
     const session = sessionResult.rows[0];
 
-    // Send initial status
-    reply.raw.write(`event: status\ndata: ${JSON.stringify({ status: session.status })}\n\n`);
+    // 发送初始状态（统一用 data-only 格式，前端只需监听 onmessage）
+    reply.raw.write(`data: ${JSON.stringify({ type: 'status', status: session.status })}\n\n`);
 
-    // Poll for updates (fallback if SSE not fully working)
+    // 心跳：每 15 秒发一次，防止代理/浏览器超时断开
+    const heartbeatInterval = setInterval(() => {
+      try {
+        reply.raw.write(`: heartbeat\n\n`);
+      } catch (e) {
+        clearInterval(heartbeatInterval);
+      }
+    }, 15000);
+
+    // Poll for updates
     let lastMessageCount = 0;
+    let pollFailCount = 0;
     const checkInterval = setInterval(async () => {
       try {
         // Get latest message count
@@ -258,6 +298,13 @@ async function chatRoutes(fastify, options) {
           'SELECT status FROM chat_sessions WHERE id = $1',
           [id]
         );
+
+        if (!statusResult.rows[0]) {
+          clearInterval(checkInterval);
+          clearInterval(heartbeatInterval);
+          reply.raw.end();
+          return;
+        }
 
         const currentStatus = statusResult.rows[0].status;
 
@@ -275,10 +322,15 @@ async function chatRoutes(fastify, options) {
           const newMessages = messagesResult.rows.slice(lastMessageCount);
 
           newMessages.forEach(message => {
-            reply.raw.write(`event: message\ndata: ${JSON.stringify(message)}\n\n`);
+            reply.raw.write(`data: ${JSON.stringify({ type: 'message', ...message })}\n\n`);
           });
 
           lastMessageCount = currentCount;
+        }
+
+        // 发送进度信息（即使没有新消息，也让前端知道后端还在工作）
+        if (currentStatus === 'active') {
+          reply.raw.write(`data: ${JSON.stringify({ type: 'progress', messageCount: currentCount, status: 'active' })}\n\n`);
         }
 
         // If session completed, send final status and close
@@ -288,16 +340,31 @@ async function chatRoutes(fastify, options) {
             [id]
           );
 
-          reply.raw.write(`event: status\ndata: ${JSON.stringify({ status: 'completed', consensus: consensusResult.rows[0] })}\n\n`);
-          reply.raw.write('event: end\ndata: {}\n\n');
-          reply.raw.end();
+          reply.raw.write(`data: ${JSON.stringify({ type: 'completed', consensus: consensusResult.rows[0] })}\n\n`);
           clearInterval(checkInterval);
+          clearInterval(heartbeatInterval);
+          reply.raw.end();
         }
+
+        // If session failed
+        if (currentStatus === 'failed') {
+          reply.raw.write(`data: ${JSON.stringify({ type: 'error', error: '讨论过程中发生错误，但已生成的内容已保存' })}\n\n`);
+          clearInterval(checkInterval);
+          clearInterval(heartbeatInterval);
+          reply.raw.end();
+        }
+
+        pollFailCount = 0;  // 重置失败计数
       } catch (error) {
         console.error('SSE check error:', error);
-        reply.raw.write('event: error\ndata: {"error":"' + error.message + '"}\n\n');
-        clearInterval(checkInterval);
-        reply.raw.end();
+        pollFailCount++;
+        // 允许几次查询失败再放弃，避免瞬时 DB 问题就断开
+        if (pollFailCount >= 5) {
+          reply.raw.write(`data: ${JSON.stringify({ type: 'error', error: '连接异常，请刷新页面查看结果' })}\n\n`);
+          clearInterval(checkInterval);
+          clearInterval(heartbeatInterval);
+          reply.raw.end();
+        }
       }
     }, 2000); // Check every 2 seconds
 
@@ -305,6 +372,7 @@ async function chatRoutes(fastify, options) {
     request.raw.on('close', () => {
       console.log('SSE connection closed', { session_id: id });
       clearInterval(checkInterval);
+      clearInterval(heartbeatInterval);
     });
 
     // Keep connection alive
