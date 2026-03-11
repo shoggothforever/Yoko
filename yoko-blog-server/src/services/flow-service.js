@@ -45,12 +45,26 @@ class FlowService {
       const currentSpeaker = ghosts[speakerIndex % ghosts.length];
       speakerIndex++;
 
+      // 构建差异化的讨论上下文 - 每轮都有明确的角色指示
+      const speakerName = currentSpeaker.display_name || currentSpeaker.name || currentSpeaker.id;
+      let roundPrompt;
+      
+      if (roundNumber === 1 && !discussionContext) {
+        // 第一轮：开场发言
+        roundPrompt = `你是${speakerName}。请以你独特的视角和风格，就以下主题发表你的开场观点。要求深入、有洞察力，展现你作为${speakerName}的独特思维方式。\n\n主题：${topic}`;
+      } else {
+        // 后续轮次：回应前面的发言
+        const otherSpeakers = ghosts.filter(g => g.id !== currentSpeaker.id);
+        const otherNames = otherSpeakers.map(g => g.display_name || g.name || g.id).join('、');
+        
+        roundPrompt = `你是${speakerName}，这是第${roundNumber}轮讨论。以下是之前的讨论内容：\n\n${discussionContext}\n\n请以${speakerName}的身份，针对以上讨论内容做出回应。要求：\n1. 必须直接引用或回应前面发言者(${otherNames || '其他参与者'})的具体观点\n2. 提出新的角度或深化讨论，不要重复已有观点\n3. 可以表示赞同、质疑或补充，但必须推进讨论\n4. 保持你作为${speakerName}的独特风格\n\n主题：${topic}`;
+      }
+
       // Generate response from current speaker
-      // 只传递真正的讨论内容，不加入元数据
       const response = await aiService.generateGhostResponse(
         currentSpeaker,
-        topic,
-        discussionContext
+        roundPrompt,
+        null  // 上下文已经内嵌在prompt中，不再重复传递
       );
 
       // Save message
@@ -63,8 +77,8 @@ class FlowService {
       messages.push({
         id: messageId,
         ghost_id: currentSpeaker.id,
-        ghost_name: currentSpeaker.display_name,
-        ghost_icon: currentSpeaker.icon,
+        ghost_name: currentSpeaker.display_name || currentSpeaker.name || currentSpeaker.id,
+        ghost_icon: currentSpeaker.icon || '👤',
         round_number: roundNumber,
         content: response.content,
         tokens_used: response.tokens_used
@@ -73,10 +87,10 @@ class FlowService {
       // Write to discussion log
       await this.writeDiscussionLog(sessionId, topic, roundNumber, currentSpeaker, response.content);
 
-      // Build context for next speaker
+      // Build context for next speaker - 使用安全的名称
       discussionContext = messages
-        .map(m => `${m.ghost_name}: ${m.content}`)
-        .join('\n\n');
+        .map(m => `【${m.ghost_name}】(第${m.round_number}轮): ${m.content}`)
+        .join('\n\n---\n\n');
 
       // Determine next speaker
       if (roundNumber === maxRounds) {
@@ -93,8 +107,8 @@ class FlowService {
         messages.push({
           id: summaryId,
           ghost_id: mainGhost.id,
-          ghost_name: mainGhost.display_name + ' (总结)',
-          ghost_icon: mainGhost.icon,
+          ghost_name: (mainGhost.display_name || mainGhost.name || mainGhost.id) + ' (总结)',
+          ghost_icon: mainGhost.icon || '👤',
           round_number: roundNumber + 1,
           content: summary.content,
           tokens_used: summary.tokens_used
@@ -198,7 +212,7 @@ ${discussion}
 
     // Format log entry
     const timestamp = new Date().toLocaleString('zh-CN');
-    const logEntry = `## 第${roundNumber === 'SUMMARY' ? '总结' : roundNumber}轮 - ${ghost.display_name}
+    const logEntry = `## 第${roundNumber === 'SUMMARY' ? '总结' : roundNumber}轮 - ${ghost.display_name || ghost.name || ghost.id}
 **时间**: ${timestamp}
 
 ${content}

@@ -56,17 +56,51 @@ class AIService {
   }
 
   async getGhost(ghostId) {
+    // 优先从数据库获取Ghost信息（包含display_name和soul_prompt）
+    try {
+      const db = require('../db');
+      const result = await db.query('SELECT * FROM ghosts WHERE id = $1 AND is_active = true', [ghostId]);
+      if (result.rows.length > 0) {
+        const row = result.rows[0];
+        console.log(`Ghost从数据库加载: ${row.id} (${row.display_name})`);
+        return {
+          id: row.id,
+          name: row.name || row.id,
+          display_name: row.display_name,
+          icon: row.icon,
+          description: row.description,
+          soul_prompt: row.soul_prompt
+        };
+      }
+    } catch (dbError) {
+      console.error('从数据库获取Ghost失败，尝试OpenClaw CLI:', dbError.message);
+    }
+
+    // 回退：从OpenClaw CLI获取并做字段映射
     const agents = await this.getAgents();
-    return agents.find(agent => agent.id === ghostId || agent.name === ghostId) || null;
+    const agent = agents.find(a => a.id === ghostId || a.name === ghostId);
+    if (agent) {
+      // OpenClaw CLI返回的字段映射到我们需要的格式
+      return {
+        id: agent.id,
+        name: agent.name || agent.id,
+        display_name: agent.display_name || agent.identityName || agent.name || agent.id,
+        icon: agent.icon || agent.identityEmoji || '👤',
+        description: agent.description || '',
+        soul_prompt: agent.soul_prompt || agent.personality || ''
+      };
+    }
+    return null;
   }
 
   async generateGhostResponse(ghost, topic, context) {
-    console.log(`调用 agent: ${ghost.name || ghost.id}, 主题: ${topic}`);
+    console.log(`调用 agent: ${ghost.name || ghost.id}, 主题: ${topic.substring(0, 50)}...`);
 
     try {
+      // 如果context为null，说明topic本身已经是完整的prompt
       const prompt = context
         ? `请就以下主题发表你的看法，并回应以下观点：${context}\n\n主题：${topic}`
-        : `请就以下主题发表你的看法：${topic}`;
+        : topic;
 
       // 修复：使用正确的OpenAI兼容端点
       const gatewayUrl = process.env.OPENCLAW_GATEWAY_URL || 'http://localhost:18789/v1/chat/completions';
