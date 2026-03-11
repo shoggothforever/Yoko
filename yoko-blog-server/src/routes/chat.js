@@ -19,8 +19,16 @@ async function chatRoutes(fastify, options) {
         });
       }
 
+      // 校验 max_rounds：必须为正整数，最多12轮
+      let validatedRounds = parseInt(max_rounds, 10);
+      if (!validatedRounds || validatedRounds < 1) {
+        validatedRounds = 6; // 默认6轮
+      } else if (validatedRounds > 12) {
+        validatedRounds = 12; // 上限12轮
+      }
+
       const options = {
-        maxRounds: max_rounds || 6,
+        maxRounds: validatedRounds,
         mainGhost: main_ghost
       };
 
@@ -271,44 +279,57 @@ async function chatRoutes(fastify, options) {
     // 发送初始状态（统一用 data-only 格式，前端只需监听 onmessage）
     reply.raw.write(`data: ${JSON.stringify({ type: 'status', status: session.status })}\n\n`);
 
-    // 心跳：每 15 秒发一次，防止代理/浏览器超时断开
+    // 心跳：每 30 秒发一次，仅用于保持连接（防止代理超时）
     const heartbeatInterval = setInterval(() => {
       try {
         reply.raw.write(`: heartbeat\n\n`);
       } catch (e) {
         clearInterval(heartbeatInterval);
       }
-    }, 15000);
+    }, 30000);
 
-    // Poll for updates
+    // 安全超时：10 分钟后无论如何都关闭连接（防止僵尸连接）
+    const maxTimeout = setTimeout(() => {
+      console.log('SSE max timeout reached, closing', { session_id: id });
+      cleanup('timeout');
+    }, 10 * 60 * 1000);
+
     let lastMessageCount = 0;
     let pollFailCount = 0;
+    let closed = false;
+
+    function cleanup(reason) {
+      if (closed) return;
+      closed = true;
+      console.log('SSE cleanup:', reason, { session_id: id });
+      clearInterval(checkInterval);
+      clearInterval(heartbeatInterval);
+      clearTimeout(maxTimeout);
+      try { reply.raw.end(); } catch (e) { /* already closed */ }
+    }
+
+    // 轮询间隔：10 秒检查一次（有新消息时会立即发送，无需太频繁）
+    const POLL_INTERVAL = 100000;
     const checkInterval = setInterval(async () => {
+      if (closed) return;
+
       try {
-        // Get latest message count
-        const messageCountResult = await db.query(
-          'SELECT COUNT(*) as count FROM chat_messages WHERE session_id = $1',
-          [id]
-        );
+        // 一次查询拿到消息数 + 状态，减少 DB 压力
+        const [messageCountResult, statusResult] = await Promise.all([
+          db.query('SELECT COUNT(*) as count FROM chat_messages WHERE session_id = $1', [id]),
+          db.query('SELECT status FROM chat_sessions WHERE id = $1', [id])
+        ]);
 
         const currentCount = parseInt(messageCountResult.rows[0].count);
 
-        // Get session status
-        const statusResult = await db.query(
-          'SELECT status FROM chat_sessions WHERE id = $1',
-          [id]
-        );
-
         if (!statusResult.rows[0]) {
-          clearInterval(checkInterval);
-          clearInterval(heartbeatInterval);
-          reply.raw.end();
+          cleanup('session_deleted');
           return;
         }
 
         const currentStatus = statusResult.rows[0].status;
 
-        // If new messages, send them
+        // 只在有新消息时才查询并发送
         if (currentCount > lastMessageCount) {
           const messagesResult = await db.query(
             `SELECT cm.*, g.display_name as ghost_name, g.icon as ghost_icon
@@ -320,7 +341,6 @@ async function chatRoutes(fastify, options) {
           );
 
           const newMessages = messagesResult.rows.slice(lastMessageCount);
-
           newMessages.forEach(message => {
             reply.raw.write(`data: ${JSON.stringify({ type: 'message', ...message })}\n\n`);
           });
@@ -328,51 +348,38 @@ async function chatRoutes(fastify, options) {
           lastMessageCount = currentCount;
         }
 
-        // 发送进度信息（即使没有新消息，也让前端知道后端还在工作）
-        if (currentStatus === 'active') {
-          reply.raw.write(`data: ${JSON.stringify({ type: 'progress', messageCount: currentCount, status: 'active' })}\n\n`);
-        }
-
-        // If session completed, send final status and close
+        // 讨论完成 → 发送结果并立即关闭
         if (currentStatus === 'completed') {
           const consensusResult = await db.query(
             'SELECT * FROM chat_consensus WHERE session_id = $1 ORDER BY created_at DESC LIMIT 1',
             [id]
           );
-
           reply.raw.write(`data: ${JSON.stringify({ type: 'completed', consensus: consensusResult.rows[0] })}\n\n`);
-          clearInterval(checkInterval);
-          clearInterval(heartbeatInterval);
-          reply.raw.end();
+          cleanup('completed');
+          return;
         }
 
-        // If session failed
+        // 讨论失败 → 通知并关闭
         if (currentStatus === 'failed') {
           reply.raw.write(`data: ${JSON.stringify({ type: 'error', error: '讨论过程中发生错误，但已生成的内容已保存' })}\n\n`);
-          clearInterval(checkInterval);
-          clearInterval(heartbeatInterval);
-          reply.raw.end();
+          cleanup('failed');
+          return;
         }
 
-        pollFailCount = 0;  // 重置失败计数
+        pollFailCount = 0;
       } catch (error) {
         console.error('SSE check error:', error);
         pollFailCount++;
-        // 允许几次查询失败再放弃，避免瞬时 DB 问题就断开
         if (pollFailCount >= 5) {
           reply.raw.write(`data: ${JSON.stringify({ type: 'error', error: '连接异常，请刷新页面查看结果' })}\n\n`);
-          clearInterval(checkInterval);
-          clearInterval(heartbeatInterval);
-          reply.raw.end();
+          cleanup('poll_error');
         }
       }
-    }, 2000); // Check every 2 seconds
+    }, POLL_INTERVAL);
 
-    // Cleanup on disconnect
+    // 客户端断开时清理
     request.raw.on('close', () => {
-      console.log('SSE connection closed', { session_id: id });
-      clearInterval(checkInterval);
-      clearInterval(heartbeatInterval);
+      cleanup('client_disconnect');
     });
 
     // Keep connection alive
