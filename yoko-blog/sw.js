@@ -29,7 +29,7 @@ const ASSETS_TO_CACHE = [
   'ghost.min.js',
   'script.min.js',
   'ghost.js',
-  'ghost-se.js',
+  'ghost-sse.js',
   
   // 图片资源
   'public/images/加里.webp'
@@ -98,7 +98,7 @@ self.addEventListener('fetch', (event) => {
       // 缓存命中
       if (cachedResponse) {
         cacheHits++;
-        logPerformance(''cache-hit', 0, true);
+        logPerformance('cache-hit', 0, true);
         return cachedResponse;
       }
       
@@ -141,7 +141,7 @@ self.addEventListener('message', (event) => {
   }
   
   if (event.data.type === 'clear-cache') {
-    caches.delete(C(CACHE_NAME).then(() => {
+    caches.delete(CACHE_NAME).then(() => {
       cacheHits = 0;
       cacheMisses = 0;
       performanceLog.length = 0;
@@ -160,25 +160,22 @@ self.addEventListener('message', (event) => {
         })));
       }).then(() => {
         // 计算缓存大小
-        return cache.keys().then(keys => {
-          let totalSize = 0;
-          
-          return Promise.all(keys.map(key => {
-            return cache.match(key).then(response => {
-              if (response) {
-                const blob = response.blob();
-                if (blob) {
-                  return blob.then(b => b.size);
+        return caches.open(CACHE_NAME).then(openedCache => {
+          return openedCache.keys().then(keys => {
+            return Promise.all(keys.map(key => {
+              return openedCache.match(key).then(response => {
+                if (response) {
+                  return response.blob().then(b => b.size);
                 }
-              }
-              return 0;
-            });
-          })).then(sizes => {
-            totalSize = sizes.reduce((sum, size) => sum + size, 0);
-            event.ports[0].postMessage({ 
-              success: true, 
-              size: totalSize,
-              filesCached: keys.length 
+                return 0;
+              });
+            })).then(sizes => {
+              const totalSize = sizes.reduce((sum, size) => sum + size, 0);
+              event.ports[0].postMessage({ 
+                success: true, 
+                size: totalSize,
+                filesCached: keys.length 
+              });
             });
           });
         });
