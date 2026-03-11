@@ -128,9 +128,12 @@
             <h2 class="section-title">⏳ 讨论进行中...</h2>
             <div class="progress-info">
                 <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill"></div>
+                    <div class="progress-fill" id="progress-fill" style="transition: width 0.6s ease;"></div>
                 </div>
                 <p class="progress-text" id="progress-text">准备开始讨论...</p>
+                <p class="progress-hint" style="color: #666; font-size: 0.85em; margin-top: 8px;">
+                    💡 Ghost们正在深度思考，每轮讨论需要一些时间。请耐心等待，讨论内容会实时显示在下方。
+                </p>
             </div>
         </section>
 
@@ -435,20 +438,23 @@
         hideSection('selection-section');
         hideSection('topic-section');
         showSection('progress-section');
+        showSection('discussion-section');
+
+        // 显示话题
+        const topicDiv = document.getElementById('discussion-topic');
+        topicDiv.textContent = `💬 话题：${topic}`;
 
         updateProgress(0, '正在创建讨论会话...');
         isLoading = true;
 
         try {
-            // 调用 ghost-sse.js 中的 API 函数，传入用户选择的轮数
+            // 步骤1: 发送启动请求（现在是异步的，立即返回 session_id）
             const session = await startDiscussionApi(topic, selectedGhosts, 'web_user', maxRounds);
 
-            // 显示讨论区
-            showSection('discussion-section');
-            updateProgress(10, 'Ghost们开始发表观点...');
+            updateProgress(3, '会话已创建，正在等待Ghost们加入...');
 
-            // 开始监听讨论进度 - 使用SSE实现推送
-            await monitorDiscussionProgressSSE(
+            // 步骤2: 立即建立 SSE 连接监听进度
+            monitorDiscussionProgressSSE(
                 session.session_id,
                 // onNewMessage
                 (message) => {
@@ -460,7 +466,18 @@
                 },
                 // onComplete
                 (data) => {
-                    showResult(data);
+                    if (data.session.status === 'partial') {
+                        // 部分完成（SSE断开但有消息）
+                        updateProgress(100, '讨论可能未完成，但已保存已有内容');
+                        setTimeout(() => {
+                            isLoading = false;
+                            hideUpdateSection('progress-section');
+                            // 不隐藏讨论区，保留已有消息
+                            showPartialResult();
+                        }, 2000);
+                    } else {
+                        showResult(data);
+                    }
                 },
                 // onProgress
                 (percent, text) => {
@@ -469,21 +486,58 @@
                 // onError
                 (error) => {
                     console.error('讨论错误:', error);
+                    updateProgress(undefined, '⚠ ' + error);
+                    // 不立即恢复UI，给用户看到错误信息
+                    setTimeout(() => {
+                        isLoading = false;
+                        showErrorRecovery(error);
+                    }, 3000);
                 }
             );
 
         } catch (error) {
             console.error('讨论启动失败:', error);
-            alert('❌ 讨论启动失败：' + error.message);
             isLoading = false;
 
-            // 恢复UI
-            disableUI(false);
-            showSection('ghosts-section');
-            showSection('selection-section');
-            showSection('topic-section');
-            hideSection('progress-section');
+            // 恢复UI，但用更友好的方式
+            updateProgress(0, '❌ ' + error.message);
+            setTimeout(() => {
+                disableUI(false);
+                showSection('ghosts-section');
+                showSection('selection-section');
+                showSection('topic-section');
+                hideSection('progress-section');
+                hideSection('discussion-section');
+            }, 2000);
         }
+    }
+
+    // 部分完成时的提示
+    function showPartialResult() {
+        const container = document.getElementById('discussion-container');
+        const notice = document.createElement('div');
+        notice.className = 'message-card';
+        notice.innerHTML = `
+            <div class="message-header summary">
+                <span class="message-avatar">⚠️</span>
+                <span class="message-name">系统提示</span>
+            </div>
+            <div class="message-content">
+                <p>连接中断，以上为已生成的讨论内容。</p>
+                <p>完整结果稍后可在<a href="#" onclick="showHistoryView(); return false;" style="color: #0de334;">讨论历史</a>中查看。</p>
+            </div>
+        `;
+        container.appendChild(notice);
+    }
+
+    // 错误恢复UI
+    function showErrorRecovery(errorMsg) {
+        disableUI(false);
+        hideSection('progress-section');
+        showSection('ghosts-section');
+        showSection('selection-section');
+        showSection('topic-section');
+        hideSection('discussion-section');
     }
 
     function addMessageToDisplay(message) {
@@ -554,8 +608,12 @@
         const fill = document.getElementById('progress-fill');
         const progressText = document.getElementById('progress-text');
 
-        fill.style.width = percent + '%';
-        progressText.textContent = text;
+        if (percent !== undefined && percent !== null) {
+            fill.style.width = percent + '%';
+        }
+        if (text) {
+            progressText.textContent = text;
+        }
     }
 
     function showLoading(show) {
