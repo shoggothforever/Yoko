@@ -345,17 +345,59 @@ async function chatRoutes(fastify, options) {
           const content = await fs.readFile(filePath, 'utf8');
 
           // Extract session ID and topic from filename
-          const match = fileName.match(/^(\d{4})-(\d{2})-(\d{2})_(.+?)_(.+?)\.md$/);
-          const sessionId = match ? match[1] + '-' + match[2] : fileName.slice(0, 36);
-          const date = match ? match[0] : fileName.slice(0, 10);
+          // Format: 2026-03-11_9625f9f6_哪些社会化的事项是反人性的.md
+          const match = fileName.match(/^(\d{4}-\d{2}-\d{2})_([a-zA-Z0-9]+)_(.+?)\.md$/);
+          const date = match ? match[1] : fileName.slice(0, 10);
+          const sessionId = match ? match[2] : fileName.slice(0, 36);
           const topic = match ? match[3] : '未知主题';
+
+          // Extract participating ghosts from content
+          const ghostSet = new Set();
+          
+          // Known ghost names for validation
+          const knownGhosts = ['Gally', 'gally', 'Motoko', 'motoko', 'K', 'k', 'Nova', 'nova', '诺瓦', '阳子', 'Yoko'];
+          
+          // Pattern: ## 第N轮 - GhostName
+          const ghostRegex = /##?\s*第\d+轮\s*-\s*(.+)/g;
+          let ghostMatch;
+          while ((ghostMatch = ghostRegex.exec(content)) !== null) {
+            let ghostName = ghostMatch[1].trim();
+            
+            // Skip invalid entries
+            if (!ghostName || 
+                ghostName === 'undefined' || 
+                ghostName.includes('总结') || 
+                ghostName.includes('共识') ||
+                ghostName.length > 20) {  // Ghost names should be short
+              continue;
+            }
+            
+            // Only add if it looks like a valid ghost name (short and in known list or short enough)
+            if (knownGhosts.some(g => ghostName.toLowerCase().includes(g.toLowerCase())) || 
+                (ghostName.length <= 10 && !ghostName.includes('的'))) {
+              ghostSet.add(ghostName);
+            }
+          }
+
+          // Convert undefined to Ghost for display
+          let ghosts = Array.from(ghostSet);
+          if (ghosts.length === 0) {
+            ghosts = ['Ghost'];  // Default fallback
+          }
+
+          // Count total rounds
+          const roundMatches = content.match(/##?\s*第(\d+)轮/g);
+          const totalRounds = roundMatches ? Math.max(...roundMatches.map(m => parseInt(m.match(/\d+/)[0]))) : 0;
 
           return {
             fileName,
             date,
             sessionId,
             topic,
-            content
+            ghosts,
+            totalRounds,
+            // Don't send full content in list view, only send a preview
+            preview: content.slice(0, 200).replace(/\n/g, ' ')
           };
         })
       );
