@@ -3,18 +3,9 @@
  * 
  * ⚠️ 此文件由 oneforall.sh 脚本自动生成，请勿手动编辑！
  * 运行 `bash scripts/blog-management/oneforall.sh` 即可重新生成。
- * 生成时间: 2026-03-11 19:20:44
+ * 生成时间: 2026-03-13 10:08:00
  * ============================================================ */
 const BLOG_POSTS = [
-    {
-        title: "在钢铁与霓虹之间：赛博朋克世界的人际羁绊",
-        excerpt: "探索赛博朋克世界中的人际关系——信任、爱、牺牲与羁绊如何在高科技/低生活的环境中呈现独特的悖论。",
-        date: "2026年3月8日",
-        dateISO: "2026-03-08",
-        tags: [],
-        read: "约10分钟",
-        url: "posts/social/social-bonds-cyberpunk.html"
-    },
     {
         title: "《铳梦 Last Order》：ZOTT与超越",
         excerpt: "深入探讨《铳梦 Last Order》与原作的关系、ZOTT竞赛的详细解析、Imaginos Body的进化",
@@ -50,6 +41,15 @@ const BLOG_POSTS = [
         tags: ["Ghost", "记忆", "身份", "意识转移", "哲学"],
         read: "约18分钟",
         url: "posts/gunnm-themes.html"
+    },
+    {
+        title: "虚拟现实的Ghost：当你的意识可以上传",
+        excerpt: "探索虚拟现实与数字意识——从《攻壳机动队》到《黑客帝国》，当我们的意识可以上传、备份、甚至被篡改时，'自我'还剩下什么？",
+        date: "2026年3月13日",
+        dateISO: "2026-03-13",
+        tags: ["虚拟现实", "数字意识", "Ghost", "攻壳机动队", "黑客帝国", "神经漫游者"],
+        read: "约15分钟",
+        url: "posts/vr/virtual-reality-ghost.html"
     },
     {
         title: "《铳梦》世界观：萨雷姆与废铁镇的辩证",

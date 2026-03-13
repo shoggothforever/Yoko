@@ -207,7 +207,8 @@ ${discussion}
       }
     }
 
-    const logFileName = `${date}_${sessionId.slice(0, 8)}_${topic.slice(0, 20)}.md`;
+    const sanitizedTopic = topic.replace(/[\/\\:*?"<>|,，\s]+/g, '').slice(0, 20);
+    const logFileName = `${date}_${sessionId.slice(0, 8)}_${sanitizedTopic || 'discussion'}.md`;
     const logFilePath = path.join(recordsDir, logFileName);
 
     // Format log entry

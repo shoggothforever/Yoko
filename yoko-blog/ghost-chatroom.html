@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div class="start-wrapper">
-                <button class="start-btn" id="start-discussion" disabled onclick="startDiscussion()">
+                <button class="start-btn" id="start-discussion" disabled>
                     🚀 开始讨论
                 </button>
             </div>
@@ -420,6 +420,9 @@
     }
 
     async function startDiscussion() {
+        // 防重复提交
+        if (isLoading) return;
+
         // 重新获取 DOM 元素，避免作用域问题
         const topicInput = document.getElementById('topic-input');
         const topic = topicInput.value.trim();

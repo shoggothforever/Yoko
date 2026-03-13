@@ -110,17 +110,12 @@ function monitorDiscussionProgressSSE(sessionId, onNewMessage, onComplete, onPro
             }
             break;
             
-          case 'progress':
-            // 后端周期性发送的进度心跳
-            if (onProgress && data.messageCount === messageCount) {
-              // 没有新消息但还在处理中 — 更新提示让用户知道仍在工作
-              onProgress(undefined, 'Ghost正在深度思考中...');  // undefined = 不改变进度条
-            }
-            break;
-            
           case 'completed':
-            console.log('讨论完成！');
+            console.log('讨论完成，关闭SSE连接');
             completed = true;
+            eventSource.close();
+            activeEventSource = null;
+            
             if (onProgress) onProgress(100, '讨论完成！正在生成总结...');
             
             // 稍微延迟一下再显示结果，让用户看到100%
@@ -130,17 +125,17 @@ function monitorDiscussionProgressSSE(sessionId, onNewMessage, onComplete, onPro
                 consensus: data.consensus
               });
             }, 800);
-            
-            eventSource.close();
-            activeEventSource = null;
             break;
             
           case 'error':
             console.error('服务端错误:', data.error);
-            // 不直接报错，给友好提示
-            if (onProgress) onProgress(undefined, '⚠ ' + (data.error || '出了点小问题'));
+            completed = true;
+            eventSource.close();
+            activeEventSource = null;
+            
             // 如果已有消息，不算完全失败
             if (messageCount > 0) {
+              if (onProgress) onProgress(undefined, '⚠ ' + (data.error || '出了点小问题'));
               setTimeout(() => {
                 if (onComplete) onComplete({
                   session: { status: 'partial' },
@@ -150,8 +145,6 @@ function monitorDiscussionProgressSSE(sessionId, onNewMessage, onComplete, onPro
             } else if (onError) {
               onError(data.error);
             }
-            eventSource.close();
-            activeEventSource = null;
             break;
             
           default:
