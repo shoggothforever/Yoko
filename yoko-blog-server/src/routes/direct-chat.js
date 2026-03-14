@@ -73,7 +73,8 @@ async function directChatRoutes(fastify, options) {
         body: JSON.stringify({
           model,
           messages,
-          max_tokens: 150
+          max_tokens: 150,
+          thinking: { type: 'disabled' }
         })
       });
 
