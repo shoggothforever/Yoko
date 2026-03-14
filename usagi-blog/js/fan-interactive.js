@@ -80,11 +80,19 @@ let ghostMsgCount = 0;
 let currentAudio = null;
 
 function pickVoiceClip(content) {
-  if (/ヤハ|やぁ|こんにちは|你好/.test(content)) return 'greeting';
-  if (/ウラ|その通り|なるほど|同意/.test(content)) return 'agree';
-  if (/ハァ|えっ|プルャ|まさか/.test(content)) return 'surprise';
-  if (/頑張|任せ|大丈夫/.test(content)) return 'encourage';
-  return 'thinking';
+  let base;
+  if (/ヤハ|やぁ|こんにちは|你好/.test(content)) base = 'greeting';
+  else if (/ウラ|その通り|なるほど|同意/.test(content)) base = 'agree';
+  else if (/ハァ|えっ|プルャ|まさか/.test(content)) base = 'surprise';
+  else if (/頑張|任せ|大丈夫/.test(content)) base = 'encourage';
+  else if (/笑|www|ふふ|ハハ|嘻/.test(content)) base = 'laugh';
+  else if (/！！|すごい|最高|わくわく/.test(content)) base = 'excited';
+  else base = 'thinking';
+  // 基础类型有变体时随机选择
+  if (['greeting','agree','surprise','encourage','thinking'].includes(base) && Math.random() > 0.5) {
+    return base + '2';
+  }
+  return base;
 }
 
 function playGhostVoice(content) {
