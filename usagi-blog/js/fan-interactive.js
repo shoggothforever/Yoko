@@ -15,7 +15,7 @@ const LINKS = {
     { title: 'ちいかわインフォ', url: 'https://chiikawa-info.jp/', desc: 'イベント・コラボ・グッズなど全公式情報' },
     { title: 'TVer — 見逃し配信', url: 'https://tver.jp/', desc: '放送終了後の無料見逃し配信' },
     { title: 'FOD（フジテレビオンデマンド）', url: 'https://fod.fujitv.co.jp/', desc: '1週間限定見逃し配信' },
-    { title: 'YouTube公式チャンネル', url: 'https://www.youtube.com/@anime_chiikawa', desc: '最新エピソードを無料公開中' },
+    { title: 'YouTube公式チャンネル', url: 'https://www.youtube.com/@ChiikawaVibe', desc: '最新エピソードを無料公開中' },
   ],
   manga: [
     { title: '講談社コミックス情報', url: 'https://kc.kodansha.co.jp/', desc: '単行本（通常版・特装版）の最新刊情報' },
@@ -78,7 +78,6 @@ function initLinkTabs() {
 // ============================================================
 const GHOST_ID = 'usagi';
 let chatOpen = false;
-let chatSessionId = null;
 let chatBusy = false;
 
 window.toggleGhostChat = function() {
@@ -108,55 +107,23 @@ async function sendChatMessage() {
   const input = document.getElementById('ghost-chat-input');
   if (!input || !input.value.trim()) return;
 
-  const topic = input.value.trim();
+  const message = input.value.trim();
   input.value = '';
   chatBusy = true;
 
-  addChatMessage(topic, 'user');
+  addChatMessage(message, 'user');
   addChatMessage('<span class="typing-dots">●●●</span>', 'ghost-typing');
 
   try {
-    const session = await startDiscussionApi(topic, [GHOST_ID], 'portal_user', 2);
-    chatSessionId = session.session_id;
-
-    // Remove typing indicator before first message
-    let typingRemoved = false;
-
-    monitorDiscussionProgressSSE(
-      chatSessionId,
-      // onNewMessage
-      function(data) {
-        if (!typingRemoved) {
-          const typing = document.querySelector('.ghost-msg-ghost-typing');
-          if (typing) typing.remove();
-          typingRemoved = true;
-        }
-        const name = data.ghost_name || 'うさぎ';
-        const content = data.content || '';
-        addChatMessage(`<strong>${name}</strong><br>${formatMarkdown(content)}`, 'ghost');
-      },
-      // onComplete
-      function(result) {
-        if (!typingRemoved) {
-          const typing = document.querySelector('.ghost-msg-ghost-typing');
-          if (typing) typing.remove();
-        }
-        chatBusy = false;
-      },
-      // onProgress
-      null,
-      // onError
-      function(err) {
-        const typing = document.querySelector('.ghost-msg-ghost-typing');
-        if (typing) typing.remove();
-        addChatMessage('接続エラー...もう一度試してね！', 'system');
-        chatBusy = false;
-      }
-    );
+    const data = await directChat(GHOST_ID, message);
+    const typing = document.querySelector('.ghost-msg-ghost-typing');
+    if (typing) typing.remove();
+    addChatMessage(`<strong>${data.ghost_name || 'うさぎ'}</strong><br>${formatMarkdown(data.content)}`, 'ghost');
   } catch (err) {
     const typing = document.querySelector('.ghost-msg-ghost-typing');
     if (typing) typing.remove();
     addChatMessage('うさぎは今お昼寝中...あとでまた来てね 🐰💤', 'system');
+  } finally {
     chatBusy = false;
   }
 }
