@@ -140,8 +140,9 @@ function playGhostVoice(content) {
   const clip = pickVoiceClip(content);
   if (currentAudio) { currentAudio.pause(); currentAudio = null; }
   currentAudio = new Audio(`/audio/${clip}.mp3`);
-  currentAudio.play().catch(() => {});
+  currentAudio.play().catch(e => console.warn('audio play blocked:', e));
 }
+window.playGhostVoice = playGhostVoice;
 
 // ============================================================
 // 5b. Ghost チャットウィジェット
@@ -196,12 +197,19 @@ async function sendChatMessage() {
 
 function formatMD(t) { return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>').replace(/\n/g,'<br>'); }
 
+let isComposing = false;
+
 function initGhostChat() {
   document.getElementById('ghost-chat-toggle')?.addEventListener('click', window.toggleGhostChat);
   document.getElementById('ghost-chat-send')?.addEventListener('click', sendChatMessage);
-  document.getElementById('ghost-chat-input')?.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(); }
-  });
+  const input = document.getElementById('ghost-chat-input');
+  if (input) {
+    input.addEventListener('compositionstart', () => { isComposing = true; });
+    input.addEventListener('compositionend', () => { isComposing = false; });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey && !isComposing) { e.preventDefault(); sendChatMessage(); }
+    });
+  }
 }
 
 // ============================================================
