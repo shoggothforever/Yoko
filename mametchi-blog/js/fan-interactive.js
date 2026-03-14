@@ -123,7 +123,28 @@ function initTypewriter() {
 }
 
 // ============================================================
-// 5. Ghost チャットウィジェット
+// 5a. Ghost 語音再生
+// ============================================================
+let ghostMsgCount = 0;
+let currentAudio = null;
+
+function pickVoiceClip(content) {
+  if (/やぁ|こんにちは|你好|えへへ/.test(content)) return 'greeting';
+  if (/なるほど|すごい|その通り|同意/.test(content)) return 'agree';
+  if (/えっ|まさか|予想外|爆/.test(content)) return 'surprise';
+  if (/頑張|任せ|大丈夫|きっと/.test(content)) return 'encourage';
+  return 'thinking';
+}
+
+function playGhostVoice(content) {
+  const clip = pickVoiceClip(content);
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  currentAudio = new Audio(`/audio/${clip}.mp3`);
+  currentAudio.play().catch(() => {});
+}
+
+// ============================================================
+// 5b. Ghost チャットウィジェット
 // ============================================================
 const GHOST_ID = 'mametchi';
 let chatOpen = false, chatBusy = false;
@@ -161,7 +182,10 @@ async function sendChatMessage() {
   try {
     const data = await directChat(GHOST_ID, message);
     document.querySelector('.ghost-msg-ghost-typing')?.remove();
-    addChatMessage(`<strong>${data.ghost_name||'まめっち'}</strong><br>${formatMD(data.content)}`, 'ghost');
+    ghostMsgCount++;
+    const voiceBtn = `<button class="ghost-voice-btn" onclick="playGhostVoice(this.dataset.content)" data-content="${data.content.replace(/"/g, '&quot;')}">🔈</button>`;
+    addChatMessage(`<strong>${data.ghost_name||'まめっち'}</strong>${voiceBtn}<br>${formatMD(data.content)}`, 'ghost');
+    if (ghostMsgCount === 1) playGhostVoice(data.content);
   } catch (e) {
     document.querySelector('.ghost-msg-ghost-typing')?.remove();
     addChatMessage('まめっちは実験中...あとでまた来てね 🥚💤', 'system');
