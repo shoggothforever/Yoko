@@ -47,17 +47,26 @@ class FlowService {
 
       // 构建差异化的讨论上下文 - 每轮都有明确的角色指示
       const speakerName = currentSpeaker.display_name || currentSpeaker.name || currentSpeaker.id;
+      const speakerId = currentSpeaker.id || '';
+      // usagi / mametchi 用短句聊天风格，其他 ghost 保持深度讨论
+      const isCasual = ['usagi', 'mametchi'].includes(speakerId);
       let roundPrompt;
       
       if (roundNumber === 1 && !discussionContext) {
-        // 第一轮：开场发言
-        roundPrompt = `你是${speakerName}。请以你独特的视角和风格，就以下主题发表你的开场观点。要求深入、有洞察力，展现你作为${speakerName}的独特思维方式。\n\n主题：${topic}`;
+        if (isCasual) {
+          roundPrompt = `你是${speakerName}。用2-4句话，以你的风格对这个话题说说你的看法。像聊天一样自然，不要写文章。\n\n话题：${topic}`;
+        } else {
+          roundPrompt = `你是${speakerName}。请以你独特的视角和风格，就以下主题发表你的开场观点。要求深入、有洞察力，展现你作为${speakerName}的独特思维方式。\n\n主题：${topic}`;
+        }
       } else {
-        // 后续轮次：回应前面的发言
         const otherSpeakers = ghosts.filter(g => g.id !== currentSpeaker.id);
         const otherNames = otherSpeakers.map(g => g.display_name || g.name || g.id).join('、');
         
-        roundPrompt = `你是${speakerName}，这是第${roundNumber}轮讨论。以下是之前的讨论内容：\n\n${discussionContext}\n\n请以${speakerName}的身份，针对以上讨论内容做出回应。要求：\n1. 必须直接引用或回应前面发言者(${otherNames || '其他参与者'})的具体观点\n2. 提出新的角度或深化讨论，不要重复已有观点\n3. 可以表示赞同、质疑或补充，但必须推进讨论\n4. 保持你作为${speakerName}的独特风格\n\n主题：${topic}`;
+        if (isCasual) {
+          roundPrompt = `你是${speakerName}，这是第${roundNumber}轮。之前的对话：\n\n${discussionContext}\n\n用2-4句话回应，像聊天一样。可以赞同、反驳或追问${otherNames || '对方'}。保持${speakerName}的说话风格，简短有力，不要写长段落。\n\n话题：${topic}`;
+        } else {
+          roundPrompt = `你是${speakerName}，这是第${roundNumber}轮讨论。以下是之前的讨论内容：\n\n${discussionContext}\n\n请以${speakerName}的身份，针对以上讨论内容做出回应。要求：\n1. 必须直接引用或回应前面发言者(${otherNames || '其他参与者'})的具体观点\n2. 提出新的角度或深化讨论，不要重复已有观点\n3. 可以表示赞同、质疑或补充，但必须推进讨论\n4. 保持你作为${speakerName}的独特风格\n\n主题：${topic}`;
+        }
       }
 
       // Generate response from current speaker
@@ -148,15 +157,13 @@ class FlowService {
       .map(m => `${m.ghost_name}: ${m.content}`)
       .join('\n\n');
 
-    const prompt = `作为讨论的主持人，请对以下关于"${topic}"的讨论做总结：
+    // 检查是否为轻松聊天模式（参与者全部是 casual ghost）
+    const ghostIds = [...new Set(messages.map(m => m.ghost_id))];
+    const allCasual = ghostIds.every(id => ['usagi', 'mametchi'].includes(id));
 
-${discussion}
-
-请提供一个全面、深入的总结，包括：
-1. 讨论的主要观点
-2. 不同角色的立场差异
-3. 达成共识的地方
-4. 值得进一步探讨的问题`;
+    const prompt = allCasual
+      ? `用3-5句话总结这段关于"${topic}"的聊天，点出大家的共识和分歧：\n\n${discussion}`
+      : `作为讨论的主持人，请对以下关于"${topic}"的讨论做总结：\n\n${discussion}\n\n请提供一个全面、深入的总结，包括：\n1. 讨论的主要观点\n2. 不同角色的立场差异\n3. 达成共识的地方\n4. 值得进一步探讨的问题`;
 
     try {
       const response = await aiService.generateGhostResponse(mainGhost, prompt, null);
