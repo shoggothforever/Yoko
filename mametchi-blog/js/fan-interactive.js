@@ -126,7 +126,7 @@ function initTypewriter() {
 // 5. Ghost チャットウィジェット
 // ============================================================
 const GHOST_ID = 'mametchi';
-let chatOpen = false, chatSessionId = null, chatBusy = false;
+let chatOpen = false, chatBusy = false;
 
 window.toggleGhostChat = function() {
   const widget = document.getElementById('ghost-chat-widget');
@@ -152,28 +152,20 @@ async function sendChatMessage() {
   if (chatBusy) return;
   const input = document.getElementById('ghost-chat-input');
   if (!input || !input.value.trim()) return;
-  const topic = input.value.trim();
+  const message = input.value.trim();
   input.value = '';
   chatBusy = true;
-  addChatMessage(topic, 'user');
+  addChatMessage(message, 'user');
   addChatMessage('<span class="typing-dots">●●●</span>', 'ghost-typing');
 
   try {
-    const session = await startDiscussionApi(topic, [GHOST_ID], 'portal_user', 2);
-    chatSessionId = session.session_id;
-    let typingRemoved = false;
-    monitorDiscussionProgressSSE(chatSessionId,
-      function(data) {
-        if (!typingRemoved) { document.querySelector('.ghost-msg-ghost-typing')?.remove(); typingRemoved = true; }
-        addChatMessage(`<strong>${data.ghost_name||'まめっち'}</strong><br>${formatMD(data.content||'')}`, 'ghost');
-      },
-      function() { if (!typingRemoved) document.querySelector('.ghost-msg-ghost-typing')?.remove(); chatBusy = false; },
-      null,
-      function() { document.querySelector('.ghost-msg-ghost-typing')?.remove(); addChatMessage('接続エラー...もう一度試してね！', 'system'); chatBusy = false; }
-    );
+    const data = await directChat(GHOST_ID, message);
+    document.querySelector('.ghost-msg-ghost-typing')?.remove();
+    addChatMessage(`<strong>${data.ghost_name||'まめっち'}</strong><br>${formatMD(data.content)}`, 'ghost');
   } catch (e) {
     document.querySelector('.ghost-msg-ghost-typing')?.remove();
     addChatMessage('まめっちは実験中...あとでまた来てね 🥚💤', 'system');
+  } finally {
     chatBusy = false;
   }
 }
