@@ -23,6 +23,8 @@ fastify.register(require('@fastify/rate-limit'), {
 // Register routes
 fastify.register(require('./routes/chat'), { prefix: '/api/chat' });
 fastify.register(require('./routes/ghosts'), { prefix: '/api/ghosts' });
+fastify.register(require('./routes/direct-chat'), { prefix: '/api/direct-chat' });
+fastify.register(require('./routes/blog-switch'));
 // Exploration data cache
 let explorationCache = {
   data: null,

@@ -1,9 +1,13 @@
 # Ghost Chatroom Server
-yoko-blog-server/
 yoko-blog-server/node_modules/
 yoko-blog-server/venv/
 yoko-blog-server/.env
 yoko-blog-server/logs/
+yoko-blog-server/records/
+yoko-blog-server/__pycache__/
+yoko-blog-server/*.log
+yoko-blog-server/*.pid
+yoko-blog-server/archieve/
 
 # Ghost Chatroom Vue
 ghost-chatroom-vue/
