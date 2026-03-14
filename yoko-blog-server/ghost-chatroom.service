@@ -1,0 +1,26 @@
+[Unit]
+Description=Ghost Chatroom Server
+Documentation=https://github.com/yourusername/ghost-chatroom
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/.openclaw/workspace/yoko-blog-server
+Environment=NODE_ENV=production
+EnvironmentFile=/root/.openclaw/workspace/yoko-blog-server/.env
+ExecStart=/usr/bin/node /root/.openclaw/workspace/yoko-blog-server/src/index.js
+Restart=always
+RestartSec=10
+StandardOutput=append:/root/.openclaw/workspace/yoko-blog-server/logs/service.log
+StandardError=append:/root/.openclaw/workspace/yoko-blog-server/logs/service-error.log
+
+# Resource limits
+LimitNOFILE=65536
+
+# Security hardening (optional, adjust as needed)
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
