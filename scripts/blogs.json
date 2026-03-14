@@ -1,0 +1,8 @@
+{
+  "active": "usagi-blog",
+  "blogs": {
+    "yoko-blog": "/root/.openclaw/workspace/yoko-blog",
+    "usagi-blog": "/root/.openclaw/workspace/usagi-blog",
+    "mametchi-blog": "/root/.openclaw/workspace/mametchi-blog"
+  }
+}

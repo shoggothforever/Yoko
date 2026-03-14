@@ -1,0 +1,11 @@
+# Mametchi Fan Portal - robots.txt
+# まめまめ研究所ファンラボ
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mametchi.example.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

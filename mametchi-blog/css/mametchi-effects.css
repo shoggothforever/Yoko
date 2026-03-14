@@ -1,0 +1,204 @@
+/* まめっちブログ - 特殊効果 CSS
+ * わくわく♪ 科学実験室風の効果
+ */
+
+/* ピクセルパーティクル */
+.pixel-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent-blue);
+    opacity: 0.4;
+    animation: pixelFloat linear infinite;
+}
+
+@keyframes pixelFloat {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% {
+        transform: translateY(-20px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* 電子パルスボーダー */
+@keyframes pulseBorder {
+    0%, 100% { box-shadow: 0 0 5px var(--color-accent-blue), 0 0 10px rgba(66, 165, 245, 0.3); }
+    50% { box-shadow: 0 0 15px var(--color-accent-blue), 0 0 30px rgba(66, 165, 245, 0.5); }
+}
+.pulse-border {
+    animation: pulseBorder 2s ease-in-out infinite;
+}
+
+/* タイプライター効果 */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--color-accent-blue); }
+}
+.typewriter-text {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--color-accent-blue);
+    animation: typewriter 3s steps(40) 1s forwards, blink 0.75s step-end infinite;
+}
+
+/* 実験カード */
+.experiment-card {
+    background: linear-gradient(145deg, #E3F2FD, #BBDEFB);
+    border: 2px solid var(--color-accent-blue);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);
+}
+.experiment-card::before {
+    content: '🧪';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 4rem;
+    opacity: 0.08;
+}
+.experiment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.3), 0 8px 25px rgba(33, 150, 243, 0.2);
+}
+
+.experiment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.experiment-no {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    background: rgba(33, 150, 243, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+.experiment-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+.status-success { background: #C8E6C9; color: #2E7D32; }
+.status-fail { background: #FFCDD2; color: #C62828; }
+.status-progress { background: #FFF9C4; color: #F57F17; }
+
+.experiment-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 1rem;
+}
+.experiment-tags .tag {
+    background: rgba(33, 150, 243, 0.15);
+    color: var(--color-accent-blue);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+}
+
+/* フレンドカード */
+.friend-card {
+    background: linear-gradient(145deg, #fff, #E8F5E9);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid var(--color-accent-teal);
+    transition: all 0.3s ease;
+}
+.friend-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(0, 150, 136, 0.2);
+}
+.friend-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--color-accent-blue);
+}
+
+/* ロゴのキラキラ */
+@keyframes logoSparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+.logo-sparkle {
+    display: inline-block;
+    margin-left: 4px;
+    animation: logoSparkle 1.5s ease-in-out infinite;
+}
+
+/* 爆発効果（失敗時） */
+@keyframes explosion {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(0); opacity: 0; }
+}
+.explosion {
+    animation: explosion 0.5s ease-out forwards;
+}
+
+/* スクロールトップボタン */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+    z-index: 1000;
+    color: white;
+}
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.scroll-top:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.6);
+}
+
+/* ピクセルグリッド背景 */
+.pixel-grid {
+    background-image: 
+        linear-gradient(rgba(33, 150, 243, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(33, 150, 243, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* 発明成功のキラキラ */
+@keyframes successSparkle {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-50px) rotate(360deg); opacity: 0; }
+}

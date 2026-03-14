@@ -1,0 +1,437 @@
+{
+  "meta": {
+    "title": "まめっちファンポータル — コンテンツデータ",
+    "version": "1.0.0",
+    "author": "まめまめ研究所 データ班",
+    "created": "2026-03-14",
+    "description": "まめっちポータルサイト用の構造化データ。リンク集、進化シミュレータ、HUDパネル、仲間図鑑を含む。"
+  },
+
+  "section_1_third_party_links": {
+    "categories": [
+      {
+        "id": "official",
+        "icon": "📺",
+        "label": "公式サイト",
+        "label_en": "Official",
+        "links": [
+          {
+            "title": "たまごっち公式サイト（バンダイ）",
+            "url": "https://toy.bandai.co.jp/series/tamagotchi/",
+            "description": "バンダイが運営するたまごっちの総合公式サイト。最新商品やイベント情報をチェック！"
+          },
+          {
+            "title": "Tamagotchi Official（グローバル）",
+            "url": "https://tamagotchi-official.com/",
+            "description": "たまごっちのグローバル公式サイト。海外版の情報やダウンロードコンテンツはこちら。"
+          },
+          {
+            "title": "バンダイ公式企業サイト",
+            "url": "https://www.bandai.co.jp/",
+            "description": "たまごっちの生みの親、バンダイの公式コーポレートサイト。"
+          },
+          {
+            "title": "たまごっち家庭用ゲーム総合サイト",
+            "url": "https://www.ds-tamagotch.com/",
+            "description": "バンダイナムコエンターテインメントが運営する、たまごっちゲームの総合情報サイト。"
+          },
+          {
+            "title": "たまごっちアニメ公式（テレビ東京）",
+            "url": "https://www.tv-tokyo.co.jp/anime/tamagotchi/",
+            "description": "TVアニメ「たまごっち！」シリーズの公式サイト。放送情報やキャラクター紹介。"
+          }
+        ]
+      },
+      {
+        "id": "games_apps",
+        "icon": "🎮",
+        "label": "ゲーム・アプリ",
+        "label_en": "Games & Apps",
+        "links": [
+          {
+            "title": "Tamagotchi Uni 公式サイト",
+            "url": "https://toy.bandai.co.jp/series/tamagotchi/uni/",
+            "description": "シリーズ初のWi-Fi搭載たまごっち！世界中のユーザーとTamaverseで繋がろう。"
+          },
+          {
+            "title": "My Tamagotchi Forever（モバイルアプリ）",
+            "url": "https://en.bandainamcoent.eu/tamagotchi/my-tamagotchi-forever",
+            "description": "スマートフォンで遊べるたまごっち育成ゲーム。AR機能でたまごっちが現実世界に！"
+          },
+          {
+            "title": "たまごっちSwitch — おみせっちシリーズ",
+            "url": "https://www.ds-tamagotch.com/",
+            "description": "Nintendo Switchで遊べるたまごっちゲーム。2025年6月26日発売予定！"
+          },
+          {
+            "title": "My Tamagotchi Forever（Google Play）",
+            "url": "https://play.google.com/store/apps/details?id=eu.bandainamcoent.mytamagotchiforever",
+            "description": "Android版「My Tamagotchi Forever」。いつでもどこでもたまごっちをお世話！"
+          },
+          {
+            "title": "My Tamagotchi Forever（App Store）",
+            "url": "https://apps.apple.com/app/my-tamagotchi-forever/id1214287984",
+            "description": "iOS版「My Tamagotchi Forever」。iPhoneでたまごっちと暮らそう！"
+          }
+        ]
+      },
+      {
+        "id": "merchandise",
+        "icon": "🛍️",
+        "label": "グッズ・ショップ",
+        "label_en": "Merchandise & Shop",
+        "links": [
+          {
+            "title": "プレミアムバンダイ（日本）",
+            "url": "https://p-bandai.jp/",
+            "description": "バンダイ公式通販サイト。限定たまごっちやコラボ商品が手に入る！"
+          },
+          {
+            "title": "Premium Bandai USA",
+            "url": "https://p-bandai.com/us",
+            "description": "海外向けバンダイ公式オンラインストア。限定フィギュアやグッズを海外発送。"
+          },
+          {
+            "title": "バンダイ公式商品カタログ",
+            "url": "https://www.bandai.co.jp/catalog/",
+            "description": "バンダイ全商品のカタログ。たまごっちシリーズの発売情報を網羅。"
+          },
+          {
+            "title": "Amazon.co.jp — たまごっちストア",
+            "url": "https://www.amazon.co.jp/stores/Tamagotchi/page/5B3D049E-7E21-4060-B790-EA4B2E5E2642",
+            "description": "Amazonで購入できるたまごっち商品の公式ブランドページ。"
+          }
+        ]
+      },
+      {
+        "id": "wiki_reference",
+        "icon": "📚",
+        "label": "Wiki・資料",
+        "label_en": "Wiki & Reference",
+        "links": [
+          {
+            "title": "Tamagotchi Wiki（Fandom）",
+            "url": "https://tamagotchi.fandom.com/wiki/Tamagotchi_Wiki",
+            "description": "世界最大のたまごっち百科事典。キャラクター、機種、進化条件を完全網羅！"
+          },
+          {
+            "title": "まめっちキャラクターページ（Fandom）",
+            "url": "https://tamagotchi.fandom.com/wiki/Mametchi",
+            "description": "まめっちの詳細プロフィール、登場作品、進化条件をまとめた専用ページ。"
+          },
+          {
+            "title": "たまごっち Wikipedia（日本語）",
+            "url": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%BE%E3%81%94%E3%81%A3%E3%81%A1",
+            "description": "たまごっちの歴史、社会現象、シリーズ全体を解説するWikipedia記事。"
+          },
+          {
+            "title": "Mimitchi.com — バーチャルペット資料館",
+            "url": "https://www.mimitchi.com/",
+            "description": "老舗のたまごっちファンサイト。歴代機種の詳細データと攻略情報を掲載。"
+          }
+        ]
+      },
+      {
+        "id": "social_community",
+        "icon": "🎨",
+        "label": "SNS・コミュニティ",
+        "label_en": "Social & Community",
+        "links": [
+          {
+            "title": "たまごっち公式 X（Twitter）",
+            "url": "https://x.com/TMGC_net",
+            "description": "たまごっち公式Xアカウント。最新ニュースやキャンペーン情報を毎日お届け！"
+          },
+          {
+            "title": "Tamagotchi 公式 Instagram",
+            "url": "https://www.instagram.com/tamagotchi_jp/",
+            "description": "たまごっち公式Instagramアカウント。可愛い写真や動画がいっぱい！"
+          },
+          {
+            "title": "バンダイ公式 YouTube チャンネル",
+            "url": "https://www.youtube.com/@bandaborntv",
+            "description": "バンダイ公式YouTubeチャンネル。たまごっち関連の動画やCMをチェック！"
+          },
+          {
+            "title": "r/tamagotchi（Reddit コミュニティ）",
+            "url": "https://www.reddit.com/r/tamagotchi/",
+            "description": "英語圏最大のたまごっちファンコミュニティ。攻略情報や写真を共有！"
+          },
+          {
+            "title": "TamaTalk フォーラム",
+            "url": "https://www.tamatalk.com/",
+            "description": "長年運営されているたまごっちファンフォーラム。ディープな情報交換の場。"
+          }
+        ]
+      },
+      {
+        "id": "mametchi_encyclopedia",
+        "icon": "📖",
+        "label": "まめっち図鑑",
+        "label_en": "Mametchi Encyclopedia",
+        "links": [
+          {
+            "title": "まめっち進化ガイド（Fandom）",
+            "url": "https://tamagotchi.fandom.com/wiki/Mametchi/Anime_Gallery",
+            "description": "まめっちへの進化条件を歴代機種ごとにまとめた完全ガイド。"
+          },
+          {
+            "title": "たまごっちキャラクター一覧（Fandom）",
+            "url": "https://tamagotchi.fandom.com/wiki/Category:Tamagotchi_Characters",
+            "description": "たまごっち全キャラクターの一覧。まめっちの仲間たちを探そう！"
+          },
+          {
+            "title": "進化チャート・お世話ガイド（Fandom）",
+            "url": "https://tamagotchi.fandom.com/wiki/Category:Growth_Charts",
+            "description": "歴代たまごっちの成長チャート集。お世話パターンと進化先の関係を解説。"
+          },
+          {
+            "title": "たまごっちキャラクター相関図（日本語Wikipedia）",
+            "url": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%BE%E3%81%94%E3%81%A3%E3%81%A1%E3%81%AE%E7%99%BB%E5%A0%B4%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC",
+            "description": "アニメ・ゲームに登場する全たまごっちキャラクターの人物相関と詳細解説。"
+          }
+        ]
+      }
+    ]
+  },
+
+  "section_2_evolution_simulator": {
+    "description": "お世話パターンによって異なるたまごっちに成長するシミュレーター用データ",
+    "care_actions": {
+      "study": { "label": "勉強", "icon": "📖", "emoji": "🎓" },
+      "exercise": { "label": "運動", "icon": "💪", "emoji": "🏃" },
+      "feeding": { "label": "ごはん", "icon": "🍙", "emoji": "🍽️" },
+      "sleep": { "label": "睡眠", "icon": "💤", "emoji": "😴" }
+    },
+    "characters": [
+      {
+        "name_jp": "まめっち",
+        "name_romaji": "Mametchi",
+        "care_pattern": {
+          "study": 5,
+          "exercise": 3,
+          "feeding": 3,
+          "sleep": 5
+        },
+        "care_description": "勉強と睡眠をたっぷり取り、バランスの良いお世話をすると進化。完璧なお世話が求められる優等生タイプ。",
+        "personality": "IQ250の天才発明家。礼儀正しく真面目だけど、発明に夢中になると周りが見えなくなることも。怖がりで絵が下手という可愛い弱点も。まめまめ研究所の未来のエース！",
+        "color_theme": "#FFD700",
+        "rarity": "★★★★★"
+      },
+      {
+        "name_jp": "くちぱっち",
+        "name_romaji": "Kuchipatchi",
+        "care_pattern": {
+          "study": 1,
+          "exercise": 2,
+          "feeding": 5,
+          "sleep": 5
+        },
+        "care_description": "ごはんをたくさん食べさせて、ぐっすり寝かせるとOK！勉強や運動はそこそこでも大丈夫。のんびり育成向き。",
+        "personality": "食べることが大好きなマイペースキャラ。いつもぼーっとしているように見えるけど、時々すごく深いことを言う不思議な存在。口癖は「だっち～」。お腹の音が会話の合図。",
+        "color_theme": "#90EE90",
+        "rarity": "★★★☆☆"
+      },
+      {
+        "name_jp": "めめっち",
+        "name_romaji": "Memetchi",
+        "care_pattern": {
+          "study": 3,
+          "exercise": 4,
+          "feeding": 2,
+          "sleep": 3
+        },
+        "care_description": "運動を多めに、勉強もそこそこ。おしゃれに気を使うように適度なお世話バランスが大切。ごはんはあげすぎ注意！",
+        "personality": "自慢の渦巻きヘアーがトレードマーク。おしゃれとトレンドに敏感で、ちょっぴりナルシストだけど友達思い。怒ると頭の渦巻きが高速回転する！ぐるぐるタウン出身のファッションリーダー。",
+        "color_theme": "#FF69B4",
+        "rarity": "★★★★☆"
+      },
+      {
+        "name_jp": "ラブリっち",
+        "name_romaji": "Lovelitchi",
+        "care_pattern": {
+          "study": 4,
+          "exercise": 4,
+          "feeding": 3,
+          "sleep": 4
+        },
+        "care_description": "すべてのステータスを高く、万遍なくお世話する必要あり。特に勉強と運動のバランスが重要。完璧を目指そう！",
+        "personality": "たまごっち星の人気アイドル「ラブリン」の正体。普段はおとなしくて優しい女の子だけど、ステージに立つと別人のように輝く。まめっちの大切なパートナー。秘密のアイドル活動を続けている。",
+        "color_theme": "#FFB6C1",
+        "rarity": "★★★★★"
+      },
+      {
+        "name_jp": "ござるっち",
+        "name_romaji": "Gozarutchi",
+        "care_pattern": {
+          "study": 2,
+          "exercise": 5,
+          "feeding": 3,
+          "sleep": 2
+        },
+        "care_description": "運動を最優先！睡眠は少なめでも平気。忍者のように鍛え抜かれた身体を目指す、体育会系育成パターン。",
+        "personality": "忍者を目指して日々修行に励むたまごっち。語尾に「ござる」を付ける独特の話し方。実は高所恐怖症という忍者としては致命的な弱点を持つ。まめっちとは修行仲間。",
+        "color_theme": "#4169E1",
+        "rarity": "★★★☆☆"
+      }
+    ],
+    "simulator_config": {
+      "min_value": 0,
+      "max_value": 5,
+      "step": 1,
+      "matching_algorithm": "closest_euclidean_distance",
+      "labels": {
+        "0": "まったくしない",
+        "1": "ほとんどしない",
+        "2": "たまにする",
+        "3": "ふつう",
+        "4": "よくする",
+        "5": "いつもする"
+      }
+    }
+  },
+
+  "section_3_hud_panel": {
+    "character": "まめっち",
+    "stats": {
+      "iq": {
+        "label": "IQ",
+        "value": 250,
+        "icon": "🧠",
+        "description": "たまごっち星でもトップクラスの超天才頭脳！"
+      },
+      "invention_count": {
+        "label": "発明総数",
+        "value": 1096,
+        "icon": "🔧",
+        "description": "まめまめ研究所で生み出された発明の総数（爆発したものも含む）"
+      },
+      "success_rate": {
+        "label": "成功率",
+        "value": 72.3,
+        "unit": "%",
+        "icon": "📊",
+        "description": "発明の成功率。残りの27.7%は…えーと、「貴重なデータ収集」です！"
+      },
+      "friend_count": {
+        "label": "なかまの数",
+        "value": 48,
+        "icon": "💛",
+        "description": "たまごっち星中に広がる友達ネットワーク！"
+      }
+    },
+    "famous_inventions": [
+      {
+        "id": 1,
+        "name": "テレポートマシン",
+        "name_en": "Teleport Machine",
+        "description": "たまごっち星のどこにでも瞬間移動できる装置。たまに変な場所に飛ばされるバグあり。",
+        "status": "稼働中（要注意）"
+      },
+      {
+        "id": 2,
+        "name": "まめっちロボ",
+        "name_en": "Mametchi Robo",
+        "description": "まめっちそっくりのお手伝いロボット。しかし発明に夢中になりすぎて、ロボの方がしっかり者になることも。",
+        "status": "稼働中"
+      },
+      {
+        "id": 3,
+        "name": "ふしぎミラー",
+        "name_en": "Wonder Mirror",
+        "description": "覗き込むと未来の自分が映る不思議な鏡。ただし天気予報くらいの精度しかない。",
+        "status": "実験中"
+      },
+      {
+        "id": 4,
+        "name": "たまごっちタイムマシン",
+        "name_en": "Tamagotchi Time Machine",
+        "description": "過去や未来に旅行できるマシン。エネルギー消費が激しく、まだ完成していないのが悩みの種。",
+        "status": "開発中"
+      },
+      {
+        "id": 5,
+        "name": "おしゃべりトランスレーター",
+        "name_en": "Chat Translator",
+        "description": "地球人の言葉をたまごっち語に翻訳する装置。これのおかげで地球のみんなとも仲良くなれた！",
+        "status": "稼働中"
+      }
+    ],
+    "famous_quotes": [
+      {
+        "quote": "失敗は成功のもとですから！次こそきっとうまくいきます！",
+        "context": "発明が爆発した直後、煤だらけの顔で笑いながら",
+        "mood": "determined"
+      },
+      {
+        "quote": "僕の計算では、この方法で間違いないはずです……たぶん！",
+        "context": "新しい発明に取り組む時、自信満々だけどちょっと不安そうに",
+        "mood": "confident"
+      },
+      {
+        "quote": "みんなが笑顔になれる発明を作ること、それが僕の夢です！",
+        "context": "将来の夢を聞かれた時、瞳をキラキラ輝かせながら",
+        "mood": "passionate"
+      }
+    ]
+  },
+
+  "section_4_companion_cards": {
+    "section_title": "仲間図鑑",
+    "section_subtitle": "まめっちの大切な仲間たち",
+    "companions": [
+      {
+        "name_jp": "めめっち",
+        "name_romaji": "Memetchi",
+        "name_en": "Memetchi",
+        "relationship": "幼なじみ・親友",
+        "relationship_detail": "まめっちとは幼い頃からの付き合い。お互いの弱点を知り尽くしている最高の親友。まめっちの発明の第一号テスターを務めることも多い（被害者とも言う）。",
+        "personality_trait": "おしゃれで負けず嫌い",
+        "personality_detail": "流行に敏感なファッションリーダー。自慢の渦巻きカールヘアは毎朝30分かけてセット。ちょっぴりナルシストだけど、困っている友達は絶対に見捨てない熱い心の持ち主。",
+        "fun_fact": "怒ると頭の渦巻きが高速回転して、まるでドリルのようになる！一度まめっちの発明でヘアスタイルがストレートになった時は、三日三晩泣き続けた伝説がある。",
+        "hometown": "ぐるぐるタウン",
+        "color_theme": "#FF69B4",
+        "icon_emoji": "🌀"
+      },
+      {
+        "name_jp": "くちぱっち",
+        "name_romaji": "Kuchipatchi",
+        "name_en": "Kuchipatchi",
+        "relationship": "大切な親友・ムードメーカー",
+        "relationship_detail": "まめっちのグループの癒し担当。まめっちが発明に行き詰まった時、くちぱっちの何気ない一言がヒントになることが多い。一緒にいるだけで心が和む不思議な存在。",
+        "personality_trait": "食いしん坊でマイペース",
+        "personality_detail": "たまごっち星一の食いしん坊。いつもお腹を空かせている。ぼーっとしているように見えて、実は本質を突く発言をすることがある天然の哲学者。口癖は「だっち～」。",
+        "fun_fact": "一度の食事で自分の体重と同じ量のご飯を食べられる驚異の胃袋の持ち主。まめっちが作った「自動おにぎりマシン」の最大の顧客であり、マシンの生産が追いつかない唯一のユーザー。",
+        "hometown": "パッチの森",
+        "color_theme": "#90EE90",
+        "icon_emoji": "🍙"
+      },
+      {
+        "name_jp": "ラブリっち",
+        "name_romaji": "Lovelitchi",
+        "name_en": "Lovelitchi",
+        "relationship": "特別なパートナー・信頼できる仲間",
+        "relationship_detail": "まめっちにとって特別な存在。「ラブリン」としてのアイドル活動の秘密を共有する数少ない友人の一人。お互いを深く信頼し、まめっちの発明がラブリンのステージを支えることも。",
+        "personality_trait": "穏やかで優しいアイドル",
+        "personality_detail": "普段はおとなしくて控えめな女の子。しかしアイドル「ラブリン」に変身すると、たまごっち星中を魅了するカリスマ性を発揮。二つの顔のギャップが最大の魅力。",
+        "fun_fact": "まめっちが作った「ステージ照明マシン」は、ラブリンのコンサート専用に開発されたもの。初披露の時に照明が暴走して虹色の光が街中に溢れ、結果的にたまごっち星史上最高のイルミネーションイベントになった。",
+        "hometown": "ドリームタウン",
+        "color_theme": "#FFB6C1",
+        "icon_emoji": "💖"
+      },
+      {
+        "name_jp": "ちゃまめっち",
+        "name_romaji": "Chamametchi",
+        "name_en": "Chamametchi",
+        "relationship": "最愛の妹",
+        "relationship_detail": "まめっちの妹で、お兄ちゃんのことが大好き。まめっちも妹のためならどんな危険も顧みない。ちゃまめっちがまだ卵の中にいた時、まめっちが命がけで守った感動のエピソードは伝説。",
+        "personality_trait": "元気いっぱいの甘えん坊",
+        "personality_detail": "お兄ちゃんの真似をして発明ごっこをするのが大好き。天真爛漫で好奇心旺盛。泣き虫だけど、お兄ちゃんの前では強がることも。将来の夢はお兄ちゃんみたいな発明家になること！",
+        "fun_fact": "まめっちが作った「おもちゃロボット」を一番上手に操縦できるのは、実はちゃまめっち。お兄ちゃんのIQ250には及ばないけど、直感力と想像力ではまめっちを超えることもある天才妹！",
+        "hometown": "まめシティ（まめっちと同じ家）",
+        "color_theme": "#FFDAB9",
+        "icon_emoji": "🎀"
+      }
+    ]
+  }
+}

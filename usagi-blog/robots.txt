@@ -1,0 +1,11 @@
+# Usagi Fan Portal - robots.txt
+# うさぎ IP コンテンツポータル
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://usagi.example.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

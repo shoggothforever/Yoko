@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>まめまめ研究所ファンラボ — まめっちポータル</title>
+    <meta name="description" content="たまごっち星の天才発明家まめっち(Mametchi)のファンポータル。公式情報・ゲーム・グッズへのリンク集とまめっちAIとのおしゃべり機能。">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/mametchi-effects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-component"></div>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero" class="hero">
+        <div class="hero-bg">
+            <img src="public/mametchi.webp" alt="まめっち" class="hero-bg-img" onerror="this.style.display='none'">
+        </div>
+        <div class="hero-content">
+            <div class="hero-avatar-wrap">
+                <img src="public/mametchi.webp" alt="まめっち" class="hero-avatar" onerror="this.src='https://placehold.co/300x300/42A5F5/FFFFFF?text=🥚'">
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-motto" id="hero-motto"></span>
+                <span class="hero-name">まめっち<small>ファンポータル</small></span>
+            </h1>
+
+            <!-- HUD Panel -->
+            <div class="hud-panel">
+                <div class="hud-stat" data-target="250">
+                    <span class="hud-icon">🧠</span>
+                    <span class="hud-value" id="hud-iq">0</span>
+                    <span class="hud-label">IQ</span>
+                </div>
+                <div class="hud-stat" data-target="1096">
+                    <span class="hud-icon">🔧</span>
+                    <span class="hud-value" id="hud-inv">0</span>
+                    <span class="hud-label">発明総数</span>
+                </div>
+                <div class="hud-stat" data-target="72">
+                    <span class="hud-icon">📊</span>
+                    <span class="hud-value" id="hud-rate">0</span>
+                    <span class="hud-label">成功率%</span>
+                </div>
+                <div class="hud-stat" data-target="48">
+                    <span class="hud-icon">💛</span>
+                    <span class="hud-value" id="hud-friends">0</span>
+                    <span class="hud-label">なかまの数</span>
+                </div>
+            </div>
+
+            <p class="hero-desc">たまごっち星まめシティ出身の天才発明家。<br>公式情報からファンコンテンツまで、まめまめ研究所がお届けします。</p>
+            <button class="hero-chat-btn" onclick="window.toggleGhostChat && window.toggleGhostChat()">
+                🥚 まめっちとおしゃべりする →
+            </button>
+        </div>
+        <div class="hero-particles" id="hero-particles"></div>
+    </section>
+
+    <!-- ========== LINKS SECTION ========== -->
+    <section id="links" class="links-section">
+        <div class="section-container">
+            <h2 class="section-title"><span class="icon">📺</span> コンテンツナビ</h2>
+            <p class="section-subtitle">たまごっち星の情報をカテゴリ別に探索しよう！</p>
+
+            <div class="link-tabs" id="link-tabs">
+                <button class="tab-btn active" data-cat="official">📺 公式サイト</button>
+                <button class="tab-btn" data-cat="games">🎮 ゲーム</button>
+                <button class="tab-btn" data-cat="shop">🛍️ グッズ</button>
+                <button class="tab-btn" data-cat="wiki">📚 Wiki</button>
+                <button class="tab-btn" data-cat="sns">🎨 SNS</button>
+                <button class="tab-btn" data-cat="guide">📖 図鑑</button>
+            </div>
+
+            <div class="link-grid" id="link-grid"></div>
+        </div>
+    </section>
+
+    <!-- ========== PROFILE SECTION ========== -->
+    <section id="profile" class="profile-section">
+        <div class="section-container">
+            <h2 class="section-title"><span class="icon">🧬</span> まめっちプロフィール</h2>
+
+            <div class="profile-card">
+                <div class="profile-img-wrap">
+                    <img src="public/mametchi.webp" alt="まめっち" class="profile-img" onerror="this.src='https://placehold.co/250x250/42A5F5/FFFFFF?text=🥚'">
+                </div>
+                <div class="profile-info">
+                    <h3>まめっち <small>/ Mametchi</small></h3>
+                    <p class="profile-origin">BANDAI「たまごっち」シリーズの代表キャラクター（1996年〜）</p>
+                    <p class="profile-desc">たまごっち星まめシティ出身。黄色い丸い体に青い耳と青い大きな目が特徴。IQ250の超天才だが、画が下手で歌は音痴、しかも暗闇が苦手。まめまめ研究所で毎日発明に励む。発明はよく爆発するが「次こそきっとうまくいきます！」が口癖。</p>
+
+                    <!-- Inventions -->
+                    <div class="inventions">
+                        <h4>🔧 5大発明</h4>
+                        <div class="invention-list">
+                            <div class="invention-item">
+                                <span class="inv-icon">🌀</span>
+                                <div><strong>テレポートマシン</strong><br><small>瞬間移動装置（たまにバグあり）</small></div>
+                            </div>
+                            <div class="invention-item">
+                                <span class="inv-icon">🤖</span>
+                                <div><strong>まめっちロボ</strong><br><small>そっくりお手伝いロボット</small></div>
+                            </div>
+                            <div class="invention-item">
+                                <span class="inv-icon">🪞</span>
+                                <div><strong>ふしぎミラー</strong><br><small>未来が映る鏡（天気予報程度の精度）</small></div>
+                            </div>
+                            <div class="invention-item">
+                                <span class="inv-icon">⏰</span>
+                                <div><strong>タイムマシン</strong><br><small>時間旅行装置（開発中）</small></div>
+                            </div>
+                            <div class="invention-item">
+                                <span class="inv-icon">💬</span>
+                                <div><strong>おしゃべりトランスレーター</strong><br><small>地球語⇔たまごっち語翻訳機</small></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quotes -->
+                    <div class="quotes-section">
+                        <h4>💬 名言集</h4>
+                        <div class="quote-card">"失敗は成功のもとですから！次こそきっとうまくいきます！"</div>
+                        <div class="quote-card">"僕の計算では、この方法で間違いないはずです……たぶん！"</div>
+                        <div class="quote-card">"みんなが笑顔になれる発明を作ること、それが僕の夢です！"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FRIENDS SECTION ========== -->
+    <section id="friends" class="friends-section">
+        <div class="section-container">
+            <h2 class="section-title"><span class="icon">💙</span> なかま図鑑</h2>
+            <p class="section-subtitle">カードをクリックして裏面を見よう！</p>
+            <div class="friends-grid">
+                <div class="friend-flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <div class="flip-avatar"><img src="public/memetchi.webp" alt="めめっち" onerror="this.style.display='none';this.parentElement.textContent='🌀'"></div>
+                            <h4>めめっち</h4>
+                            <span class="flip-role">Memetchi</span>
+                        </div>
+                        <div class="flip-back">
+                            <h4>めめっち</h4>
+                            <p class="flip-relation">💛 幼なじみ・親友</p>
+                            <p>おしゃれで負けず嫌い。怒ると渦巻きヘアがドリルのように高速回転！まめっちとは幼なじみで、何でも話せる大切な存在。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="friend-flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <div class="flip-avatar"><img src="public/kuchipatchi.webp" alt="くちぱっち" onerror="this.style.display='none';this.parentElement.textContent='🍙'"></div>
+                            <h4>くちぱっち</h4>
+                            <span class="flip-role">Kuchipatchi</span>
+                        </div>
+                        <div class="flip-back">
+                            <h4>くちぱっち</h4>
+                            <p class="flip-relation">🍙 ムードメーカー</p>
+                            <p>食いしん坊でマイペース。体重と同じ量のご飯を一度に食べられる驚異の胃袋。天然だけど時々深いことを言う。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="friend-flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <div class="flip-avatar"><img src="public/mimitchi.webp" alt="ラブリン" onerror="this.style.display='none';this.parentElement.textContent='💖'"></div>
+                            <h4>ラブリン</h4>
+                            <span class="flip-role">Lovelitchi</span>
+                        </div>
+                        <div class="flip-back">
+                            <h4>ラブリン</h4>
+                            <p class="flip-relation">💖 特別なパートナー</p>
+                            <p>穏やかで優しいアイドル。まめっちの照明マシン暴走が伝説のイルミネーションになったことも。二人の関係は特別。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="friend-flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <div class="flip-avatar"><img src="public/mametchi_friend.webp" alt="ちゃまめっち" onerror="this.style.display='none';this.parentElement.textContent='🎀'"></div>
+                            <h4>ちゃまめっち</h4>
+                            <span class="flip-role">Chamametchi</span>
+                        </div>
+                        <div class="flip-back">
+                            <h4>ちゃまめっち</h4>
+                            <p class="flip-relation">🎀 最愛の妹</p>
+                            <p>元気いっぱいの甘えん坊。直感力ではお兄ちゃんを超えることもある天才妹。まめっちが命がけで守った大切な家族。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GHOST CHAT FLOATING WIDGET ========== -->
+    <div id="ghost-chat-widget" class="ghost-chat-widget hidden">
+        <div class="ghost-chat-header">
+            <div class="ghost-chat-header-info">
+                <img src="public/mametchi.webp" alt="まめっち" class="ghost-chat-avatar" onerror="this.style.display='none'">
+                <span>まめっちとおしゃべり</span>
+            </div>
+            <button class="ghost-chat-close" onclick="window.toggleGhostChat()">&times;</button>
+        </div>
+        <div class="ghost-chat-messages" id="ghost-chat-messages">
+            <div class="ghost-msg ghost-msg-system">
+                🥚 なるほど～！まめっちとおしゃべりしよう！<br>話題を入力して「送信」を押してね。わくわく♪
+            </div>
+        </div>
+        <div class="ghost-chat-input-wrap">
+            <input type="text" id="ghost-chat-input" placeholder="まめっちに話しかける..." maxlength="500">
+            <button id="ghost-chat-send" class="ghost-chat-send-btn">わくわく♪</button>
+        </div>
+    </div>
+
+    <button id="ghost-chat-toggle" class="ghost-chat-toggle" title="まめっちとおしゃべり">
+        <span class="chat-toggle-icon">🥚</span>
+        <span class="chat-toggle-pulse"></span>
+    </button>
+
+    <!-- Footer Component -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="js/header-component.js"></script>
+    <script src="js/footer-component.js"></script>
+    <script src="js/ghost-sse.js"></script>
+    <script src="js/fan-interactive.js"></script>
+</body>
+</html>
