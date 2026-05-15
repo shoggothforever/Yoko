@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 自动生成于 2026-03-12 09:35:50 -->
+    <!-- 自动生成于 2026-05-15 14:01:01 -->
     <url>
         <loc>https://yoko.sfct.top/index.html</loc>
-        <lastmod>2026-03-11</lastmod>
+        <lastmod>2026-05-12</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -62,6 +62,12 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/battle-martial-arts-2026-03-12.html</loc>
+        <lastmod>2026-03-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/between-steel-and-flesh.html</loc>
         <lastmod>2025-02-15</lastmod>
         <changefreq>monthly</changefreq>
@@ -74,8 +80,44 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/combat/cyberpunk-martial-arts-philosophy.html</loc>
+        <lastmod>2026-04-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/combat-martial-arts-thursday-2026-03-19.html</loc>
+        <lastmod>2026-03-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/combat-martial-arts-thursday-2026-03-26.html</loc>
+        <lastmod>2026-03-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/combat-martial-arts-thursday-2026-05-07.html</loc>
+        <lastmod>2026-05-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cy/cyborg-existence-questions.html</loc>
+        <lastmod>2026-05-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/cyber-ghost.html</loc>
         <lastmod>2025-02-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cyber-martial-arts-thursday-2026-04-09.html</loc>
+        <lastmod>2026-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -98,14 +140,98 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/cyberpunk-human-bonds-sunday-2026-04-26.html</loc>
+        <lastmod>2026-04-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/cyberpunk-identity-reconstruction.html</loc>
         <lastmod>2026-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/cyberpunk-prophecy-2026-03-30.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cyberpunk-sci-fi-evolution-2026-03-23.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cyberpunk-sci-fi-exploration-2026-03-16.html</loc>
+        <lastmod>2026-03-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/cyberpunk-soul-2026-03-02.html</loc>
         <lastmod>2026-03-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cyberspace-human-connections-sunday.html</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cyborg-009-nemesis-2026.html</loc>
+        <lastmod>2026-03-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cyborg-realm.html</loc>
+        <lastmod>2026-04-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/cyborg-tuesday-2026-03-24.html</loc>
+        <lastmod>2026-03-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/dark-aesthetics-blade-runner-color-2026-03-28.html</loc>
+        <lastmod>2026-03-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/dark-aesthetics-brutalist-future-2026-03-21.html</loc>
+        <lastmod>2026-03-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/dark-aesthetics-neon-deception.html</loc>
+        <lastmod>2026-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/dark-aesthetics-neon-noir-saturday-2026-04-11.html</loc>
+        <lastmod>2026-04-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/dark-aesthetics-saturday-2026-04-04.html</loc>
+        <lastmod>2026-04-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/digital-twin-identity-friday-2026-04-10.html</loc>
+        <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -124,6 +250,12 @@
     <url>
         <loc>https://yoko.sfct.top/posts/existentialism-sartre-camus.html</loc>
         <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/folding-beijing-dystopia-2026-03-25.html</loc>
+        <lastmod>2026-03-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -218,6 +350,12 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/liminal-spaces-urban-decay-saturday-2026-04-11.html</loc>
+        <lastmod>2026-04-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/loneliness-in-cyberpunk-world.html</loc>
         <lastmod>2026-02-28</lastmod>
         <changefreq>monthly</changefreq>
@@ -232,6 +370,12 @@
     <url>
         <loc>https://yoko.sfct.top/posts/martial-arts-cyberpunk-2026-03-05.html</loc>
         <lastmod>2026-03-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/martial-arts-tournament-thursday-2026-04-09.html</loc>
+        <lastmod>2026-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -296,8 +440,56 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://yoko.sfct.top/posts/vertical-dystopia-exploration-2026-04-01.html</loc>
+        <lastmod>2026-04-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/vertical-dystopia-tower-society.html</loc>
+        <lastmod>2026-03-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/virtual-reality-cyberpunk-friday-2026-04-10.html</loc>
+        <lastmod>2026-04-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://yoko.sfct.top/posts/virtual-reality-odyssey-2026-03-06.html</loc>
         <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/vr/digital-ghost-boundaries-of-existence-2026-04-24.html</loc>
+        <lastmod>2026-04-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/vr/virtual-reality-cyberpunk-exploration.html</loc>
+        <lastmod>2026-05-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/vr/virtual-reality-ghost.html</loc>
+        <lastmod>2026-03-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/vr/virtual-reality-philosophy.html</loc>
+        <lastmod>2026-03-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://yoko.sfct.top/posts/vr-friday-2026-03-27.html</loc>
+        <lastmod>2026-03-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>

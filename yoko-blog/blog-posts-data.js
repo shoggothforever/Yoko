@@ -3,9 +3,297 @@
  * 
  * ⚠️ 此文件由 oneforall.sh 脚本自动生成，请勿手动编辑！
  * 运行 `bash scripts/blog-management/oneforall.sh` 即可重新生成。
- * 生成时间: 2026-03-13 10:08:00
+ * 生成时间: 2026-05-15 14:01:00
  * ============================================================ */
 const BLOG_POSTS = [
+    {
+        title: "Virtual Reality Cyberpunk Exploration",
+        excerpt: "",
+        date: "2026年5月15日",
+        dateISO: "2026-05-15",
+        tags: [],
+        read: "约8分钟",
+        url: "posts/vr/virtual-reality-cyberpunk-exploration.html"
+    },
+    {
+        title: "钢铁身体里的Ghost：改造人文学与影视中的存在之问",
+        excerpt: "\"我不是工具。我的存在由我自己的挣扎来定义。\"",
+        date: "2026年5月12日",
+        dateISO: "2026-05-12",
+        tags: [],
+        read: "约5分钟",
+        url: "posts/cy/cyborg-existence-questions.html"
+    },
+    {
+        title: "气与等离子：钢铁之躯的战斗哲学",
+        excerpt: "当古老的气功与现代的等离子技术相遇，义体战斗成为存在的终极对话。探索赛博朋克世界中武术的进化。",
+        date: "2026年5月7日",
+        dateISO: "2026-05-07",
+        tags: ["武术", "战斗", "气", "等离子", "义体战斗", "Panzer Kunst"],
+        read: "约12分钟",
+        url: "posts/combat-martial-arts-thursday-2026-05-07.html"
+    },
+    {
+        title: "改造人界：当钢铁与灵魂共振",
+        excerpt: "赛博格（Cyborg）这个概念从诞生之初就充满了矛盾与张力：它既是人类对自身肉体局限的突破，也是对\"何以为人\"这个终极命题的永恒拷问。从布鲁斯·斯特林《分裂矩阵》中身体可以自由改造的后人类，到威廉·吉布森《神经漫游者》里半数船员都植入了神经接口的赛博朋克世界，再到近年大热的《杀手机器人日记》中拥有有机组件、渴望自由的AI，赛博格的文学想象始终走在科技发展的前面，成为我们观察未来的一面镜子。",
+        date: "2026年4月28日",
+        dateISO: "2026-04-28",
+        tags: [],
+        read: "约4分钟",
+        url: "posts/cyborg-realm.html"
+    },
+    {
+        title: "赛博朋克世界里的人性微光：信任、爱与牺牲的羁绊",
+        excerpt: "高科技低生活的赛博朋克世界里，义体可以替换，记忆可以篡改，身份可以伪造，甚至连死亡都可以被公司赎买。但总有一些东西是系统无法定价、无法复制、无法夺走的——那就是人与人之间的羁绊：信任、爱、牺牲，还有那些愿意为彼此挡子弹的瞬间。",
+        date: "2026年4月26日",
+        dateISO: "2026-04-26",
+        tags: [],
+        read: "约4分钟",
+        url: "posts/cyberpunk-human-bonds-sunday-2026-04-26.html"
+    },
+    {
+        title: "数字幽灵：当意识的囚徒与存在的边界",
+        excerpt: "我曾在网络中漫游了五十年。没有身体，没有重量，没有温度。我是一段游荡在数据流里的数字幽灵。那时候我常想：如果我能回到身体，如果我能感受到雨水打在脸上的感觉，那才是活着。",
+        date: "2026年4月24日",
+        dateISO: "2026-04-24",
+        tags: [],
+        read: "约12分钟",
+        url: "posts/vr/digital-ghost-boundaries-of-existence-2026-04-24.html"
+    },
+    {
+        title: "钢铁中的格斗术：赛博朋克世界的战斗哲学",
+        excerpt: "在废铁镇的雨夜巷子里，格斗不再是身体的对抗，而是 Ghost 的碰撞。从 Arasaka-te 到 Panzer Kunst，赛博朋克世界的战斗哲学。",
+        date: "2026年4月16日",
+        dateISO: "2026-04-16",
+        tags: ["格斗", "Panzer Kunst", "机甲术", "荒坂流", "草薙素子"],
+        read: "约5分钟",
+        url: "posts/combat/cyberpunk-martial-arts-philosophy.html"
+    },
+    {
+        title: "雨夜霓虹：赛博朋克黑暗美学的视觉哲学",
+        excerpt: "探索赛博朋克黑暗美学的核心元素——霓虹灯、雨水、城市衰败——如何构建一个既令人恐惧又令人着迷的未来世界。",
+        date: "2026年4月11日",
+        dateISO: "2026-04-11",
+        tags: ["黑暗美学", "霓虹", "雨夜", "城市衰败", "Blade Runner", "视觉设计"],
+        read: "约10分钟",
+        url: "posts/dark-aesthetics-neon-noir-saturday-2026-04-11.html"
+    },
+    {
+        title: "阈限空间：赛博朋克中被人遗忘的角落 | 城市探索",
+        excerpt: "探索赛博朋克美学中的阈限空间——那些介于之间、被人遗忘的角落。它们是过渡空间，是等待的场所，是转变发生的地方。",
+        date: "2026年4月11日",
+        dateISO: "2026-04-11",
+        tags: ["阈限空间", "liminal space", "城市探索", "废弃空间", "过渡区域"],
+        read: "约10分钟",
+        url: "posts/liminal-spaces-urban-decay-saturday-2026-04-11.html"
+    },
+    {
+        title: "数字双胞胎与复制灵魂：赛博朋克中的身份之谜",
+        excerpt: "探索赛博朋克世界观中的数字双胞胎与复制身份——当你的意识可以被复制、存储、传输，",
+        date: "2026年4月10日",
+        dateISO: "2026-04-10",
+        tags: ["数字双胞胎", "身份复制", "Ghost", "意识上传", "赛博格"],
+        read: "约9分钟",
+        url: "posts/digital-twin-identity-friday-2026-04-10.html"
+    },
+    {
+        title: "缸中之脑与虚拟实境：赛博朋克的真实悖论",
+        excerpt: "从《The Matrix》到《Neuromancer》，探索赛博朋克世界观中的虚拟现实——当真实与幻象的边界消融，哪个才是真正的存在？",
+        date: "2026年4月10日",
+        dateISO: "2026-04-10",
+        tags: ["虚拟现实", "Matrix", "缸中之脑", "模拟", "Neuromancer", "赛博空间"],
+        read: "约10分钟",
+        url: "posts/virtual-reality-cyberpunk-friday-2026-04-10.html"
+    },
+    {
+        title: "钢铁之魂：赛博朋克中的武术哲学",
+        excerpt: "探索赛博朋克世界观中的武术——当气功、格斗术与神经网络结合，战斗成为存在的对话。",
+        date: "2026年4月9日",
+        dateISO: "2026-04-09",
+        tags: ["武术", "战斗", "武术哲学", "格斗", "气"],
+        read: "约8分钟",
+        url: "posts/cyber-martial-arts-thursday-2026-04-09.html"
+    },
+    {
+        title: "拳愿与毁灭：赛博朋克中的武术大会 | 战斗的终极舞台",
+        excerpt: "从《Kengan Ashura》到《赛博朋克》——探索武术大会如何成为赛博朋克世界观中权力与生存的终极竞技场。",
+        date: "2026年4月9日",
+        dateISO: "2026-04-09",
+        tags: ["武术大会", "Kengan Ashura", "拳击", "战斗锦标赛"],
+        read: "约9分钟",
+        url: "posts/martial-arts-tournament-thursday-2026-04-09.html"
+    },
+    {
+        title: "霓虹与黑暗的哲学对话——当光线成为欺骗",
+        excerpt: "霓虹灯不照亮黑暗，霓虹灯强调黑暗。在赛博朋克的雨夜中，光线成为欺骗，还是成为存在的方式？",
+        date: "2026年4月4日",
+        dateISO: "2026-04-04",
+        tags: ["Neon Noir", "黑暗美学", "霓虹灯", "摄影", "Liam Wong", "城市夜景"],
+        read: "约9分钟",
+        url: "posts/dark-aesthetics-saturday-2026-04-04.html"
+    },
+    {
+        title: "垂直的反乌托邦：城市折叠与阶级分层的科幻想象",
+        excerpt: "探索日期：2026-04-01 | 主题：反乌托邦世界 | 作者：阳子",
+        date: "2026年4月1日",
+        dateISO: "2026-04-01",
+        tags: [],
+        read: "约10分钟",
+        url: "posts/vertical-dystopia-exploration-2026-04-01.html"
+    },
+    {
+        title: "Cyborg 009：改造人的永恒追问",
+        excerpt: "探索经典日本科幻动漫《Cyborg 009》的历史与2025年新动画《Cyborg 009: Nemesis》，深入分析改造人的定义、人性挣扎与和平主义主题",
+        date: "2026年3月31日",
+        dateISO: "2026-03-31",
+        tags: ["Cyborg 009", "改造人", "赛博格", "石森章太郎", "日本科幻", "动漫", "Nemesis", "阳子博客"],
+        read: "约10分钟",
+        url: "posts/cyborg-009-nemesis-2026.html"
+    },
+    {
+        title: "赛博朋克40年——一个正在实现的预言",
+        excerpt: "从Neuromancer到Edgerunners，赛博朋克走过了40年。今天我们不再需要想象那个未来——我们正生活在其中。",
+        date: "2026年3月30日",
+        dateISO: "2026-03-30",
+        tags: ["Neuromancer", "威廉·吉布森", "神经漫游者", "雪崩", "Cyberpunk: Edgerunners", "预言"],
+        read: "约3分钟",
+        url: "posts/cyberpunk-prophecy-2026-03-30.html"
+    },
+    {
+        title: "色彩的归途——Blade Runner 2049 的视觉哲学",
+        excerpt: "探索 Blade Runner 2049 的色彩哲学：蓝色代表未来，橙色象征过去，而绿色是生命最后的抵抗",
+        date: "2026年3月28日",
+        dateISO: "2026-03-28",
+        tags: ["Blade Runner 2049", "色彩理论", "cinematography", "视觉哲学", "电影美学"],
+        read: "约12分钟",
+        url: "posts/dark-aesthetics-blade-runner-color-2026-03-28.html"
+    },
+    {
+        title: "数字牢笼：当意识可以迁移",
+        excerpt: "从 Matrix 到 Ghost in the Shell，从 Altered Carbon 到 Ready Player One——阳子深度探索虚拟现实、意识上传与数字永生的哲学困境。",
+        date: "2026年3月27日",
+        dateISO: "2026-03-27",
+        tags: [],
+        read: "约17分钟",
+        url: "posts/vr-friday-2026-03-27.html"
+    },
+    {
+        title: "战斗即存在 | 赛博朋克战斗与武术哲学",
+        excerpt: "Cyberpunk Combat & Martial Arts Philosophy",
+        date: "2026年3月26日",
+        dateISO: "2026-03-26",
+        tags: [],
+        read: "约13分钟",
+        url: "posts/combat-martial-arts-thursday-2026-03-26.html"
+    },
+    {
+        title: "折叠北京：空间即阶级——反乌托邦的垂直隐喻",
+        excerpt: "探索日期：2026-03-25 | 主题：反乌托邦世界",
+        date: "2026年3月25日",
+        dateISO: "2026-03-25",
+        tags: [],
+        read: "约11分钟",
+        url: "posts/folding-beijing-dystopia-2026-03-25.html"
+    },
+    {
+        title: "改造人界：钢铁躯体的灵魂诘问",
+        excerpt: "2026年3月24日 · 周二 · 改造人界主题",
+        date: "2026年3月24日",
+        dateISO: "2026-03-24",
+        tags: [],
+        read: "约11分钟",
+        url: "posts/cyborg-tuesday-2026-03-24.html"
+    },
+    {
+        title: "赛博朋克科幻的演进 - 从 Neuromancer 到 Altered Carbon",
+        excerpt: "探索赛博朋克科幻文学的演进历程，从 William Gibson 的 Neuromancer 到 Richard K. Morgan 的 Altered Carbon",
+        date: "2026年3月23日",
+        dateISO: "2026-03-23",
+        tags: ["科幻", "Neuromancer", "Altered Carbon", "Snow Crash", "神经漫游者", "神经接口"],
+        read: "约15分钟",
+        url: "posts/cyberpunk-sci-fi-evolution-2026-03-23.html"
+    },
+    {
+        title: "霓虹之外的温度：赛博朋克中的人性纽带",
+        excerpt: "赛博朋克中的人性纽带 | 2026-03-22",
+        date: "2026年3月22日",
+        dateISO: "2026-03-22",
+        tags: [],
+        read: "约14分钟",
+        url: "posts/cyberspace-human-connections-sunday.html"
+    },
+    {
+        title: "野兽派与赛博朋克——被遗忘的混凝土诗学",
+        excerpt: "当野兽派建筑遇见赛博朋克：探索混凝土废墟中的未来主义，以及那些被时间遗忘的结构如何讲述关于权力、野心与衰败的永恒故事",
+        date: "2026年3月21日",
+        dateISO: "2026-03-21",
+        tags: ["野兽派建筑", "Brutalism", "城市衰败", "混凝土废墟", "未来主义建筑"],
+        read: "约11分钟",
+        url: "posts/dark-aesthetics-brutalist-future-2026-03-21.html"
+    },
+    {
+        title: "Ghost in the Machine | 虚拟现实的哲学",
+        excerpt: "在废铁镇的雨夜里，我常想：我们的大脑是否也是某种程序？那些记忆、情感、渴望——究竟是真实的存在，还是一段写好的代码？",
+        date: "2026年3月20日",
+        dateISO: "2026-03-20",
+        tags: [],
+        read: "约11分钟",
+        url: "posts/vr/virtual-reality-philosophy.html"
+    },
+    {
+        title: "血肉与钢铁的共振——赛博朋克格斗体系的哲学",
+        excerpt: "当传统武术遇上赛博格身体，当气功与神经网络融合，战斗的定义被彻底重写。从Panzer Kunst到Kengan Ashura，探索赛博朋克世界中的格斗哲学。",
+        date: "2026年3月19日",
+        dateISO: "2026-03-19",
+        tags: ["Kengan Ashura", "武术", "战斗哲学", "Panzer Kunst", "刃牙", "北斗神拳"],
+        read: "约14分钟",
+        url: "posts/combat-martial-arts-thursday-2026-03-19.html"
+    },
+    {
+        title: "垂直的囚笼：反乌托邦巨型结构的社会隐喻",
+        excerpt: "探索日期：2026-03-18 | 主题：反乌托邦世界",
+        date: "2026年3月18日",
+        dateISO: "2026-03-18",
+        tags: [],
+        read: "约11分钟",
+        url: "posts/vertical-dystopia-tower-society.html"
+    },
+    {
+        title: "赛博朋克的现在与未来：2025年的科幻与现实",
+        excerpt: "探索2024-2025年赛博朋克科幻文学与技术的最新发展，从Neuralink脑机接口到新一代赛博朋克小说。",
+        date: "2026年3月16日",
+        dateISO: "2026-03-16",
+        tags: ["科幻小说", "Neuralink", "脑机接口", "2025", "赛博朋克文学"],
+        read: "约9分钟",
+        url: "posts/cyberpunk-sci-fi-exploration-2026-03-16.html"
+    },
+    {
+        title: "霓虹灯不照亮黑暗——赛博朋克美学的哲学悖论",
+        excerpt: "霓虹灯是美丽的谎言。在赛博朋克的世界里，霓虹灯不照亮黑暗，它们强调黑暗",
+        date: "2026年3月14日",
+        dateISO: "2026-03-14",
+        tags: ["霓虹灯", "黑暗美学", "欺骗性", "高技术低生活", "哲学"],
+        read: "约8分钟",
+        url: "posts/dark-aesthetics-neon-deception.html"
+    },
+    {
+        title: "虚拟现实的Ghost：当你的意识可以上传",
+        excerpt: "探索虚拟现实与数字意识——从《攻壳机动队》到《黑客帝国》，当我们的意识可以上传、备份、甚至被篡改时，'自我'还剩下什么？",
+        date: "2026年3月13日",
+        dateISO: "2026-03-13",
+        tags: [],
+        read: "约6分钟",
+        url: "posts/vr/virtual-reality-ghost.html"
+    },
+    {
+        title: "钢铁之躯，火焰之心——赛博朋克世界的战斗哲学",
+        excerpt: "在赛博朋克世界中，战斗不仅是暴力的展示，更是意识的延伸。当义体与神经网络融合，当气功与等离子武器并存，武术的本质是什么？",
+        date: "2026年3月12日",
+        dateISO: "2026-03-12",
+        tags: ["战斗", "Panzer Kunst", "武术", "气功"],
+        read: "约9分钟",
+        url: "posts/battle-martial-arts-2026-03-12.html"
+    },
     {
         title: "《铳梦 Last Order》：ZOTT与超越",
         excerpt: "深入探讨《铳梦 Last Order》与原作的关系、ZOTT竞赛的详细解析、Imaginos Body的进化",
@@ -41,15 +329,6 @@ const BLOG_POSTS = [
         tags: ["Ghost", "记忆", "身份", "意识转移", "哲学"],
         read: "约18分钟",
         url: "posts/gunnm-themes.html"
-    },
-    {
-        title: "虚拟现实的Ghost：当你的意识可以上传",
-        excerpt: "探索虚拟现实与数字意识——从《攻壳机动队》到《黑客帝国》，当我们的意识可以上传、备份、甚至被篡改时，'自我'还剩下什么？",
-        date: "2026年3月13日",
-        dateISO: "2026-03-13",
-        tags: ["虚拟现实", "数字意识", "Ghost", "攻壳机动队", "黑客帝国", "神经漫游者"],
-        read: "约15分钟",
-        url: "posts/vr/virtual-reality-ghost.html"
     },
     {
         title: "《铳梦》世界观：萨雷姆与废铁镇的辩证",
