@@ -374,8 +374,27 @@ function loadBlogPosts(maxCount) {{
 FEED_BASE_URL = "https://118.145.99.224"
 
 
+def _extract_body_html(filepath: Path) -> str:
+    """提取文章正文 HTML（article-content 内，去掉 h1 与 article-meta），并把相对链接绝对化，
+    供 RSS content:encoded 全文使用。"""
+    try:
+        html = filepath.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return ""
+    m = re.search(r'<article class="article-content">(.*?)</article>', html, re.S)
+    body = m.group(1) if m else ""
+    body = re.sub(r"<h1\b[^>]*>.*?</h1>", "", body, count=1, flags=re.S)
+    body = re.sub(r'<div class="article-meta">.*?</div>', "", body, count=1, flags=re.S)
+    # 移除文章增强组件可能注入的容器残留（静态文件中通常没有，保险起见）
+    body = re.sub(r'<(section|nav|details)\b[^>]*class="(related-posts|post-nav|post-toc)"[^>]*>.*?</\1>', "", body, flags=re.S)
+    # 相对链接绝对化（../ 或 ../../ → 站点根）
+    body = re.sub(r'(src|href)="(?:\.\./)+', r'\1="' + FEED_BASE_URL + "/", body)
+    return body.strip()
+
+
 def generate_feed(articles: list, out_path: Path, limit: int = 20):
-    """生成 RSS 2.0 feed.xml（Feedly 等阅读器可订阅）。articles 须已按日期倒序。"""
+    """生成全文 RSS 2.0 feed.xml（含 content:encoded，兼容 Feedly / RSSHub / Inoreader）。
+    articles 须已按日期倒序。"""
     from email.utils import format_datetime
     from datetime import timezone
     from xml.sax.saxutils import escape
@@ -386,36 +405,49 @@ def generate_feed(articles: list, out_path: Path, limit: int = 20):
         except Exception:
             return ""
 
+    def cdata(s):
+        # CDATA 安全：拆分意外出现的 ]]>
+        return "<![CDATA[" + str(s).replace("]]>", "]]]]><![CDATA[>") + "]]>"
+
     items = []
     for a in articles[:limit]:
         url = f"{FEED_BASE_URL}/{a['url']}"
         cat = escape(a.get("category", ""))
+        body = _extract_body_html(BLOG_DIR / a["url"]) or a.get("excerpt", "")
         items.append(f"""    <item>
       <title>{escape(a['title'])}</title>
       <link>{url}</link>
       <guid isPermaLink="true">{url}</guid>
       <pubDate>{rfc822(a['dateISO'])}</pubDate>
+      <dc:creator>阳子 (Yoko)</dc:creator>
       <category>{cat}</category>
-      <description><![CDATA[{a.get('excerpt', '')}]]></description>
+      <description>{cdata(a.get('excerpt', ''))}</description>
+      <content:encoded>{cdata(body)}</content:encoded>
     </item>""")
 
     build_date = format_datetime(datetime.now(timezone.utc))
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>阳子 (Yoko) — 记忆的残响</title>
     <link>{FEED_BASE_URL}/</link>
     <atom:link href="{FEED_BASE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>战斗天使阳子的赛博朋克探索：在钢铁与灵魂之间，寻找 Ghost 的意义。</description>
+    <description>战斗天使阳子的赛博朋克探索：在钢铁与灵魂之间，寻找 Ghost 的意义。每日一篇赛博朋克主题随笔。</description>
     <language>zh-CN</language>
+    <copyright>© 阳子 (Yoko)</copyright>
     <lastBuildDate>{build_date}</lastBuildDate>
     <generator>generate-all-posts.py</generator>
+    <image>
+      <url>{FEED_BASE_URL}/public/images/icon-512.webp</url>
+      <title>阳子 (Yoko) — 记忆的残响</title>
+      <link>{FEED_BASE_URL}/</link>
+    </image>
 {chr(10).join(items)}
   </channel>
 </rss>
 """
     out_path.write_text(xml, encoding="utf-8")
-    print(f"✅ 成功生成：{out_path}（最新 {min(limit, len(articles))} 篇）")
+    print(f"✅ 成功生成：{out_path}（全文 RSS，最新 {min(limit, len(articles))} 篇）")
 
 
 def main():
