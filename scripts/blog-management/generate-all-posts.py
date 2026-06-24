@@ -248,14 +248,17 @@ def generate_blog_posts_js(articles: list) -> str:
     # 构造 JS 对象数组
     entries = []
     for a in articles:
-        # 转义 JS 字符串中的特殊字符
-        title_js = a["title"].replace("\\", "\\\\").replace('"', '\\"')
-        excerpt_js = a["excerpt"].replace("\\", "\\\\").replace('"', '\\"')
+        # 用 json.dumps 生成合法 JS 字符串字面量（自动处理引号/反斜杠/换行/控制符），
+        # 单行摘要再把内部换行折叠为空格，避免脏数据撑爆数组
+        def js_str(v):
+            return json.dumps(re.sub(r"\s+", " ", str(v)).strip(), ensure_ascii=False)
+        title_js = js_str(a["title"])
+        excerpt_js = js_str(a["excerpt"])
         tags_js = json.dumps(a["tags"], ensure_ascii=False)
 
         entry = f"""    {{
-        title: "{title_js}",
-        excerpt: "{excerpt_js}",
+        title: {title_js},
+        excerpt: {excerpt_js},
         date: "{a['date']}",
         dateISO: "{a['dateISO']}",
         tags: {tags_js},

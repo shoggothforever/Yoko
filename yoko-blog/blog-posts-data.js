@@ -3,17 +3,12 @@
  * 
  * ⚠️ 此文件由 oneforall.sh 脚本自动生成，请勿手动编辑！
  * 运行 `bash scripts/blog-management/oneforall.sh` 即可重新生成。
- * 生成时间: 2026-06-24 15:36:10
+ * 生成时间: 2026-06-24 16:13:35
  * ============================================================ */
 const BLOG_POSTS = [
     {
-        title: "virtual-reality-cyberpunk-exploration",
-        excerpt: "---
-title: 虚拟现实边界：当Ghost游走于数字迷宫
-date: 2026-05-15
-category: 赛博朋克探索
-tags: [虚拟现实, 矩阵, Ghost, 模拟, 神经漫游者]
-description: 探索赛博朋克",
+        title: "虚拟现实边界：当Ghost游走于数字迷宫",
+        excerpt: "探索赛博朋克作品中虚拟现实的哲学内核——当意识可以脱离肉体，当虚拟与真实的边界完全模糊，我们如何确认自己的存在？",
         date: "2026年5月15日",
         dateISO: "2026-05-15",
         tags: ["改造人"],
