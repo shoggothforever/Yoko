@@ -272,4 +272,11 @@ bash scripts/blog-management/oneforall.sh   # = generate-all-posts.py + generate
 3. **复检** — `normalize-posts.py --audit` 全绿才算通过；不合规会在日志里列出文件与具体问题。
 
 > 单一可信入口：**改完任何文章后，跑 `bash scripts/blog-management/sync-blog.sh` 即可**。它是幂等的，可随时重复运行。
+
+## 探索停产监测（防"静默停更"）
+
+教训：cron `status=ok` ≠ 真有产出。2026-05 galley 因 **ARK CodingPlan 订阅过期**（模型返回 `InvalidSubscription`、助手回合全空）连续 40 天零产出却无任何报错。
+
+- 监测：`python scripts/blog-management/check-exploration-health.py`（最新文章距今 >3 天即非 0 退出）。建议加入每日 crontab 或 HEARTBEAT。
+- 订阅恢复后：`openclaw cron edit 31ee528f-f20b-4d46-b037-17e3fa069869 --model ark/kimi-k2-thinking` 切到可用强模型，再 `openclaw cron run <id>` 验证确有新文章落盘。
 `
