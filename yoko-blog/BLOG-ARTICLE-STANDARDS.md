@@ -108,20 +108,27 @@
 
 所有博客文章文件权限必须为 `644` (rw-r--r--)，确保Nginx可以读取。
 
-## 自动化工具
+## 自动化工具（权威）
 
-使用以下工具自动修复文章格式：
+> ⚠️ 不要再手工逐篇改文章。下面是当前**实际可用且互相配合**的工具，全部位于
+> `/root/.openclaw/workspace/scripts/blog-management/`。
 
 ```bash
-# 批量修复文章样式和权限
-python3 scripts/fix-all-blog-posts.py
+# ① 一键日常维护（推荐入口）——归一化 + 重建索引/sitemap + 合规复检
+bash scripts/blog-management/sync-blog.sh
 
-# 统一文章元数据格式
-python3 scripts/standardize-article-metadata.py
+# ② 仅归一化文章模板（把漂移文章重套标准模板，保留正文，补元数据，修权限 644）
+#    需要带 beautifulsoup4 的解释器：yoko-blog/.toolvenv/bin/python
+yoko-blog/.toolvenv/bin/python scripts/blog-management/normalize-posts.py            # dry-run 预览分类
+yoko-blog/.toolvenv/bin/python scripts/blog-management/normalize-posts.py --apply     # 实际写入
+yoko-blog/.toolvenv/bin/python scripts/blog-management/normalize-posts.py --audit     # 仅合规检查（CI/告警用，违规则非0退出）
 
-# 更新现有文章使用组件（待开发）
-python3 scripts/update-articles-to-components.py
+# ③ 仅重建衍生文件（不改文章本体）
+bash scripts/blog-management/oneforall.sh   # = generate-all-posts.py + generate-sitemap.py + update-index-blog-list.py
 ```
+
+归一化脚本会**自动跳过已合规文章**（保留其原有丰富内联样式，不回退），只重写漂移文章。
+所有页面/文章/子目录均支持（`posts/**` 递归），子目录文章相对路径自动按深度修正。
 
 ## 示例
 
@@ -247,4 +254,22 @@ python3 scripts/update-articles-to-components.py
 
 5. **确保视觉一致性**
    - 与《记忆奥德赛》等其他文章保持一致
+
+---
+
+## 域名 / Canonical 约定
+
+- 全站 canonical / OG / Twitter / sitemap / robots 统一使用 **`https://118.145.99.224`**（裸 IP，与 Nginx `server_name` 一致）。
+- 生成器基准在 `scripts/blog-management/generate-sitemap.py` 的 `BASE_URL`、归一化器在 `normalize-posts.py` 的 `BASE_URL`。
+- 若将来切回域名 `yoko.sfct.top`：改这两个 `BASE_URL`，跑 `sync-blog.sh`，并用 `workspace/switch-to-domain.sh` 切换 Nginx。
+
+## 日常维护 Routine（防止风格漂移）
+
+风格漂移的根因：早期满血模型按标准写，后期由 cron + 较弱模型自动生成、无人校验。现已用"机器强制"代替"靠模型自觉"：
+
+1. **生成（10:00, openclaw cron「赛博朋克主题探索」）** — 阳子按主题探索并写文章；该 cron prompt 末尾已加入强制标准化指令，要求写完即跑 `sync-blog.sh`。
+2. **自愈（10:45, 系统 crontab，不依赖 LLM）** — `45 10 * * *` 运行 `sync-blog.sh`：无论生成阶段是否规范，都会机械地把所有文章归一化、重建首页/sitemap/robots、并做合规复检。日志：`yoko-blog/logs/sync-blog-cron.log`。
+3. **复检** — `normalize-posts.py --audit` 全绿才算通过；不合规会在日志里列出文件与具体问题。
+
+> 单一可信入口：**改完任何文章后，跑 `bash scripts/blog-management/sync-blog.sh` 即可**。它是幂等的，可随时重复运行。
 `

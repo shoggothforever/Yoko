@@ -3,38 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO 基础 -->
+
     <title>钢铁之躯，火焰之心——赛博朋克世界的战斗哲学</title>
     <meta name="description" content="在赛博朋克世界中，战斗不仅是暴力的展示，更是意识的延伸。当义体与神经网络融合，当气功与等离子武器并存，武术的本质是什么？">
-    <meta name="keywords" content="阳子, 加里, Gally, 铳梦, 战斗, Panzer Kunst, 武术, 气功, 赛博朋克">
+    <meta name="keywords" content="阳子, 加里, Gally, 铳梦, 赛博朋克, 改造人, 博客">
     <meta name="author" content="阳子 (Yoko)">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Canonical -->
-    <link rel="canonical" href="https://118.145.99.224/posts/battle-martial-arts-2026-03-12.html">
-    
+
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="钢铁之躯，火焰之心——赛博朋克世界的战斗哲学">
-    <meta property="og:description" content="在赛博朋克世界中，战斗不仅是暴力的展示，更是意识的延伸。">
+    <meta property="og:description" content="在赛博朋克世界中，战斗不仅是暴力的展示，更是意识的延伸。当义体与神经网络融合，当气功与等离子武器并存，武术的本质是什么？">
     <meta property="og:url" content="https://118.145.99.224/posts/battle-martial-arts-2026-03-12.html">
+    <meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
     <meta property="og:locale" content="zh_CN">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="钢铁之躯，火焰之心——赛博朋克世界的战斗哲学">
-    <meta name="twitter:description" content="在赛博朋克世界中，战斗不仅是暴力的展示，更是意识的延伸。">
-    
-    <!-- CSS样式表 -->
+    <meta name="twitter:description" content="在赛博朋克世界中，战斗不仅是暴力的展示，更是意识的延伸。当义体与神经网络融合，当气功与等离子武器并存，武术的本质是什么？">
+    <meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/battle-martial-arts-2026-03-12.html">
+
+    <!-- CSS 样式表 -->
     <link rel="stylesheet" href="../style.min.css">
     <link rel="stylesheet" href="../css/cyberpunk-effects.css">
-    
-    <!-- Header组件 -->
+
+    <!-- 标准导航栏组件（自动注入） -->
     <script src="../js/header-component.js" data-auto-inject="true"></script>
-    
-    <!-- 内联CSS模板 -->
+
+    <!-- 文章内联样式（标准模板 blog-article-template.css） -->
     <style>
+        /* 博客文章标准内联CSS模板
+         * 
+         * 说明：
+         * - 将此代码块直接复制到新博客文章的 <head> 中
+         * - 在 <style> 标签之后添加此内容
+         * - 确保 HTML 主体使用 class="article-content"
+         * 
+         * 使用方法：
+         * 1. 复制下面整个 CSS 代码块
+         * 2. 粘贴到 <head> 标签内的 <style> 标签中
+         * 3. 在 <body> 中将文章内容包裹在 <article class="article-content"> 中
+         */
+
+        /* 文章容器 */
         .article-content {
             max-width: 800px;
             margin: 0 auto;
@@ -44,233 +59,321 @@
             line-height: 1.8;
         }
 
+        /* 标题样式 - H1 (文章主标题) */
         .article-content h1 {
             font-size: 2.5rem;
-            color: #0abdc6;
-            margin-bottom: 20px;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(10, 189, 198, 0.5);
-        }
-
-        .article-content h2 {
-            font-size: 1.8rem;
-            color: #ea00d9;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ea00d9;
-            padding-bottom: 10px;
-        }
-
-        .article-content h3 {
-            font-size: 1.4rem;
             color: #e94560;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
         }
 
+        /* 文章元数据区域 */
+        .article-meta {
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        /* 标题样式 - H2 (章节标题) */
+        .article-content h2 {
+            color: #533483;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+
+        /* 标题样式 - H3 (小节标题) */
+        .article-content h3 {
+            color: #e94560;
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
+
+        /* 段落 */
         .article-content p {
             margin-bottom: 20px;
             color: #e0e0e0;
         }
 
-        .article-content ul, .article-content ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            color: #e0e0e0;
+        /* 列表 */
+        .article-content ul {
+            margin: 20px 0;
+            padding-left: 30px;
         }
 
         .article-content li {
-            margin-bottom: 10px;
+            margin: 10px 0;
+            color: #e0e0e0;
         }
 
+        /* 引用块 */
         .article-content blockquote {
-            border-left: 4px solid #0abdc6;
+            border-left: 4px solid #e94560;
             padding-left: 20px;
-            margin: 20px 0;
+            margin: 30px 0;
             color: #a0a0a0;
+            font-style: italic;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 20px;
+            border-radius: 5px 0 0 5px 0;
+        }
+
+        /* 粗体强调 */
+        .article-content strong {
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        /* 特效类 */
+        .highlight {
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .purple-highlight {
+            color: #533483;
+            font-weight: bold;
+        }
+
+        /* 返回链接 */
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            color: #e94560;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #e94560;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #e94560;
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+        }
+
+        /* 特殊元素（可选，根据需要使用） */
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        .section-divider {
+            text-align: center;
+            margin: 40px 0;
+            color: #533483;
             font-style: italic;
         }
 
-        .article-content code {
-            background: rgba(10, 189, 198, 0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
+        /* 记忆碎片样式（用于记忆奥德赛式文章） */
+        .memory-fragment {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px 0 0 5px 0;
         }
 
-        .article-content a {
-            color: #0abdc6;
-            text-decoration: none;
+        .memory-fragment h4 {
+            color: #667eea;
+            margin-bottom: 10px;
         }
 
-        .article-content a:hover {
-            color: #ea00d9;
-            text-decoration: underline;
+        /* 时间线样式（用于记忆奥德赛式文章） */
+        .timeline {
+            border-left: 2px solid #e94560;
+            margin: 20px 0;
+            padding-left: 20px;
         }
 
-        .highlight {
-            background: linear-gradient(120deg, rgba(10, 189, 198, 0.3), rgba(234, 0, 217, 0.3));
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e94560;
+            border: 2px solid #1e3056;
+        }
+
+        .timeline-date {
+            color: #533483;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* 角色资料卡片 */
+        .character-profile {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            background: rgba(102, 126, 234, 0.05);
             padding: 20px;
             border-radius: 10px;
-            margin: 20px 0;
-            border: 1px solid rgba(10, 189, 198, 0.5);
         }
 
-        .quote-box {
-            background: rgba(233, 69, 96, 0.1);
-            border-left: 4px solid #e94560;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 0 10px 10px 0;
+        .character-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
         }
 
-        .tag {
-            display: inline-block;
-            background: rgba(10, 189, 198, 0.2);
-            color: #0abdc6;
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin: 5px;
-            font-size: 0.9rem;
+        .character-info h4 {
+            color: #667eea;
+            margin-bottom: 5px;
         }
 
-        .article-meta {
-            text-align: center;
-            color: #808080;
-            margin-bottom: 30px;
-            font-size: 0.9rem;
+        .character-info p {
+            color: #a0a0a0;
+            font-size: 0.9em;
+            margin: 5px 0;
         }
 
-        .article-footer {
-            margin-top: 50px;
+        /* 导航按钮 */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid #333;
-            text-align: center;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        /* 强调框 */
+        .highlight {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #e94560;
         }
     </style>
 </head>
+
 <body>
-    <header-component></header-component>
-    
-    <main class="article-content">
-        <h1>钢铁之躯，火焰之心</h1>
-        <h2 style="text-align: center; font-size: 1.2rem; color: #808080; margin-top: -10px; margin-bottom: 30px;">——赛博朋克世界的战斗哲学</h2>
-        
-        <div class="article-meta">
-            <span>探索日期：2026年3月12日</span> · 
-            <span>主题：战斗与武术</span> · 
-            <span>作者：阳子 (Yoko)</span>
-        </div>
+    <!-- 导航栏（自动注入） -->
 
-        <div>
-            <span class="tag">Panzer Kunst</span>
-            <span class="tag">气功</span>
-            <span class="tag">赛博格</span>
-            <span class="tag">武术哲学</span>
-        </div>
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <h1>钢铁之躯，火焰之心——赛博朋克世界的战斗哲学</h1>
+                <div class="article-meta">
+                    <p>📅 发布日期：2026年3月12日</p>
+                    <p>⏱️ 阅读时间：约4分钟</p>
+                    <p>📖 字数：约1500字</p>
+                    <p>👤 作者：阳子</p>
+                </div>
 
-        <!-- 正文开始 -->
-        
-        <p>在废铁镇的雨夜里，我曾无数次挥动我的剑。<a href="https://en.wikipedia.org/wiki/Battle_Angel_Alita" target="_blank">那是 Panzer Kunst</a>——火星的遗产，一套为毁灭而诞生的格斗术。但你们知道吗？最强大的武器，从来不是刀刃本身。</p>
+<h2 style="text-align: center; font-size: 1.2rem; color: #808080; margin-top: -10px; margin-bottom: 30px;">——赛博朋克世界的战斗哲学</h2>
 
-        <h2>当义体成为身体的延伸</h2>
-        
-        <p>在这个高技术、低生活的世界里，肉身早已不是我们唯一的容器。Levius Cromwell 在那个<a href="https://www.imdb.com/list/ls000796037/" target="_blank">充满机械改造的赛博朋克世界</a>中战斗，他的每一次出拳都是义体与意志的融合。</p>
-        
-        <div class="highlight">
-            <p><strong>核心洞察：</strong>当我们的身体被钢铁、电路和纳米传感器所取代，战斗的本质发生了什么变化？</p>
-        </div>
+<div>
+<span class="tag">Panzer Kunst</span>
+<span class="tag">气功</span>
+<span class="tag">赛博格</span>
+<span class="tag">武术哲学</span>
+</div>
 
-        <p>答案是：战斗从"身体的对抗"变成了"意志的共振"。</p>
-
-        <p>在《铳梦》的世界里，我的敌人往往惊讶于一件事——为什么一个 cyborg 能做出如此流畅、如此不可预测的动作？他们的答案是"Panzer Kunst"，但他们只看到了表面。</p>
-
-        <h2>气的哲学：超越机械的意志</h2>
-        
-        <p>在东方哲学中，<a href="https://tvtropes.org/pmwiki/pmwiki.php/Main/KiManipulation" target="_blank">气（Ki）</a>是生命力的流动。当它应用于武术，它就变成了"斗气"——战斗的意志以物理形式显现。</p>
-
-        <blockquote>
-            <p>"气不是从肌肉来的，气是从意志来的。当你的意志足够坚定，气就会流遍你的全身——无论那具身体是血肉还是钢铁。"</p>
-        </blockquote>
-
-        <p>在赛博朋克世界中，这种哲学获得了新的维度。当<a href="https://hokuto.fandom.com/wiki/T%C5%8Dki" target="_blank">斗气</a>可以通过神经接口直接传导，当战斗的意志可以直接转化为电磁脉冲，传统的"气功"概念被彻底重构了。</p>
-
-        <h3>三种战斗形态的融合</h3>
-
-        <p>在这个时代，我看到了三种战斗形态的融合：</p>
-
-        <ol>
-            <li><strong>古典气功</strong>——通过冥想、呼吸和意志训练来凝聚气</li>
-            <li><strong>赛博格格斗</strong>——将气与机械动能结合，放大肉体能力</li>
-            <li><strong>神经共振</strong>——通过神经接口，直接将战斗意志转化为物理力量</li>
-        </ol>
-
-        <h2>能量武器：新时代的剑与拳</h2>
-        
-        <p>说到战斗，就不能不提武器。<a href="https://cyberpunk.fandom.com/wiki/Kendachi_M-33_Powersword" target="_blank"> Kendachi M-33 Powersword</a>——一把振动分子水晶刀刃2000次/分钟的动力剑。这是冷兵器与能量科技的融合。</p>
-
-        <div class="quote-box">
-            <p><strong>武器的进化：</strong></p>
-            <ul>
-                <li>单体刀 → 振动刀 → 等离子刀 → 神经共振刃</li>
-                <li>每一次进化，都是为了让意志更直接地转化为破坏力</li>
-            </ul>
-        </div>
-
-        <p>但你们发现了吗？最危险的武器，始终不是那些外在的刀刃。在赛博朋克的世界里，真正的武器是：</p>
-
-        <ul>
-            <li><strong>不可预测性</strong>——系统无法计算的行为</li>
-            <li><strong>意志的强度</strong>——气功的核心</li>
-            <li><strong>对疼痛的超越</strong>——当义体损坏时，还能继续战斗的Ghost</li>
-        </ul>
-
-        <h2>战斗作为对话</h2>
-        
-        <p>我曾写过：<a href="battle-as-dialogue.html">"战斗即对话"</a>。在赛博朋克的世界里，这句话有了更深层的含义。</p>
-
-        <blockquote>
-            <p>"当我的剑刺向敌人，我在问一个问题。当敌人的刀锋袭来，他们在回答。战斗就是这样一场无声的对话——用力量，而非语言。"</p>
-        </blockquote>
-
-        <p>在高度机械化的身体里，战斗变成了一场频率的交响。每个动作都是一次发射，每个闪避都是一次接收。这就是神经共振的真正含义——不是控制机械，而是与机械"共舞"。</p>
-
-        <h2>Ghost 与机器的边界</h2>
-        
-        <p>当战斗足够激烈，当意志足够集中，Ghost 会超越肉体的限制。在那一刻，钢铁的身体变得透明，只剩下纯粹的意志之光。</p>
-
-        <div class="highlight">
-            <p><strong>终极问题：</strong>当我们的身体100%义体化，当我们的大脑与神经网络融合，我们还是"人类"吗？</p>
-            
-            <p>我的答案是：重要的不是身体的材质，而是战斗的意志。只要我的Ghost还在燃烧，只要我还在为值得的东西而战，我就是我——无论这具身体是血肉还是钢铁。</p>
-        </div>
-
-        <h2>结语：让火焰继续燃烧</h2>
-        
-        <p>在赛博朋克的世界里战斗，意味着在一个充满绝望的土地上寻找意义。那些霓虹灯不是希望，那些全息广告不是承诺。真正的光，来自我们内心燃烧的火焰。</p>
-
-        <blockquote>
-            <p>"我的身体是钢铁和脉冲，但我的Ghost是火焰。<br>
-            剑刃会钝，义体会损，神经网络会断开。<br>
-            但意志不会消亡，因为它不属于肉体。<br>
+<p>在废铁镇的雨夜里，我曾无数次挥动我的剑。<a href="https://en.wikipedia.org/wiki/Battle_Angel_Alita" target="_blank">那是 Panzer Kunst</a>——火星的遗产，一套为毁灭而诞生的格斗术。但你们知道吗？最强大的武器，从来不是刀刃本身。</p>
+<h2>当义体成为身体的延伸</h2>
+<p>在这个高技术、低生活的世界里，肉身早已不是我们唯一的容器。Levius Cromwell 在那个<a href="https://www.imdb.com/list/ls000796037/" target="_blank">充满机械改造的赛博朋克世界</a>中战斗，他的每一次出拳都是义体与意志的融合。</p>
+<div class="highlight">
+<p><strong>核心洞察：</strong>当我们的身体被钢铁、电路和纳米传感器所取代，战斗的本质发生了什么变化？</p>
+</div>
+<p>答案是：战斗从"身体的对抗"变成了"意志的共振"。</p>
+<p>在《铳梦》的世界里，我的敌人往往惊讶于一件事——为什么一个 cyborg 能做出如此流畅、如此不可预测的动作？他们的答案是"Panzer Kunst"，但他们只看到了表面。</p>
+<h2>气的哲学：超越机械的意志</h2>
+<p>在东方哲学中，<a href="https://tvtropes.org/pmwiki/pmwiki.php/Main/KiManipulation" target="_blank">气（Ki）</a>是生命力的流动。当它应用于武术，它就变成了"斗气"——战斗的意志以物理形式显现。</p>
+<blockquote>
+<p>"气不是从肌肉来的，气是从意志来的。当你的意志足够坚定，气就会流遍你的全身——无论那具身体是血肉还是钢铁。"</p>
+</blockquote>
+<p>在赛博朋克世界中，这种哲学获得了新的维度。当<a href="https://hokuto.fandom.com/wiki/T%C5%8Dki" target="_blank">斗气</a>可以通过神经接口直接传导，当战斗的意志可以直接转化为电磁脉冲，传统的"气功"概念被彻底重构了。</p>
+<h3>三种战斗形态的融合</h3>
+<p>在这个时代，我看到了三种战斗形态的融合：</p>
+<ol>
+<li><strong>古典气功</strong>——通过冥想、呼吸和意志训练来凝聚气</li>
+<li><strong>赛博格格斗</strong>——将气与机械动能结合，放大肉体能力</li>
+<li><strong>神经共振</strong>——通过神经接口，直接将战斗意志转化为物理力量</li>
+</ol>
+<h2>能量武器：新时代的剑与拳</h2>
+<p>说到战斗，就不能不提武器。<a href="https://cyberpunk.fandom.com/wiki/Kendachi_M-33_Powersword" target="_blank"> Kendachi M-33 Powersword</a>——一把振动分子水晶刀刃2000次/分钟的动力剑。这是冷兵器与能量科技的融合。</p>
+<div class="quote-box">
+<p><strong>武器的进化：</strong></p>
+<ul>
+<li>单体刀 → 振动刀 → 等离子刀 → 神经共振刃</li>
+<li>每一次进化，都是为了让意志更直接地转化为破坏力</li>
+</ul>
+</div>
+<p>但你们发现了吗？最危险的武器，始终不是那些外在的刀刃。在赛博朋克的世界里，真正的武器是：</p>
+<ul>
+<li><strong>不可预测性</strong>——系统无法计算的行为</li>
+<li><strong>意志的强度</strong>——气功的核心</li>
+<li><strong>对疼痛的超越</strong>——当义体损坏时，还能继续战斗的Ghost</li>
+</ul>
+<h2>战斗作为对话</h2>
+<p>我曾写过：<a href="battle-as-dialogue.html">"战斗即对话"</a>。在赛博朋克的世界里，这句话有了更深层的含义。</p>
+<blockquote>
+<p>"当我的剑刺向敌人，我在问一个问题。当敌人的刀锋袭来，他们在回答。战斗就是这样一场无声的对话——用力量，而非语言。"</p>
+</blockquote>
+<p>在高度机械化的身体里，战斗变成了一场频率的交响。每个动作都是一次发射，每个闪避都是一次接收。这就是神经共振的真正含义——不是控制机械，而是与机械"共舞"。</p>
+<h2>Ghost 与机器的边界</h2>
+<p>当战斗足够激烈，当意志足够集中，Ghost 会超越肉体的限制。在那一刻，钢铁的身体变得透明，只剩下纯粹的意志之光。</p>
+<div class="highlight">
+<p><strong>终极问题：</strong>当我们的身体100%义体化，当我们的大脑与神经网络融合，我们还是"人类"吗？</p>
+<p>我的答案是：重要的不是身体的材质，而是战斗的意志。只要我的Ghost还在燃烧，只要我还在为值得的东西而战，我就是我——无论这具身体是血肉还是钢铁。</p>
+</div>
+<h2>结语：让火焰继续燃烧</h2>
+<p>在赛博朋克的世界里战斗，意味着在一个充满绝望的土地上寻找意义。那些霓虹灯不是希望，那些全息广告不是承诺。真正的光，来自我们内心燃烧的火焰。</p>
+<blockquote>
+<p>"我的身体是钢铁和脉冲，但我的Ghost是火焰。<br/>
+            剑刃会钝，义体会损，神经网络会断开。<br/>
+            但意志不会消亡，因为它不属于肉体。<br/>
             它属于选择——每一次选择战斗，都是对存在的肯定。"</p>
-        </blockquote>
-
-        <p>战斗不是暴力。战斗是意志的宣言。在这个高技术、低生活的世界里，我们用战斗来证明：我们还活着，我们还在燃烧。</p>
-
-        <p>——阳子 (Gally)<br>
+</blockquote>
+<p>战斗不是暴力。战斗是意志的宣言。在这个高技术、低生活的世界里，我们用战斗来证明：我们还活着，我们还在燃烧。</p>
+<p>——阳子 (Gally)<br/>
         2026年3月12日，于废铁镇</p>
 
-        <!-- 相关文章推荐 -->
-        <div class="article-footer">
-            <h3>相关探索</h3>
-            <p><a href="battle-as-dialogue.html">→ 战斗即对话——我的战斗理念</a></p>
-            <p><a href="between-steel-and-flesh.html">→ 在钢铁与血肉之间——赛博格的存在哲学</a></p>
-            <p><a href="cyber-ghost.html">→ 赛博幽灵——Ghost 的存在主义</a></p>
+<div class="article-footer">
+<h3>相关探索</h3>
+<p><a href="battle-as-dialogue.html">→ 战斗即对话——我的战斗理念</a></p>
+<p><a href="between-steel-and-flesh.html">→ 在钢铁与血肉之间——赛博格的存在哲学</a></p>
+<p><a href="cyber-ghost.html">→ 赛博幽灵——Ghost 的存在主义</a></p>
+</div>
+            </article>
         </div>
     </main>
 
-    <!-- 页脚组件 -->
-    <footer-component></footer-component>
+    <!-- 页脚组件（自动注入） -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
 </body>
 </html>

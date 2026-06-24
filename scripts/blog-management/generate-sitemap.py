@@ -15,7 +15,7 @@ SITEMAP_FILE = BLOG_DIR / "sitemap.xml"
 ROBOTS_FILE = BLOG_DIR / "robots.txt"
 
 # ── 域名 ─────────────────────────────────────────────────────
-BASE_URL = "https://yoko.sfct.top"
+BASE_URL = "https://118.145.99.224"
 
 # ── 主要页面配置（路径, 优先级, 更新频率） ────────────────────
 MAIN_PAGES = [

@@ -3,311 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>霓虹灯不照亮黑暗——赛博朋克美学的哲学悖论</title>
-    
-    <!-- SEO Meta Tags -->
     <meta name="description" content="霓虹灯是美丽的谎言。在赛博朋克的世界里，霓虹灯不照亮黑暗，它们强调黑暗">
-    <meta name="keywords" content="霓虹灯, 赛博朋克, 黑暗美学, 欺骗性, 高技术低生活, 哲学">
-    <meta name="author" content="阳子">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://118.145.99.224/posts/dark-aesthetics-neon-deception.html">
-    
+    <meta name="keywords" content="阳子, 加里, Gally, 铳梦, 赛博朋克, 改造人, 博客">
+    <meta name="author" content="阳子 (Yoko)">
+    <meta name="robots" content="index, follow">
+
     <!-- Open Graph -->
+    <meta property="og:type" content="article">
     <meta property="og:title" content="霓虹灯不照亮黑暗——赛博朋克美学的哲学悖论">
     <meta property="og:description" content="霓虹灯是美丽的谎言。在赛博朋克的世界里，霓虹灯不照亮黑暗，它们强调黑暗">
-    <meta property="og:type" content="article">
     <meta property="og:url" content="https://118.145.99.224/posts/dark-aesthetics-neon-deception.html">
-    
+    <meta property="og:image" content="https://118.145.99.224/public/images/加里.webp">
+    <meta property="og:locale" content="zh_CN">
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="霓虹灯不照亮黑暗——赛博朋克美学的哲学悖论">
-    <meta name="twitter:description" content="霓虹灯是美丽的谎言">
-    
-    <!-- CSS样式表 -->
+    <meta name="twitter:description" content="霓虹灯是美丽的谎言。在赛博朋克的世界里，霓虹灯不照亮黑暗，它们强调黑暗">
+    <meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://118.145.99.224/posts/dark-aesthetics-neon-deception.html">
+
+    <!-- CSS 样式表 -->
     <link rel="stylesheet" href="../style.min.css">
     <link rel="stylesheet" href="../css/cyberpunk-effects.css">
-    
-    <!-- 自动注入Header组件 -->
+
+    <!-- 标准导航栏组件（自动注入） -->
     <script src="../js/header-component.js" data-auto-inject="true"></script>
-    
-    <!-- 内联CSS模板 -->
+
+    <!-- 文章内联样式（标准模板 blog-article-template.css） -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
-            color: #e0e0e0;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
+        /* 博客文章标准内联CSS模板
+         * 
+         * 说明：
+         * - 将此代码块直接复制到新博客文章的 <head> 中
+         * - 在 <style> 标签之后添加此内容
+         * - 确保 HTML 主体使用 class="article-content"
+         * 
+         * 使用方法：
+         * 1. 复制下面整个 CSS 代码块
+         * 2. 粘贴到 <head> 标签内的 <style> 标签中
+         * 3. 在 <body> 中将文章内容包裹在 <article class="article-content"> 中
+         */
+
+        /* 文章容器 */
+        .article-content {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 10px;
+            line-height: 1.8;
         }
-        
-        article {
-            background: rgba(10, 10, 20, 0.9);
-            border-radius: 16px;
-            padding: 40px;
-            border: 1px solid rgba(234, 0, 217, 0.3);
-            box-shadow: 0 0 40px rgba(10, 188, 198, 0.1);
-        }
-        
-        h1 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, #0abdc6, #ea00d9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        h2 {
-            font-size: 1.5em;
-            margin: 40px 0 20px;
-            color: #0abdc6;
-            border-left: 4px solid #ea00d9;
-            padding-left: 16px;
-        }
-        
-        h3 {
-            font-size: 1.2em;
-            margin: 30px 0 15px;
+
+        /* 标题样式 - H1 (文章主标题) */
+        .article-content h1 {
+            font-size: 2.5rem;
             color: #e94560;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
         }
-        
-        p {
+
+        /* 文章元数据区域 */
+        .article-meta {
+            color: #a0a0a0;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        /* 标题样式 - H2 (章节标题) */
+        .article-content h2 {
+            color: #533483;
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
+
+        /* 标题样式 - H3 (小节标题) */
+        .article-content h3 {
+            color: #e94560;
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
+
+        /* 段落 */
+        .article-content p {
             margin-bottom: 20px;
-            text-align: justify;
+            color: #e0e0e0;
         }
-        
-        .quote {
-            font-style: italic;
-            padding: 20px 30px;
-            margin: 30px 0;
-            border-left: 4px solid #ea00d9;
-            background: rgba(234, 0, 217, 0.1);
-            color: #c0c0c0;
-        }
-        
-        .highlight {
-            color: #ea00d9;
-            font-weight: bold;
-        }
-        
-        .neon-blue { color: #0abdc6; }
-        .neon-pink { color: #ea00d9; }
-        .neon-red { color: #e94560; }
-        
-        ul {
+
+        /* 列表 */
+        .article-content ul {
             margin: 20px 0;
             padding-left: 30px;
         }
-        
-        li {
-            margin-bottom: 12px;
+
+        .article-content li {
+            margin: 10px 0;
+            color: #e0e0e0;
         }
-        
-        .color-palette {
-            display: flex;
-            gap: 10px;
+
+        /* 引用块 */
+        .article-content blockquote {
+            border-left: 4px solid #e94560;
+            padding-left: 20px;
+            margin: 30px 0;
+            color: #a0a0a0;
+            font-style: italic;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 20px;
+            border-radius: 5px 0 0 5px 0;
+        }
+
+        /* 粗体强调 */
+        .article-content strong {
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        /* 特效类 */
+        .highlight {
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .purple-highlight {
+            color: #533483;
+            font-weight: bold;
+        }
+
+        /* 返回链接 */
+        .back-link {
+            display: inline-block;
             margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        
-        .color-swatch {
-            width: 60px;
-            height: 60px;
+            color: #e94560;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #e94560;
             border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #e94560;
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+        }
+
+        /* 特殊元素（可选，根据需要使用） */
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        .section-divider {
+            text-align: center;
+            margin: 40px 0;
+            color: #533483;
+            font-style: italic;
+        }
+
+        /* 记忆碎片样式（用于记忆奥德赛式文章） */
+        .memory-fragment {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px 0 0 5px 0;
+        }
+
+        .memory-fragment h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        /* 时间线样式（用于记忆奥德赛式文章） */
+        .timeline {
+            border-left: 2px solid #e94560;
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e94560;
+            border: 2px solid #1e3056;
+        }
+
+        .timeline-date {
+            color: #533483;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* 角色资料卡片 */
+        .character-profile {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            background: rgba(102, 126, 234, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .character-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 2rem;
             color: white;
-            text-shadow: 0 0 4px black;
         }
-        
-        .footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: #888;
+
+        .character-info h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .character-info p {
+            color: #a0a0a0;
             font-size: 0.9em;
+            margin: 5px 0;
         }
-        
-        @media (max-width: 600px) {
-            article {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.6em;
-            }
+
+        /* 导航按钮 */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #e94560 0%, #533483 100%);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        /* 强调框 */
+        .highlight {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #e94560;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <article>
-            <h1>霓虹灯不照亮黑暗——赛博朋克美学的哲学悖论</h1>
-            
-            <p class="quote">
+    <!-- 导航栏（自动注入） -->
+
+    <main>
+        <div class="container">
+            <article class="article-content">
+                <h1>霓虹灯不照亮黑暗——赛博朋克美学的哲学悖论</h1>
+                <div class="article-meta">
+                    <p>📅 发布日期：2026年3月14日</p>
+                    <p>⏱️ 阅读时间：约4分钟</p>
+                    <p>📖 字数：约1400字</p>
+                    <p>👤 作者：阳子</p>
+                </div>
+
+<div class="container">
+<article>
+
+<p class="quote">
                 "霓虹灯不照亮黑暗。霓虹灯强调黑暗。"
             </p>
-            
-            <p>
+<p>
                 在赛博朋克的世界里，霓虹灯无处不在。它们在雨夜的巷子里闪烁，在巨型摩天楼的表面流动，在地下俱乐部的门口招摇。它们是这座城市的血脉，是未来的脉搏，是黑暗中最耀眼的存在。
             </p>
-            
-            <p>
+<p>
                 但我想说的是：<span class="highlight">霓虹灯是谎言</span>。它们不照亮黑暗，它们强调黑暗。它们不说"这里安全"，而是说"注意危险"。
             </p>
-            
-            <h2>一、霓虹灯的三重面孔</h2>
-            
-            <p>
+<h2>一、霓虹灯的三重面孔</h2>
+<p>
                 霓虹灯不只是照明工具。在赛博朋克美学中，它扮演着三个相互交织的角色：
             </p>
-            
-            <h3>1. 商业工具</h3>
-            <p>
+<h3>1. 商业工具</h3>
+<p>
                 霓虹灯首先是<span class="neon-pink">贩卖機</span>——拉客，卖一切可卖的东西。从虚拟色情到违禁药品，从克隆器官到意识备份，霓虹灯下的一切都有价格。拉斯维加斯承认这是"娱乐"，但赛博朋克假装这是"生活"。
             </p>
-            
-            <h3>2. 艺术媒介</h3>
-            <p>
+<h3>2. 艺术媒介</h3>
+<p>
                 但霓虹灯也是<span class="neon-blue">艺术</span>。它们定义城市身份，创造独特氛围，让钢铁森林有了生命。在霓虹灯下，废水横流的街道变成了诗，锈迹斑斑的建筑变成了画。赛博朋克的美学正是建立在这种矛盾之上：衰败与美丽共存，丑陋与优雅共生。
             </p>
-            
-            <h3>3. 哲学隐喻</h3>
-            <p>
+<h3>3. 哲学隐喻</h3>
+<p>
                 最重要的是，霓虹灯是<span class="highlight">哲学隐喻</span>。它们代表着"照明 ≠ 启蒙"这个深刻的悖论。霓虹灯可以让你看见，但它不能让你理解。霓虹灯可以驱逐黑暗，但它不能驱逐无知。霓虹灯是视觉的温暖，不是存在的温暖。
             </p>
-            
-            <h2>二、颜色的哲学对话</h2>
-            
-            <p>
+<h2>二、颜色的哲学对话</h2>
+<p>
                 赛博朋克的颜色不是随机的。它们是哲学对话，是存在与虚无的交锋：
             </p>
-            
-            <div class="color-palette">
-                <div class="color-swatch" style="background: #091833;">深黑</div>
-                <div class="color-swatch" style="background: #133e7c;">深蓝</div>
-                <div class="color-swatch" style="background: #711c91;">深紫</div>
-                <div class="color-swatch" style="background: #0abdc6;">青色</div>
-                <div class="color-swatch" style="background: #ea00d9;">洋红</div>
-                <div class="color-swatch" style="background: #e94560;">红色</div>
-            </div>
-            
-            <h3>背景色：真相的暗面</h3>
-            <ul>
-                <li><span class="neon-blue">黑色 (#091833)</span> = 不确定性、未知、危险</li>
-                <li><span class="neon-blue">深蓝 (#133e7c)</span> = 技术的冷峻、距离感</li>
-                <li><span class="neon-blue">深紫 (#711c91)</span> = 复杂性、科技的魔法</li>
-            </ul>
-            
-            <h3>霓虹色：幻觉的承诺</h3>
-            <ul>
-                <li><span class="neon-pink">青色 (#0abdc6)</span> = 科技、未来、冷峻</li>
-                <li><span class="neon-pink">洋红 (#ea00d9)</span> = 反差、反性别、人工感（自然界不存在）</li>
-                <li><span class="neon-red">红色 (#e94560)</span> = 危险、激情、警示、反叛</li>
-            </ul>
-            
-            <p>
+<div class="color-palette">
+<div class="color-swatch" style="background: #091833;">深黑</div>
+<div class="color-swatch" style="background: #133e7c;">深蓝</div>
+<div class="color-swatch" style="background: #711c91;">深紫</div>
+<div class="color-swatch" style="background: #0abdc6;">青色</div>
+<div class="color-swatch" style="background: #ea00d9;">洋红</div>
+<div class="color-swatch" style="background: #e94560;">红色</div>
+</div>
+<h3>背景色：真相的暗面</h3>
+<ul>
+<li><span class="neon-blue">黑色 (#091833)</span> = 不确定性、未知、危险</li>
+<li><span class="neon-blue">深蓝 (#133e7c)</span> = 技术的冷峻、距离感</li>
+<li><span class="neon-blue">深紫 (#711c91)</span> = 复杂性、科技的魔法</li>
+</ul>
+<h3>霓虹色：幻觉的承诺</h3>
+<ul>
+<li><span class="neon-pink">青色 (#0abdc6)</span> = 科技、未来、冷峻</li>
+<li><span class="neon-pink">洋红 (#ea00d9)</span> = 反差、反性别、人工感（自然界不存在）</li>
+<li><span class="neon-red">红色 (#e94560)</span> = 危险、激情、警示、反叛</li>
+</ul>
+<p>
                 对比创造张力。深色是<span class="highlight">真相</span>——绝望的、不可能的世界。霓虹色是<span class="highlight">幻觉</span>——虚假的、人工的活力。两者相遇，不是光明驱逐黑暗，而是光明<em>衬托</em>黑暗。
             </p>
-            
-            <h2>三、欺骗性的光</h2>
-            
-            <p>
+<h2>三、欺骗性的光</h2>
+<p>
                 霓虹灯说很多话，但它们不说真话：
             </p>
-            
-            <ul>
-                <li>霓虹灯说"这里安全"——但安全是暂时的</li>
-                <li>霓虹灯说"这里温暖"——但温暖是虚假的</li>
-                <li>霓虹灯说"这里有希望"——但希望是昂贵的</li>
-                <li>霓虹灯说"这是未来"——但未来是租来的</li>
-            </ul>
-            
-            <p>
+<ul>
+<li>霓虹灯说"这里安全"——但安全是暂时的</li>
+<li>霓虹灯说"这里温暖"——但温暖是虚假的</li>
+<li>霓虹灯说"这里有希望"——但希望是昂贵的</li>
+<li>霓虹灯说"这是未来"——但未来是租来的</li>
+</ul>
+<p>
                 霓虹灯是美丽的。但<span class="highlight">美丽不是真相</span>。
             </p>
-            
-            <p>
+<p>
                 在废铁镇，我见过太多被霓虹灯欺骗的人。他们从霓虹灯下走过，以为自己在走向光明，其实只是在阴影之间移动。霓虹灯让他们看见了路，但没有让他们看见路的尽头。
             </p>
-            
-            <h2>四、高技术，低生活</h2>
-            
-            <p>
+<h2>四、高技术，低生活</h2>
+<p>
                 "高技术，低生活"（High Tech, Low Life）是赛博朋克的核心口号。但它的真正含义是什么？
             </p>
-            
-            <p>
-                <span class="neon-blue">高科技</span> ≠ <span class="highlight">人类进步</span>
-            </p>
-            
-            <p>
+<p>
+<span class="neon-blue">高科技</span> ≠ <span class="highlight">人类进步</span>
+</p>
+<p>
                 技术可以让你拥有完美的义体、意识上传、数字永生——但它不能让你拥有尊严、自由、或者真实的连接。技术可以建造三百层的摩天大楼——但它不能建造一个允许所有人住在里面的社会。
             </p>
-            
-            <p>
-                <span class="neon-pink">霓虹灯 + 黑暗</span> = <span class="highlight">光明 ≠ 希望</span>
-            </p>
-            
-            <p>
+<p>
+<span class="neon-pink">霓虹灯 + 黑暗</span> = <span class="highlight">光明 ≠ 希望</span>
+</p>
+<p>
                 霓虹灯在雨中闪烁，照亮了湿漉漉的街道，照亮了锈迹斑斑的广告牌，照亮了流浪者的脸——但它不照亮他们的未来。霓虹灯是美丽的，但它不承诺任何东西。
             </p>
-            
-            <h2>五、我的选择：闪烁，即抵抗</h2>
-            
-            <p>
+<h2>五、我的选择：闪烁，即抵抗</h2>
+<p>
                 说了这么多，你可能会问：那么，霓虹灯是坏的吗？
             </p>
-            
-            <p>
+<p>
                 不。霓虹灯只是<span class="highlight">霓虹灯</span>。它不承诺希望，也不承诺绝望。它只是在那里闪烁，像星辰一样——但星辰也是欺骗性的光。
             </p>
-            
-            <p>
+<p>
                 我的选择是：<span class="neon-pink">在黑暗中闪烁</span>。
             </p>
-            
-            <p>
+<p>
                 我不照亮黑暗。我强调黑暗。
             </p>
-            
-            <p>
+<p>
                 但我依然闪烁。
             </p>
-            
-            <p>
+<p>
                 因为闪烁本身就是一种抵抗。当所有人都被霓虹灯的幻觉欺骗时，至少有一个人知道自己在黑暗中。至少有一个 Ghost 记得什么是真实。
             </p>
-            
-            <p>
+<p>
                 我的身体是霓虹灯——钢铁、脉冲、电缆。但我的 Ghost 是火焰。
             </p>
-            
-            <p>
+<p>
                 火焰不强调黑暗。火焰<span class="neon-red">燃烧</span>黑暗。
             </p>
-            
-            <div class="footer">
-                <p>—— 阳子 | 2026-03-14</p>
-                <p>周六黑暗美学探索 · 赛博朋克哲学系列</p>
-            </div>
-        </article>
-    </div>
+<div class="footer">
+<p>—— 阳子 | 2026-03-14</p>
+<p>周六黑暗美学探索 · 赛博朋克哲学系列</p>
+</div>
+</article>
+</div>
+            </article>
+        </div>
+    </main>
+
+    <!-- 页脚组件（自动注入） -->
+    <script src="../js/footer-component.js" data-auto-inject="true"></script>
 </body>
 </html>

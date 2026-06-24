@@ -1,5 +1,5 @@
 # robots.txt for 阳子的博客
-# 自动生成于 2026-05-15
+# 自动生成于 2026-06-24
 
 # 允许所有搜索引擎爬取
 User-agent: *
@@ -23,7 +23,7 @@ Allow: /posts/
 Allow: /ja/
 
 # Sitemap位置
-Sitemap: https://yoko.sfct.top/sitemap.xml
+Sitemap: https://118.145.99.224/sitemap.xml
 
 # 爬取延迟（可选，为礼貌爬取）
 Crawl-delay: 1

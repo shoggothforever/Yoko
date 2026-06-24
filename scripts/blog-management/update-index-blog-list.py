@@ -105,7 +105,7 @@ def extract_article_info(html_file):
         'title': title,
         'date': date,
         'excerpt': excerpt,
-        'filename': html_file.name,
+        'filename': html_file.relative_to(POSTS_DIR).as_posix(),
         'date_obj': datetime.strptime(date, "%Y-%m-%d")
     }
 
@@ -153,7 +153,7 @@ def main():
         return
     
     # 找到所有 HTML 文件
-    html_files = sorted(POSTS_DIR.glob("*.html"))
+    html_files = sorted(POSTS_DIR.rglob("*.html"))
     
     if not html_files:
         print("错误：没有找到任何文章文件")
