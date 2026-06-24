@@ -10,7 +10,7 @@ from pathlib import Path
 from datetime import datetime
 
 # 路径配置
-BLOG_DIR = Path("/root/.openclaw/workspace/yoko-blog")
+BLOG_DIR = Path(__file__).resolve().parents[2] / "yoko-blog"  # 路径可移植
 POSTS_DIR = BLOG_DIR / "posts"
 INDEX_FILE = BLOG_DIR / "index.html"
 

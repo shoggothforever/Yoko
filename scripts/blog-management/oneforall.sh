@@ -20,9 +20,9 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-# 路径配置
-WORKSPACE_DIR="/root/.openclaw/workspace"
-SCRIPTS_DIR="${WORKSPACE_DIR}/scripts/blog-management"
+# 路径配置（从脚本位置推导仓库根，本地与云端 checkout 通用）
+SCRIPTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORKSPACE_DIR="$(cd "${SCRIPTS_DIR}/../.." && pwd)"
 BLOG_DIR="${WORKSPACE_DIR}/yoko-blog"
 
 echo -e "${CYAN}╔══════════════════════════════════════╗${NC}"
