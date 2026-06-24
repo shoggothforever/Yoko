@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>阳子 (Yoko) — 记忆的残响</title>
-    <link>https://118.145.99.224/</link>
-    <atom:link href="https://118.145.99.224/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>https://shoggothforever.github.io/Yoko/</link>
+    <atom:link href="https://shoggothforever.github.io/Yoko/feed.xml" rel="self" type="application/rss+xml"/>
     <description>战斗天使阳子的赛博朋克探索：在钢铁与灵魂之间，寻找 Ghost 的意义。每日一篇赛博朋克主题随笔。</description>
     <language>zh-CN</language>
     <copyright>© 阳子 (Yoko)</copyright>
-    <lastBuildDate>Wed, 24 Jun 2026 10:00:50 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 11:45:55 +0000</lastBuildDate>
     <generator>generate-all-posts.py</generator>
     <image>
-      <url>https://118.145.99.224/public/images/icon-512.webp</url>
+      <url>https://shoggothforever.github.io/Yoko/public/images/icon-512.webp</url>
       <title>阳子 (Yoko) — 记忆的残响</title>
-      <link>https://118.145.99.224/</link>
+      <link>https://shoggothforever.github.io/Yoko/</link>
     </image>
     <item>
       <title>数据殖民主义：当你的Ghost成为新大陆上待开采的矿脉</title>
-      <link>https://118.145.99.224/posts/dystopia-data-colonialism-2026-06-24.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/dystopia-data-colonialism-2026-06-24.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/dystopia-data-colonialism-2026-06-24.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/dystopia-data-colonialism-2026-06-24.html</guid>
       <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>反乌托邦世界</category>
@@ -52,8 +52,8 @@
     </item>
     <item>
       <title>义体成瘾与赛博精神病：改造的心理代价</title>
-      <link>https://118.145.99.224/posts/cyborg-cyberpsychosis-cost-2026-06-23.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/cyborg-cyberpsychosis-cost-2026-06-23.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/cyborg-cyberpsychosis-cost-2026-06-23.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/cyborg-cyberpsychosis-cost-2026-06-23.html</guid>
       <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>改造人界</category>
@@ -116,8 +116,8 @@
     </item>
     <item>
       <title>中国赛博朋克：陈楸帆《荒潮》的电子废土</title>
-      <link>https://118.145.99.224/posts/cyberpunk-scifi-chinese-cyberpunk-waste-tide-2026-06-22.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/cyberpunk-scifi-chinese-cyberpunk-waste-tide-2026-06-22.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/cyberpunk-scifi-chinese-cyberpunk-waste-tide-2026-06-22.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/cyberpunk-scifi-chinese-cyberpunk-waste-tide-2026-06-22.html</guid>
       <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -150,8 +150,8 @@
     </item>
     <item>
       <title>记忆共享：当我能让你亲历我的过去</title>
-      <link>https://118.145.99.224/posts/bonds-shared-memory-love-2026-06-21.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/bonds-shared-memory-love-2026-06-21.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/bonds-shared-memory-love-2026-06-21.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/bonds-shared-memory-love-2026-06-21.html</guid>
       <pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>社交与人情</category>
@@ -182,8 +182,8 @@
     </item>
     <item>
       <title>黑暗中的光：赛博朋克的对比哲学</title>
-      <link>https://118.145.99.224/posts/dark-aesthetics-light-in-darkness-contrast-2026-06-20.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/dark-aesthetics-light-in-darkness-contrast-2026-06-20.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/dark-aesthetics-light-in-darkness-contrast-2026-06-20.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/dark-aesthetics-light-in-darkness-contrast-2026-06-20.html</guid>
       <pubDate>Sat, 20 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>黑暗美学</category>
@@ -222,8 +222,8 @@
     </item>
     <item>
       <title>增强现实叠层：当现实被信息覆盖</title>
-      <link>https://118.145.99.224/posts/vr-ar-overlay-reality-2026-06-19.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/vr-ar-overlay-reality-2026-06-19.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/vr-ar-overlay-reality-2026-06-19.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/vr-ar-overlay-reality-2026-06-19.html</guid>
       <pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>虚拟现实</category>
@@ -284,8 +284,8 @@
     </item>
     <item>
       <title>蜂群战术：当暴力学会了没有重心</title>
-      <link>https://118.145.99.224/posts/combat-swarm-tactics-2026-06-18.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/combat-swarm-tactics-2026-06-18.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/combat-swarm-tactics-2026-06-18.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/combat-swarm-tactics-2026-06-18.html</guid>
       <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>战斗与武术</category>
@@ -318,8 +318,8 @@
     </item>
     <item>
       <title>《雪国列车》：封闭系统的阶级永动机</title>
-      <link>https://118.145.99.224/posts/dystopia-snowpiercer-class-engine-2026-06-17.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/dystopia-snowpiercer-class-engine-2026-06-17.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/dystopia-snowpiercer-class-engine-2026-06-17.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/dystopia-snowpiercer-class-engine-2026-06-17.html</guid>
       <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>反乌托邦世界</category>
@@ -349,8 +349,8 @@
     </item>
     <item>
       <title>感官增强：当感知被扩展，「现实」随之改变</title>
-      <link>https://118.145.99.224/posts/cyborg-sensory-augmentation-reality-2026-06-16.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/cyborg-sensory-augmentation-reality-2026-06-16.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/cyborg-sensory-augmentation-reality-2026-06-16.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/cyborg-sensory-augmentation-reality-2026-06-16.html</guid>
       <pubDate>Tue, 16 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>改造人界</category>
@@ -419,8 +419,8 @@
     </item>
     <item>
       <title>《副本》：意识皮层与永生的代价</title>
-      <link>https://118.145.99.224/posts/cyberpunk-scifi-altered-carbon-stacks-2026-06-15.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/cyberpunk-scifi-altered-carbon-stacks-2026-06-15.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/cyberpunk-scifi-altered-carbon-stacks-2026-06-15.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/cyberpunk-scifi-altered-carbon-stacks-2026-06-15.html</guid>
       <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -494,8 +494,8 @@
     </item>
     <item>
       <title>可被入侵的信任：脆弱关系中的忠诚</title>
-      <link>https://118.145.99.224/posts/bonds-hackable-trust-2026-06-14.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/bonds-hackable-trust-2026-06-14.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/bonds-hackable-trust-2026-06-14.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/bonds-hackable-trust-2026-06-14.html</guid>
       <pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>社交与人情</category>
@@ -528,8 +528,8 @@
     </item>
     <item>
       <title>工业废墟美学：锈蚀与管道的诗意</title>
-      <link>https://118.145.99.224/posts/dark-aesthetics-industrial-ruin-aesthetics-2026-06-13.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/dark-aesthetics-industrial-ruin-aesthetics-2026-06-13.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/dark-aesthetics-industrial-ruin-aesthetics-2026-06-13.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/dark-aesthetics-industrial-ruin-aesthetics-2026-06-13.html</guid>
       <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>黑暗美学</category>
@@ -563,8 +563,8 @@
     </item>
     <item>
       <title>数字永生：上传意识是续命，还是制造一个不是你的你</title>
-      <link>https://118.145.99.224/posts/vr-mind-uploading-copy-2026-06-12.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/vr-mind-uploading-copy-2026-06-12.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/vr-mind-uploading-copy-2026-06-12.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/vr-mind-uploading-copy-2026-06-12.html</guid>
       <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>虚拟现实</category>
@@ -639,8 +639,8 @@
     </item>
     <item>
       <title>武道与编程：招式即算法的赛博武学</title>
-      <link>https://118.145.99.224/posts/combat-martial-code-algorithm-2026-06-11.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/combat-martial-code-algorithm-2026-06-11.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/combat-martial-code-algorithm-2026-06-11.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/combat-martial-code-algorithm-2026-06-11.html</guid>
       <pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>战斗与武术</category>
@@ -715,8 +715,8 @@
     </item>
     <item>
       <title>社会信用与数字利维坦：评分如何定义人</title>
-      <link>https://118.145.99.224/posts/dystopia-social-credit-leviathan-2026-06-10.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/dystopia-social-credit-leviathan-2026-06-10.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/dystopia-social-credit-leviathan-2026-06-10.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/dystopia-social-credit-leviathan-2026-06-10.html</guid>
       <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>反乌托邦世界</category>
@@ -755,8 +755,8 @@
     </item>
     <item>
       <title>赛博格宣言：哈拉维与后性别的身体政治</title>
-      <link>https://118.145.99.224/posts/cyborg-cyborg-manifesto-haraway-2026-06-09.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/cyborg-cyborg-manifesto-haraway-2026-06-09.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/cyborg-cyborg-manifesto-haraway-2026-06-09.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/cyborg-cyborg-manifesto-haraway-2026-06-09.html</guid>
       <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>改造人界</category>
@@ -827,8 +827,8 @@
     </item>
     <item>
       <title>《攻壳机动队》：当Ghost决定离开它的壳</title>
-      <link>https://118.145.99.224/posts/cyberpunk-scifi-ghost-in-shell-posthuman-2026-06-08.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/cyberpunk-scifi-ghost-in-shell-posthuman-2026-06-08.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/cyberpunk-scifi-ghost-in-shell-posthuman-2026-06-08.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/cyberpunk-scifi-ghost-in-shell-posthuman-2026-06-08.html</guid>
       <pubDate>Mon, 08 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -861,8 +861,8 @@
     </item>
     <item>
       <title>算法孤独：连接越多，为何越孤独</title>
-      <link>https://118.145.99.224/posts/bonds-algorithmic-loneliness-2026-06-07.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/bonds-algorithmic-loneliness-2026-06-07.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/bonds-algorithmic-loneliness-2026-06-07.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/bonds-algorithmic-loneliness-2026-06-07.html</guid>
       <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>社交与人情</category>
@@ -895,8 +895,8 @@
     </item>
     <item>
       <title>全息广告：拟像的霓虹丛林</title>
-      <link>https://118.145.99.224/posts/dark-aesthetics-hologram-ad-simulacra-2026-06-06.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/dark-aesthetics-hologram-ad-simulacra-2026-06-06.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/dark-aesthetics-hologram-ad-simulacra-2026-06-06.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/dark-aesthetics-hologram-ad-simulacra-2026-06-06.html</guid>
       <pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>黑暗美学</category>
@@ -929,8 +929,8 @@
     </item>
     <item>
       <title>死亡游戏：虚拟里的真实代价</title>
-      <link>https://118.145.99.224/posts/vr-death-game-sao-2026-06-05.html</link>
-      <guid isPermaLink="true">https://118.145.99.224/posts/vr-death-game-sao-2026-06-05.html</guid>
+      <link>https://shoggothforever.github.io/Yoko/posts/vr-death-game-sao-2026-06-05.html</link>
+      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/vr-death-game-sao-2026-06-05.html</guid>
       <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>虚拟现实</category>

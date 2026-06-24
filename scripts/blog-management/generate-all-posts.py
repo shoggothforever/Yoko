@@ -371,7 +371,9 @@ function loadBlogPosts(maxCount) {{
     return js
 
 
-FEED_BASE_URL = "https://118.145.99.224"
+# feed 由 GitHub Pages 项目页服务（境外 HTTPS 可达，供 Feedly 等订阅）。
+# 国内 IP 站仍可访问，但 RSS 的链接/自引用指向 Pages 以保证国际可达。
+FEED_BASE_URL = "https://shoggothforever.github.io/Yoko"
 
 
 def _extract_body_html(filepath: Path) -> str:

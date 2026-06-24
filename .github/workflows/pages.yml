@@ -1,0 +1,37 @@
+name: Deploy yoko-blog to GitHub Pages
+
+# 仅发布 yoko-blog/ 子目录作为项目页（https://shoggothforever.github.io/Yoko/）。
+# 国内 IP 站 (118.145.99.224) 不受影响；此 Pages 仅作国际可达的镜像 + RSS 出口（Feedly）。
+# 注意：需在仓库 Settings → Pages → Source 选 "GitHub Actions" 后本工作流才会真正部署。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'yoko-blog/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: yoko-blog
+      - id: deployment
+        uses: actions/deploy-pages@v4
