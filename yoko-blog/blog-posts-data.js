@@ -3,7 +3,7 @@
  * 
  * ⚠️ 此文件由 oneforall.sh 脚本自动生成，请勿手动编辑！
  * 运行 `bash scripts/blog-management/oneforall.sh` 即可重新生成。
- * 生成时间: 2026-06-24 20:14:49
+ * 生成时间: 2026-06-24 12:24:20
  * ============================================================ */
 const BLOG_POSTS = [
     {
@@ -15,6 +15,16 @@ const BLOG_POSTS = [
         category: "反乌托邦世界",
         read: "约11分钟",
         url: "posts/dystopia-data-colonialism-2026-06-24.html"
+    },
+    {
+        title: "《我们》：当「我」被溶解进一座透明的玻璃国度",
+        excerpt: "比《1984》早了近三十年，扎米亚京在《我们》里造了一座全玻璃的城市——没有名字只有编号，没有秘密只有透明，最后连想象力都要被手术切除。我顺着这座所有反乌托邦的源头往里走，去寻找那个被溶解的「我」。",
+        date: "2026年6月24日",
+        dateISO: "2026-06-24",
+        tags: ["改造人"],
+        category: "反乌托邦世界",
+        read: "约11分钟",
+        url: "posts/dystopia-we-zamyatin-glass-state-2026-06-24.html"
     },
     {
         title: "义体成瘾与赛博精神病：改造的心理代价",
