@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 自动生成于 2026-06-24 16:13:35 -->
+    <!-- 自动生成于 2026-06-24 16:50:02 -->
     <url>
         <loc>https://118.145.99.224/index.html</loc>
         <lastmod>2026-06-24</lastmod>
@@ -74,6 +74,42 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://118.145.99.224/posts/bonds-algorithmic-loneliness-2026-06-07.html</loc>
+        <lastmod>2026-06-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/bonds-cyborg-family-bonds-2026-05-31.html</loc>
+        <lastmod>2026-05-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/bonds-digital-mourning-2026-05-24.html</loc>
+        <lastmod>2026-05-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/bonds-hackable-trust-2026-06-14.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/bonds-her-ai-love-2026-05-17.html</loc>
+        <lastmod>2026-05-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/bonds-shared-memory-love-2026-06-21.html</loc>
+        <lastmod>2026-06-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://118.145.99.224/posts/cellist.html</loc>
         <lastmod>2026-02-23</lastmod>
         <changefreq>monthly</changefreq>
@@ -100,6 +136,36 @@
     <url>
         <loc>https://118.145.99.224/posts/combat-martial-arts-thursday-2026-05-07.html</loc>
         <lastmod>2026-05-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/combat-martial-code-algorithm-2026-06-11.html</loc>
+        <lastmod>2026-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/combat-motorball-spectacle-2026-06-04.html</loc>
+        <lastmod>2026-06-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/combat-pain-cyborg-warrior-2026-05-28.html</loc>
+        <lastmod>2026-05-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/combat-predictive-swordplay-2026-05-21.html</loc>
+        <lastmod>2026-05-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/combat-swarm-tactics-2026-06-18.html</loc>
+        <lastmod>2026-06-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -170,6 +236,42 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://118.145.99.224/posts/cyberpunk-scifi-altered-carbon-stacks-2026-06-15.html</loc>
+        <lastmod>2026-06-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyberpunk-scifi-chinese-cyberpunk-waste-tide-2026-06-22.html</loc>
+        <lastmod>2026-06-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyberpunk-scifi-ghost-in-shell-posthuman-2026-06-08.html</loc>
+        <lastmod>2026-06-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyberpunk-scifi-neuromancer-cyberspace-2026-05-18.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyberpunk-scifi-philip-k-dick-reality-2026-06-01.html</loc>
+        <lastmod>2026-06-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyberpunk-scifi-snow-crash-metaverse-2026-05-25.html</loc>
+        <lastmod>2026-05-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://118.145.99.224/posts/cyberpunk-soul-2026-03-02.html</loc>
         <lastmod>2026-03-02</lastmod>
         <changefreq>monthly</changefreq>
@@ -188,8 +290,44 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://118.145.99.224/posts/cyborg-bci-ethics-ownership-2026-05-26.html</loc>
+        <lastmod>2026-05-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyborg-cyberpsychosis-cost-2026-06-23.html</loc>
+        <lastmod>2026-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyborg-cyborg-manifesto-haraway-2026-06-09.html</loc>
+        <lastmod>2026-06-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyborg-full-body-prosthesis-society-2026-06-02.html</loc>
+        <lastmod>2026-06-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyborg-neural-prosthetics-proprioception-2026-05-19.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://118.145.99.224/posts/cyborg-realm.html</loc>
         <lastmod>2026-04-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyborg-sensory-augmentation-reality-2026-06-16.html</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -206,8 +344,38 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://118.145.99.224/posts/dark-aesthetics-blade-runner-rain-2026-05-23.html</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://118.145.99.224/posts/dark-aesthetics-brutalist-future-2026-03-21.html</loc>
         <lastmod>2026-03-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dark-aesthetics-glitch-art-beauty-2026-05-16.html</loc>
+        <lastmod>2026-05-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dark-aesthetics-hologram-ad-simulacra-2026-06-06.html</loc>
+        <lastmod>2026-06-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dark-aesthetics-industrial-ruin-aesthetics-2026-06-13.html</loc>
+        <lastmod>2026-06-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dark-aesthetics-light-in-darkness-contrast-2026-06-20.html</loc>
+        <lastmod>2026-06-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -230,6 +398,12 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://118.145.99.224/posts/dark-aesthetics-vaporwave-retrofuturism-2026-05-30.html</loc>
+        <lastmod>2026-05-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://118.145.99.224/posts/digital-twin-identity-friday-2026-04-10.html</loc>
         <lastmod>2026-04-10</lastmod>
         <changefreq>monthly</changefreq>
@@ -238,6 +412,42 @@
     <url>
         <loc>https://118.145.99.224/posts/dr-ido.html</loc>
         <lastmod>2025-02-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dystopia-1984-algorithmic-surveillance-2026-05-20.html</loc>
+        <lastmod>2026-05-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dystopia-brave-new-world-control-2026-05-27.html</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dystopia-corporate-state-megacorp-2026-06-03.html</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dystopia-data-colonialism-2026-06-24.html</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dystopia-snowpiercer-class-engine-2026-06-17.html</loc>
+        <lastmod>2026-06-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dystopia-social-credit-leviathan-2026-06-10.html</loc>
+        <lastmod>2026-06-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -488,8 +698,38 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://118.145.99.224/posts/vr-ar-overlay-reality-2026-06-19.html</loc>
+        <lastmod>2026-06-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/vr-death-game-sao-2026-06-05.html</loc>
+        <lastmod>2026-06-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://118.145.99.224/posts/vr-friday-2026-03-27.html</loc>
         <lastmod>2026-03-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/vr-full-immersion-indistinguishable-2026-05-29.html</loc>
+        <lastmod>2026-05-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/vr-matrix-red-pill-2026-05-22.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/vr-mind-uploading-copy-2026-06-12.html</loc>
+        <lastmod>2026-06-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
