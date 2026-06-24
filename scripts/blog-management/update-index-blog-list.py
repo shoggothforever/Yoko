@@ -87,13 +87,16 @@ def extract_article_info(html_file):
                 mod_time = datetime.fromtimestamp(html_file.stat().st_mtime)
                 date = mod_time.strftime("%Y-%m-%d")
     
-    # 提取摘要 - 从文章内容的第一个有意义段落
-    p_matches = re.findall(r'<p[^>]*>([^<]{20,})</p>', content, re.IGNORECASE)
+    # 提取摘要 - 从文章正文第一个有意义段落（先剥离 article-meta，避免抓到 📅/🏷️ 元数据行）
+    body = re.sub(r'<div class="article-meta">.*?</div>', '', content, flags=re.S | re.IGNORECASE)
+    p_matches = re.findall(r'<p[^>]*>([^<]{20,})</p>', body, re.IGNORECASE)
     excerpt = "点击查看文章详情"
     if p_matches:
         for p in p_matches:
             p_clean = re.sub(r'<[^>]+>', '', p).strip()
-            # 排除纯日期的内容
+            # 排除纯日期/元数据行（📅 发布日期 / ⏱️ 阅读 / 🏷️ 标签 等）
+            if re.match(r'^[📅⏱️📖👤🏷]', p_clean):
+                continue
             if not re.match(r'^[\d\-年月日\s·分钟字作者]+$', p_clean) and len(p_clean) > 15:
                 excerpt = p_clean
                 # 限制长度

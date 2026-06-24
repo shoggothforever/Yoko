@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签 · 阳子 (Yoko)</title>
+    <meta name="description" content="按标签浏览阳子的赛博朋克探索文章，点击标签即时筛选。">
+    <link rel="canonical" href="https://118.145.99.224/tags.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="css/cyberpunk-effects.css">
+    <script src="js/header-component.js" data-auto-inject="true"></script>
+    <style>
+        .page-head{max-width:880px;margin:0 auto 18px;padding:40px 20px 0;}
+        .page-head h1{color:#e94560;font-size:2.2rem;text-shadow:0 0 20px rgba(233,69,96,.5);}
+        .page-head p{color:#a9b7d0;margin-top:10px;}
+        .cloud{max-width:880px;margin:0 auto 26px;padding:0 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+        .cloud .tg{cursor:pointer;color:#e0e0e0;background:rgba(15,52,96,.4);border:1px solid #0f3460;
+            border-radius:20px;padding:6px 14px;transition:all .25s;}
+        .cloud .tg:hover{border-color:#e94560;color:#e94560;}
+        .cloud .tg.active{background:#e94560;color:#0a0a0a;border-color:#e94560;}
+        .cloud .tg small{opacity:.7;}
+        .result-head{max-width:880px;margin:0 auto 12px;padding:0 20px;color:#533483;}
+        .tg-list{max-width:880px;margin:0 auto;padding:0 20px;list-style:none;}
+        .tg-list li{margin:8px 0;display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed rgba(102,126,234,.15);padding-bottom:8px;}
+        .tg-list a{color:#e0e0e0;text-decoration:none;transition:color .2s;}
+        .tg-list a:hover{color:#e94560;}
+        .tg-list .d{color:#7a7a8c;font-size:.85em;white-space:nowrap;}
+    </style>
+</head>
+<body>
+    <main>
+        <div class="page-head">
+            <h1>🏷️ 标签</h1>
+            <p>共 <span id="tagcount">0</span> 个标签 · 点击标签即时筛选。</p>
+        </div>
+        <div class="cloud" id="cloud"></div>
+        <div class="result-head" id="result-head"></div>
+        <ul class="tg-list" id="tg-list"></ul>
+    </main>
+
+    <script src="blog-posts-data.js"></script>
+    <script>
+    (function(){
+        'use strict';
+        if (typeof BLOG_POSTS === 'undefined') return;
+        var posts = BLOG_POSTS.slice().sort(function(a,b){return (b.dateISO||'').localeCompare(a.dateISO||'');});
+        var counts = {};
+        posts.forEach(function(p){ (p.tags||[]).forEach(function(t){counts[t]=(counts[t]||0)+1;}); });
+        var tags = Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];});
+        document.getElementById('tagcount').textContent = tags.length;
+        var cloud=document.getElementById('cloud'), head=document.getElementById('result-head'), list=document.getElementById('tg-list');
+        var max=Math.max.apply(null, tags.map(function(t){return counts[t];}))||1;
+        var active=null;
+        tags.forEach(function(t){
+            var span=document.createElement('span'); span.className='tg'; span.dataset.tag=t;
+            var size=0.9+0.7*(counts[t]/max);
+            span.style.fontSize=size.toFixed(2)+'rem';
+            span.innerHTML=t+' <small>('+counts[t]+')</small>';
+            span.onclick=function(){ active = (active===t)?null:t; render(); };
+            cloud.appendChild(span);
+        });
+        function render(){
+            Array.prototype.forEach.call(cloud.children,function(el){el.classList.toggle('active', el.dataset.tag===active);});
+            var sel = active ? posts.filter(function(p){return (p.tags||[]).indexOf(active)>=0;}) : posts;
+            head.textContent = active ? ('# '+active+' — '+sel.length+' 篇') : ('全部 '+sel.length+' 篇');
+            list.innerHTML = sel.map(function(p){
+                return '<li><a href="'+p.url+'">'+p.title+'</a><span class="d">'+(p.date||'')+'</span></li>';
+            }).join('');
+        }
+        render();
+    })();
+    </script>
+    <script src="js/footer-component.js" data-auto-inject="true"></script>
+</body>
+</html>

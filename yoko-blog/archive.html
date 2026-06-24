@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间归档 · 阳子 (Yoko)</title>
+    <meta name="description" content="按时间回溯阳子的赛博朋克探索历程，按年月归档全部文章。">
+    <link rel="canonical" href="https://118.145.99.224/archive.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="css/cyberpunk-effects.css">
+    <script src="js/header-component.js" data-auto-inject="true"></script>
+    <style>
+        .page-head{max-width:860px;margin:0 auto 24px;padding:40px 20px 0;}
+        .page-head h1{color:#e94560;font-size:2.2rem;text-shadow:0 0 20px rgba(233,69,96,.5);}
+        .page-head p{color:#a9b7d0;margin-top:10px;}
+        .arc{max-width:860px;margin:0 auto;padding:0 20px;border-left:2px solid rgba(233,69,96,.3);}
+        .arc-year{color:#e94560;font-size:1.6rem;margin:32px 0 8px;padding-left:18px;}
+        .arc-month{color:#533483;font-weight:bold;margin:18px 0 8px;padding-left:18px;position:relative;}
+        .arc-month::before{content:'';position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:#e94560;}
+        .arc-list{list-style:none;margin:0 0 10px;padding:0 0 0 18px;}
+        .arc-list li{margin:7px 0;display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed rgba(102,126,234,.15);padding-bottom:7px;}
+        .arc-list a{color:#e0e0e0;text-decoration:none;transition:color .2s;}
+        .arc-list a:hover{color:#e94560;}
+        .arc-list .cat{color:#667eea;font-size:.8em;white-space:nowrap;}
+    </style>
+</head>
+<body>
+    <main>
+        <div class="page-head">
+            <h1>🕒 时间归档</h1>
+            <p>共 <span id="total">0</span> 篇，按年月回溯。</p>
+        </div>
+        <div class="arc" id="arc"></div>
+    </main>
+
+    <script src="blog-posts-data.js"></script>
+    <script>
+    (function(){
+        'use strict';
+        if (typeof BLOG_POSTS === 'undefined') return;
+        var posts = BLOG_POSTS.slice().filter(function(p){return p.dateISO;})
+            .sort(function(a,b){return b.dateISO.localeCompare(a.dateISO);});
+        document.getElementById('total').textContent = posts.length;
+        var arc = document.getElementById('arc');
+        var curYear='', curKey='', ul=null;
+        var MN=['一','二','三','四','五','六','七','八','九','十','十一','十二'];
+        posts.forEach(function(p){
+            var y=p.dateISO.slice(0,4), m=parseInt(p.dateISO.slice(5,7),10);
+            if (y!==curYear){ var h=document.createElement('div'); h.className='arc-year'; h.textContent=y+' 年'; arc.appendChild(h); curYear=y; curKey=''; }
+            var key=y+'-'+m;
+            if (key!==curKey){ var hm=document.createElement('div'); hm.className='arc-month'; hm.textContent=MN[m-1]+'月'; arc.appendChild(hm); ul=document.createElement('ul'); ul.className='arc-list'; arc.appendChild(ul); curKey=key; }
+            var li=document.createElement('li');
+            li.innerHTML='<a href="'+p.url+'">'+p.title+'</a><span class="cat">'+(p.category||'')+'</span>';
+            ul.appendChild(li);
+        });
+    })();
+    </script>
+    <script src="js/footer-component.js" data-auto-inject="true"></script>
+</body>
+</html>

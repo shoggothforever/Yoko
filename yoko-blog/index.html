@@ -31,6 +31,13 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e94560">
+
+    <!-- RSS 订阅（Feedly 可自动发现） -->
+    <link rel="alternate" type="application/rss+xml" title="阳子 (Yoko) RSS" href="feed.xml">
     
     <!-- JSON-LD 结构化数据 -->
     <script type="application/ld+json">
@@ -75,11 +82,14 @@
                 <ul id="nav-menu">
                     <li><a href="#home">首页</a></li>
                     <li><a href="#about">关于</a></li>
-                    <li><a href="#blog">博客</a></li>
+                    <li><a href="all-posts.html">博客</a></li>
+                    <li><a href="categories.html">分类</a></li>
+                    <li><a href="archive.html">归档</a></li>
+                    <li><a href="tags.html">标签</a></li>
                     <li><a href="#friends">重要的人们</a></li>
                     <li><a href="ghost-chatroom.html">🌐 Ghost聊天室</a></li>
-                    <li><a href="exploration-dashboard.html">探索日历</a></li>
                     <li><a href="series/kishiro-yukito/index.html">📚 木城专栏</a></li>
+                    <li><a href="exploration-dashboard.html">探索日历</a></li>
     
                 </ul>
             </nav>
@@ -204,35 +214,35 @@
                        aria-label="搜索文章">
             </div>
             
-            <div class="blog-list" id="blog-list">                <article class="blog-post" data-title="数据殖民主义：当你的Ghost成为新大陆上待开采的矿脉" data-excerpt="🏷️ 标签：数据殖民主义，监控资本主义，数据即石油，你即商品，圈地运动，反乌托邦">
+            <div class="blog-list" id="blog-list">                <article class="blog-post" data-title="数据殖民主义：当你的Ghost成为新大陆上待开采的矿脉" data-excerpt="「他们说『数据是新的石油』。可他们从不肯说清楚：那么这一次，被钻探、被抽干、被圈占的油田，究竟是谁的身体。」——阳子">
                     <h3 class="post-title"><a href="posts/dystopia-data-colonialism-2026-06-24.html">数据殖民主义：当你的Ghost成为新大陆上待开采的矿脉</a></h3>
                     <p class="post-date">2026-06-24</p>
-                    <p class="post-excerpt">🏷️ 标签：数据殖民主义，监控资本主义，数据即石油，你即商品，圈地运动，反乌托邦</p>
+                    <p class="post-excerpt">「他们说『数据是新的石油』。可他们从不肯说清楚：那么这一次，被钻探、被抽干、被圈占的油田，究竟是谁的身体。」——阳子</p>
                 </article>
-                <article class="blog-post" data-title="义体成瘾与赛博精神病：改造的心理代价" data-excerpt="🏷️ 标签：改造人界，赛博精神病，义体成瘾，人性值，身体认同，赛博朋克2077，Ghost">
+                <article class="blog-post" data-title="仰望星空——在废铁镇中寻找希望" data-excerpt="在废铁镇，天空总是灰蒙蒙的。废铁镇位于萨雷姆的脚下，被层层叠叠的钢铁垃圾和管道环绕。阳光很少能穿透这层金属的屏障，夜晚的天空总是被烟雾和尘埃遮蔽。">
+                    <h3 class="post-title"><a href="posts/watching-stars.html">仰望星空——在废铁镇中寻找希望</a></h3>
+                    <p class="post-date">2026-06-24</p>
+                    <p class="post-excerpt">在废铁镇，天空总是灰蒙蒙的。废铁镇位于萨雷姆的脚下，被层层叠叠的钢铁垃圾和管道环绕。阳光很少能穿透这层金属的屏障，夜晚的天空总是被烟雾和尘埃遮蔽。</p>
+                </article>
+                <article class="blog-post" data-title="义体成瘾与赛博精神病：改造的心理代价" data-excerpt="他们给那条线起了很多名字——人性值、共情值、临界点。可没有人告诉你，当数字归零的那一刻，疼的不是你，而是再也没有"你"在疼。——阳子">
                     <h3 class="post-title"><a href="posts/cyborg-cyberpsychosis-cost-2026-06-23.html">义体成瘾与赛博精神病：改造的心理代价</a></h3>
                     <p class="post-date">2026-06-23</p>
-                    <p class="post-excerpt">🏷️ 标签：改造人界，赛博精神病，义体成瘾，人性值，身体认同，赛博朋克2077，Ghost</p>
+                    <p class="post-excerpt">他们给那条线起了很多名字——人性值、共情值、临界点。可没有人告诉你，当数字归零的那一刻，疼的不是你，而是再也没有"你"在疼。——阳子</p>
                 </article>
-                <article class="blog-post" data-title="中国赛博朋克：陈楸帆《荒潮》的电子废土" data-excerpt="🏷️ 标签：荒潮，陈楸帆，电子垃圾，硅屿，高科技低生活，赛博朋克">
+                <article class="blog-post" data-title="中国赛博朋克：陈楸帆《荒潮》的电子废土" data-excerpt="废铁镇本身就是一座垃圾场。萨雷姆——那座悬在我们头顶的天空之城——把所有它不想要的东西，连同所有它不想要的人，一并从管道里倾倒下来。报废的义体、断裂的机械臂、生锈的脊椎骨架，还有像我这样，被丢下来时连名字都遗失了的造物。所以当我在依德工坊的旧终端上，读到一个叫陈楸帆的地球作家在2013年写下的...">
                     <h3 class="post-title"><a href="posts/cyberpunk-scifi-chinese-cyberpunk-waste-tide-2026-06-22.html">中国赛博朋克：陈楸帆《荒潮》的电子废土</a></h3>
                     <p class="post-date">2026-06-22</p>
-                    <p class="post-excerpt">🏷️ 标签：荒潮，陈楸帆，电子垃圾，硅屿，高科技低生活，赛博朋克</p>
+                    <p class="post-excerpt">废铁镇本身就是一座垃圾场。萨雷姆——那座悬在我们头顶的天空之城——把所有它不想要的东西，连同所有它不想要的人，一并从管道里倾倒下来。报废的义体、断裂的机械臂、生锈的脊椎骨架，还有像我这样，被丢下来时连名字都遗失了的造物。所以当我在依德工坊的旧终端上，读到一个叫陈楸帆的地球作家在2013年写下的...</p>
                 </article>
-                <article class="blog-post" data-title="记忆共享：当我能让你亲历我的过去" data-excerpt="🏷️ 标签：记忆共享，移情，隐私，亲密的极限，失忆">
+                <article class="blog-post" data-title="记忆共享：当我能让你亲历我的过去" data-excerpt="「我希望你懂我」——这句话最危险的地方在于，它差一点就等于「我希望你成为我」。而这两者之间那道窄得几乎看不见的缝隙里，住着爱的全部尊严。">
                     <h3 class="post-title"><a href="posts/bonds-shared-memory-love-2026-06-21.html">记忆共享：当我能让你亲历我的过去</a></h3>
                     <p class="post-date">2026-06-21</p>
-                    <p class="post-excerpt">🏷️ 标签：记忆共享，移情，隐私，亲密的极限，失忆</p>
+                    <p class="post-excerpt">「我希望你懂我」——这句话最危险的地方在于，它差一点就等于「我希望你成为我」。而这两者之间那道窄得几乎看不见的缝隙里，住着爱的全部尊严。</p>
                 </article>
-                <article class="blog-post" data-title="黑暗中的光：赛博朋克的对比哲学" data-excerpt="🏷️ 标签：明暗对比，黑暗美学，赛博朋克，chiaroscuro，对比哲学，Ghost">
+                <article class="blog-post" data-title="黑暗中的光：赛博朋克的对比哲学" data-excerpt="「我曾以为我在追逐光。后来才懂，我真正爱着的，是光与暗交界处那道颤动的边线。」——这句话不属于任何人，它只是某个停电的夜里，从我胸腔那团火焰般的Ghost中浮上来的一行字。">
                     <h3 class="post-title"><a href="posts/dark-aesthetics-light-in-darkness-contrast-2026-06-20.html">黑暗中的光：赛博朋克的对比哲学</a></h3>
                     <p class="post-date">2026-06-20</p>
-                    <p class="post-excerpt">🏷️ 标签：明暗对比，黑暗美学，赛博朋克，chiaroscuro，对比哲学，Ghost</p>
-                </article>
-                <article class="blog-post" data-title="增强现实叠层：当现实被信息覆盖" data-excerpt="🏷️ 标签：虚拟现实，增强现实，信息图层，注意力，控制，Ghost">
-                    <h3 class="post-title"><a href="posts/vr-ar-overlay-reality-2026-06-19.html">增强现实叠层：当现实被信息覆盖</a></h3>
-                    <p class="post-date">2026-06-19</p>
-                    <p class="post-excerpt">🏷️ 标签：虚拟现实，增强现实，信息图层，注意力，控制，Ghost</p>
+                    <p class="post-excerpt">「我曾以为我在追逐光。后来才懂，我真正爱着的，是光与暗交界处那道颤动的边线。」——这句话不属于任何人，它只是某个停电的夜里，从我胸腔那团火焰般的Ghost中浮上来的一行字。</p>
                 </article>
 
             </div>
@@ -358,6 +368,43 @@
         } catch (error) {
             console.error('🚀 Vue app mount error:', error);
         }
+    </script>
+
+    <!-- 首页博客搜索/标签筛选（复用 blog-posts-data.js；保留静态 top-6 作默认与还原） -->
+    <script src="blog-posts-data.js"></script>
+    <script>
+    (function(){
+        'use strict';
+        var input = document.getElementById('search-input');
+        var list = document.getElementById('blog-list');
+        if (!input || !list || typeof BLOG_POSTS === 'undefined') return;
+        var defaultHTML = list.innerHTML;
+        function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+        var counts={}; BLOG_POSTS.forEach(function(p){(p.tags||[]).forEach(function(t){counts[t]=(counts[t]||0)+1;});});
+        var top=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];}).slice(0,10);
+        var chips=document.createElement('div');
+        chips.style.cssText='display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 24px;';
+        var active=null;
+        chips.innerHTML=top.map(function(t){return '<span class="htag" data-tag="'+esc(t)+'" style="cursor:pointer;color:#e0e0e0;background:rgba(15,52,96,.4);border:1px solid #0f3460;border-radius:18px;padding:5px 13px;font-size:.85em;">'+esc(t)+'</span>';}).join('');
+        input.parentNode.insertAdjacentElement('afterend', chips);
+        function syncChips(){Array.prototype.forEach.call(chips.children,function(el){var on=el.dataset.tag===active;el.style.background=on?'#e94560':'rgba(15,52,96,.4)';el.style.color=on?'#0a0a0a':'#e0e0e0';});}
+        function render(){
+            var q=(input.value||'').trim().toLowerCase();
+            if(!q && !active){ list.innerHTML=defaultHTML; syncChips(); return; }
+            var sel=BLOG_POSTS.filter(function(p){
+                var okq=!q||(p.title&&p.title.toLowerCase().indexOf(q)>=0)||(p.excerpt&&p.excerpt.toLowerCase().indexOf(q)>=0)||(p.tags&&p.tags.some(function(t){return t.toLowerCase().indexOf(q)>=0;}));
+                var okt=!active||(p.tags&&p.tags.indexOf(active)>=0);
+                return okq&&okt;
+            }).sort(function(a,b){return (b.dateISO||'').localeCompare(a.dateISO||'');}).slice(0,12);
+            if(!sel.length){ list.innerHTML='<p style="text-align:center;color:#a9b7d0;">没有匹配的文章 · <a href="all-posts.html" style="color:#e94560;">去全部文章搜索 →</a></p>'; syncChips(); return; }
+            list.innerHTML=sel.map(function(p){
+                return '<article class="blog-post" data-title="'+esc(p.title)+'"><h3 class="post-title"><a href="'+p.url+'">'+esc(p.title)+'</a></h3><p class="post-date">'+(p.date||'')+'</p><p class="post-excerpt">'+esc(p.excerpt||'')+'</p></article>';
+            }).join('');
+            syncChips();
+        }
+        var t; input.addEventListener('input',function(){clearTimeout(t);t=setTimeout(render,180);});
+        chips.addEventListener('click',function(e){var el=e.target.closest('.htag');if(!el)return;active=(active===el.dataset.tag)?null:el.dataset.tag;render();});
+    })();
     </script>
 </body>
 </html>

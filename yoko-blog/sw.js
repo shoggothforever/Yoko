@@ -8,9 +8,10 @@
  * 4. 性能监控
  */
 
-const CACHE_NAME = 'yoko-blog-v1';
-const CACHE_VERSION = '1.0.0';
+const CACHE_NAME = 'yoko-blog-v2';
+const CACHE_VERSION = '2.0.0';
 const MAX_AGE = 7 * 24 * 60 * 60 * 1000; // 7 days
+const OFFLINE_URL = '/offline.html';
 
 // 需要缓存的静态资源
 const ASSETS_TO_CACHE = [
@@ -18,19 +19,29 @@ const ASSETS_TO_CACHE = [
   'style.min.css',
   'index-styles.min.css',
   'css/cyberpunk-effects.css',
+  'css/blog-article-template.css',
   'ghost-chatroom.min.css',
   'ghost-chatroom-improvements.css',
-  
+
   // JS文件
   'js/cyberpunk-vue.js',
   'js/header-component.js',
   'js/footer-component.js',
+  'js/article-enhancements.js',
   'js/cyberpunk-effects.js',
   'ghost.min.js',
   'script.min.js',
   'ghost.js',
   'ghost-sse.js',
-  
+  'blog-posts-data.js',
+
+  // 站点资源
+  'manifest.json',
+  'offline.html',
+  'categories.html',
+  'archive.html',
+  'tags.html',
+
   // 图片资源
   'public/images/加里.webp'
 ];
@@ -86,9 +97,12 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+    // 删除旧版本缓存，确保升级后的页面/资源对回访用户生效
+    caches.keys().then((names) => Promise.all(
+      names.filter((n) => n !== CACHE_NAME).map((n) => caches.delete(n))
+    )).then(() => caches.open(CACHE_NAME)).then((cache) => {
       return cache.addAll(ASSETS_TO_CACHE.map(asset => new Request(asset)));
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
@@ -108,18 +122,24 @@ self.addEventListener('fetch', (event) => {
       
       return fetch(event.request.clone()).then((response) => {
         const duration = performance.now() - startTime;
-        
+
         // 只缓存成功的响应
         if (response.ok) {
           const responseClone = response.clone();
-          
+
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseClone);
           });
         }
-        
+
         logPerformance('cache-miss', duration, response.ok);
         return response;
+      }).catch(() => {
+        // 离线且未缓存：导航请求回退到离线页
+        if (event.request.mode === 'navigate') {
+          return caches.match(OFFLINE_URL);
+        }
+        return Response.error();
       });
     })
   );

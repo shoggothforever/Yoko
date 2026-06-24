@@ -18,6 +18,12 @@ script：<script src="../js/footer-component.js"></script>
     <footer>
         <div class="container">
             <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
+            <p class="footer-links" style="margin:8px 0;">
+                <a href="/feed.xml" style="color:#e94560;text-decoration:none;">📡 RSS 订阅</a>
+                · <a href="/categories.html" style="color:#a9b7d0;text-decoration:none;">分类</a>
+                · <a href="/archive.html" style="color:#a9b7d0;text-decoration:none;">归档</a>
+                · <a href="/tags.html" style="color:#a9b7d0;text-decoration:none;">标签</a>
+            </p>
             <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
         </div>
     </footer>

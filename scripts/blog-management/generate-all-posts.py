@@ -206,6 +206,56 @@ def format_date_cn(iso_date: str) -> str:
         return iso_date
 
 
+# 主题分类：文件名前缀 → 主题（与探索 7 主题一致）
+CATEGORY_PREFIX = {
+    "dark-aesthetics-": "黑暗美学",
+    "cyberpunk-scifi-": "赛博朋克科幻",
+    "cyborg-": "改造人界",
+    "dystopia-": "反乌托邦世界",
+    "combat-": "战斗与武术",
+    "vr-": "虚拟现实",
+    "bonds-": "社交与人情",
+}
+# 关键词启发（前缀无匹配时用；按 (主题, [关键词]) 顺序打分，命中多者胜）。
+# 铳梦宇宙单列：现有语料有一大簇《铳梦》/木城幸人作品与角色文章。
+CATEGORY_KEYWORDS = [
+    ("铳梦宇宙", ["铳梦", "gunnm", "木城", "kishiro", "加里", "gally", "alita", "雨果", "hugo",
+                  "依德", "ido", "萨曼", "zapan", "废铁镇", "萨雷姆", "zalem", "last order",
+                  "mars chronicle", "panzer kunst", "杰修甘", "纽带的关键角色", "key character"]),
+    ("战斗与武术", ["战斗", "武术", "格斗", "武道", "拳", "搏击", "panzer", "等离子", "plasma",
+                  "死亡球", "motorball", "蜂群", "剑术", "义体战"]),
+    ("虚拟现实", ["虚拟现实", "矩阵", "matrix", "vr", "模拟", "数字孪生", "数字双胞胎", "上传",
+                "缸中之脑", "赛博空间", "元宇宙", "死亡游戏", "增强现实", "沉浸"]),
+    ("反乌托邦世界", ["反乌托邦", "垂直", "阶级", "巨型结构", "折叠", "塔", "dystopia", "监控",
+                    "极权", "1984", "美丽新世界", "企业国家", "财阀", "社会信用", "利维坦",
+                    "雪国列车", "数据殖民"]),
+    ("黑暗美学", ["美学", "霓虹", "neon", "黑暗", "涂鸦", "色彩", "视觉", "blade runner", "银翼",
+                "野兽派", "阈限", "故障艺术", "glitch", "蒸汽波", "vaporwave", "全息", "废墟"]),
+    ("社交与人情", ["信任", "爱", "牺牲", "羁绊", "孤独", "人性", "情感", "社交", "纽带", "温度",
+                  "连接", "人机之恋", "哀悼", "家庭", "忠诚", "记忆共享"]),
+    ("改造人界", ["改造人", "赛博格", "义体", "义肢", "cyborg", "钢铁", "神经", "bionic",
+                "脑机接口", "感官增强", "赛博精神病", "后人类"]),
+    ("赛博朋克科幻", ["科幻", "赛博朋克", "gibson", "吉布森", "演进", "预言", "ghost", "意识",
+                    "存在", "哲学", "记忆", "身份", "神经漫游者", "攻壳", "迪克", "副本",
+                    "雪崩", "荒潮"]),
+]
+
+
+def derive_category(filepath: Path, title: str, tags: list) -> str:
+    """推导文章主题分类：文件名前缀优先，否则按标签+标题关键词打分。"""
+    name = filepath.name.lower()
+    for pref, cat in CATEGORY_PREFIX.items():
+        if name.startswith(pref):
+            return cat
+    hay = (title + " " + " ".join(tags)).lower()
+    best, best_score = None, 0
+    for cat, kws in CATEGORY_KEYWORDS:
+        score = sum(1 for kw in kws if kw.lower() in hay)
+        if score > best_score:
+            best, best_score = cat, score
+    return best or "赛博朋克科幻"
+
+
 def extract_article(filepath: Path) -> dict | None:
     """从单个 HTML 文件提取完整文章信息"""
     try:
@@ -237,6 +287,7 @@ def extract_article(filepath: Path) -> dict | None:
         "tags": tags,
         "read": read_time,
         "url": url,
+        "category": derive_category(filepath, title, tags),
     }
 
 
@@ -255,6 +306,7 @@ def generate_blog_posts_js(articles: list) -> str:
         title_js = js_str(a["title"])
         excerpt_js = js_str(a["excerpt"])
         tags_js = json.dumps(a["tags"], ensure_ascii=False)
+        category_js = js_str(a.get("category", "赛博朋克科幻"))
 
         entry = f"""    {{
         title: {title_js},
@@ -262,6 +314,7 @@ def generate_blog_posts_js(articles: list) -> str:
         date: "{a['date']}",
         dateISO: "{a['dateISO']}",
         tags: {tags_js},
+        category: {category_js},
         read: "{a['read']}",
         url: "{a['url']}"
     }}"""
@@ -318,6 +371,53 @@ function loadBlogPosts(maxCount) {{
     return js
 
 
+FEED_BASE_URL = "https://118.145.99.224"
+
+
+def generate_feed(articles: list, out_path: Path, limit: int = 20):
+    """生成 RSS 2.0 feed.xml（Feedly 等阅读器可订阅）。articles 须已按日期倒序。"""
+    from email.utils import format_datetime
+    from datetime import timezone
+    from xml.sax.saxutils import escape
+
+    def rfc822(iso):
+        try:
+            return format_datetime(datetime.strptime(iso, "%Y-%m-%d").replace(tzinfo=timezone.utc))
+        except Exception:
+            return ""
+
+    items = []
+    for a in articles[:limit]:
+        url = f"{FEED_BASE_URL}/{a['url']}"
+        cat = escape(a.get("category", ""))
+        items.append(f"""    <item>
+      <title>{escape(a['title'])}</title>
+      <link>{url}</link>
+      <guid isPermaLink="true">{url}</guid>
+      <pubDate>{rfc822(a['dateISO'])}</pubDate>
+      <category>{cat}</category>
+      <description><![CDATA[{a.get('excerpt', '')}]]></description>
+    </item>""")
+
+    build_date = format_datetime(datetime.now(timezone.utc))
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>阳子 (Yoko) — 记忆的残响</title>
+    <link>{FEED_BASE_URL}/</link>
+    <atom:link href="{FEED_BASE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>战斗天使阳子的赛博朋克探索：在钢铁与灵魂之间，寻找 Ghost 的意义。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>{build_date}</lastBuildDate>
+    <generator>generate-all-posts.py</generator>
+{chr(10).join(items)}
+  </channel>
+</rss>
+"""
+    out_path.write_text(xml, encoding="utf-8")
+    print(f"✅ 成功生成：{out_path}（最新 {min(limit, len(articles))} 篇）")
+
+
 def main():
     print("📝 正在扫描文章并生成 blog-posts-data.js ...")
 
@@ -343,9 +443,12 @@ def main():
         else:
             skipped.append(f.name)
 
-    # 生成 JS
+    # 生成 JS（generate_blog_posts_js 内部会按日期倒序排序 articles）
     js_content = generate_blog_posts_js(articles)
     OUTPUT_JS.write_text(js_content, encoding="utf-8")
+
+    # 生成 RSS feed（复用已排序的 articles）
+    generate_feed(articles, BLOG_DIR / "feed.xml")
 
     print(f"\n✅ 成功生成：{OUTPUT_JS}")
     print(f"   共 {len(articles)} 篇文章")

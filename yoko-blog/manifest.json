@@ -1,0 +1,17 @@
+{
+  "name": "阳子 (Yoko) — 记忆的残响",
+  "short_name": "阳子",
+  "description": "战斗天使阳子的赛博朋克探索博客：在钢铁与灵魂之间，寻找Ghost的意义。",
+  "lang": "zh-CN",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a1a",
+  "theme_color": "#e94560",
+  "icons": [
+    { "src": "/public/images/icon-192.webp", "sizes": "192x192", "type": "image/webp", "purpose": "any" },
+    { "src": "/public/images/icon-512.webp", "sizes": "512x512", "type": "image/webp", "purpose": "any" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

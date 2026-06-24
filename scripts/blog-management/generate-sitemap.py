@@ -21,6 +21,9 @@ BASE_URL = "https://118.145.99.224"
 MAIN_PAGES = [
     ("index.html",                          "1.0", "daily"),
     ("all-posts.html",                      "0.9", "weekly"),
+    ("categories.html",                     "0.8", "weekly"),
+    ("archive.html",                        "0.7", "weekly"),
+    ("tags.html",                           "0.7", "weekly"),
     ("ghost-chatroom.html",                 "0.9", "weekly"),
     ("important-people.html",               "0.8", "weekly"),
     ("exploration-dashboard.html",          "0.8", "weekly"),

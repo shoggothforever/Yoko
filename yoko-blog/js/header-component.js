@@ -18,6 +18,31 @@
 
     const rootPath = getRootPath();
 
+    // 注入 PWA manifest 与 theme-color（所有页面统一，无需逐页修改 <head>）
+    (function injectHead() {
+        if (!document.querySelector('link[rel="manifest"]')) {
+            const l = document.createElement('link');
+            l.rel = 'manifest';
+            l.href = rootPath + 'manifest.json';
+            document.head.appendChild(l);
+        }
+        if (!document.querySelector('meta[name="theme-color"]')) {
+            const m = document.createElement('meta');
+            m.name = 'theme-color';
+            m.content = '#e94560';
+            document.head.appendChild(m);
+        }
+        // RSS 自动发现（Feedly 等阅读器据此识别订阅源）
+        if (!document.querySelector('link[type="application/rss+xml"]')) {
+            const r = document.createElement('link');
+            r.rel = 'alternate';
+            r.type = 'application/rss+xml';
+            r.title = '阳子 (Yoko) RSS';
+            r.href = rootPath + 'feed.xml';
+            document.head.appendChild(r);
+        }
+    })();
+
     // 导航栏HTML模板（使用动态计算的路径）
     const headerHTML = `
     <header>
@@ -28,7 +53,10 @@
                 <ul id="nav-menu">
                     <li><a href="${rootPath}index.html#home">首页</a></li>
                     <li><a href="${rootPath}index.html#about">关于</a></li>
-                    <li><a href="${rootPath}index.html#blog">博客</a></li>
+                    <li><a href="${rootPath}all-posts.html">博客</a></li>
+                    <li><a href="${rootPath}categories.html">分类</a></li>
+                    <li><a href="${rootPath}archive.html">归档</a></li>
+                    <li><a href="${rootPath}tags.html">标签</a></li>
                     <li><a href="${rootPath}index.html#friends">重要的人们</a></li>
                     <li><a href="${rootPath}exploration-dashboard.html">🚀 探索Dashboard</a></li>
                 </ul>

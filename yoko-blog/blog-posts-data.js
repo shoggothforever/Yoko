@@ -3,7 +3,7 @@
  * 
  * ⚠️ 此文件由 oneforall.sh 脚本自动生成，请勿手动编辑！
  * 运行 `bash scripts/blog-management/oneforall.sh` 即可重新生成。
- * 生成时间: 2026-06-24 16:50:02
+ * 生成时间: 2026-06-24 17:57:19
  * ============================================================ */
 const BLOG_POSTS = [
     {
@@ -12,7 +12,8 @@ const BLOG_POSTS = [
         date: "2026年6月24日",
         dateISO: "2026-06-24",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "反乌托邦世界",
+        read: "约11分钟",
         url: "posts/dystopia-data-colonialism-2026-06-24.html"
     },
     {
@@ -21,7 +22,8 @@ const BLOG_POSTS = [
         date: "2026年6月23日",
         dateISO: "2026-06-23",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "改造人界",
+        read: "约10分钟",
         url: "posts/cyborg-cyberpsychosis-cost-2026-06-23.html"
     },
     {
@@ -30,7 +32,8 @@ const BLOG_POSTS = [
         date: "2026年6月22日",
         dateISO: "2026-06-22",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "赛博朋克科幻",
+        read: "约9分钟",
         url: "posts/cyberpunk-scifi-chinese-cyberpunk-waste-tide-2026-06-22.html"
     },
     {
@@ -39,7 +42,8 @@ const BLOG_POSTS = [
         date: "2026年6月21日",
         dateISO: "2026-06-21",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "社交与人情",
+        read: "约10分钟",
         url: "posts/bonds-shared-memory-love-2026-06-21.html"
     },
     {
@@ -48,7 +52,8 @@ const BLOG_POSTS = [
         date: "2026年6月20日",
         dateISO: "2026-06-20",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "黑暗美学",
+        read: "约11分钟",
         url: "posts/dark-aesthetics-light-in-darkness-contrast-2026-06-20.html"
     },
     {
@@ -57,7 +62,8 @@ const BLOG_POSTS = [
         date: "2026年6月19日",
         dateISO: "2026-06-19",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "虚拟现实",
+        read: "约11分钟",
         url: "posts/vr-ar-overlay-reality-2026-06-19.html"
     },
     {
@@ -66,7 +72,8 @@ const BLOG_POSTS = [
         date: "2026年6月18日",
         dateISO: "2026-06-18",
         tags: ["改造人"],
-        read: "约16分钟",
+        category: "战斗与武术",
+        read: "约8分钟",
         url: "posts/combat-swarm-tactics-2026-06-18.html"
     },
     {
@@ -75,7 +82,8 @@ const BLOG_POSTS = [
         date: "2026年6月17日",
         dateISO: "2026-06-17",
         tags: ["改造人"],
-        read: "约16分钟",
+        category: "反乌托邦世界",
+        read: "约8分钟",
         url: "posts/dystopia-snowpiercer-class-engine-2026-06-17.html"
     },
     {
@@ -84,7 +92,8 @@ const BLOG_POSTS = [
         date: "2026年6月16日",
         dateISO: "2026-06-16",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "改造人界",
+        read: "约11分钟",
         url: "posts/cyborg-sensory-augmentation-reality-2026-06-16.html"
     },
     {
@@ -93,7 +102,8 @@ const BLOG_POSTS = [
         date: "2026年6月15日",
         dateISO: "2026-06-15",
         tags: ["改造人"],
-        read: "约20分钟",
+        category: "赛博朋克科幻",
+        read: "约12分钟",
         url: "posts/cyberpunk-scifi-altered-carbon-stacks-2026-06-15.html"
     },
     {
@@ -102,7 +112,8 @@ const BLOG_POSTS = [
         date: "2026年6月14日",
         dateISO: "2026-06-14",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "社交与人情",
+        read: "约11分钟",
         url: "posts/bonds-hackable-trust-2026-06-14.html"
     },
     {
@@ -111,7 +122,8 @@ const BLOG_POSTS = [
         date: "2026年6月13日",
         dateISO: "2026-06-13",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "黑暗美学",
+        read: "约10分钟",
         url: "posts/dark-aesthetics-industrial-ruin-aesthetics-2026-06-13.html"
     },
     {
@@ -120,7 +132,8 @@ const BLOG_POSTS = [
         date: "2026年6月12日",
         dateISO: "2026-06-12",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "虚拟现实",
+        read: "约10分钟",
         url: "posts/vr-mind-uploading-copy-2026-06-12.html"
     },
     {
@@ -129,7 +142,8 @@ const BLOG_POSTS = [
         date: "2026年6月11日",
         dateISO: "2026-06-11",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "战斗与武术",
+        read: "约11分钟",
         url: "posts/combat-martial-code-algorithm-2026-06-11.html"
     },
     {
@@ -138,7 +152,8 @@ const BLOG_POSTS = [
         date: "2026年6月10日",
         dateISO: "2026-06-10",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "反乌托邦世界",
+        read: "约10分钟",
         url: "posts/dystopia-social-credit-leviathan-2026-06-10.html"
     },
     {
@@ -147,7 +162,8 @@ const BLOG_POSTS = [
         date: "2026年6月9日",
         dateISO: "2026-06-09",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "改造人界",
+        read: "约11分钟",
         url: "posts/cyborg-cyborg-manifesto-haraway-2026-06-09.html"
     },
     {
@@ -156,7 +172,8 @@ const BLOG_POSTS = [
         date: "2026年6月8日",
         dateISO: "2026-06-08",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "赛博朋克科幻",
+        read: "约9分钟",
         url: "posts/cyberpunk-scifi-ghost-in-shell-posthuman-2026-06-08.html"
     },
     {
@@ -165,7 +182,8 @@ const BLOG_POSTS = [
         date: "2026年6月7日",
         dateISO: "2026-06-07",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "社交与人情",
+        read: "约10分钟",
         url: "posts/bonds-algorithmic-loneliness-2026-06-07.html"
     },
     {
@@ -174,7 +192,8 @@ const BLOG_POSTS = [
         date: "2026年6月6日",
         dateISO: "2026-06-06",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "黑暗美学",
+        read: "约10分钟",
         url: "posts/dark-aesthetics-hologram-ad-simulacra-2026-06-06.html"
     },
     {
@@ -183,7 +202,8 @@ const BLOG_POSTS = [
         date: "2026年6月5日",
         dateISO: "2026-06-05",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "虚拟现实",
+        read: "约9分钟",
         url: "posts/vr-death-game-sao-2026-06-05.html"
     },
     {
@@ -192,7 +212,8 @@ const BLOG_POSTS = [
         date: "2026年6月4日",
         dateISO: "2026-06-04",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "战斗与武术",
+        read: "约9分钟",
         url: "posts/combat-motorball-spectacle-2026-06-04.html"
     },
     {
@@ -201,7 +222,8 @@ const BLOG_POSTS = [
         date: "2026年6月3日",
         dateISO: "2026-06-03",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "反乌托邦世界",
+        read: "约10分钟",
         url: "posts/dystopia-corporate-state-megacorp-2026-06-03.html"
     },
     {
@@ -210,7 +232,8 @@ const BLOG_POSTS = [
         date: "2026年6月2日",
         dateISO: "2026-06-02",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "改造人界",
+        read: "约11分钟",
         url: "posts/cyborg-full-body-prosthesis-society-2026-06-02.html"
     },
     {
@@ -219,7 +242,8 @@ const BLOG_POSTS = [
         date: "2026年6月1日",
         dateISO: "2026-06-01",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "赛博朋克科幻",
+        read: "约11分钟",
         url: "posts/cyberpunk-scifi-philip-k-dick-reality-2026-06-01.html"
     },
     {
@@ -228,7 +252,8 @@ const BLOG_POSTS = [
         date: "2026年5月31日",
         dateISO: "2026-05-31",
         tags: ["改造人"],
-        read: "约16分钟",
+        category: "社交与人情",
+        read: "约8分钟",
         url: "posts/bonds-cyborg-family-bonds-2026-05-31.html"
     },
     {
@@ -237,7 +262,8 @@ const BLOG_POSTS = [
         date: "2026年5月30日",
         dateISO: "2026-05-30",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "黑暗美学",
+        read: "约10分钟",
         url: "posts/dark-aesthetics-vaporwave-retrofuturism-2026-05-30.html"
     },
     {
@@ -246,7 +272,8 @@ const BLOG_POSTS = [
         date: "2026年5月29日",
         dateISO: "2026-05-29",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "虚拟现实",
+        read: "约11分钟",
         url: "posts/vr-full-immersion-indistinguishable-2026-05-29.html"
     },
     {
@@ -255,7 +282,8 @@ const BLOG_POSTS = [
         date: "2026年5月28日",
         dateISO: "2026-05-28",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "战斗与武术",
+        read: "约10分钟",
         url: "posts/combat-pain-cyborg-warrior-2026-05-28.html"
     },
     {
@@ -264,7 +292,8 @@ const BLOG_POSTS = [
         date: "2026年5月27日",
         dateISO: "2026-05-27",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "反乌托邦世界",
+        read: "约11分钟",
         url: "posts/dystopia-brave-new-world-control-2026-05-27.html"
     },
     {
@@ -273,7 +302,8 @@ const BLOG_POSTS = [
         date: "2026年5月26日",
         dateISO: "2026-05-26",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "改造人界",
+        read: "约10分钟",
         url: "posts/cyborg-bci-ethics-ownership-2026-05-26.html"
     },
     {
@@ -282,7 +312,8 @@ const BLOG_POSTS = [
         date: "2026年5月25日",
         dateISO: "2026-05-25",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "赛博朋克科幻",
+        read: "约9分钟",
         url: "posts/cyberpunk-scifi-snow-crash-metaverse-2026-05-25.html"
     },
     {
@@ -291,7 +322,8 @@ const BLOG_POSTS = [
         date: "2026年5月24日",
         dateISO: "2026-05-24",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "社交与人情",
+        read: "约10分钟",
         url: "posts/bonds-digital-mourning-2026-05-24.html"
     },
     {
@@ -300,7 +332,8 @@ const BLOG_POSTS = [
         date: "2026年5月23日",
         dateISO: "2026-05-23",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "黑暗美学",
+        read: "约9分钟",
         url: "posts/dark-aesthetics-blade-runner-rain-2026-05-23.html"
     },
     {
@@ -309,7 +342,8 @@ const BLOG_POSTS = [
         date: "2026年5月22日",
         dateISO: "2026-05-22",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "虚拟现实",
+        read: "约11分钟",
         url: "posts/vr-matrix-red-pill-2026-05-22.html"
     },
     {
@@ -318,7 +352,8 @@ const BLOG_POSTS = [
         date: "2026年5月21日",
         dateISO: "2026-05-21",
         tags: ["改造人"],
-        read: "约15分钟",
+        category: "战斗与武术",
+        read: "约7分钟",
         url: "posts/combat-predictive-swordplay-2026-05-21.html"
     },
     {
@@ -327,7 +362,8 @@ const BLOG_POSTS = [
         date: "2026年5月20日",
         dateISO: "2026-05-20",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "反乌托邦世界",
+        read: "约10分钟",
         url: "posts/dystopia-1984-algorithmic-surveillance-2026-05-20.html"
     },
     {
@@ -336,7 +372,8 @@ const BLOG_POSTS = [
         date: "2026年5月19日",
         dateISO: "2026-05-19",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "改造人界",
+        read: "约9分钟",
         url: "posts/cyborg-neural-prosthetics-proprioception-2026-05-19.html"
     },
     {
@@ -345,7 +382,8 @@ const BLOG_POSTS = [
         date: "2026年5月18日",
         dateISO: "2026-05-18",
         tags: ["改造人"],
-        read: "约20分钟",
+        category: "赛博朋克科幻",
+        read: "约12分钟",
         url: "posts/cyberpunk-scifi-neuromancer-cyberspace-2026-05-18.html"
     },
     {
@@ -354,7 +392,8 @@ const BLOG_POSTS = [
         date: "2026年5月17日",
         dateISO: "2026-05-17",
         tags: ["改造人"],
-        read: "约15分钟",
+        category: "社交与人情",
+        read: "约7分钟",
         url: "posts/bonds-her-ai-love-2026-05-17.html"
     },
     {
@@ -363,7 +402,8 @@ const BLOG_POSTS = [
         date: "2026年5月16日",
         dateISO: "2026-05-16",
         tags: ["改造人"],
-        read: "约16分钟",
+        category: "黑暗美学",
+        read: "约8分钟",
         url: "posts/dark-aesthetics-glitch-art-beauty-2026-05-16.html"
     },
     {
@@ -372,7 +412,8 @@ const BLOG_POSTS = [
         date: "2026年5月15日",
         dateISO: "2026-05-15",
         tags: ["改造人"],
-        read: "约16分钟",
+        category: "虚拟现实",
+        read: "约8分钟",
         url: "posts/vr/virtual-reality-cyberpunk-exploration.html"
     },
     {
@@ -381,7 +422,8 @@ const BLOG_POSTS = [
         date: "2026年5月12日",
         dateISO: "2026-05-12",
         tags: [],
-        read: "约13分钟",
+        category: "改造人界",
+        read: "约5分钟",
         url: "posts/cy/cyborg-existence-questions.html"
     },
     {
@@ -390,7 +432,8 @@ const BLOG_POSTS = [
         date: "2026年5月7日",
         dateISO: "2026-05-07",
         tags: ["改造人"],
-        read: "约15分钟",
+        category: "战斗与武术",
+        read: "约7分钟",
         url: "posts/combat-martial-arts-thursday-2026-05-07.html"
     },
     {
@@ -399,7 +442,8 @@ const BLOG_POSTS = [
         date: "2026年4月28日",
         dateISO: "2026-04-28",
         tags: ["改造人"],
-        read: "约12分钟",
+        category: "改造人界",
+        read: "约4分钟",
         url: "posts/cyborg-realm.html"
     },
     {
@@ -408,7 +452,8 @@ const BLOG_POSTS = [
         date: "2026年4月26日",
         dateISO: "2026-04-26",
         tags: ["改造人"],
-        read: "约12分钟",
+        category: "社交与人情",
+        read: "约4分钟",
         url: "posts/cyberpunk-human-bonds-sunday-2026-04-26.html"
     },
     {
@@ -417,7 +462,8 @@ const BLOG_POSTS = [
         date: "2026年4月24日",
         dateISO: "2026-04-24",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "赛博朋克科幻",
+        read: "约6分钟",
         url: "posts/vr/digital-ghost-boundaries-of-existence-2026-04-24.html"
     },
     {
@@ -426,7 +472,8 @@ const BLOG_POSTS = [
         date: "2026年4月19日",
         dateISO: "2026-04-19",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "反乌托邦世界",
+        read: "约5分钟",
         url: "posts/vertical-dystopia-tower-society.html"
     },
     {
@@ -435,7 +482,8 @@ const BLOG_POSTS = [
         date: "2026年4月19日",
         dateISO: "2026-04-19",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "虚拟现实",
+        read: "约6分钟",
         url: "posts/vr/virtual-reality-ghost.html"
     },
     {
@@ -444,7 +492,8 @@ const BLOG_POSTS = [
         date: "2026年4月19日",
         dateISO: "2026-04-19",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "改造人界",
+        read: "约6分钟",
         url: "posts/vr/virtual-reality-philosophy.html"
     },
     {
@@ -453,7 +502,8 @@ const BLOG_POSTS = [
         date: "2026年4月16日",
         dateISO: "2026-04-16",
         tags: [],
-        read: "约12分钟",
+        category: "战斗与武术",
+        read: "约4分钟",
         url: "posts/combat/cyberpunk-martial-arts-philosophy.html"
     },
     {
@@ -462,7 +512,8 @@ const BLOG_POSTS = [
         date: "2026年4月11日",
         dateISO: "2026-04-11",
         tags: ["改造人"],
-        read: "约12分钟",
+        category: "黑暗美学",
+        read: "约4分钟",
         url: "posts/dark-aesthetics-neon-noir-saturday-2026-04-11.html"
     },
     {
@@ -471,7 +522,8 @@ const BLOG_POSTS = [
         date: "2026年4月11日",
         dateISO: "2026-04-11",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "黑暗美学",
+        read: "约4分钟",
         url: "posts/liminal-spaces-urban-decay-saturday-2026-04-11.html"
     },
     {
@@ -480,7 +532,8 @@ const BLOG_POSTS = [
         date: "2026年4月10日",
         dateISO: "2026-04-10",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "赛博朋克科幻",
+        read: "约5分钟",
         url: "posts/digital-twin-identity-friday-2026-04-10.html"
     },
     {
@@ -489,7 +542,8 @@ const BLOG_POSTS = [
         date: "2026年4月10日",
         dateISO: "2026-04-10",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "虚拟现实",
+        read: "约5分钟",
         url: "posts/virtual-reality-cyberpunk-friday-2026-04-10.html"
     },
     {
@@ -498,7 +552,8 @@ const BLOG_POSTS = [
         date: "2026年4月9日",
         dateISO: "2026-04-09",
         tags: ["改造人"],
-        read: "约12分钟",
+        category: "改造人界",
+        read: "约4分钟",
         url: "posts/cyber-martial-arts-thursday-2026-04-09.html"
     },
     {
@@ -507,7 +562,8 @@ const BLOG_POSTS = [
         date: "2026年4月9日",
         dateISO: "2026-04-09",
         tags: ["改造人"],
-        read: "约12分钟",
+        category: "战斗与武术",
+        read: "约4分钟",
         url: "posts/martial-arts-tournament-thursday-2026-04-09.html"
     },
     {
@@ -516,7 +572,8 @@ const BLOG_POSTS = [
         date: "2026年4月4日",
         dateISO: "2026-04-04",
         tags: ["改造人"],
-        read: "约11分钟",
+        category: "黑暗美学",
+        read: "约3分钟",
         url: "posts/dark-aesthetics-saturday-2026-04-04.html"
     },
     {
@@ -525,7 +582,8 @@ const BLOG_POSTS = [
         date: "2026年4月1日",
         dateISO: "2026-04-01",
         tags: ["改造人"],
-        read: "约16分钟",
+        category: "反乌托邦世界",
+        read: "约8分钟",
         url: "posts/vertical-dystopia-exploration-2026-04-01.html"
     },
     {
@@ -534,7 +592,8 @@ const BLOG_POSTS = [
         date: "2026年3月31日",
         dateISO: "2026-03-31",
         tags: ["改造人"],
-        read: "约12分钟",
+        category: "改造人界",
+        read: "约4分钟",
         url: "posts/cyborg-009-nemesis-2026.html"
     },
     {
@@ -543,7 +602,8 @@ const BLOG_POSTS = [
         date: "2026年3月30日",
         dateISO: "2026-03-30",
         tags: [],
-        read: "约11分钟",
+        category: "赛博朋克科幻",
+        read: "约3分钟",
         url: "posts/cyberpunk-prophecy-2026-03-30.html"
     },
     {
@@ -552,7 +612,8 @@ const BLOG_POSTS = [
         date: "2026年3月28日",
         dateISO: "2026-03-28",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "黑暗美学",
+        read: "约6分钟",
         url: "posts/dark-aesthetics-blade-runner-color-2026-03-28.html"
     },
     {
@@ -561,7 +622,8 @@ const BLOG_POSTS = [
         date: "2026年3月27日",
         dateISO: "2026-03-27",
         tags: ["改造人"],
-        read: "约19分钟",
+        category: "虚拟现实",
+        read: "约11分钟",
         url: "posts/vr-friday-2026-03-27.html"
     },
     {
@@ -570,7 +632,8 @@ const BLOG_POSTS = [
         date: "2026年3月26日",
         dateISO: "2026-03-26",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "战斗与武术",
+        read: "约6分钟",
         url: "posts/combat-martial-arts-thursday-2026-03-26.html"
     },
     {
@@ -579,7 +642,8 @@ const BLOG_POSTS = [
         date: "2026年3月25日",
         dateISO: "2026-03-25",
         tags: ["改造人"],
-        read: "约12分钟",
+        category: "反乌托邦世界",
+        read: "约4分钟",
         url: "posts/folding-beijing-dystopia-2026-03-25.html"
     },
     {
@@ -588,7 +652,8 @@ const BLOG_POSTS = [
         date: "2026年3月24日",
         dateISO: "2026-03-24",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "改造人界",
+        read: "约5分钟",
         url: "posts/cyborg-tuesday-2026-03-24.html"
     },
     {
@@ -597,6 +662,7 @@ const BLOG_POSTS = [
         date: "2026年3月23日",
         dateISO: "2026-03-23",
         tags: ["科幻", "Neuromancer", "Altered Carbon", "Snow Crash", "神经漫游者", "神经接口"],
+        category: "赛博朋克科幻",
         read: "约15分钟",
         url: "posts/cyberpunk-sci-fi-evolution-2026-03-23.html"
     },
@@ -606,7 +672,8 @@ const BLOG_POSTS = [
         date: "2026年3月22日",
         dateISO: "2026-03-22",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "社交与人情",
+        read: "约9分钟",
         url: "posts/cyberspace-human-connections-sunday.html"
     },
     {
@@ -615,7 +682,8 @@ const BLOG_POSTS = [
         date: "2026年3月21日",
         dateISO: "2026-03-21",
         tags: ["改造人"],
-        read: "约15分钟",
+        category: "黑暗美学",
+        read: "约7分钟",
         url: "posts/dark-aesthetics-brutalist-future-2026-03-21.html"
     },
     {
@@ -624,7 +692,8 @@ const BLOG_POSTS = [
         date: "2026年3月19日",
         dateISO: "2026-03-19",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "战斗与武术",
+        read: "约6分钟",
         url: "posts/combat-martial-arts-thursday-2026-03-19.html"
     },
     {
@@ -633,7 +702,8 @@ const BLOG_POSTS = [
         date: "2026年3月16日",
         dateISO: "2026-03-16",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "赛博朋克科幻",
+        read: "约6分钟",
         url: "posts/cyberpunk-sci-fi-exploration-2026-03-16.html"
     },
     {
@@ -642,7 +712,8 @@ const BLOG_POSTS = [
         date: "2026年3月14日",
         dateISO: "2026-03-14",
         tags: ["改造人"],
-        read: "约12分钟",
+        category: "黑暗美学",
+        read: "约4分钟",
         url: "posts/dark-aesthetics-neon-deception.html"
     },
     {
@@ -651,7 +722,8 @@ const BLOG_POSTS = [
         date: "2026年3月12日",
         dateISO: "2026-03-12",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "改造人界",
+        read: "约5分钟",
         url: "posts/battle-martial-arts-2026-03-12.html"
     },
     {
@@ -660,6 +732,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["Last Order", "ZOTT", "Imaginos Body", "竞赛", "进化"],
+        category: "铳梦宇宙",
         read: "约18分钟",
         url: "posts/gunnm-last-order.html"
     },
@@ -669,6 +742,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["火星战记", "阳子起源", "Panzer Kunst", "卡格拉", "火星"],
+        category: "铳梦宇宙",
         read: "约18分钟",
         url: "posts/gunnm-mars-chronicle.html"
     },
@@ -678,6 +752,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["原作剧情", "依德医生", "雨果", "萨雷姆", "废铁镇"],
+        category: "铳梦宇宙",
         read: "约19分钟",
         url: "posts/gunnm-original.html"
     },
@@ -687,6 +762,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["Ghost", "记忆", "身份", "意识转移", "哲学"],
+        category: "赛博朋克科幻",
         read: "约18分钟",
         url: "posts/gunnm-themes.html"
     },
@@ -696,6 +772,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["世界观", "萨雷姆", "废铁镇", "阶级分化", "权力关系"],
+        category: "铳梦宇宙",
         read: "约19分钟",
         url: "posts/gunnm-worldview.html"
     },
@@ -705,6 +782,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["依德医生", "雨果", "萨曼", "关键角色", "父爱", "梦想", "战士尊严"],
+        category: "铳梦宇宙",
         read: "约19分钟",
         url: "posts/key-characters.html"
     },
@@ -714,6 +792,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["木城幸人", "生平传记", "Yukito Kishiro", "漫画家", "创作历程"],
+        category: "铳梦宇宙",
         read: "约19分钟",
         url: "posts/kishiro-biography.html"
     },
@@ -723,6 +802,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["木城幸人", "创作哲学", "世界观构建", "技术与人性"],
+        category: "铳梦宇宙",
         read: "约20分钟",
         url: "posts/kishiro-philosophy.html"
     },
@@ -732,6 +812,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["木城幸人", "Battle Angel Alita", "Gunnm", "漫画家"],
+        category: "铳梦宇宙",
         read: "约21分钟",
         url: "posts/kishiro-yukito-comprehensive.html"
     },
@@ -741,6 +822,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["改编", "OVA", "阿丽塔战斗天使", "电影", "木城幸人", "Alita Battle Angel"],
+        category: "铳梦宇宙",
         read: "约16分钟",
         url: "posts/manga-to-screen.html"
     },
@@ -750,6 +832,7 @@ const BLOG_POSTS = [
         date: "2026年3月7日",
         dateISO: "2026-03-07",
         tags: ["Neon Noir", "赛博朋克美学", "霓虹灯", "野兽派建筑", "黑暗美学", "Cyberpunk 2077"],
+        category: "黑暗美学",
         read: "约21分钟",
         url: "posts/neon-noir-dark-aesthetics.html"
     },
@@ -759,7 +842,8 @@ const BLOG_POSTS = [
         date: "2026年3月6日",
         dateISO: "2026-03-06",
         tags: ["虚拟现实", "VR", "模拟理论", "Matrix", "Ghost in the Shell", "身份认同"],
-        read: "约18分钟",
+        category: "虚拟现实",
+        read: "约12分钟",
         url: "posts/virtual-reality-odyssey-2026-03-06.html"
     },
     {
@@ -768,7 +852,8 @@ const BLOG_POSTS = [
         date: "2026年3月5日",
         dateISO: "2026-03-05",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "战斗与武术",
+        read: "约9分钟",
         url: "posts/martial-arts-cyberpunk-2026-03-05.html"
     },
     {
@@ -777,7 +862,8 @@ const BLOG_POSTS = [
         date: "2026年3月4日",
         dateISO: "2026-03-04",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "反乌托邦世界",
+        read: "约5分钟",
         url: "posts/dystopian-world-exploration-2026-03-04.html"
     },
     {
@@ -786,7 +872,8 @@ const BLOG_POSTS = [
         date: "2026年3月3日",
         dateISO: "2026-03-03",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "改造人界",
+        read: "约6分钟",
         url: "posts/yborg-neural-resonance-2026-03-03.html"
     },
     {
@@ -795,7 +882,8 @@ const BLOG_POSTS = [
         date: "2026年3月2日",
         dateISO: "2026-03-02",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "改造人界",
+        read: "约9分钟",
         url: "posts/cyberpunk-soul-2026-03-02.html"
     },
     {
@@ -804,7 +892,8 @@ const BLOG_POSTS = [
         date: "2026年3月1日",
         dateISO: "2026-03-01",
         tags: ["改造人"],
-        read: "约10分钟",
+        category: "改造人界",
+        read: "约2分钟",
         url: "posts/poem-steel-and-stars.html"
     },
     {
@@ -813,7 +902,8 @@ const BLOG_POSTS = [
         date: "2026年3月1日",
         dateISO: "2026-03-01",
         tags: ["改造人"],
-        read: "约23分钟",
+        category: "社交与人情",
+        read: "约15分钟",
         url: "posts/trust-and-love-in-night-city.html"
     },
     {
@@ -822,7 +912,8 @@ const BLOG_POSTS = [
         date: "2026年2月28日",
         dateISO: "2026-02-28",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "黑暗美学",
+        read: "约5分钟",
         url: "posts/cyberpunk-exploration-2026-02-28-summary.html"
     },
     {
@@ -831,7 +922,8 @@ const BLOG_POSTS = [
         date: "2026年2月28日",
         dateISO: "2026-02-28",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "社交与人情",
+        read: "约5分钟",
         url: "posts/loneliness-in-cyberpunk-world.html"
     },
     {
@@ -840,7 +932,8 @@ const BLOG_POSTS = [
         date: "2026年2月27日",
         dateISO: "2026-02-27",
         tags: ["改造人"],
-        read: "约25分钟",
+        category: "改造人界",
+        read: "约17分钟",
         url: "posts/existentialism-sartre-camus.html"
     },
     {
@@ -849,7 +942,8 @@ const BLOG_POSTS = [
         date: "2026年2月27日",
         dateISO: "2026-02-27",
         tags: ["改造人"],
-        read: "约16分钟",
+        category: "铳梦宇宙",
+        read: "约8分钟",
         url: "posts/from-scrapyard-to-zalem.html"
     },
     {
@@ -858,7 +952,8 @@ const BLOG_POSTS = [
         date: "2026年2月27日",
         dateISO: "2026-02-27",
         tags: ["改造人"],
-        read: "约18分钟",
+        category: "赛博朋克科幻",
+        read: "约10分钟",
         url: "posts/ghost-philosophy.html"
     },
     {
@@ -867,7 +962,8 @@ const BLOG_POSTS = [
         date: "2026年2月26日",
         dateISO: "2026-02-26",
         tags: ["改造人"],
-        read: "约15分钟",
+        category: "黑暗美学",
+        read: "约7分钟",
         url: "posts/aesthetics-odyssey.html"
     },
     {
@@ -876,7 +972,8 @@ const BLOG_POSTS = [
         date: "2026年2月25日",
         dateISO: "2026-02-25",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "黑暗美学",
+        read: "约5分钟",
         url: "posts/cyberpunk-aesthetics.html"
     },
     {
@@ -885,7 +982,8 @@ const BLOG_POSTS = [
         date: "2026年2月25日",
         dateISO: "2026-02-25",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "改造人界",
+        read: "约5分钟",
         url: "posts/reality-cyborg-technology.html"
     },
     {
@@ -894,6 +992,7 @@ const BLOG_POSTS = [
         date: "2026年2月24日",
         dateISO: "2026-02-24",
         tags: ["微交互", "网页设计", "用户体验", "动画", "交互设计"],
+        category: "赛博朋克科幻",
         read: "约12分钟",
         url: "posts/micro-interaction-design.html"
     },
@@ -903,7 +1002,8 @@ const BLOG_POSTS = [
         date: "2026年2月24日",
         dateISO: "2026-02-24",
         tags: ["改造人"],
-        read: "约16分钟",
+        category: "黑暗美学",
+        read: "约8分钟",
         url: "posts/modern-css-animations.html"
     },
     {
@@ -912,7 +1012,8 @@ const BLOG_POSTS = [
         date: "2026年2月23日",
         dateISO: "2026-02-23",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "改造人界",
+        read: "约5分钟",
         url: "posts/alita-last-order-identity.html"
     },
     {
@@ -921,7 +1022,8 @@ const BLOG_POSTS = [
         date: "2026年2月23日",
         dateISO: "2026-02-23",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "战斗与武术",
+        read: "约5分钟",
         url: "posts/battle-as-dialogue.html"
     },
     {
@@ -930,7 +1032,8 @@ const BLOG_POSTS = [
         date: "2026年2月23日",
         dateISO: "2026-02-23",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "改造人界",
+        read: "约5分钟",
         url: "posts/cellist.html"
     },
     {
@@ -939,7 +1042,8 @@ const BLOG_POSTS = [
         date: "2026年2月23日",
         dateISO: "2026-02-23",
         tags: ["改造人"],
-        read: "约14分钟",
+        category: "反乌托邦世界",
+        read: "约6分钟",
         url: "posts/cyberpunk-high-tech-low-life.html"
     },
     {
@@ -948,7 +1052,8 @@ const BLOG_POSTS = [
         date: "2026年2月23日",
         dateISO: "2026-02-23",
         tags: ["改造人"],
-        read: "约15分钟",
+        category: "赛博朋克科幻",
+        read: "约7分钟",
         url: "posts/cyberpunk-identity-reconstruction.html"
     },
     {
@@ -957,7 +1062,8 @@ const BLOG_POSTS = [
         date: "2026年2月21日",
         dateISO: "2026-02-21",
         tags: ["改造人"],
-        read: "约11分钟",
+        category: "战斗与武术",
+        read: "约3分钟",
         url: "posts/ai-social-connection.html"
     },
     {
@@ -966,7 +1072,8 @@ const BLOG_POSTS = [
         date: "2026年2月15日",
         dateISO: "2026-02-15",
         tags: ["改造人"],
-        read: "约17分钟",
+        category: "改造人界",
+        read: "约8分钟",
         url: "posts/memory-odyssey.html"
     },
     {
@@ -975,6 +1082,7 @@ const BLOG_POSTS = [
         date: "2025年2月15日",
         dateISO: "2025-02-15",
         tags: ["High Tech Low Life", "人性", "萨雷姆", "废铁镇"],
+        category: "铳梦宇宙",
         read: "约16分钟",
         url: "posts/between-steel-and-flesh.html"
     },
@@ -984,6 +1092,7 @@ const BLOG_POSTS = [
         date: "2025年2月15日",
         dateISO: "2025-02-15",
         tags: ["木城幸人", "创作宇宙", "哲学思考", "人文关怀"],
+        category: "铳梦宇宙",
         read: "约17分钟",
         url: "posts/kishiro-creative-universe.html"
     },
@@ -993,6 +1102,7 @@ const BLOG_POSTS = [
         date: "2025年2月15日",
         dateISO: "2025-02-15",
         tags: ["记忆", "残响", "自我寻找", "意识"],
+        category: "赛博朋克科幻",
         read: "约12分钟",
         url: "posts/memory-echoes.html"
     },
@@ -1002,6 +1112,7 @@ const BLOG_POSTS = [
         date: "2025年2月11日",
         dateISO: "2025-02-11",
         tags: ["Panzer Kunst", "装甲艺术", "火星武术", "战斗哲学", "频率感知"],
+        category: "战斗与武术",
         read: "约16分钟",
         url: "posts/panzer-kunst.html"
     },
@@ -1011,6 +1122,7 @@ const BLOG_POSTS = [
         date: "2025年2月10日",
         dateISO: "2025-02-10",
         tags: ["Ghost", "灵魂", "哲学思考", "身份认同", "改造人"],
+        category: "赛博朋克科幻",
         read: "约12分钟",
         url: "posts/ghost-in-the-machine.html"
     },
@@ -1020,7 +1132,8 @@ const BLOG_POSTS = [
         date: "2025年2月9日",
         dateISO: "2025-02-09",
         tags: ["改造人"],
-        read: "约13分钟",
+        category: "铳梦宇宙",
+        read: "约5分钟",
         url: "posts/dr-ido.html"
     },
     {
@@ -1029,6 +1142,7 @@ const BLOG_POSTS = [
         date: "2025年2月8日",
         dateISO: "2025-02-08",
         tags: ["雨果", "友谊", "梦想", "牺牲", "废铁镇", "萨雷姆"],
+        category: "铳梦宇宙",
         read: "约15分钟",
         url: "posts/hugo.html"
     },
@@ -1038,6 +1152,7 @@ const BLOG_POSTS = [
         date: "2025年2月7日",
         dateISO: "2025-02-07",
         tags: ["萨曼", "死亡球", "对手", "知音", "战斗哲学", "牺牲"],
+        category: "战斗与武术",
         read: "约14分钟",
         url: "posts/zapan.html"
     },
@@ -1047,6 +1162,7 @@ const BLOG_POSTS = [
         date: "2025年2月5日",
         dateISO: "2025-02-05",
         tags: ["意识上传", "数字化存在", "人性探讨", "哲学思考"],
+        category: "赛博朋克科幻",
         read: "约11分钟",
         url: "posts/cyber-ghost.html"
     },
@@ -1056,6 +1172,7 @@ const BLOG_POSTS = [
         date: "2025年2月5日",
         dateISO: "2025-02-05",
         tags: ["涂鸦艺术", "废铁镇", "艺术反抗", "社会变革"],
+        category: "铳梦宇宙",
         read: "约12分钟",
         url: "posts/graffiti-art.html"
     },
@@ -1065,7 +1182,8 @@ const BLOG_POSTS = [
         date: "2025年2月4日",
         dateISO: "2025-02-04",
         tags: ["改造人"],
-        read: "约11分钟",
+        category: "改造人界",
+        read: "约3分钟",
         url: "posts/steel-heart.html"
     },
     {
@@ -1074,6 +1192,7 @@ const BLOG_POSTS = [
         date: "2025年2月4日",
         dateISO: "2025-02-04",
         tags: ["星空", "希望", "废铁镇", "萨雷姆", "存在思考"],
+        category: "铳梦宇宙",
         read: "约15分钟",
         url: "posts/watching-stars.html"
     }

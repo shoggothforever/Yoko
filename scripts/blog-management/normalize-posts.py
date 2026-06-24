@@ -157,7 +157,6 @@ def render(path, title, desc, date, read, words, tags, body_html):
     desc_attr = htmllib.escape(desc or title)
     title_attr = htmllib.escape(title)
     meta_block = build_meta_block(date, read, words, tags)
-    style_block = "\n".join("        " + ln if ln.strip() else ln for ln in TEMPLATE_CSS.splitlines())
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -190,14 +189,10 @@ def render(path, title, desc, date, read, words, tags, body_html):
     <!-- CSS 样式表 -->
     <link rel="stylesheet" href="{pref}style.min.css">
     <link rel="stylesheet" href="{pref}css/cyberpunk-effects.css">
+    <link rel="stylesheet" href="{pref}css/blog-article-template.css">
 
     <!-- 标准导航栏组件（自动注入） -->
     <script src="{pref}js/header-component.js" data-auto-inject="true"></script>
-
-    <!-- 文章内联样式（标准模板 blog-article-template.css） -->
-    <style>
-{style_block}
-    </style>
 </head>
 
 <body>
@@ -215,6 +210,10 @@ def render(path, title, desc, date, read, words, tags, body_html):
             </article>
         </div>
     </main>
+
+    <!-- 文章增强：上一篇/下一篇 + 相关文章 + 目录（读 blog-posts-data.js 客户端计算） -->
+    <script src="{pref}blog-posts-data.js"></script>
+    <script src="{pref}js/article-enhancements.js" data-auto-inject="true"></script>
 
     <!-- 页脚组件（自动注入） -->
     <script src="{pref}js/footer-component.js" data-auto-inject="true"></script>
@@ -305,6 +304,8 @@ def audit():
         if soup.body and soup.body.find("footer"): problems.append("残留手写<footer>")
         if any(re.search(r'href="(/|\.\./|\.\./\.\./)css/style\.css"', s) for s in links): problems.append("引用不存在的css/style.css")
         if "yoko.sfct.top" in raw: problems.append("canonical域名不一致(应为IP)")
+        if "博客文章标准内联CSS模板" in raw: problems.append("仍内联标准模板CSS(应外链)")
+        if not any("article-enhancements.js" in s for s in scripts): problems.append("缺文章增强脚本")
         if (f.stat().st_mode & 0o777) != 0o644: problems.append(f"权限非644({oct(f.stat().st_mode & 0o777)})")
         if problems:
             violations.append((f.relative_to(POSTS), problems))

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主题分类 · 阳子 (Yoko)</title>
+    <meta name="description" content="按主题浏览阳子的赛博朋克探索：赛博朋克科幻、改造人界、反乌托邦、战斗与武术、虚拟现实、黑暗美学、社交与人情、铳梦宇宙。">
+    <link rel="canonical" href="https://118.145.99.224/categories.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="css/cyberpunk-effects.css">
+    <script src="js/header-component.js" data-auto-inject="true"></script>
+    <style>
+        .page-head{max-width:900px;margin:0 auto 24px;padding:40px 20px 0;}
+        .page-head h1{color:#e94560;font-size:2.2rem;text-shadow:0 0 20px rgba(233,69,96,.5);}
+        .page-head p{color:#a9b7d0;margin-top:10px;}
+        .cat-jump{display:flex;flex-wrap:wrap;gap:10px;max-width:900px;margin:0 auto 30px;padding:0 20px;}
+        .cat-jump a{color:#e0e0e0;background:rgba(15,52,96,.4);border:1px solid #0f3460;
+            border-radius:20px;padding:6px 14px;text-decoration:none;font-size:.9em;transition:all .25s;}
+        .cat-jump a:hover{border-color:#e94560;color:#e94560;}
+        .cat-section{max-width:900px;margin:0 auto 40px;padding:0 20px;}
+        .cat-section h2{color:#533483;border-bottom:1px solid rgba(233,69,96,.3);padding-bottom:10px;}
+        .cat-section h2 small{color:#7a7a8c;font-size:.6em;font-weight:normal;}
+        .cat-list{list-style:none;padding:0;margin:14px 0 0;}
+        .cat-list li{margin:8px 0;display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed rgba(102,126,234,.15);padding-bottom:8px;}
+        .cat-list a{color:#e0e0e0;text-decoration:none;transition:color .2s;}
+        .cat-list a:hover{color:#e94560;}
+        .cat-list .d{color:#7a7a8c;font-size:.85em;white-space:nowrap;}
+    </style>
+</head>
+<body>
+    <main>
+        <div class="page-head">
+            <h1>🗂️ 主题分类</h1>
+            <p>共 <span id="total">0</span> 篇探索，按 8 大主题归类。</p>
+        </div>
+        <nav class="cat-jump" id="cat-jump"></nav>
+        <div id="cat-container"></div>
+    </main>
+
+    <script src="blog-posts-data.js"></script>
+    <script>
+    (function(){
+        'use strict';
+        if (typeof BLOG_POSTS === 'undefined') return;
+        var posts = BLOG_POSTS.slice().sort(function(a,b){return (b.dateISO||'').localeCompare(a.dateISO||'');});
+        document.getElementById('total').textContent = posts.length;
+        var groups = {};
+        posts.forEach(function(p){ var c=p.category||'其它'; (groups[c]=groups[c]||[]).push(p); });
+        var cats = Object.keys(groups).sort(function(a,b){return groups[b].length-groups[a].length;});
+        var jump = document.getElementById('cat-jump');
+        var cont = document.getElementById('cat-container');
+        cats.forEach(function(c){
+            var id='cat-'+encodeURIComponent(c);
+            var a=document.createElement('a'); a.href='#'+id; a.textContent=c+' ('+groups[c].length+')'; jump.appendChild(a);
+            var sec=document.createElement('section'); sec.className='cat-section'; sec.id=id;
+            var items=groups[c].map(function(p){
+                return '<li><a href="'+p.url+'">'+p.title+'</a><span class="d">'+(p.date||'')+'</span></li>';
+            }).join('');
+            sec.innerHTML='<h2>'+c+' <small>'+groups[c].length+' 篇</small></h2><ul class="cat-list">'+items+'</ul>';
+            cont.appendChild(sec);
+        });
+    })();
+    </script>
+    <script src="js/footer-component.js" data-auto-inject="true"></script>
+</body>
+</html>
