@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 自动生成于 2026-06-24 12:24:20 -->
+    <!-- 自动生成于 2026-06-24 12:56:48 -->
     <url>
         <loc>https://118.145.99.224/index.html</loc>
         <lastmod>2026-06-24</lastmod>
@@ -436,6 +436,12 @@
     <url>
         <loc>https://118.145.99.224/posts/dystopia-1984-algorithmic-surveillance-2026-05-20.html</loc>
         <lastmod>2026-05-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/dystopia-black-mirror-fifteen-million-merits-2026-06-24.html</loc>
+        <lastmod>2026-06-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
