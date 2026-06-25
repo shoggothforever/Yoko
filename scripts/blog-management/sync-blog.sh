@@ -36,13 +36,20 @@ log "[1/3] 归一化文章模板 ..."
 log "[2/3] 重生成索引 / sitemap / 首页列表 ..."
 bash "${SCRIPTS}/oneforall.sh" >>"$LOG" 2>&1
 
-log "[3/3] 合规复检 ..."
+log "[3/4] 合规复检 ..."
 if "$VENV_PY" "${SCRIPTS}/normalize-posts.py" --audit >>"$LOG" 2>&1; then
-  log "✅ 同步完成，全部文章合规"
+  log "✅ 全部文章合规"
   RC=0
 else
   log "❌ 复检发现不合规文章，请查看上面的审计输出"
   RC=1
+fi
+
+log "[4/4] 链接连通性体检 ..."
+if python3 "${SCRIPTS}/check-links.py" >>"$LOG" 2>&1; then
+  log "✅ 无断链"
+else
+  log "⚠️  发现断链，请查看日志（不阻断同步，但建议修复）"
 fi
 
 log "===== 结束（rc=$RC）====="

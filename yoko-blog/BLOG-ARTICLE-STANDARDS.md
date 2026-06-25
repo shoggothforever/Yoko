@@ -125,7 +125,12 @@ yoko-blog/.toolvenv/bin/python scripts/blog-management/normalize-posts.py --audi
 
 # ③ 仅重建衍生文件（不改文章本体）
 bash scripts/blog-management/oneforall.sh   # = generate-all-posts.py + generate-sitemap.py + update-index-blog-list.py
+
+# ④ 全站链接连通性体检（可达性 DFS，文件系统级，本地/云端/CI 通用，断链则非0退出）
+python3 scripts/blog-management/check-links.py
 ```
+
+`sync-blog.sh` 已内置链接体检（第4步）；每日云端 routine 在重建后也会跑 `check-links.py` 自检。
 
 归一化脚本会**自动跳过已合规文章**（保留其原有丰富内联样式，不回退），只重写漂移文章。
 所有页面/文章/子目录均支持（`posts/**` 递归），子目录文章相对路径自动按深度修正。
