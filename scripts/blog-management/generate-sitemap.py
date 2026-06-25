@@ -24,6 +24,7 @@ MAIN_PAGES = [
     ("categories.html",                     "0.8", "weekly"),
     ("archive.html",                        "0.7", "weekly"),
     ("tags.html",                           "0.7", "weekly"),
+    ("notes.html",                          "0.7", "daily"),
     ("ghost-chatroom.html",                 "0.9", "weekly"),
     ("important-people.html",               "0.8", "weekly"),
     ("exploration-dashboard.html",          "0.8", "weekly"),

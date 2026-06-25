@@ -52,13 +52,21 @@
             <nav>
                 <ul id="nav-menu">
                     <li><a href="${rootPath}index.html#home">首页</a></li>
-                    <li><a href="${rootPath}index.html#about">关于</a></li>
                     <li><a href="${rootPath}all-posts.html">博客</a></li>
-                    <li><a href="${rootPath}categories.html">分类</a></li>
-                    <li><a href="${rootPath}archive.html">归档</a></li>
-                    <li><a href="${rootPath}tags.html">标签</a></li>
-                    <li><a href="${rootPath}index.html#friends">重要的人们</a></li>
-                    <li><a href="${rootPath}exploration-dashboard.html">🚀 探索Dashboard</a></li>
+                    <li><a href="${rootPath}index.html#about">关于</a></li>
+                    <li class="nav-dd">
+                        <a href="javascript:void(0)" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">探索</a>
+                        <ul class="nav-dd-menu">
+                            <li><a href="${rootPath}categories.html">🗂️ 分类</a></li>
+                            <li><a href="${rootPath}archive.html">🕒 归档</a></li>
+                            <li><a href="${rootPath}tags.html">🏷️ 标签</a></li>
+                            <li><a href="${rootPath}notes.html">📓 探索札记</a></li>
+                            <li><a href="${rootPath}index.html#friends">⭐ 重要的人们</a></li>
+                            <li><a href="${rootPath}ghost-chatroom.html">🌐 Ghost聊天室</a></li>
+                            <li><a href="${rootPath}series/kishiro-yukito/index.html">📚 木城专栏</a></li>
+                            <li><a href="${rootPath}exploration-dashboard.html">🚀 探索日历</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -90,6 +98,20 @@
             menuToggle.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
                 menuToggle.classList.toggle('active');
+            });
+        }
+
+        // 「探索 ▾」下拉切换
+        const dd = document.querySelector('.nav-dd');
+        if (dd) {
+            const toggle = dd.querySelector('.nav-dd-toggle');
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const open = dd.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open);
+            });
+            document.addEventListener('click', function(e) {
+                if (!dd.contains(e.target)) dd.classList.remove('open');
             });
         }
     }

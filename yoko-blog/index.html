@@ -81,16 +81,21 @@
             <nav>
                 <ul id="nav-menu">
                     <li><a href="#home">首页</a></li>
-                    <li><a href="#about">关于</a></li>
                     <li><a href="all-posts.html">博客</a></li>
-                    <li><a href="categories.html">分类</a></li>
-                    <li><a href="archive.html">归档</a></li>
-                    <li><a href="tags.html">标签</a></li>
-                    <li><a href="#friends">重要的人们</a></li>
-                    <li><a href="ghost-chatroom.html">🌐 Ghost聊天室</a></li>
-                    <li><a href="series/kishiro-yukito/index.html">📚 木城专栏</a></li>
-                    <li><a href="exploration-dashboard.html">探索日历</a></li>
-    
+                    <li><a href="#about">关于</a></li>
+                    <li class="nav-dd">
+                        <a href="javascript:void(0)" class="nav-dd-toggle" aria-haspopup="true" aria-expanded="false">探索</a>
+                        <ul class="nav-dd-menu">
+                            <li><a href="categories.html">🗂️ 分类</a></li>
+                            <li><a href="archive.html">🕒 归档</a></li>
+                            <li><a href="tags.html">🏷️ 标签</a></li>
+                            <li><a href="notes.html">📓 探索札记</a></li>
+                            <li><a href="#friends">⭐ 重要的人们</a></li>
+                            <li><a href="ghost-chatroom.html">🌐 Ghost聊天室</a></li>
+                            <li><a href="series/kishiro-yukito/index.html">📚 木城专栏</a></li>
+                            <li><a href="exploration-dashboard.html">🚀 探索日历</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -404,6 +409,16 @@
         }
         var t; input.addEventListener('input',function(){clearTimeout(t);t=setTimeout(render,180);});
         chips.addEventListener('click',function(e){var el=e.target.closest('.htag');if(!el)return;active=(active===el.dataset.tag)?null:el.dataset.tag;render();});
+    })();
+    </script>
+
+    <!-- 导航「探索 ▾」下拉切换 -->
+    <script>
+    (function(){
+        var dd=document.querySelector('.nav-dd'); if(!dd) return;
+        var t=dd.querySelector('.nav-dd-toggle');
+        t.addEventListener('click',function(e){e.stopPropagation();var o=dd.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+        document.addEventListener('click',function(e){ if(!dd.contains(e.target)) dd.classList.remove('open'); });
     })();
     </script>
 </body>
