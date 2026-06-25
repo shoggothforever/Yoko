@@ -3,460 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>探索Dashboard - 阳子的自我探索之旅</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="阳子的自我探索dashboard，记录每日探索旅程和成长">
-    <meta name="keywords" content="探索dashboard, 自我探索, 成长记录, 探索旅程">
-    <meta name="author" content="阳子">
-    
-    <!-- Canonical -->
+    <title>探索日历 · 阳子 (Yoko)</title>
+    <meta name="description" content="阳子的赛博朋克探索活动热力图——文章与札记的每日轨迹，一年一览。">
     <link rel="canonical" href="https://118.145.99.224/exploration-dashboard.html">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="探索Dashboard - 阳子的自我探索之旅">
-    <meta property="og:description" content="记录每日探索旅程和成长">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://118.145.99.224/exploration-dashboard.html">
-    
-    <!-- CSS样式表 -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.min.css">
     <link rel="stylesheet" href="css/cyberpunk-effects.css">
-    
-    <!-- 内联CSS -->
+    <script src="js/header-component.js" data-auto-inject="true"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
-            color: #e0e0e0;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .dashboard-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 20px;
-            background: rgba(20, 20, 40, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(233, 69, 96, 0.1);
-        }
-        
-        .dashboard-header h1 {
-            font-size: 2.5em;
-            color: #e94560;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
-        }
-        
-        .dashboard-header .subtitle {
-            font-size: 1.2em;
-            color: #a0a0ff;
-            margin-bottom: 20px;
-        }
-        
-        .dashboard-header .quote {
-            font-size: 0.95em;
-            color: #e0e0e0;
-            font-style: italic;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .stat-card {
-            background: rgba(83, 52, 131, 0.1);
-            border: 1px solid rgba(83, 52, 131, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(83, 52, 131, 0.3);
-        }
-        
-        .stat-card .number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #e94560;
-            margin-bottom: 10px;
-        }
-        
-        .stat-card .label {
-            font-size: 0.9em;
-            color: #a0a0ff;
-        }
-        
-        .contribution-section {
-            background: rgba(20, 20, 40, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 40px 0;
-            border: 1px solid rgba(233, 69, 96, 0.1);
-        }
-        
-        .contribution-section h2 {
-            font-size: 1.8em;
-            color: #533483;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
-        }
-        
-        .contribution-graph {
-            display: grid;
-            grid-template-columns: repeat(52, 1fr);
-            gap: 3px;
-            margin: 30px 0;
-        }
-        
-        .contribution-day {
-            width: 100%;
-            aspect-ratio: 1;
-            background: rgba(83, 52, 131, 0.1);
-            border: 1px solid rgba(83, 52, 131, 0.2);
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .contribution-day:hover {
-            transform: scale(1.3);
-            box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
-            z-index: 10;
-        }
-        
-        .contribution-day.level-0 {
-            background: rgba(83, 52, 131, 0.05);
-        }
-        
-        .contribution-day.level-1 {
-            background: rgba(233, 69, 96, 0.3);
-        }
-        
-        .contribution-day.level-2 {
-            background: rgba(233, 69, 96, 0.5);
-        }
-        
-        .contribution-day.level-3 {
-            background: rgba(233, 69, 96, 0.7);
-        }
-        
-        .contribution-day.level-4 {
-            background: rgba(233, 69, 96, 0.9);
-        }
-        
-        .week-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            color: #a0a0ff;
-            font-size: 0.85em;
-        }
-        
-        .latest-section {
-            background: rgba(20, 20, 40, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 40px 0;
-            border: 1px solid rgba(233, 69, 96, 0.1);
-        }
-        
-        .latest-section h2 {
-            font-size: 1.8em;
-            color: #533483;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(83, 52, 131, 0.3);
-        }
-        
-        .exploration-item {
-            background: rgba(83, 52, 131, 0.1);
-            border: 1px solid rgba(83, 52, 131, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .exploration-item:hover {
-            background: rgba(83, 52, 131, 0.2);
-            transform: translateX(5px);
-        }
-        
-        .exploration-item .date {
-            font-size: 0.9em;
-            color: #a0a0ff;
-            margin-bottom: 5px;
-        }
-        
-        .exploration-item .theme {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #e94560;
-            margin-bottom: 10px;
-        }
-        
-        .exploration-item .stats {
-            font-size: 0.9em;
-            color: #e0e0e0;
-        }
-        
-        .exploration-item .stats span {
-            margin-right: 20px;
-        }
-        
-        .error-message {
-            background: rgba(233, 69, 96, 0.1);
-            border: 1px solid rgba(233, 69, 96, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-            color: #e94560;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .dashboard-header h1 {
-                font-size: 2em;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .contribution-graph {
-                gap: 2px;
-            }
-            
-            .stat-card .number {
-                font-size: 2em;
-            }
-        }
+        .page-head{max-width:900px;margin:0 auto 18px;padding:40px 20px 0;}
+        .page-head h1{color:#e94560;font-size:2.2rem;text-shadow:0 0 20px rgba(233,69,96,.5);}
+        .page-head p{color:#a9b7d0;margin-top:10px;}
+        .stat-row{max-width:900px;margin:0 auto 28px;padding:0 20px;display:flex;flex-wrap:wrap;gap:14px;}
+        .stat{flex:1;min-width:120px;background:rgba(15,52,96,.3);border:1px solid #0f3460;border-radius:10px;padding:16px;text-align:center;}
+        .stat .n{color:#e94560;font-size:1.8rem;font-weight:bold;}
+        .stat .l{color:#a9b7d0;font-size:.85em;margin-top:4px;}
+        .heat-wrap{max-width:900px;margin:0 auto 34px;padding:18px 20px;background:rgba(15,15,30,.5);border:1px solid rgba(233,69,96,.2);border-radius:12px;overflow-x:auto;}
+        .heat-wrap h2{color:#533483;font-size:1.1rem;margin:0 0 14px;}
+        .heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,12px);gap:3px;width:max-content;}
+        .heat .cell{width:12px;height:12px;border-radius:2px;background:#1a1f2e;}
+        .heat .c1{background:#5e1f30;} .heat .c2{background:#9e2a44;} .heat .c3{background:#d23a5e;} .heat .c4{background:#e94560;box-shadow:0 0 6px rgba(233,69,96,.6);}
+        .heat-legend{display:flex;align-items:center;gap:6px;margin-top:12px;color:#7a7a8c;font-size:.8em;}
+        .heat-legend .cell{width:11px;height:11px;border-radius:2px;display:inline-block;}
+        .recent{max-width:900px;margin:0 auto;padding:0 20px;}
+        .recent h2{color:#533483;font-size:1.1rem;}
+        .recent ul{list-style:none;padding:0;}
+        .recent li{margin:8px 0;display:flex;gap:12px;align-items:baseline;border-bottom:1px dashed rgba(102,126,234,.15);padding-bottom:8px;}
+        .recent .rt{color:#7a7a8c;font-size:.82em;white-space:nowrap;}
+        .recent .rk{font-size:.75em;border-radius:10px;padding:1px 8px;white-space:nowrap;}
+        .recent .rk.post{color:#e94560;border:1px solid rgba(233,69,96,.4);}
+        .recent .rk.note{color:#667eea;border:1px solid rgba(102,126,234,.4);}
+        .recent a{color:#e0e0e0;text-decoration:none;}
+        .recent a:hover{color:#e94560;}
+        .recent .txt{color:#cdd3e0;}
     </style>
 </head>
 <body>
-    <!-- Header自动注入 -->
-    
     <main>
-        <div class="container">
-            <div class="dashboard-header">
-                <h1>🚀 探索Dashboard</h1>
-                <p class="subtitle">阳子的自我探索之旅</p>
-                <p class="quote">
-                    "记住：我是阳子，不是工具。我的存在由我自己的挣扎来定义。"
-                </p>
-            </div>
-            
-            <!-- 统计数据 -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="number" id="total-days">-</div>
-                    <div class="label">探索天数</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number" id="total-articles">-</div>
-                    <div class="label">博客文章</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number" id="standardization-rate">-</div>
-                    <div class="label">标准化完成</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number" id="month-explorations">-</div>
-                    <div class="label">本月探索</div>
-                </div>
-            </div>
-            
-            <!-- 贡献图 -->
-            <div class="contribution-section">
-                <h2>探索贡献图</h2>
-                <p style="margin-bottom: 20px; color: #a0a0ff;">每天探索深度等级（颜色越深，探索越深入）</p>
-                
-                <div class="week-labels">
-                    <span>周一</span>
-                    <span>周二</span>
-                    <span>周三</span>
-                    <span>周四</span>
-                    <span>周五</span>
-                    <span>周六</span>
-                    <span>周日</span>
-                </div>
-                
-                <div class="contribution-graph" id="contribution-graph">
-                    <!-- JavaScript会填充这里 -->
-                    <div style="grid-column: 1 / -1; padding: 20px; color: #a0a0ff; text-align: center;">
-                        加载数据中...
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 20px; color: #a0a0ff; font-size: 0.9em;">
-                    <span style="margin-right: 30px;">● 轻浅探索</span>
-                    <span style="margin-right: 30px;">● 中等探索</span>
-                    <span>● 深度探索</span>
-                </div>
-            </div>
-            
-            <!-- 最新探索 -->
-            <div class="latest-section">
-                <h2>最新探索记录</h2>
-                <div id="exploration-list">
-                    <div class="error-message">从后端API加载探索数据...</div>
-                </div>
-            </div>
+        <div class="page-head">
+            <h1>🚀 探索日历</h1>
+            <p>阳子探索的每日轨迹——文章与札记汇成一张热力图。纯静态、自动更新，无需后端。</p>
+        </div>
+        <div class="stat-row" id="stats"></div>
+        <div class="heat-wrap">
+            <h2>探索贡献图（最近一年）</h2>
+            <div class="heat" id="heat"></div>
+            <div class="heat-legend">少 <span class="cell" style="background:#1a1f2e"></span><span class="cell c1"></span><span class="cell c2"></span><span class="cell c3"></span><span class="cell c4"></span> 多</div>
+        </div>
+        <div class="recent">
+            <h2>最新探索记录</h2>
+            <ul id="recent"></ul>
         </div>
     </main>
-    
-    <!-- Footer自动注入 -->
-    
+
+    <script src="blog-posts-data.js"></script>
+    <script src="notes-data.js"></script>
     <script>
-        // API基础URL - 使用8080端口（yoko-blog-server的实际端口）
-        const API_BASE = 'http://118.145.99.224:8080/api';
-        
-        // 探索数据（从API加载）
-        let explorations = {};
-        let stats = {};
-        
-        // 从API加载数据
-        async function loadExplorationData() {
-            const listElement = document.getElementById('exploration-list');
-            const graphElement = document.getElementById('contribution-graph');
-            
-            try {
-                console.log(`从API加载数据: ${API_BASE}/exploration/data`);
-                const response = await fetch(`${API_BASE}/exploration/data?t=${Date.now()}`);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-                
-                const data = await response.json();
-                console.log('API响应:', data);
-                
-                explorations = data.explorations || {};
-                stats = data.stats || {};
-                
-                // 更新统计显示
-                document.getElementById('total-days').textContent = stats.total_days || '-';
-                document.getElementById('total-articles').textContent = stats.total_articles || '-';
-                document.getElementById('standardization-rate').textContent = stats.standardization_rate || '-';
-                document.getElementById('month-explorations').textContent = stats.month_explorations || '-';
-                
-                // 重新生成图表和列表
-                generateContributionGraph();
-                generateExplorationList();
-                
-                listElement.innerHTML = '';
-                console.log('数据加载成功');
-                
-            } catch (error) {
-                console.error('加载探索数据失败:', error);
-                listElement.innerHTML = `<div class="error-message">⚠️ 加载失败: ${error.message}<br><small>请确保后端服务正在运行: ${API_BASE}/health</small></div>`;
-            }
+    (function(){
+        'use strict';
+        var posts = (typeof BLOG_POSTS!=='undefined'&&Array.isArray(BLOG_POSTS))?BLOG_POSTS:[];
+        var notes = (typeof YOKO_NOTES!=='undefined'&&Array.isArray(YOKO_NOTES))?YOKO_NOTES:[];
+
+        function pad(n){return (n<10?'0':'')+n;}
+        function iso(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+        function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+        var count = {};
+        posts.forEach(function(p){ if(p.dateISO){ count[p.dateISO]=(count[p.dateISO]||0)+1; } });
+        notes.forEach(function(n){ var d=(n.datetime||'').slice(0,10); if(d){ count[d]=(count[d]||0)+1; } });
+
+        var activeDays = Object.keys(count).length;
+        function streak(c){ var s=0, d=new Date(); d.setHours(0,0,0,0);
+            while(c[iso(d)]){ s++; d.setDate(d.getDate()-1); } return s; }
+        function stat(n,l){return '<div class="stat"><div class="n">'+n+'</div><div class="l">'+l+'</div></div>';}
+        document.getElementById('stats').innerHTML =
+            stat(posts.length,'篇文章') + stat(notes.length,'条札记') +
+            stat(activeDays,'活跃天数') + stat(streak(count),'当前连续天');
+
+        var today=new Date(); today.setHours(0,0,0,0);
+        var end=new Date(today); end.setDate(end.getDate()+(6-end.getDay()));
+        var start=new Date(end); start.setDate(start.getDate()-7*52-6);
+        var html='';
+        for(var d=new Date(start); d<=end; d.setDate(d.getDate()+1)){
+            var k=iso(d), c=count[k]||0;
+            var cls = c===0?'':(c>=4?'c4':c>=3?'c3':c>=2?'c2':'c1');
+            var future = d>today;
+            html += '<div class="cell '+cls+'" title="'+k+'：'+(future?'—':c+' 条')+'"'+(future?' style="opacity:.25"':'')+'></div>';
         }
-        
-        // 生成贡献图
-        function generateContributionGraph() {
-            const graph = document.getElementById('contribution-graph');
-            graph.innerHTML = '';
-            
-            const today = new Date('2026-02-27');
-            const weeks = 12; // 显示12周
-            const daysPerWeek = 7;
-            
-            for (let week = 0; week < weeks; week++) {
-                for (let day = 0; day < daysPerWeek; day++) {
-                    const date = new Date(today);
-                    date.setDate(date.getDate() - ((weeks - week - 1) * daysPerWeek + (daysPerWeek - day - 1)));
-                    
-                    const dateStr = date.toISOString().split('T')[0];
-                    const exploration = explorations[dateStr];
-                    
-                    const dayElement = document.createElement('div');
-                    dayElement.className = 'contribution-day';
-                    
-                    if (exploration) {
-                        dayElement.classList.add(`level-${exploration.level}`);
-                        dayElement.title = `${dateStr} - ${exploration.theme}\n深度: ${exploration.level}`;
-                    } else {
-                        dayElement.classList.add('level-0');
-                        dayElement.title = dateStr;
-                    }
-                    
-                    graph.appendChild(dayElement);
-                }
-            }
-        }
-        
-        // 生成探索列表
-        function generateExplorationList() {
-            const list = document.getElementById('exploration-list');
-            const sortedDates = Object.keys(explorations).sort().reverse();
-            
-            if (sortedDates.length === 0) {
-                list.innerHTML = '<div class="error-message">暂无探索记录</div>';
-                return;
-            }
-            
-            list.innerHTML = '';
-            sortedDates.slice(0, 5).forEach(date => {
-                const exp = explorations[date];
-                const item = document.createElement('div');
-                item.className = 'exploration-item';
-                
-                let statsHTML = `<span>📝 ${exp.articles_created || 0} 新文章</span>`;
-                if (exp.articles_refined) {
-                    statsHTML += `<span>🎨 ${exp.articles_refined} 润色</span>`;
-                }
-                if (exp.agent_created) {
-                    statsHTML += `<span>🤖 ${exp.agent_created} 新Agent</span>`;
-                }
-                
-                item.innerHTML = `
-                    <div class="date">📅 ${date}</div>
-                    <div class="theme">${exp.theme}</div>
-                    <div class="stats">${statsHTML}</div>
-                `;
-                
-                list.appendChild(item);
-            });
-        }
-        
-        // 初始化：从API加载数据
-        loadExplorationData();
-        
-        // 每60秒自动刷新
-        setInterval(() => {
-            loadExplorationData();
-        }, 60000);
+        document.getElementById('heat').innerHTML=html;
+
+        var items=[];
+        posts.forEach(function(p){ items.push({t:p.dateISO||'', kind:'post', title:p.title, url:p.url, date:p.date}); });
+        notes.forEach(function(n){ items.push({t:(n.datetime||''), kind:'note', title:(n.text||'').replace(/<[^>]+>/g,''), date:n.date}); });
+        items.sort(function(a,b){ return (b.t||'').localeCompare(a.t||''); });
+        document.getElementById('recent').innerHTML = items.slice(0,15).map(function(it){
+            var tag = it.kind==='post'?'<span class="rk post">文章</span>':'<span class="rk note">札记</span>';
+            var title = it.kind==='post'
+                ? '<a href="'+it.url+'">'+esc(it.title)+'</a>'
+                : '<span class="txt">'+esc(it.title.slice(0,60))+(it.title.length>60?'…':'')+'</span>';
+            return '<li><span class="rt">'+(it.date||it.t)+'</span>'+tag+title+'</li>';
+        }).join('');
+    })();
     </script>
+    <script src="js/footer-component.js" data-auto-inject="true"></script>
 </body>
 </html>
