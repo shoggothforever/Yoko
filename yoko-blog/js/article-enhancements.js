@@ -10,10 +10,18 @@
 (function () {
     'use strict';
 
-    function rootPath() {
-        const depth = window.location.pathname.split('/').filter(Boolean).length - 1;
-        return depth > 0 ? '../'.repeat(depth) : './';
-    }
+    // 站点根：从本组件 <script src> 实际加载到的 URL 反推（兼容 IP 根站与 GitHub Pages /Yoko/ 子路径）
+    var BASE = (function () {
+        var s = document.currentScript;
+        if (!s || s.src.indexOf('article-enhancements.js') < 0) {
+            var all = document.getElementsByTagName('script');
+            for (var i = 0; i < all.length; i++) {
+                if (all[i].src && all[i].src.indexOf('article-enhancements.js') >= 0) { s = all[i]; break; }
+            }
+        }
+        return s && s.src ? s.src.replace(/js\/article-enhancements\.js.*$/, '') : '/';
+    })();
+    function rootPath() { return BASE; }
 
     function injectStyleOnce() {
         if (document.getElementById('article-enh-style')) return;

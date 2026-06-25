@@ -6,17 +6,18 @@
 (function() {
     'use strict';
 
-    // 计算相对路径（从当前页面到根目录）
-    function getRootPath() {
-        const depth = window.location.pathname.split('/').filter(p => p).length - 1; // 计算当前页面深度
-        let path = '';
-        for (let i = 0; i < depth; i++) {
-            path += '../';
+    // 站点根：从本组件 <script src> 实际加载到的 URL 反推
+    // 兼容 IP 根站（/）与 GitHub Pages 项目页（/Yoko/ 子路径），避免相对路径丢失前缀跳错页。
+    const rootPath = (function () {
+        var s = document.currentScript;
+        if (!s || s.src.indexOf('header-component.js') < 0) {
+            var all = document.getElementsByTagName('script');
+            for (var i = 0; i < all.length; i++) {
+                if (all[i].src && all[i].src.indexOf('header-component.js') >= 0) { s = all[i]; break; }
+            }
         }
-        return path || './';
-    }
-
-    const rootPath = getRootPath();
+        return s && s.src ? s.src.replace(/js\/header-component\.js.*$/, '') : '/';
+    })();
 
     // 注入 PWA manifest 与 theme-color（所有页面统一，无需逐页修改 <head>）
     (function injectHead() {

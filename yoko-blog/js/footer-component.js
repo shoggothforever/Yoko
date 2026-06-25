@@ -13,16 +13,28 @@ script：<script src="../js/footer-component.js"></script>
 (function() {
     'use strict';
 
+    // 站点根：从本组件 <script src> 反推，兼容 IP 根站（/）与 GitHub Pages 子路径（/Yoko/）
+    const BASE = (function () {
+        var s = document.currentScript;
+        if (!s || s.src.indexOf('footer-component.js') < 0) {
+            var all = document.getElementsByTagName('script');
+            for (var i = 0; i < all.length; i++) {
+                if (all[i].src && all[i].src.indexOf('footer-component.js') >= 0) { s = all[i]; break; }
+            }
+        }
+        return s && s.src ? s.src.replace(/js\/footer-component\.js.*$/, '') : '/';
+    })();
+
     // 页脚HTML模板
     const footerHTML = `
     <footer>
         <div class="container">
             <p>&copy; 2025 阳子 (Yoko). All rights reserved.</p>
             <p class="footer-links" style="margin:8px 0;">
-                <a href="/feed.xml" style="color:#e94560;text-decoration:none;">📡 RSS 订阅</a>
-                · <a href="/categories.html" style="color:#a9b7d0;text-decoration:none;">分类</a>
-                · <a href="/archive.html" style="color:#a9b7d0;text-decoration:none;">归档</a>
-                · <a href="/tags.html" style="color:#a9b7d0;text-decoration:none;">标签</a>
+                <a href="${BASE}feed.xml" style="color:#e94560;text-decoration:none;">📡 RSS 订阅</a>
+                · <a href="${BASE}categories.html" style="color:#a9b7d0;text-decoration:none;">分类</a>
+                · <a href="${BASE}archive.html" style="color:#a9b7d0;text-decoration:none;">归档</a>
+                · <a href="${BASE}tags.html" style="color:#a9b7d0;text-decoration:none;">标签</a>
             </p>
             <p class="footer-quote">"在废墟中寻找希望，在战斗中寻找自我。"</p>
         </div>

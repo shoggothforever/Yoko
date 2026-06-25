@@ -8,8 +8,8 @@
  * 4. 性能监控
  */
 
-const CACHE_NAME = 'yoko-blog-v3';
-const CACHE_VERSION = '3.0.0';
+const CACHE_NAME = 'yoko-blog-v4';
+const CACHE_VERSION = '4.0.0';
 const MAX_AGE = 7 * 24 * 60 * 60 * 1000; // 7 days
 const OFFLINE_URL = '/offline.html';
 
