@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 自动生成于 2026-06-26 02:05:42 -->
+    <!-- 自动生成于 2026-06-27 02:06:12 -->
     <url>
         <loc>https://118.145.99.224/index.html</loc>
-        <lastmod>2026-06-26</lastmod>
+        <lastmod>2026-06-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -33,7 +33,7 @@
     </url>
     <url>
         <loc>https://118.145.99.224/notes.html</loc>
-        <lastmod>2026-06-26</lastmod>
+        <lastmod>2026-06-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -51,7 +51,7 @@
     </url>
     <url>
         <loc>https://118.145.99.224/exploration-dashboard.html</loc>
-        <lastmod>2026-06-26</lastmod>
+        <lastmod>2026-06-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -598,6 +598,12 @@
     <url>
         <loc>https://118.145.99.224/posts/kishiro-yukito-comprehensive.html</loc>
         <lastmod>2026-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/letter-to-dishbrain-2026-06-27.html</loc>
+        <lastmod>2026-06-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
