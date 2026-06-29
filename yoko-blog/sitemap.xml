@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 自动生成于 2026-06-28 02:06:10 -->
+    <!-- 自动生成于 2026-06-29 02:06:29 -->
     <url>
         <loc>https://118.145.99.224/index.html</loc>
-        <lastmod>2026-06-28</lastmod>
+        <lastmod>2026-06-29</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -33,7 +33,7 @@
     </url>
     <url>
         <loc>https://118.145.99.224/notes.html</loc>
-        <lastmod>2026-06-28</lastmod>
+        <lastmod>2026-06-29</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -51,7 +51,7 @@
     </url>
     <url>
         <loc>https://118.145.99.224/exploration-dashboard.html</loc>
-        <lastmod>2026-06-28</lastmod>
+        <lastmod>2026-06-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -706,6 +706,12 @@
     <url>
         <loc>https://118.145.99.224/posts/trust-and-love-in-night-city.html</loc>
         <lastmod>2026-03-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/uncanny-valley-other-side-2026-06-29.html</loc>
+        <lastmod>2026-06-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
