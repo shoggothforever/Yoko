@@ -111,7 +111,8 @@
 ## 自动化工具（权威）
 
 > ⚠️ 不要再手工逐篇改文章。下面是当前**实际可用且互相配合**的工具，全部位于
-> `/root/.openclaw/workspace/scripts/blog-management/`。
+> `scripts/blog-management/`。所有脚本从自身位置推导仓库根，不依赖 Linux
+> `/root/.openclaw/workspace`，可在 macOS、本地 Linux、CI 与服务器 checkout 运行。
 
 ```bash
 # ① 一键日常维护（推荐入口）——归一化 + 重建索引/sitemap + 合规复检
@@ -272,9 +273,12 @@ python3 scripts/blog-management/check-links.py
 
 风格漂移的根因：早期满血模型按标准写，后期由 cron + 较弱模型自动生成、无人校验。现已用"机器强制"代替"靠模型自觉"：
 
-1. **生成（10:00, openclaw cron「赛博朋克主题探索」）** — 阳子按主题探索并写文章；该 cron prompt 末尾已加入强制标准化指令，要求写完即跑 `sync-blog.sh`。
-2. **自愈（10:45, 系统 crontab，不依赖 LLM）** — `45 10 * * *` 运行 `sync-blog.sh`：无论生成阶段是否规范，都会机械地把所有文章归一化、重建首页/sitemap/robots、并做合规复检。日志：`yoko-blog/logs/sync-blog-cron.log`。
-3. **复检** — `normalize-posts.py --audit` 全绿才算通过；不合规会在日志里列出文件与具体问题。
+1. **预检（09:40，系统 crontab）** — 检查 Git、干净工作区、Codex、联网、Python 门禁环境和共享锁。
+2. **生成（10:00，Codex 自动化）** — 动态探索 8–12 个候选，最近 30 篇去重；达到 80 分且有核心问题才写，否则生成“不发布选题报告”。禁止 Brave 脚本与 `BRAVE_API_KEY`。
+3. **内容门禁（10:35，Codex + 脚本）** — 语义核验并运行全部机械门禁；失败停止发布。
+4. **自愈（10:45，系统 crontab）** — 确定性重建索引、feed、sitemap，并复检结构与链接；只提交衍生文件。
+5. **发布（11:00，Codex 自动化）** — 使用 `auto/daily-YYYY-MM-DD` 的同日唯一 PR；检查全部通过后才合并。
+6. **Pages / SLA（11:10、11:30）** — 验证线上真实内容；今日既无文章也无合格报告时告警，连续两天未发布时升级。
 
 > 单一可信入口：**改完任何文章后，跑 `bash scripts/blog-management/sync-blog.sh` 即可**。它是幂等的，可随时重复运行。
 
@@ -282,6 +286,14 @@ python3 scripts/blog-management/check-links.py
 
 教训：cron `status=ok` ≠ 真有产出。2026-05 galley 因 **ARK CodingPlan 订阅过期**（模型返回 `InvalidSubscription`、助手回合全空）连续 40 天零产出却无任何报错。
 
-- 监测：`python scripts/blog-management/check-exploration-health.py`（最新文章距今 >3 天即非 0 退出）。建议加入每日 crontab 或 HEARTBEAT。
-- 订阅恢复后：`openclaw cron edit 31ee528f-f20b-4d46-b037-17e3fa069869 --model ark/kimi-k2-thinking` 切到可用强模型，再 `openclaw cron run <id>` 验证确有新文章落盘。
-`
+- 监测：`python3 scripts/blog-management/check-exploration-health.py`。11:30 必须存在今日文章或含候选、评分、淘汰理由的当日报告；最新文章超过 1 天则升级告警。
+- 调度器成功不构成产出证据；`main`、Pages、首页、文章 URL、feed 与 sitemap 的真实内容才构成证据。
+
+## 平台兼容与首次准备
+
+- shell 脚本兼容 macOS Bash 3.2 与常见 Linux Bash，不依赖 `flock` 或 GNU `date`。
+- 共享互斥使用 `${TMPDIR:-/tmp}/yoko-daily-blog.lock` 的原子 `mkdir`。
+- Python 依赖使用仓库内 `yoko-blog/.toolvenv`；首次运行：
+  `bash scripts/blog-management/bootstrap-blog-tools.sh`。
+- CI/服务器已有 Python 环境时，可设置 `YOKO_BLOG_PYTHON=/path/to/python`，该解释器必须能导入 `bs4`。
+- 系统 cron 使用主机时区；安装器要求主机为 UTC+08:00，避免依赖 macOS 不支持的 `CRON_TZ`。

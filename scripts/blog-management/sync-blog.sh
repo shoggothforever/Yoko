@@ -10,22 +10,42 @@
 # 用法：bash scripts/blog-management/sync-blog.sh
 # 建议由系统 crontab 在每日文章生成之后调用（见 BLOG-ARTICLE-STANDARDS.md）。
 
-set -uo pipefail
+set -euo pipefail
 
-WORKSPACE="/root/.openclaw/workspace"
-SCRIPTS="${WORKSPACE}/scripts/blog-management"
+SCRIPTS="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORKSPACE="$(cd "${SCRIPTS}/../.." && pwd)"
 BLOG="${WORKSPACE}/yoko-blog"
-VENV_PY="${BLOG}/.toolvenv/bin/python"          # 装了 beautifulsoup4 的解释器
+VENV_PY="${YOKO_BLOG_PYTHON:-}"
 LOG="${BLOG}/logs/sync-blog.log"
 
 mkdir -p "${BLOG}/logs"
 ts() { date '+%Y-%m-%d %H:%M:%S'; }
 log() { echo "[$(ts)] $*" | tee -a "$LOG"; }
 
-# normalize 需要 bs4；缺失则自动回退到系统 python（仅 audit/normalize 会失败时提示）
-if [ ! -x "$VENV_PY" ] || ! "$VENV_PY" -c "import bs4" 2>/dev/null; then
-  log "⚠️  未找到带 beautifulsoup4 的 venv（${VENV_PY}）。请先： $VENV_PY -m pip install beautifulsoup4"
-  VENV_PY="python3"
+# normalize 需要 bs4。依次尝试显式环境、当前 checkout 的 venv、git
+# common-dir 对应主 checkout 的 venv（支持隔离 worktree），以及系统 Python。
+if [ -z "$VENV_PY" ]; then
+  CANDIDATES=("${BLOG}/.toolvenv/bin/python")
+  if command -v git >/dev/null 2>&1 && git -C "$WORKSPACE" rev-parse --git-common-dir >/dev/null 2>&1; then
+    COMMON_GIT="$(git -C "$WORKSPACE" rev-parse --git-common-dir)"
+    case "$COMMON_GIT" in
+      /*) ;;
+      *) COMMON_GIT="${WORKSPACE}/${COMMON_GIT}" ;;
+    esac
+    CANDIDATES+=("$(cd "$(dirname "$COMMON_GIT")" && pwd)/yoko-blog/.toolvenv/bin/python")
+  fi
+  CANDIDATES+=("$(command -v python3 2>/dev/null || true)")
+  for candidate in "${CANDIDATES[@]}"; do
+    if [ -n "$candidate" ] && [ -x "$candidate" ] && "$candidate" -c "import bs4" 2>/dev/null; then
+      VENV_PY="$candidate"
+      break
+    fi
+  done
+fi
+if [ -z "$VENV_PY" ] || [ ! -x "$VENV_PY" ] || ! "$VENV_PY" -c "import bs4" 2>/dev/null; then
+  log "❌ 缺少博客工具环境：${VENV_PY}（需要 beautifulsoup4）"
+  log "   运行 scripts/blog-management/bootstrap-blog-tools.sh，或设置 YOKO_BLOG_PYTHON"
+  exit 69
 fi
 
 log "===== 开始 yoko-blog 同步 ====="
@@ -49,7 +69,8 @@ log "[4/4] 链接连通性体检 ..."
 if python3 "${SCRIPTS}/check-links.py" >>"$LOG" 2>&1; then
   log "✅ 无断链"
 else
-  log "⚠️  发现断链，请查看日志（不阻断同步，但建议修复）"
+  log "❌ 发现断链，阻断同步，请查看日志"
+  RC=1
 fi
 
 log "===== 结束（rc=$RC）====="
