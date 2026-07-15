@@ -163,11 +163,12 @@ stage_pages() {
   post="$(curl -fsSL --max-time 30 "$article_url")"
   feed="$(curl -fsSL --max-time 30 "${PAGES_BASE}/feed.xml")"
   sitemap="$(curl -fsSL --max-time 30 "${PAGES_BASE}/sitemap.xml")"
-  printf '%s' "$post" | grep -q "${TODAY%%-*}年$((10#${TODAY:5:2}))月$((10#${TODAY:8:2}))日"
+  cn_date="${TODAY%%-*}年$((10#${TODAY:5:2}))月$((10#${TODAY:8:2}))日"
+  [[ "$post" == *"$cn_date"* ]]
   slug="$(basename "$article")"
-  printf '%s' "$home" | grep -q "$slug"
-  printf '%s' "$feed" | grep -q "$slug"
-  printf '%s' "$sitemap" | grep -q "$slug"
+  [[ "$home" == *"$slug"* ]]
+  [[ "$feed" == *"$slug"* ]]
+  [[ "$sitemap" == *"$slug"* ]]
   printf '{"date":"%s","article_url":"%s","home":true,"feed":true,"sitemap":true}\n' \
     "$TODAY" "$article_url" >"${RUN_DIR}/pages.json"
   echo "Pages verification passed: $article_url"
