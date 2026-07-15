@@ -66,7 +66,13 @@ stage_preflight() {
     git -C "$ROOT" status --short
     return 1
   }
-  git -C "$ROOT" merge-base --is-ancestor origin/main main
+  # A checkout may be safely behind origin/main or may be a daily branch ahead
+  # of it. Block only when neither ref is an ancestor of the other.
+  if ! git -C "$ROOT" merge-base --is-ancestor HEAD origin/main \
+     && ! git -C "$ROOT" merge-base --is-ancestor origin/main HEAD; then
+    echo "Current HEAD has diverged from origin/main; publication is blocked"
+    return 1
+  fi
   blog_python="${YOKO_BLOG_PYTHON:-${BLOG}/.toolvenv/bin/python}"
   [ -x "$blog_python" ] && "$blog_python" -c 'import bs4' || {
     echo "Blog Python environment is unavailable; run bootstrap-blog-tools.sh"
@@ -83,7 +89,12 @@ stage_preflight() {
     return 1
   fi
   curl -fsSIL --max-time 15 https://github.com/ >/dev/null
-  curl -fsSIL --max-time 15 https://openai.com/ >/dev/null
+  openai_status="$(curl -sS -o /dev/null -w '%{http_code}' --max-time 15 \
+    https://api.openai.com/v1/models)"
+  case "$openai_status" in
+    2??|401|403) ;;
+    *) echo "OpenAI endpoint is unreachable (HTTP ${openai_status})"; return 1 ;;
+  esac
   printf '{"date":"%s","key":"%s","git":"ok","network":"ok","codex":"ok"}\n' \
     "$TODAY" "$KEY" >"${RUN_DIR}/preflight.json"
   echo "Preflight passed"
