@@ -66,7 +66,12 @@ stage_preflight() {
     git -C "$ROOT" status --short
     return 1
   }
-  git -C "$ROOT" merge-base --is-ancestor origin/main main
+  # A checkout behind origin/main is healthy and can be fast-forwarded. Block
+  # only when the current HEAD has diverged from the remote publication line.
+  git -C "$ROOT" merge-base --is-ancestor HEAD origin/main || {
+    echo "Current HEAD has diverged from origin/main; publication is blocked"
+    return 1
+  }
   blog_python="${YOKO_BLOG_PYTHON:-${BLOG}/.toolvenv/bin/python}"
   [ -x "$blog_python" ] && "$blog_python" -c 'import bs4' || {
     echo "Blog Python environment is unavailable; run bootstrap-blog-tools.sh"
