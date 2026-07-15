@@ -1,3 +1,4 @@
 .toolvenv/
 logs/sync-blog*.log
+logs/daily-pipeline/
 __pycache__/

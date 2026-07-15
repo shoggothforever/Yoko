@@ -44,7 +44,10 @@ for comp in ["js/header-component.js", "js/footer-component.js"]:
     p = BLOG / comp
     if p.exists():
         for m in re.findall(r'href="(?:\$\{rootPath\})?([^"]+)"', p.read_text(encoding="utf-8")):
-            h = internal(m)
+            # footer-component.js uses a template literal named BASE.  Resolve
+            # that known site-root placeholder instead of treating it as a
+            # literal directory (/${BASE}feed.xml, etc.).
+            h = internal(m.replace("${BASE}", "/"))
             if h:
                 seeds.add("/" + h.lstrip("/"))
 data = BLOG / "blog-posts-data.js"

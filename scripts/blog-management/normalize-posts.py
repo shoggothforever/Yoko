@@ -22,7 +22,7 @@ import os, re, sys, html as htmllib
 from pathlib import Path
 from bs4 import BeautifulSoup, Comment
 
-ROOT = Path(__file__).resolve().parents[2] / "yoko-blog"   # /root/.openclaw/workspace/yoko-blog
+ROOT = Path(__file__).resolve().parents[2] / "yoko-blog"
 POSTS = ROOT / "posts"
 BASE_URL = "https://118.145.99.224"
 AUTHOR = "阳子"

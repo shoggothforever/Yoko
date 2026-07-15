@@ -301,14 +301,14 @@ def main():
     print("=" * 60)
     print("")
     
-    POSTS_DIR = Path("/root/.openclaw/workspace/yoko-blog/posts")
+    POSTS_DIR = Path(__file__).resolve().parents[2] / "yoko-blog" / "posts"
     
     if not POSTS_DIR.exists():
         print(f"错误：{POSTS_DIR} 不存在")
         return
     
     # 查找所有HTML文件
-    html_files = list(POSTS_DIR.glob("*.html"))
+    html_files = list(POSTS_DIR.rglob("*.html"))
     
     if not html_files:
         print(f"错误：{POSTS_DIR} 中没有HTML文件")

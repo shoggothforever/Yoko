@@ -1,45 +1,77 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""check-exploration-health.py — 探索"静默停产"监测
+"""检查每日博客 SLA，而不是相信调度器的 status=ok。
 
-背景：galley 探索 cron 每天 status=ok 但可能零产出（如 2026-05 ARK CodingPlan 订阅过期，
-模型调用返回 InvalidSubscription，助手回合全空）。这类故障不会让 cron 报错，只会让博客停更。
-本脚本通过"最新文章日期距今天数"来发现停产，超过阈值即非 0 退出（可接告警）。
-
-用法：python check-exploration-health.py [--max-age-days N]   默认 N=3
+11:30 的成功条件是：仓库中存在当天文章，或存在格式完整的“不发布选题
+报告”。同时保留文章年龄监控：连续两天没有发布文章时升级告警。
 """
-import re, sys, datetime
+import argparse
+import datetime as dt
+import re
+import sys
 from pathlib import Path
 
-POSTS = Path("/root/.openclaw/workspace/yoko-blog/posts")
-MAX_AGE = 3
-if "--max-age-days" in sys.argv:
-    MAX_AGE = int(sys.argv[sys.argv.index("--max-age-days") + 1])
-
+ROOT = Path(__file__).resolve().parents[2]
+POSTS = ROOT / "yoko-blog" / "posts"
+REPORTS = ROOT / "memory" / "daily-blog-reports"
 DATE_RE = re.compile(r"发布日期：(20\d{2})年(\d{1,2})月(\d{1,2})日")
-newest = None
-newest_file = None
-for f in POSTS.rglob("*.html"):
-    m = DATE_RE.search(f.read_text(encoding="utf-8", errors="ignore"))
-    if not m:
-        continue
-    d = datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-    if newest is None or d > newest:
-        newest, newest_file = d, f.name
 
-# 今天：脚本运行时取系统日期
-today = datetime.date.today()
-if newest is None:
-    print("❌ 未找到任何带发布日期的文章")
-    sys.exit(2)
 
-age = (today - newest).days
-print(f"最新文章：{newest_file}  日期 {newest}  距今 {age} 天（阈值 {MAX_AGE}）")
-if age > MAX_AGE:
-    print(f"⚠️  探索可能已停产！最近 {age} 天无新文章。")
-    print("   排查：1) ARK 订阅是否有效（curl 测模型，见 MEMORY/standards）")
-    print("        2) galley 最近 session 是否 assistant 回合全空")
-    print("        3) openclaw cron list 看任务是否 enabled / lastStatus")
-    sys.exit(1)
-print("✅ 探索产出正常")
-sys.exit(0)
+def article_dates():
+    found = []
+    for path in POSTS.rglob("*.html"):
+        match = DATE_RE.search(path.read_text(encoding="utf-8", errors="ignore"))
+        if match:
+            date = dt.date(*(int(value) for value in match.groups()))
+            found.append((date, path))
+    return sorted(found, reverse=True)
+
+
+def valid_report(path):
+    if not path.exists():
+        return False, "报告不存在"
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    missing = [label for label in ("候选", "评分", "淘汰理由") if label not in text]
+    if missing:
+        return False, "报告缺少字段：" + "、".join(missing)
+    return True, "报告包含候选、评分和淘汰理由"
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--date", help="检查日期 YYYY-MM-DD，默认今天")
+    parser.add_argument("--report-dir", type=Path, default=REPORTS)
+    parser.add_argument("--max-age-days", type=int, default=1,
+                        help="文章年龄大于此值时升级告警，默认 1（连续两天未发）")
+    args = parser.parse_args()
+    today = dt.date.fromisoformat(args.date) if args.date else dt.date.today()
+    dates = article_dates()
+    todays = [path for date, path in dates if date == today]
+    newest = dates[0] if dates else None
+    report = args.report_dir / f"{today.isoformat()}-topic-report.md"
+    report_ok, report_detail = valid_report(report)
+
+    if todays:
+        print(f"✅ 今日文章存在：{todays[0].relative_to(ROOT)}")
+        outcome_ok = True
+    elif report_ok:
+        print(f"✅ 今日选择不发布：{report.relative_to(ROOT)}（{report_detail}）")
+        outcome_ok = True
+    else:
+        print(f"❌ 今日既无文章，也无合格的不发布报告：{report_detail}")
+        outcome_ok = False
+
+    if newest:
+        age = (today - newest[0]).days
+        print(f"最新文章：{newest[1].relative_to(ROOT)}，日期 {newest[0]}，距检查日 {age} 天")
+        if age > args.max_age_days:
+            print(f"🚨 升级告警：已连续至少 {age} 天未发布文章")
+            return 2
+    else:
+        print("🚨 升级告警：未找到任何带发布日期的文章")
+        return 2
+    return 0 if outcome_ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
