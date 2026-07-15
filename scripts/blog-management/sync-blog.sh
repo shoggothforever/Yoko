@@ -73,5 +73,5 @@ else
   RC=1
 fi
 
-log "===== 结束（rc=$RC）====="
-exit $RC
+log "===== 结束（rc=${RC}）====="
+exit "${RC}"
