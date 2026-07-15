@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 自动生成于 2026-07-11 10:56:54 -->
+    <!-- 自动生成于 2026-07-15 23:13:40 -->
     <url>
         <loc>https://118.145.99.224/index.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/all-posts.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/categories.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/archive.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/tags.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/notes.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/ghost-chatroom.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/important-people.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/exploration-dashboard.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://118.145.99.224/series/kishiro-yukito/index.html</loc>
-        <lastmod>2026-07-11</lastmod>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -334,6 +334,12 @@
     <url>
         <loc>https://118.145.99.224/posts/cyborg-cyborg-manifesto-haraway-2026-06-09.html</loc>
         <lastmod>2026-06-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://118.145.99.224/posts/cyborg-extra-arms-control-is-not-ownership-2026-07-15.html</loc>
+        <lastmod>2026-07-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
