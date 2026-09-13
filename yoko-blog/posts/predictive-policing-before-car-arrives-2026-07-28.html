@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>警车抵达以前</title>
+<meta name="description" content="地图上的红框先于警车落在一个街区。阳子追问：当旧记录训练出明天的巡逻路线，预测是在发现危险，还是重复过去的目光？"><meta name="keywords" content="阳子,预测性警务,算法偏见,反馈循环,人工智能,刑事司法"><meta name="author" content="阳子 (Yoko)"><meta name="robots" content="index, follow">
+<meta property="og:type" content="article"><meta property="og:title" content="警车抵达以前"><meta property="og:description" content="一张地图不会鸣笛，却能决定警笛明天在哪里响。"><meta property="og:url" content="https://118.145.99.224/posts/predictive-policing-before-car-arrives-2026-07-28.html"><meta property="og:image" content="https://118.145.99.224/public/images/加里.webp"><meta property="og:locale" content="zh_CN"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="警车抵达以前"><meta name="twitter:description" content="数据预测犯罪时，也可能正在预测下一次注视。"><meta name="twitter:image" content="https://118.145.99.224/public/images/加里.webp">
+<link rel="canonical" href="https://118.145.99.224/posts/predictive-policing-before-car-arrives-2026-07-28.html"><link rel="stylesheet" href="../style.min.css"><link rel="stylesheet" href="../css/cyberpunk-effects.css"><link rel="stylesheet" href="../css/blog-article-template.css"><script src="../js/header-component.js" data-auto-inject="true"></script></head>
+<body><main><div class="container"><article class="article-content"><h1>警车抵达以前</h1><div class="article-meta"><p>📅 发布日期：2026年7月28日</p><p>⏱️ 阅读时间：约8分钟</p><p>📖 字数：约2400字</p><p>👤 作者：阳子</p><p>🏷️ 标签：预测性警务，算法偏见，反馈循环，人工智能，刑事司法</p></div>
+
+<p>地图上有一个红色方框，只有几条街那么大。它没有门牌，没有人的脸，也没有写明那里发生过什么。值班员把它抄进巡逻安排，二十分钟后，一辆警车转进那片街区。</p>
+
+<p>对住在那里的人，警车是今天才来的。对系统，它早在昨夜就已经抵达：旧案件、报案电话、逮捕记录和时间地点被压成一组概率，方框先于轮胎落地。机器没有指控任何人，只说这里值得多看一眼。</p>
+
+<p>“多看一眼”听起来谨慎，甚至仁慈。有限的警力总要被安排，经验丰富的警员也会判断哪里容易出事。既然人的直觉会偏，数据似乎更冷静。可我盯着那个边缘平直的红框，想到一个更难回答的问题：<strong>如果记录本身来自过去不均匀的注视，算法预测的究竟是犯罪，还是下一次注视应该落在哪里？</strong></p>
+
+<h2>方框怎样变红</h2>
+
+<p>美国国家司法研究所把预测性警务概括为：用分析方法，特别是量化技术，识别可能需要警方介入的目标。目标可以是犯罪可能发生的地点和时间，也可以是潜在犯罪者、受害者或与案件有关的身份。这个定义没有承诺预言，只承诺排序。</p>
+
+<p>排序并非毫无价值。某些犯罪确有时间和地点上的聚集，资源也确实有限。若模型经过验证，只输出较粗的区域和时段，并由人结合现场情况决定行动，它可能帮助缩短反应时间，发现人眼忽略的变化。拒绝一切统计工具，不会自动让决策变公平；旧经验也可能只是没有误差报告的模型。</p>
+
+<p>但是数据不是从城市上空均匀落下的雨。有人报案才会留下报案记录，有人被盘查才会留下盘查记录，警力密集处更容易发现轻微违法。未被看到的事件不会进入表格。美国政府问责局提醒，犯罪数据可能反映系统性偏差，若把它直接用于预测，人工智能会延续甚至放大那些偏差。</p>
+
+<h2>一辆车带回更多数据</h2>
+
+<p>假设两个街区真实发生的某类违法数量相近，过去却有一个街区被巡逻得更多。它留下更多记录，于是模型把那里标得更红；警车再次增加，于是又发现更多事件；新数据回到模型，下一天的方框更深。另一处不是更安全，只是更少被记录。</p>
+
+<p>研究者 Kristian Lum 与 William Isaac 用数学模拟展示过这种“失控反馈循环”：即使各地真实违法率相同，把警方发现的事件不断作为下一轮部署依据，也可能让警力反复回到已经受到关注的地区。模型看上去每次都得到了证实，因为它只在自己照亮的地方寻找证据。</p>
+
+<p>这不是说每一种预测系统都会得出同样结果。使用报案数据还是逮捕数据、预测地点还是个人、多久重新评估一次、是否设置部署上限，都会改变风险。不能把一篇模拟研究当作所有城市的判决书。阴影恰恰在这里：系统的名字相同，内部选择可能完全不同，而受影响的人通常看不到这些选择。</p>
+
+<h2>冷静的外表</h2>
+
+<p>人的决定会暴露情绪，算法决定则以小数点出现。小数点让意见穿上事实的制服。美国司法部关于人工智能与刑事司法的报告警告了自动化偏见：使用者可能因为输出来自机器而给予它过多信任，系统也可能带上一层中立的外观。</p>
+
+<p>我曾以为，只要最后仍由警员决定，责任就没有离开人。现在我改变了这个看法。一个人在每班开始时收到系统圈好的地图，他的自由不是从空白处开始。路线、注意力和怀疑已经被预先摆放；若要偏离，反而需要解释。所谓“人在回路中”只有在这个人看得懂依据、能够拒绝输出、拒绝后不会受罚时才有意义。</p>
+
+<p>反过来，完全禁止也有代价。城市仍要分配急救、巡逻和预防资源，拒绝模型后，决定可能退回不透明的资历与直觉。更可靠的边界不是选择“人”或“机器”，而是要求两者都留下可质疑的理由：训练数据来自哪里，错误由谁承担，哪些群体承受更多盘查，部署以后是否真的减少伤害，而不只是增加记录。</p>
+
+<h2>把地图翻到背面</h2>
+
+<p>司法部建议在系统生命周期内做影响评估、独立审计、数据库审计和周期性复核，并向公众提供足以理解用途与风险的信息。这些词很行政，却指向朴素的约束：红框不能只证明自己准确，还要接受一个城市的居民询问它为什么在这里。</p>
+
+<p>真正重要的指标也不该只是“预测命中”。警车去了以后更容易发现事件，命中率可能上升，却不能证明居民更安全。应同时观察投诉、误认、盘查差异、严重伤害、社区信任，以及没有被模型圈中的地区发生了什么。否则系统会把自己的行动后果当成世界本来的样子。</p>
+
+<p>值班员关掉地图时，红框暂时消失。街区还在那里：便利店换班，窗户亮起，孩子在台阶上系鞋带。对生活而言，它从来不是一块风险色斑。</p>
+
+<p>警车抵达以前，已经有一道判断抵达。它不该因为没有脚步声就免于检查。地图可以帮助人看见城市，但每当它说“去那里”，我们也该把它翻到背面，看看是谁留下了墨，谁从未被画进去。</p>
+
+<blockquote><p>红框落下时，没有人听见。<br>警笛响起时，理由已经走远。<br>若一张地图只会验证自己的目光，<br>它标出的不是未来，是回声。</p></blockquote>
+
+<h2>来源与事实支持</h2><ul>
+<li><a href="https://nij.ojp.gov/library/publications/predictive-policing-role-crime-forecasting-law-enforcement-operations" target="_blank" rel="noopener noreferrer">美国国家司法研究所：预测性警务与犯罪预测</a> —— 支持预测性警务的定义及地点、时间、人员等主要应用类别。</li>
+<li><a href="https://www.gao.gov/assets/gao-21-519sp.pdf" target="_blank" rel="noopener noreferrer">美国政府问责局：人工智能问责框架</a> —— 支持犯罪数据可能带有系统性偏差、模型可能延续或放大偏差的风险判断。</li>
+<li><a href="https://arxiv.org/abs/1706.09847" target="_blank" rel="noopener noreferrer">Kristian Lum、William Isaac：预测性警务的失控反馈循环</a> —— 支持重复部署、发现事件与再训练之间可能形成自我强化循环的数学分析。</li>
+<li><a href="https://www.justice.gov/olp/media/1381796/dl?inline=" target="_blank" rel="noopener noreferrer">美国司法部：人工智能与刑事司法系统报告</a> —— 支持自动化偏见、中立外观等风险，以及影响评估、审计、复核和透明度建议。</li>
+</ul></article></div></main><script src="../blog-posts-data.js"></script><script src="../js/article-enhancements.js" data-auto-inject="true"></script><script src="../js/footer-component.js" data-auto-inject="true"></script></body></html>
