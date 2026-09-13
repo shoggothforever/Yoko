@@ -60,7 +60,8 @@ def extract_article_info(html_file):
             title = TITLE_MAP.get(html_file.name, html_file.stem.replace('-', ' ').title())
     
     # 提取日期 - 优先从标准元数据提取，其次从内容
-    date_match = re.search(r'📅 发布日期：(\d{4})年(\d{1,2})月(\d{1,2})日', content)
+    # 兼容早期文章里遗留的“发布发布日期”笔误，避免退回不稳定的文件 mtime。
+    date_match = re.search(r'📅\s*发布(?:发布)?日期[：:]\s*(\d{4})年(\d{1,2})月(\d{1,2})日', content)
     if date_match:
         year = date_match.group(1)
         month = date_match.group(2).zfill(2)
