@@ -6,16 +6,13 @@ generate-sitemap.py — 生成 sitemap.xml 和 robots.txt
 
 import re
 from pathlib import Path
-from datetime import datetime
+from site_config import BASE_URL
 
 # ── 路径配置 ──────────────────────────────────────────────────
 BLOG_DIR = Path(__file__).resolve().parents[2] / "yoko-blog"  # 路径可移植
 POSTS_DIR = BLOG_DIR / "posts"
 SITEMAP_FILE = BLOG_DIR / "sitemap.xml"
 ROBOTS_FILE = BLOG_DIR / "robots.txt"
-
-# ── 域名 ─────────────────────────────────────────────────────
-BASE_URL = "https://118.145.99.224"
 
 # ── 主要页面配置（路径, 优先级, 更新频率） ────────────────────
 MAIN_PAGES = [
@@ -32,17 +29,12 @@ MAIN_PAGES = [
 ]
 
 
-def get_lastmod(filepath: Path) -> str:
-    """获取文件最后修改时间 → YYYY-MM-DD"""
-    return datetime.fromtimestamp(filepath.stat().st_mtime).strftime("%Y-%m-%d")
-
-
 def extract_date_from_html(filepath: Path) -> str:
     """尝试从 HTML 内容提取发布日期，作为 lastmod 使用"""
     try:
         content = filepath.read_text(encoding="utf-8", errors="ignore")
     except Exception:
-        return get_lastmod(filepath)
+        return ""
 
     # 方法1：📅 发布日期：2026年3月10日
     m = re.search(r"📅\s*发布日期[：:]\s*(\d{4})年(\d{1,2})月(\d{1,2})日", content)
@@ -74,8 +66,9 @@ def extract_date_from_html(filepath: Path) -> str:
     if m:
         return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
 
-    # fallback：文件修改时间
-    return get_lastmod(filepath)
+    # A checkout's file mtime does not describe when an article changed.
+    # Leave this optional sitemap field out when no content date is known.
+    return ""
 
 
 def generate_sitemap():
@@ -88,7 +81,6 @@ def generate_sitemap():
         if page_path.exists():
             urls.append({
                 "loc": f"{BASE_URL}/{page}",
-                "lastmod": get_lastmod(page_path),
                 "priority": priority,
                 "changefreq": changefreq,
             })
@@ -112,16 +104,18 @@ def generate_sitemap():
     # 3. 构建 XML
     entries = []
     for u in urls:
+        # Checkout/build mtimes are not meaningful modification dates for
+        # index pages. Omit the optional lastmod when no content date exists.
+        lastmod = f"        <lastmod>{u['lastmod']}</lastmod>\n" if u.get("lastmod") else ""
         entries.append(f"""    <url>
         <loc>{u['loc']}</loc>
-        <lastmod>{u['lastmod']}</lastmod>
-        <changefreq>{u['changefreq']}</changefreq>
+{lastmod}        <changefreq>{u['changefreq']}</changefreq>
         <priority>{u['priority']}</priority>
     </url>""")
 
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 自动生成于 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} -->
+    <!-- Generated from the blog's published pages and articles. -->
 {chr(10).join(entries)}
 </urlset>
 """
@@ -130,9 +124,8 @@ def generate_sitemap():
 
 def generate_robots():
     """生成 robots.txt"""
-    today = datetime.now().strftime("%Y-%m-%d")
     return f"""# robots.txt for 阳子的博客
-# 自动生成于 {today}
+# Generated from the site configuration.
 
 # 允许所有搜索引擎爬取
 User-agent: *

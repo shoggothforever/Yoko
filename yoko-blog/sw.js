@@ -1,29 +1,17 @@
-/**
- * Service Worker - 实现静态资源缓存和离线支持
- * 
- * 功能：
- * 1. 缓存静态资源（CSS、JS、图片）
- * 2. 离线优先策略
- * 3. 动态资源更新
- * 4. 性能监控
- */
+/** Service worker: fresh blog content with an offline fallback. */
+const CACHE_PREFIX = 'yoko-blog-';
+const CACHE_NAME = `${CACHE_PREFIX}v6`;
+const CACHE_VERSION = '6.0.0';
+const SCOPE_URL = new URL(self.registration.scope);
+const OFFLINE_URL = new URL('offline.html', SCOPE_URL).href;
 
-const CACHE_NAME = 'yoko-blog-v4';
-const CACHE_VERSION = '4.0.0';
-const MAX_AGE = 7 * 24 * 60 * 60 * 1000; // 7 days
-const OFFLINE_URL = '/offline.html';
-
-// 需要缓存的静态资源
 const ASSETS_TO_CACHE = [
-  // CSS文件
   'style.min.css',
   'index-styles.min.css',
   'css/cyberpunk-effects.css',
   'css/blog-article-template.css',
   'ghost-chatroom.min.css',
   'ghost-chatroom-improvements.css',
-
-  // JS文件
   'js/cyberpunk-vue.js',
   'js/header-component.js',
   'js/footer-component.js',
@@ -34,8 +22,6 @@ const ASSETS_TO_CACHE = [
   'ghost.js',
   'ghost-sse.js',
   'blog-posts-data.js',
-
-  // 站点资源
   'manifest.json',
   'offline.html',
   'categories.html',
@@ -43,183 +29,148 @@ const ASSETS_TO_CACHE = [
   'tags.html',
   'notes.html',
   'notes-data.js',
-
-  // 图片资源
   'public/images/加里.webp'
 ];
 
-// 性能监控
 const performanceLog = [];
 const MAX_PERF_LOGS = 50;
-
-// 监控缓存命中率
 let cacheHits = 0;
 let cacheMisses = 0;
 
-// 记录性能指标
 function logPerformance(type, duration, success) {
-  if (performanceLog.length >= MAX_PERF_LOGS) {
-    performanceLog.shift();
-  }
-  
-  performanceLog.push({
-    timestamp: Date.now(),
-    type,
-    duration,
-    success
-  });
-  
-  // 发送性能数据到主线程
-  clients.forEach(client => {
-    client.postMessage({
-      type: 'performance',
-      data: {
-        hits: cacheHits,
-        misses: cacheMisses,
-        hitRate: cacheHits + cacheMisses > 0 ? (cacheHits / (cacheHits + cacheMisses) * 100).toFixed(1) : 0
-      }
-    });
-  });
+  if (performanceLog.length >= MAX_PERF_LOGS) performanceLog.shift();
+  performanceLog.push({ timestamp: Date.now(), type, duration, success });
 }
 
-const clients = [];
+function isBlogRequest(request) {
+  const url = new URL(request.url);
+  return request.method === 'GET' && url.origin === SCOPE_URL.origin &&
+    url.pathname.startsWith(SCOPE_URL.pathname);
+}
+
+function isContentRequest(request) {
+  const path = new URL(request.url).pathname;
+  // Scripts/styles have stable filenames too, so always revalidate updates.
+  return request.mode === 'navigate' || /\.(?:html|xml|json|js|css)$/.test(path) ||
+    path.endsWith('/');
+}
+
+async function storeResponse(cache, request, response) {
+  // Never store errors, partial/opaque responses, or cross-origin redirects.
+  if (response.status !== 200 || response.type === 'opaque' ||
+      (response.url && new URL(response.url).origin !== SCOPE_URL.origin) ||
+      /\bno-store\b/i.test(response.headers.get('Cache-Control') || '')) return;
+  try {
+    await cache.put(request, response.clone());
+  } catch (_) {
+    // Storage quotas or a non-cacheable response must not hide fresh content.
+  }
+}
+
+async function precacheAssets() {
+  const cache = await caches.open(CACHE_NAME);
+  await Promise.all(ASSETS_TO_CACHE.map(async (asset) => {
+    const request = new Request(new URL(asset, SCOPE_URL), { cache: 'reload' });
+    if (!isBlogRequest(request)) return;
+    try {
+      const response = await fetch(request);
+      await storeResponse(cache, request, response);
+    } catch (_) {
+      // One missing optional asset must not prevent the worker from updating.
+    }
+  }));
+}
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE.map(asset => new Request(asset, {
-        cache: 'reload',
-        headers: new Headers({
-          'Cache-Control': 'public, max-age=31536000'
-        })
-      })));
-    })
-  );
+  event.waitUntil(precacheAssets().then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    // 删除旧版本缓存，确保升级后的页面/资源对回访用户生效
-    caches.keys().then((names) => Promise.all(
-      names.filter((n) => n !== CACHE_NAME).map((n) => caches.delete(n))
-    )).then(() => caches.open(CACHE_NAME)).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE.map(asset => new Request(asset)));
-    }).then(() => self.clients.claim())
-  );
+  event.waitUntil(caches.keys().then((names) => Promise.all(
+    names.filter((name) => name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME)
+      .map((name) => caches.delete(name))
+  )).then(() => self.clients.claim()));
 });
+
+async function offlineResponse(cache, request, networkResponse) {
+  const cached = await cache.match(request);
+  if (cached) {
+    cacheHits++;
+    logPerformance('offline-cache', 0, true);
+    return cached;
+  }
+  if (networkResponse) return networkResponse;
+  if (request.mode === 'navigate') {
+    const offline = await cache.match(OFFLINE_URL);
+    if (offline) return offline;
+  }
+  return Response.error();
+}
+
+async function networkFirst(request) {
+  const cache = await caches.open(CACHE_NAME);
+  const start = performance.now();
+  cacheMisses++;
+  try {
+    // Revalidate the browser's HTTP cache as well as bypassing the SW cache.
+    const response = await fetch(new Request(request, { cache: 'no-cache' }));
+    logPerformance('network', performance.now() - start, response.ok);
+    if (response.status >= 500) return offlineResponse(cache, request, response);
+    await storeResponse(cache, request, response);
+    return response;
+  } catch (_) {
+    logPerformance('network', performance.now() - start, false);
+    return offlineResponse(cache, request);
+  }
+}
+
+async function cacheFirst(request) {
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(request);
+  if (cached) {
+    cacheHits++;
+    logPerformance('cache-hit', 0, true);
+    return cached;
+  }
+  return networkFirst(request);
+}
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      // 缓存命中
-      if (cachedResponse) {
-        cacheHits++;
-        logPerformance('cache-hit', 0, true);
-        return cachedResponse;
-      }
-      
-      // 缓存未命中
-      cacheMisses++;
-      const startTime = performance.now();
-      
-      return fetch(event.request.clone()).then((response) => {
-        const duration = performance.now() - startTime;
-
-        // 只缓存成功的响应
-        if (response.ok) {
-          const responseClone = response.clone();
-
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseClone);
-          });
-        }
-
-        logPerformance('cache-miss', duration, response.ok);
-        return response;
-      }).catch(() => {
-        // 离线且未缓存：导航请求回退到离线页
-        if (event.request.mode === 'navigate') {
-          return caches.match(OFFLINE_URL);
-        }
-        return Response.error();
-      });
-    })
-  );
+  if (!isBlogRequest(event.request)) return;
+  event.respondWith(isContentRequest(event.request)
+    ? networkFirst(event.request)
+    : cacheFirst(event.request));
 });
 
-// 性能统计端点
 self.addEventListener('message', (event) => {
-  if (event.data.type === 'get-stats') {
+  const type = event.data && event.data.type;
+  const reply = (message) => {
+    if (event.ports && event.ports[0]) event.ports[0].postMessage(message);
+    else if (event.source && event.source.postMessage) event.source.postMessage(message);
+  };
+  if (type === 'get-stats') {
     const total = cacheHits + cacheMisses;
-    
-    event.ports[0].postMessage({
-      hits: cacheHits,
-      misses: cacheMisses,
-      total: total,
-      hitRate: total > 0 ? (cacheHits / total * 100).toFixed(1) : 0,
-      cacheVersion: CACHE_VERSION,
-      performanceLog
+    reply({
+      hits: cacheHits, misses: cacheMisses, total,
+      hitRate: total ? (cacheHits / total * 100).toFixed(1) : 0,
+      cacheVersion: CACHE_VERSION, performanceLog
     });
-  }
-  
-  if (event.data.type === 'clear-cache') {
-    caches.delete(CACHE_NAME).then(() => {
+  } else if (type === 'clear-cache') {
+    event.waitUntil(caches.delete(CACHE_NAME).then(() => {
       cacheHits = 0;
       cacheMisses = 0;
       performanceLog.length = 0;
-      event.ports[0].postMessage({ success: true });
-    });
-  }
-  
-  if (event.data.type === 'precache') {
-    event.waitUntil(
-      caches.open(CACHE_NAME).then((cache) => {
-        return cache.addAll(ASSETS_TO_CACHE.map(asset => new Request(asset, {
-          cache: 'reload',
-          headers: new Headers({
-            'Cache-Control': 'public, max-age=31536000'
-          })
-        })));
-      }).then(() => {
-        // 计算缓存大小
-        return caches.open(CACHE_NAME).then(openedCache => {
-          return openedCache.keys().then(keys => {
-            return Promise.all(keys.map(key => {
-              return openedCache.match(key).then(response => {
-                if (response) {
-                  return response.blob().then(b => b.size);
-                }
-                return 0;
-              });
-            })).then(sizes => {
-              const totalSize = sizes.reduce((sum, size) => sum + size, 0);
-              event.ports[0].postMessage({ 
-                success: true, 
-                size: totalSize,
-                filesCached: keys.length 
-              });
-            });
-          });
-        });
-      })
-    );
-  }
-});
-
-// 连接管理
-self.addEventListener('connect', (event) => {
-  clients.push(event.ports[0]);
-  
-  event.ports[0].onmessage = () => {
-    // 处理来自客户端的消息
-  };
-  
-  event.ports[0].start();
-});
-
-self.addEventListener('disconnect', (event) => {
-  const index = clients.indexOf(event.ports[0]);
-  if (index > -1) {
-    clients.splice(index, 1);
+      reply({ success: true });
+    }).catch(() => reply({ success: false })));
+  } else if (type === 'precache') {
+    event.waitUntil(precacheAssets().then(async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const keys = await cache.keys();
+      const sizes = await Promise.all(keys.map(async (key) => {
+        const response = await cache.match(key);
+        return response ? (await response.blob()).size : 0;
+      }));
+      reply({ success: true, size: sizes.reduce((sum, size) => sum + size, 0), filesCached: keys.length });
+    }).catch(() => reply({ success: false })));
   }
 });

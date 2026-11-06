@@ -3,7 +3,7 @@
 # oneforall.sh - 博客管理一键同步脚本
 #
 # 功能：
-#   1. 生成 blog-posts-data.js（扫描 posts/ 提取文章元数据）
+#   1. 生成 blog-posts-data.js 与 feed.xml（扫描 posts/ 提取文章元数据）
 #   2. 生成 sitemap.xml + robots.txt
 #   3. 更新 index.html 博客列表
 #
@@ -77,13 +77,9 @@ echo -e "${CYAN}╚════════════════════�
 echo ""
 echo -e "${GREEN}生成的文件：${NC}"
 echo "  📝 yoko-blog/blog-posts-data.js"
+echo "  📰 yoko-blog/feed.xml"
 echo "  🗺️  yoko-blog/sitemap.xml"
 echo "  🤖 yoko-blog/robots.txt"
 echo "  🏠 yoko-blog/index.html (博客列表已更新)"
 echo ""
-echo -e "${YELLOW}下一步操作：${NC}"
-echo "  cd $WORKSPACE_DIR"
-echo "  git add yoko-blog/"
-echo "  git commit -m '同步博客列表和sitemap'"
-echo "  git push"
-echo ""
+echo "衍生文件已重建。请与本次文章一起提交到对应发布分支。"

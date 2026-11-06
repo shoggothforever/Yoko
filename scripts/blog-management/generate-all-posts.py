@@ -4,6 +4,7 @@ generate-all-posts.py — 生成 blog-posts-data.js
 扫描 yoko-blog/posts/ 目录（含子目录），从每篇 HTML 文章中提取元数据，
 输出 blog-posts-data.js 供 all-posts.html 和 index.html 使用。
 """
+from __future__ import annotations
 
 import os
 import re
@@ -11,14 +12,12 @@ import json
 import math
 from pathlib import Path
 from datetime import datetime
+from site_config import BASE_URL
 
 # ── 路径配置 ──────────────────────────────────────────────────
 BLOG_DIR = Path(__file__).resolve().parents[2] / "yoko-blog"  # 路径可移植：本地与云端 checkout 通用
 POSTS_DIR = BLOG_DIR / "posts"
 OUTPUT_JS = BLOG_DIR / "blog-posts-data.js"
-
-# ── 域名 ─────────────────────────────────────────────────────
-BASE_URL = "https://yoko.sfct.top"
 
 # ── 阅读速度（中文，字/分钟） ────────────────────────────────
 READING_SPEED = 400
@@ -327,7 +326,6 @@ def generate_blog_posts_js(articles: list) -> str:
  * 
  * ⚠️ 此文件由 oneforall.sh 脚本自动生成，请勿手动编辑！
  * 运行 `bash scripts/blog-management/oneforall.sh` 即可重新生成。
- * 生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
  * ============================================================ */
 const BLOG_POSTS = [
 {entries_str}
@@ -371,9 +369,8 @@ function loadBlogPosts(maxCount) {{
     return js
 
 
-# feed 由 GitHub Pages 项目页服务（境外 HTTPS 可达，供 Feedly 等订阅）。
-# 国内 IP 站仍可访问，但 RSS 的链接/自引用指向 Pages 以保证国际可达。
-FEED_BASE_URL = "https://shoggothforever.github.io/Yoko"
+# RSS links and self-reference use the current public site URL.
+FEED_BASE_URL = BASE_URL
 
 
 def _extract_body_html(filepath: Path) -> str:
@@ -427,7 +424,8 @@ def generate_feed(articles: list, out_path: Path, limit: int = 20):
       <content:encoded>{cdata(body)}</content:encoded>
     </item>""")
 
-    build_date = format_datetime(datetime.now(timezone.utc))
+    # Derive the feed date from content so repeat builds do not create changes.
+    build_date = rfc822(max((a["dateISO"] for a in articles), default="1970-01-01"))
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
