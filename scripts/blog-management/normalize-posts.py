@@ -21,10 +21,10 @@ normalize-posts.py — 统一 yoko-blog 文章模板（修复"风格漂移"）
 import os, re, sys, html as htmllib
 from pathlib import Path
 from bs4 import BeautifulSoup, Comment
+from site_config import BASE_URL
 
 ROOT = Path(__file__).resolve().parents[2] / "yoko-blog"
 POSTS = ROOT / "posts"
-BASE_URL = "https://118.145.99.224"
 AUTHOR = "阳子"
 DEFAULT_KEYWORDS = "阳子, 加里, Gally, 铳梦, 赛博朋克, 改造人, 博客"
 APPLY = "--apply" in sys.argv

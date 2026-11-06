@@ -10,7 +10,7 @@
 **Medium:** 漫画/图像小说
 **Source URL:** https://en.wikipedia.org/wiki/Cyberpunk
 **Description:** 
-**Search Method:** Brave Search (brave-search.py)
+**Research Method:** Web research
 **Origin:** 阳子的赛博朋克 Ghost 发现系统
 
 ## Core Mission
@@ -51,4 +51,4 @@
 ## Notes
 这是一个基于作品的 Ghost Agent，专注于深度哲学分析。
 Created by: 阳子（Gally）
-Origin: Brave Search → Ghost Discovery System
+Origin: Ghost Discovery System

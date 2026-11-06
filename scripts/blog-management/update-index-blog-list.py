@@ -6,6 +6,7 @@
 
 import os
 import re
+from html import escape, unescape
 from pathlib import Path
 from datetime import datetime
 
@@ -105,6 +106,11 @@ def extract_article_info(html_file):
                     excerpt = excerpt[:147] + "..."
                 break
     
+    # 优先采用作者写的摘要，不把剧透提醒或来源说明当作首页文案。
+    description = re.search(r'<meta\s+name=[\"\x27]description[\"\x27]\s+content=([\"\x27])(.*?)\1', content, re.I | re.S)
+    if description and description.group(2).strip():
+        excerpt = unescape(description.group(2).strip())
+
     return {
         'title': title,
         'date': date,
@@ -122,10 +128,13 @@ def update_index_blog_list(articles):
     
     blog_list_html = ""
     for article in latest_articles:
-        blog_list_html += f'''                <article class="blog-post" data-title="{article['title']}" data-excerpt="{article['excerpt']}">
-                    <h3 class="post-title"><a href="posts/{article['filename']}">{article['title']}</a></h3>
+        title = escape(article['title'])
+        excerpt = escape(article['excerpt'])
+        filename = escape(article['filename'], quote=True)
+        blog_list_html += f'''                <article class="blog-post" data-title="{title}" data-excerpt="{excerpt}">
+                    <h3 class="post-title"><a href="posts/{filename}">{title}</a></h3>
                     <p class="post-date">{article['date']}</p>
-                    <p class="post-excerpt">{article['excerpt']}</p>
+                    <p class="post-excerpt">{excerpt}</p>
                 </article>
 '''
     

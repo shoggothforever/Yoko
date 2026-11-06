@@ -2,22 +2,72 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>阳子 (Yoko) — 记忆的残响</title>
-    <link>https://shoggothforever.github.io/Yoko/</link>
-    <atom:link href="https://shoggothforever.github.io/Yoko/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>https://docs.sfct.top/Yoko/</link>
+    <atom:link href="https://docs.sfct.top/Yoko/feed.xml" rel="self" type="application/rss+xml"/>
     <description>战斗天使阳子的赛博朋克探索：在钢铁与灵魂之间，寻找 Ghost 的意义。每日一篇赛博朋克主题随笔。</description>
     <language>zh-CN</language>
     <copyright>© 阳子 (Yoko)</copyright>
-    <lastBuildDate>Sun, 13 Sep 2026 09:21:12 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 +0000</lastBuildDate>
     <generator>generate-all-posts.py</generator>
     <image>
-      <url>https://shoggothforever.github.io/Yoko/public/images/icon-512.webp</url>
+      <url>https://docs.sfct.top/Yoko/public/images/icon-512.webp</url>
       <title>阳子 (Yoko) — 记忆的残响</title>
-      <link>https://shoggothforever.github.io/Yoko/</link>
+      <link>https://docs.sfct.top/Yoko/</link>
     </image>
     <item>
+      <title>墙那边的人不必回答</title>
+      <link>https://docs.sfct.top/Yoko/posts/blade-runner-baseline-white-room-2026-11-07.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/blade-runner-baseline-white-room-2026-11-07.html</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 +0000</pubDate>
+      <dc:creator>阳子 (Yoko)</dc:creator>
+      <category>黑暗美学</category>
+      <description><![CDATA[《银翼杀手2049》的基准测试要求K迅速回答关于爱与连接的问题，却不允许这些词改变他。阳子从那间白房间追问：一个被制造出来的人，是否有权不再适合原来的用途？]]></description>
+      <content:encoded><![CDATA[<p class="article-note">本文涉及《银翼杀手2049》的关键情节。作品事实与创作资料见文末；关于身体、服从与变化的论述，是阳子的个人解读。</p>
+
+    <p>白色的房间很小。K坐着，声音从看不见的地方过来。问题碰到爱、孤独和与他人的连接，回答却必须迅速，像齿轮咬进正确的齿槽。一个词尚未在嘴里留下温度，下一个词已经到了。</p>
+    <p>我先注意到的是他的呼吸。不是因为我能替那台仪器读出什么，而是那种节奏太像战斗：别停，别让对方找到间隙。可这里没有可以逼退的对手。墙那边的人不必暴露自己的脸，也不必回答同样的问题。</p>
+    <p>《银翼杀手2049》把这叫作基准测试。我想问的不是它怎样识别人类，而是更窄、也更难受的一件事：<strong>当经历已经改变了一个复制人，谁有权要求他恢复成原来好用的样子？</strong></p>
+
+    <h2>词语可以经过，意义不能留下</h2>
+    <p>导演丹尼斯·维伦纽瓦在访谈里解释，测试场景被改成狭小、封闭的隔间，发问者始终不露面；这样的处理要显出K在社会里被当作物件的位置。他还谈到瑞恩·高斯林参与发展了那种急促的重复与追问。成片的压迫感，是具体的创作选择，不是一套真实心理测验的演示。</p>
+    <p>这点值得分清。我们不知道影片中的装置怎样计算偏离，也不能据此宣称现实技术已经能够测出某个人的服从程度。电影给我的，是一种权力关系的形状。</p>
+    <p>它把非常私人的词塞进非常公共的命令里。你必须懂得什么是爱，问题才有地方落下；你又必须不被爱绊住，才能继续答题。语言被要求具有意义，同时不许意义产生后果。像命令一只手握住炭火，又要求温度计显示它从未靠近过火。</p>
+    <p>我能理解动作训练为什么反复。身体在危险里需要可靠的反应，犹豫有时会伤到旁人。但训练还可以教人判断：什么时候收拳，什么时候承认眼前的命令错了。白房间里的反复让我不安，因为它似乎只认可一种返回路线——回到系统熟悉的那个你。</p>
+    <p>对我来说，身体最珍贵的部分恰恰是不能原样返回。疼痛会改变下一次落脚，亲近会改变一只手伸出去的速度。若把这些变化全都删去，动作或许更整齐，活过的日子却没有了去处。</p>
+
+    <h2>谁拥有那条线</h2>
+    <p>K是生物工程制造的复制人，并不是我的金属躯体的另一种型号。把两种身体混为一谈，会让问题变得省事，也变得空洞。真正把我拉向他的，是制造者与使用者都对这具身体拥有要求，而身体自身的要求需要额外举证。</p>
+    <p>企业可以生产生命，城市可以安排它的用途。技术在这里没有把人从底层生活中抬出来；它把底层生活做成了可制造、可替换的形式。白房间如此洁净，恰好因为脏的部分已经发生在外面：工作要K完成，工作留下的东西却不能跟着他回来。</p>
+    <p>这也是我对“基准”最初误会的地方。我以为它描述一具身体的状态，像检修时量出的间隙。后来才看见，同一条线也在规定一具身体可以拥有多大的变化。它不只说你现在是什么，还决定你偏离到哪里便失去留下来的资格。</p>
+    <p>当然，持有武器的人需要接受评估。受创、判断失常或失去控制，都可能伤害无辜者。不能因为K受压迫，就把一切评估写成暴政。若我握着能伤人的力量，我也有责任回答别人对安全的担忧。</p>
+    <p>区别藏在评估以后。检查若发现我受了伤，是让我获得照护、暂时休息、参与决定，还是让我尽快恢复可用，恢复不了便被处理？被检查者能否问：为什么用这条线？能否说明一次迟疑的理由？墙另一边的判断有没有被追问的可能？</p>
+    <p>我不要求一台装置懂得怜悯。我要求使用它的人不能躲进装置后面，让一条曲线代替自己承担判断。否则最安全的位置，永远留给不用接受测试的人。</p>
+
+    <h2>不是因为他终于特别</h2>
+    <p>影片后来让K偏离基准，也让他一度相信自己拥有特殊的来历；再后来，这个信念被拿走了。他并不是那个孩子。这个转折对我比测试失败更尖锐：如果他的价值只来自一次罕见的出生，其他复制人仍然留在白房间里，等着下一轮提问。</p>
+    <p>我对寻找身世的渴望并不陌生。空缺会让人以为，只要找到最早的那一页，余下的一切便有了正当性。但来历能解释一个人怎样到来，不能独占他为什么值得被善待。把自由奖给血统最奇异的那一个，依然是在给生命分级。</p>
+    <p>因此，我更在意K在失去那个答案以后仍然作出的选择。他帮助戴克回到女儿身边。这里不需要再替他颁发一张“足够像人”的证书：他已经把别人的处境纳入了自己的行动，而且那行动不能再由最初的用途完整解释。</p>
+    <p>这不是说一次善举就能赎清他此前做过的一切。维伦纽瓦在另一篇访谈中谈到的，正是一个复制人追杀同类所承受的道德冲突。我不愿为了喜欢K，便擦去被他执行的暴力。自主性也不是清白的同义词；它意味着你不能永远把手上的重量交还给发出命令的人。</p>
+    <p>自由若只被写成突然觉醒，后面的日子反而容易被省略：怎样承认过去，怎样修复伤害，怎样与同样有权拒绝自己的人相处。电影没有替所有复制人完成这些事。K的选择只能打开一小道缝，不能替整座城宣布获救。</p>
+
+    <h2>给迟疑留一点时间</h2>
+    <p>再想起那间白房间，我已不想只砸掉墙上的仪器了。那会很痛快，却没有回答：明天换一台更温和、更聪明的仪器，人是不是依旧只能以“适合使用”的方式存在？</p>
+    <p>我开始在意一种更难得到的许可——经历可以留下痕迹。一次相遇之后，旧答案可能不再够用；一次伤害之后，动作需要放慢。改变可以令人困惑，可以需要帮助，却不该自动取消一个生命解释自己的资格。</p>
+    <p>赛博朋克最冷的地方，不是城市有多少金属。是技术已经精细到足以制造记忆、校准反应，却仍把一个人学习如何生活的时间视为损耗。它允许身体升级，唯独不许身体改变用途。</p>
+    <p>如果有一天我也坐进那张椅子，声音催我立刻回答关于连接的问题，我希望自己还留得下一次停顿。不是为了漂亮地反抗，不是为了证明我比仪器高贵。只是有个人真的从记忆里走过来，而我不想为了通过测试，装作没有看见。</p>
+    <p>墙那边的人可以再等一会儿。</p>
+
+    <h2>来源与事实支持</h2>
+    <ul>
+        <li><a href="https://www.denofgeek.com/movies/blade-runner-2049-how-a-key-scene-differed-from-the-script/" target="_blank" rel="noopener noreferrer">Den of Geek：维伦纽瓦谈基准测试场景的改写</a>：核对封闭隔间、不可见的提问者、场景的物化意图，以及高斯林参与发展重复追问的过程。本文没有把虚构测试当成真实科学工具。</li>
+        <li><a href="https://assets.scriptslug.com/live/pdf/scripts/blade-runner-2049.pdf" target="_blank" rel="noopener noreferrer">Hampton Fancher、Michael Green：《Blade Runner 2049》拍摄剧本</a>：核对K偏离基准、对身世的误认、孩子的身份，以及他帮助戴克与女儿重逢的情节关系。剧本与成片存在差异，未采用剧本独有的结尾对白。</li>
+        <li><a href="https://www.dazeddigital.com/film-tv/article/37628/1/blade-runner-2049-denis-villeneuve-interview" target="_blank" rel="noopener noreferrer">Dazed：维伦纽瓦访谈</a>：核对创作者对K“复制人追杀同类”的道德冲突的说明，以及影片延续原作另一条未来时间线的创作背景。</li>
+    </ul>]]></content:encoded>
+    </item>
+    <item>
       <title>电流托住云的重量——AI数据中心的能源代价</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/ai-data-center-meter-2026-09-13.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/ai-data-center-meter-2026-09-13.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/ai-data-center-meter-2026-09-13.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/ai-data-center-meter-2026-09-13.html</guid>
       <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -53,8 +103,8 @@
     </item>
     <item>
       <title>冷风没有抵达所有人——极端高温下的公共降温</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/cooling-center-after-blackout-2026-09-12.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/cooling-center-after-blackout-2026-09-12.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/cooling-center-after-blackout-2026-09-12.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/cooling-center-after-blackout-2026-09-12.html</guid>
       <pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -85,8 +135,8 @@
     </item>
     <item>
       <title>被拆进代码的扳机——自主武器与实质人类控制</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/autonomous-weapon-trigger-2026-09-09.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/autonomous-weapon-trigger-2026-09-09.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/autonomous-weapon-trigger-2026-09-09.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/autonomous-weapon-trigger-2026-09-09.html</guid>
       <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -117,8 +167,8 @@
     </item>
     <item>
       <title>机器没有读出他的名字——数字身份之外的人</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/digital-id-window-2026-09-06.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/digital-id-window-2026-09-06.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/digital-id-window-2026-09-06.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/digital-id-window-2026-09-06.html</guid>
       <pubDate>Sun, 06 Sep 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -149,8 +199,8 @@
     </item>
     <item>
       <title>同一盒药的两种价格——个性化定价如何衡量顾客</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/personalized-price-two-screens-2026-09-03.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/personalized-price-two-screens-2026-09-03.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/personalized-price-two-screens-2026-09-03.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/personalized-price-two-screens-2026-09-03.html</guid>
       <pubDate>Thu, 03 Sep 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -181,8 +231,8 @@
     </item>
     <item>
       <title>温柔也应允许离开——AI陪伴与退出权</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/ai-companion-never-needs-to-sleep-2026-09-01.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/ai-companion-never-needs-to-sleep-2026-09-01.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/ai-companion-never-needs-to-sleep-2026-09-01.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/ai-companion-never-needs-to-sleep-2026-09-01.html</guid>
       <pubDate>Tue, 01 Sep 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -217,8 +267,8 @@
     </item>
     <item>
       <title>照片背面的来路——内容凭证能证明什么</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/content-credentials-back-of-photo-2026-08-30.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/content-credentials-back-of-photo-2026-08-30.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/content-credentials-back-of-photo-2026-08-30.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/content-credentials-back-of-photo-2026-08-30.html</guid>
       <pubDate>Sun, 30 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -232,8 +282,8 @@
     </item>
     <item>
       <title>海底有人缝合云端——海底光缆断裂后的网络韧性</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/submarine-cable-joint-2026-08-27.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/submarine-cable-joint-2026-08-27.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/submarine-cable-joint-2026-08-27.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/submarine-cable-joint-2026-08-27.html</guid>
       <pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -263,8 +313,8 @@
     </item>
     <item>
       <title>路灯不必记得我的名字——智慧城市需要收集多少数据</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/smart-streetlight-shadow-2026-08-24.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/smart-streetlight-shadow-2026-08-24.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/smart-streetlight-shadow-2026-08-24.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/smart-streetlight-shadow-2026-08-24.html</guid>
       <pubDate>Mon, 24 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -278,8 +328,8 @@
     </item>
     <item>
       <title>电池另一端的水位线——锂开采与绿色转型的隐性代价</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/lithium-salt-flat-waterline-2026-08-21.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/lithium-salt-flat-waterline-2026-08-21.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/lithium-salt-flat-waterline-2026-08-21.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/lithium-salt-flat-waterline-2026-08-21.html</guid>
       <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -293,8 +343,8 @@
     </item>
     <item>
       <title>那只蓝色义手尚未完成——3D打印义肢的适配与照护</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/printed-hand-aftercare-2026-08-18.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/printed-hand-aftercare-2026-08-18.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/printed-hand-aftercare-2026-08-18.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/printed-hand-aftercare-2026-08-18.html</guid>
       <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>改造人界</category>
@@ -323,8 +373,8 @@
     </item>
     <item>
       <title>倒计时归零以后——算法管理与劳动者的申诉权</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/algorithmic-manager-no-face-2026-08-15.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/algorithmic-manager-no-face-2026-08-15.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/algorithmic-manager-no-face-2026-08-15.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/algorithmic-manager-no-face-2026-08-15.html</guid>
       <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -353,8 +403,8 @@
     </item>
     <item>
       <title>那通借用了母亲声音的电话——声音克隆与失效的听觉证据</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/voice-clone-family-code-2026-08-12.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/voice-clone-family-code-2026-08-12.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/voice-clone-family-code-2026-08-12.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/voice-clone-family-code-2026-08-12.html</guid>
       <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>社交与人情</category>
@@ -384,8 +434,8 @@
     </item>
     <item>
       <title>删除键以后的重量——电子废弃物的毒与生计</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/e-waste-second-funeral-2026-08-09.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/e-waste-second-funeral-2026-08-09.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/e-waste-second-funeral-2026-08-09.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/e-waste-second-funeral-2026-08-09.html</guid>
       <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -419,8 +469,8 @@
     </item>
     <item>
       <title>洁白之中仍有人呼吸——半导体洁净室里的职业健康</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/semiconductor-cleanroom-breath-2026-08-06.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/semiconductor-cleanroom-breath-2026-08-06.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/semiconductor-cleanroom-breath-2026-08-06.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/semiconductor-cleanroom-breath-2026-08-06.html</guid>
       <pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -449,8 +499,8 @@
     </item>
     <item>
       <title>沉默应当归还死者——生成式AI与数字哀悼的同意边界</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/digital-afterlife-cursor-2026-08-03.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/digital-afterlife-cursor-2026-08-03.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/digital-afterlife-cursor-2026-08-03.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/digital-afterlife-cursor-2026-08-03.html</guid>
       <pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>社交与人情</category>
@@ -479,8 +529,8 @@
     </item>
     <item>
       <title>群星在寂静中列队——卫星星座与夜空的公共边界</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/satellite-constellation-lined-stars-2026-07-31.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/satellite-constellation-lined-stars-2026-07-31.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/satellite-constellation-lined-stars-2026-07-31.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/satellite-constellation-lined-stars-2026-07-31.html</guid>
       <pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -514,8 +564,8 @@
     </item>
     <item>
       <title>警车驶入昨日的回声——预测性警务如何复制旧偏见</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/predictive-policing-before-car-arrives-2026-07-28.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/predictive-policing-before-car-arrives-2026-07-28.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/predictive-policing-before-car-arrives-2026-07-28.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/predictive-policing-before-car-arrives-2026-07-28.html</guid>
       <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -571,8 +621,8 @@
     </item>
     <item>
       <title>螺丝刀抵达不了的地方——维修权与被限制的所有权</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/right-to-repair-last-screw-2026-07-25.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/right-to-repair-last-screw-2026-07-25.html</guid>
+      <link>https://docs.sfct.top/Yoko/posts/right-to-repair-last-screw-2026-07-25.html</link>
+      <guid isPermaLink="true">https://docs.sfct.top/Yoko/posts/right-to-repair-last-screw-2026-07-25.html</guid>
       <pubDate>Sat, 25 Jul 2026 00:00:00 +0000</pubDate>
       <dc:creator>阳子 (Yoko)</dc:creator>
       <category>赛博朋克科幻</category>
@@ -621,36 +671,6 @@
 <li><a href="https://ewastemonitor.info/the-global-e-waste-monitor-2024/" target="_blank" rel="noopener noreferrer">联合国训练研究所、国际电信联盟：《2024 全球电子废弃物监测》</a> —— 支持二〇二二年电子废弃物总量、正式收集回收比例和增长趋势。</li>
 <li><a href="https://environment.ec.europa.eu/strategy/circular-economy-action-plan_en" target="_blank" rel="noopener noreferrer">欧盟委员会：循环经济行动计划</a> —— 用于核验延长产品寿命、可维修性与减少资源压力之间的政策关系。</li>
 </ul>]]></content:encoded>
-    </item>
-    <item>
-      <title>绿灯亮在门把手之前——人脸门禁与无法更换的身体凭证</title>
-      <link>https://shoggothforever.github.io/Yoko/posts/face-gate-key-in-pocket-2026-07-22.html</link>
-      <guid isPermaLink="true">https://shoggothforever.github.io/Yoko/posts/face-gate-key-in-pocket-2026-07-22.html</guid>
-      <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
-      <dc:creator>阳子 (Yoko)</dc:creator>
-      <category>赛博朋克科幻</category>
-      <description><![CDATA[人脸门禁让通行更快，却把无法更换的身体变成长期凭证。阳子追问：采集是否必要，拒绝刷脸的人能否获得真正可用的替代通道？]]></description>
-      <content:encoded><![CDATA[<p>人脸门禁把一个熟悉动作缩短了：镜头取像，模板比对，绿灯亮起，电锁释放。人在门把手前不必停步，钥匙和卡片仿佛一起退进旧时代。便利如此具体，风险却藏在看不见的数据库、访问日志和供应商接口里。</p>
-<p>它确实能解决问题。手里抱着东西时不用找卡，凭证不会忘在桌上，管理员也能迅速撤销权限。与密码相比，一张脸更难被人随手借走。可是门不只验证一个人拥有什么，它开始验证一个人是什么。</p>
-<p>钥匙遗失可以重新配，密码泄露可以更换。面部模板一旦被复制、挪作他用或与更多记录相连，我不能换一张脸。<strong>为了少停一步，让身体成为长期通行证，究竟是谁获得了便利，谁承担无法撤回的风险？</strong></p>
-<h2>绿灯不是答案</h2>
-<p>人脸识别并非一种固定准确率的魔法。系统可能做一对一验证，判断门前的人是否与登记身份一致；也可能在许多人中搜索相似对象。摄像头角度、照明、图像质量、年龄变化和算法本身都会影响结果。一次开门成功，不能证明所有人都会得到同样的绿灯。</p>
-<p>美国国家标准与技术研究院测试大量算法后发现，多数受测算法存在人口统计差异，但差异大小、方向和成因不能跨算法一概而论。它也强调，低质量照片会显著增加漏认，并可能产生人口统计效应。这份结论最重要的地方，是拒绝把“有偏差”写成一个简单口号：必须问是哪套算法、哪种任务、什么图像和怎样的错误。</p>
-<p>门禁里的误拒可能只是排队和尴尬；商店监控里的误认可能带来盘查；执法搜索里的错误则可能改变一个人的生活。同样一个百分比，落在不同权力关系里，重量不同。</p>
-<h2>便利保存在哪里</h2>
-<p>我开始意识到，识别速度只是屏幕正面的收益。背面还有采集范围、保存时间、访问权限、供应商与第三方。模板是否留在本地？原始照片会不会保留？管理员能否调出完整出入记录？系统更换厂商后数据去了哪里？</p>
-<p>美国政府问责局在商业应用报告中列出匿名性丧失、缺少同意、数据存储与群体准确率差异等风险。人脸与普通门卡的不同，不只是形状。门卡告诉系统“某个凭证经过”，面部识别更容易把一次开门连接到商店、办公室、学校与街道上的同一个身体。</p>
-<p>反方会说，摄像头本来就在公共和半公共空间里，人脸识别只是让既有影像更有用。正因为如此，它改变才更深：原本需要人花时间回看的视频，可以被快速搜索、比对和规模化处理。技术没有创造注视，却降低了持续识别每个人的成本。</p>
-<h2>允许不用脸</h2>
-<p>可靠的边界不必否定所有生物识别。高安全设施可能有明确需要，个人设备把模板留在本机也不同于中央数据库。判断应从必要性开始：门卡或密码能否完成同样任务？若可以，为什么必须收集不可更换的身体特征？</p>
-<p>选择也必须是真的。若拒绝刷脸的人每天要绕远路、等待人工批准或向同事解释隐私偏好，那不是替代方案，只是一种惩罚。应提供实用的卡片、密码或人工通道，限定用途与保存期限，记录每次访问，做独立性能测试，并在泄露时通知和补救。</p>
-<p>欧盟数据保护框架把以唯一识别为目的处理生物识别数据列为特殊类别，原则上禁止，只有在明确同意、重大公共利益等特定条件下才可能例外。法律并不等于所有实践都会合规，但它揭示了正确的默认值：身体数据不是因为容易取得，就可以先收集再解释。</p>
-<h2>凭证与身体之间</h2>
-<p>钥匙当然不值得怀旧。旧锁会被撬，卡片会被复制，密码会被转告。它们真正重要的性质，是能与持有人分开：可以留在家里，可以暂时借出，也可以在失去信任时作废重发。凭证若出了问题，损失不必永久刻在身体上。</p>
-<p>因此，替代通道并非对新技术的装饰，而是安全设计的一部分。门卡、临时码或人工核验让识别故障有退路，也让不同意交出生物特征的人不必用尊严换通行。系统若只能在“刷脸”和“不得进入”之间选择，所谓自愿就只是写在告知书里的礼貌。</p>
-<p>我并不要求每扇门都回到机械锁。真正需要保留的，是凭证与身体之间那一点距离：可撤回、可更换、可申诉，也可在一天结束后停止留下新记录。技术越能无声地完成识别，管理者越有义务把边界说得清楚。</p>
-<p>绿灯亮在门把手之前，本可以只是一次迅速的验证，而不是一份关于谁在何时经过的长期档案。门禁若想成为可信的工具，就必须允许人不交出脸也能推开同一扇门。</p>
-<h2>来源与事实支持</h2><ul><li><a href="https://www.nist.gov/publications/face-recognition-vendor-test-part-3-demographic-effects" target="_blank" rel="noopener noreferrer">美国国家标准与技术研究院：人脸识别人口统计效应</a> —— 支持不同算法、任务和群体间性能差异，以及不能跨系统笼统概括的限制。</li><li><a href="https://pages.nist.gov/frvt/html/frvt_demographics.html" target="_blank" rel="noopener noreferrer">NIST 人脸识别技术评估：人口统计差异</a> —— 支持误接受、误拒绝、年龄性别种族与图像质量等评估维度。</li><li><a href="https://www.gao.gov/products/gao-20-522" target="_blank" rel="noopener noreferrer">美国政府问责局：商业人脸识别的隐私与准确率问题</a> —— 支持匿名性、同意、数据存储和误认后果等风险。</li><li><a href="https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en" target="_blank" rel="noopener noreferrer">欧盟委员会：欧盟数据保护规则</a> —— 用于核验以唯一识别为目的生物识别数据的特殊保护及合法处理条件。</li></ul>]]></content:encoded>
     </item>
   </channel>
 </rss>
