@@ -16,6 +16,16 @@ const BLOG_POSTS = [
         url: "posts/blade-runner-baseline-white-room-2026-11-07.html"
     },
     {
+        title: "传奇散场以后，谁来照顾活着的人——《边缘行者2》深读",
+        excerpt: "《赛博朋克：边缘行者2》不只是在问谁能活下来。阳子从微克的衰败、塔莉亚的身体、D的复仇和罗曼的摄影机，追问夜之城为何擅长制造传奇，却不会安置幸存者。含完整剧透。",
+        date: "2026年11月7日",
+        dateISO: "2026-11-07",
+        tags: ["赛博朋克边缘行者2", "Cyberpunk Edgerunners 2", "微克", "塔莉亚", "罗曼", "D", "Capri", "影评"],
+        category: "反乌托邦世界",
+        read: "约19分钟",
+        url: "posts/edgerunners-2-after-the-legend-2026-11-07.html"
+    },
+    {
         title: "电流托住云的重量——AI数据中心的能源代价",
         excerpt: "AI看似没有重量，背后却是不断扩张的数据中心、输电线路和冷却系统。阳子追问：算力的代价应该由谁看见、谁承担？",
         date: "2026年9月13日",
